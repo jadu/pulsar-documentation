@@ -56,12 +56,24 @@ module.exports = function(grunt) {
             }
         },
 
+        watch: {
+            css: {
+                files: ['scss/**/*.scss'],
+                tasks: ['sass:dev']
+            },
+            js: {
+                files: ['js/**/*.js'],
+                tasks: ['browserify:dev']
+            }
+        },
+
     });
 
     grunt.registerTask('default', [
         'sass',
         'autoprefixer',
         'browserify',
+        'watch'
     ]);
 
     // load all grunt tasks

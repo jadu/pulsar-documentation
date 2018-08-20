@@ -1,0 +1,142 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">A simple way to present lists of information using whatever markup scheme is most appropriate for the data. Markup can be based around <code>ul</code> (default), <code>ol</code>, <code>div</code> or <code>link</code> elements.</p>
+    
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.block_list({
+        'items': [
+            {'value': 'One'},
+            {'value': 'Two'},
+            {'value': 'Three'}
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Helper options') }}
+
+    <p>You can configure this helper using the <a href="../getting-started/using-helpers?tab=common-options">common helper options</a>, the following options are specific to this helper.</p>
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+                <th>Option</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>footer</code></td>
+                <td>string</td>
+                <td>String/Markup to display in the footer row</td>
+            </tr>
+            <tr>
+                <td><code>header</code></td>
+                <td>string</td>
+                <td>String/Markup to display in the header row</td>
+            </tr>
+            <tr>
+                <td><code>items</code></td>
+                <td>array</td>
+                <td>An options hash which will added as attributes to the <code>div</code>, <code>li</code> or a element (defined by <code>type</code>)</td>
+            </tr>
+            <tr>
+                <td><code>type</code></td>
+                <td>string</td>
+                <td>Markup scheme to use: <code>ul</code> (default), <code>ol</code>, <code>div</code> or <code>link</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'Markup types') }}
+    {{ docs.heading('h3', 'Link') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.block_list({
+        'type': 'link',
+        'items': [
+            {'label': 'Foo', 'href': '#foo'},
+            {'label': 'Bar', 'href': '#bar'},
+            {'label': 'Baz', 'href': '#baz'}
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Div') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.block_list({
+        'type': 'div',
+        'items': [
+            {'value': 'Foo'},
+            {'value': 'Bar'},
+            {'value': 'Baz'}
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Ordered list') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.block_list({
+        'type': 'ol',
+        'items': [
+            {'value': 'Foo'},
+            {'value': 'Bar'},
+            {'value': 'Baz'}
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Unordered list') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.block_list({
+        'type': 'ul',
+        'items': [
+            {'value': 'Foo'},
+            {'value': 'Bar'},
+            {'value': 'Baz'}
+        ]
+    })
+}}
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <div class="page-nav-wrapper">
+        <h4>On this page</h4>
+        <ul class="page-nav">
+            <li><a href="#basic-usage">Basic usage</a></li>
+            <li><a href="#helper-options">Helper options</a></li>
+            <li><a href="#markup-types">Markup types</a>
+                <ul>
+                    <li><a href="#link">Link</a></li>
+                    <li><a href="#div">Div</a></li>
+                    <li><a href="#ul">Unordered list</a></li>
+                    <li><a href="#ol">Ordered list</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+{% endblock tab_sidebar %}

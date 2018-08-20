@@ -1,0 +1,142 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+
+    {{ docs.heading('h2', 'Headers and footers') }}
+
+    <p>Add an optional header and/or footer within a card. You can choose whether or not to also include a card title.</p>
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.block_list({
+        'header': 'This is the header',
+        'footer': 'This is the footer',
+        'items': [
+            {'value': 'One'},
+            {'value': 'Two'},
+            {'value': 'Three'}
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Underlined') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.block_list({
+        'class': 'block-list--underlined',
+        'header': 'This is the header',
+        'footer': 'This is the footer',
+        'items': [
+            {'value': 'One'},
+            {'value': 'Two'},
+            {'value': 'Three'}
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Bordered') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.block_list({
+        'class': 'block-list--bordered',
+        'header': 'This is the header',
+        'footer': 'This is the footer',
+        'items': [
+            {'value': 'One'},
+            {'value': 'Two'},
+            {'value': 'Three'}
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Full width') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.block_list({
+        'class': 'block-list--full',
+        'header': 'This is the header',
+        'footer': 'This is the footer',
+        'items': [
+            {'value': 'One'},
+            {'value': 'Two'},
+            {'value': 'Three'}
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Horizontal') }}
+
+    <p>Use the <code>.block-list--horizontal</code> class to lay items out in a horizontal list.</p>
+    
+    <p>{{ html.icon('info-sign') }} Don’t use a header or footer with a horizontal block list.</p>
+
+    {{ docs.example({
+        code: false,
+        twig: "
+<p><code>block-list--horizontal</code></p>
+
+{{
+    html.block_list({
+        'class': 'block-list--horizontal',
+        'items': [
+            {'value': 'One'},
+            {'value': 'Two'},
+            {'value': 'Three'}
+        ]
+    })
+}}
+
+<p><code>block-list--horizontal block-list--underlined</code></p>
+
+{{
+    html.block_list({
+        'class': 'block-list--horizontal block-list--underlined',
+        'items': [
+            {'value': 'One'},
+            {'value': 'Two'},
+            {'value': 'Three'}
+        ]
+    })
+}}
+
+<p><code>block-list--horizontal block-list--bordered</code></p>
+
+{{
+    html.block_list({
+        'class': 'block-list--horizontal block-list--bordered',
+        'items': [
+            {'value': 'One'},
+            {'value': 'Two'},
+            {'value': 'Three'}
+        ]
+    })
+}}
+    " }) }}
+
+    
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">   
+        <li><a href="#headers-and-footers">Headers and footers</a></li>
+        <li><a href="#underlined">Underlined</a></li>
+        <li><a href="#bordered">Bordered</a></li>
+        <li><a href="#full-width">Full width</a></li>
+        <li><a href="#horizontal">Horizontal</a></li>
+        <li><a href="#headers-and-footers">Headers and footers</a></li>
+    </ul>
+{% endblock tab_sidebar %}
