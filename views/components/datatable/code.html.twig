@@ -1,0 +1,460 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Datatables use the datatables.net plugin to provide a nice amount of functionality to your data. Pulsar’s configuration includes plugins to make them responsive. Where possible you should refer to the datatable documentation.</p>
+    
+    {{ docs.heading('h2', 'Dependencies') }}
+    {{ docs.heading('h3', 'Javascript') }}
+
+    <p>The following libraries should be included in your product’s <code>package.json</code> file.</p>
+
+<pre><code lang="javascript">/* package.json */
+
+"dependencies": {
+    "datatables.net": "^1.10.11",
+    "datatables.net-buttons": "^1.1.2",
+    "datatables.net-buttons-dt": "^1.1.2",
+    "datatables.net-dt": "^1.10.10",
+    "datatables.net-responsive": "^2.0.2",
+    "datatables.net-responsive-dt": "^2.0.0",
+    "datatables.net-select": "^1.1.2",
+    "datatables.net-select-dt": "^1.1.2"
+}</code></pre>
+
+{{ docs.heading('h3', 'Sass') }}
+<p>You will need both the base tables styles, and the datatables extras.</p>
+
+<pre><code lang="javascript">/* pulsar.scss */
+
+@import '/path/to/bundles/pulsar/stylesheets/_component.tables';
+@import '/path/to/bundles/pulsar/stylesheets/_component.datatables';</code></pre>
+
+    {{ docs.heading('h2', 'Configuration') }}
+
+    <p>The datatable plugin is called on any table containing the <code>.datatable</code> class. Pulsar has a core configuration within <code>pulsarUIComponent</code>, but there may be times when you need to create your own custom config.</p>
+
+    {{ docs.heading('h2', 'Example usage') }}
+
+    {{ docs.example({ 
+        twig: "
+{% 
+    set data = {
+        'columns': [
+            { 'title': 'Title' },
+            { 'title': 'Owner' },
+            { 'title': 'Modified' },
+            {
+                'title': 'Live',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            },
+            {
+                'title': 'Visible',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            }
+        ],
+        'data': [
+            {
+                'Title': 'The Terminator',
+                'Owner': 'James Cameron',
+                'Modified': '1991-07-01 12:34',
+                'Live': true,
+                'Visible': false 
+            },
+            {
+                'Title': 'Conan the Barbarian',
+                'Owner': 'John Millius',
+                'Modified': '1982-04-02 12:34',
+                'Live': false,
+                'Visible': true 
+            },
+            {
+                'Title': 'Predator',
+                'Owner': 'John McTiernan',
+                'Modified': '1988-01-01 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Commando',
+                'Owner': 'Mark L. Lester',
+                'Modified': '1986-02-21 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Terminator Genisys',
+                'Owner': 'Alan Taylor',
+                'Modified': '2015-06-25 12:34',
+                'Live': true,
+                'Visible': true
+            }
+        ]
+    }
+%}
+{{ 
+    html.datatable({
+        'class': 'table--full table--horizontal',
+        'data-order': '[[ 3, \"desc\" ]]',
+        'data': data
+    }) 
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Disable row selection') }}
+
+    <p>Datatables allow selection of rows by default, this behaviour can be disabled through the <code>data-selection</code> attribute. This will hide the related elements in the UI.</p>
+
+{{ docs.example({ 
+        twig: "
+{% 
+    set data = {
+        'columns': [
+            { 'title': 'Title' },
+            { 'title': 'Owner' },
+            { 'title': 'Modified' },
+            {
+                'title': 'Live',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            },
+            {
+                'title': 'Visible',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            }
+        ],
+        'data': [
+            {
+                'Title': 'The Terminator',
+                'Owner': 'James Cameron',
+                'Modified': '1991-07-01 12:34',
+                'Live': true,
+                'Visible': false 
+            },
+            {
+                'Title': 'Conan the Barbarian',
+                'Owner': 'John Millius',
+                'Modified': '1982-04-02 12:34',
+                'Live': false,
+                'Visible': true 
+            },
+            {
+                'Title': 'Predator',
+                'Owner': 'John McTiernan',
+                'Modified': '1988-01-01 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Commando',
+                'Owner': 'Mark L. Lester',
+                'Modified': '1986-02-21 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Terminator Genisys',
+                'Owner': 'Alan Taylor',
+                'Modified': '2015-06-25 12:34',
+                'Live': true,
+                'Visible': true
+            }
+        ]
+    }
+%}
+{{ 
+    html.datatable({
+        'class': 'table--full table--horizontal',
+        'data-order': '[[ 3, \"desc\" ]]',
+        'data-select': false,
+        'data': data
+    }) 
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Set initial column sort') }}
+
+    <p>You can specify how the data should be sorted on initial load by supplying the <code>data-order</code> attribute, if you’re using the responsive columns remember that these will affect which column index you supply.</p>
+
+    <p>For example, to sort our example table by name, this is the column <code>1</code> (zero indexed).</p>
+
+    {{ docs.example({ 
+        twig: "
+{% 
+    set data = {
+        'columns': [
+            { 'title': 'Title' },
+            { 'title': 'Owner' },
+            { 'title': 'Modified' },
+            {
+                'title': 'Live',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            },
+            {
+                'title': 'Visible',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            }
+        ],
+        'data': [
+            {
+                'Title': 'The Terminator',
+                'Owner': 'James Cameron',
+                'Modified': '1991-07-01 12:34',
+                'Live': true,
+                'Visible': false 
+            },
+            {
+                'Title': 'Conan the Barbarian',
+                'Owner': 'John Millius',
+                'Modified': '1982-04-02 12:34',
+                'Live': false,
+                'Visible': true 
+            },
+            {
+                'Title': 'Predator',
+                'Owner': 'John McTiernan',
+                'Modified': '1988-01-01 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Commando',
+                'Owner': 'Mark L. Lester',
+                'Modified': '1986-02-21 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Terminator Genisys',
+                'Owner': 'Alan Taylor',
+                'Modified': '2015-06-25 12:34',
+                'Live': true,
+                'Visible': true
+            }
+        ]
+    }
+%}
+{{ 
+    html.datatable({
+        'class': 'table--full table--horizontal',
+        'data-order': '[[ 1, \"asc\" ]]',
+        'data': data
+    }) 
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Disable column sorting') }}
+
+    <p>Some columns don’t need to allow sorting, such as an actions column where the data is the same for each row.</p>
+
+    <p>Add the <code>data-orderable="false"</code> to any <code>thead > th</code> or <code>thead > td</code> that you do not wish to be sorted. If you're using the helper you need to pass this through the <code>columns.attrs</code> attribute for the column.</p>
+
+    <p>This example disables column sorting on the 'Live' and 'Visible' columns.</p>
+
+    {{ docs.example({ 
+        twig: "
+{% 
+    set data = {
+        'columns': [
+            { 'title': 'Title' },
+            { 'title': 'Owner' },
+            { 'title': 'Modified' },
+            {
+                'title': 'Live',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            },
+            {
+                'title': 'Visible',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            }
+        ],
+        'data': [
+            {
+                'Title': 'The Terminator',
+                'Owner': 'James Cameron',
+                'Modified': '1991-07-01 12:34',
+                'Live': true,
+                'Visible': false 
+            },
+            {
+                'Title': 'Conan the Barbarian',
+                'Owner': 'John Millius',
+                'Modified': '1982-04-02 12:34',
+                'Live': false,
+                'Visible': true 
+            },
+            {
+                'Title': 'Predator',
+                'Owner': 'John McTiernan',
+                'Modified': '1988-01-01 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Commando',
+                'Owner': 'Mark L. Lester',
+                'Modified': '1986-02-21 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Terminator Genisys',
+                'Owner': 'Alan Taylor',
+                'Modified': '2015-06-25 12:34',
+                'Live': true,
+                'Visible': true
+            }
+        ]
+    }
+%}
+{{ 
+    html.datatable({
+        'class': 'table--full table--horizontal',
+        'data-order': '[[ 3, \"desc\" ]]',
+        'data': data
+    }) 
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Sorting date/time columns') }}
+
+    <p>To allow proper sorting of dates, use the <code>data-order</code> attribute to supply a <code>yyyy-mm-dd hh:mm</code> formatted string, this will be used when sorting the column.</p>
+
+    <p>{{ html.icon('exclamation-triangle', {'label': 'Important'} ) }} It's currently not possible to do this using the <code>html.datatable()</code> helper.</p>
+
+<pre><code lang="javascript">&lt;td data-order="1982-04-02 12:00"&gt;02/04/1982 12:34pm&lt;/td&gt;</code></pre>
+
+    {{ docs.heading('h2', 'No results') }}
+    {{ docs.heading('h3', 'Default message') }}
+
+    <p>If a table has nothing to display we provide a helpful message to the user so they understand why nothing is shown. If they have the relevant permissions to add something to this table, you should provide a call to action.</p>
+
+    <p>The message will be shown automatically if the table body contains no rows.</p>
+
+    {{ docs.example({ 
+        twig: "
+{% 
+    set data = {
+        'columns': [
+            { 'title': 'Title' },
+            { 'title': 'Owner' },
+            { 'title': 'Modified' },
+            {
+                'title': 'Live',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            },
+            {
+                'title': 'Visible',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            }
+        ],
+        'data': [
+        ]
+    }
+%}
+{{ 
+    html.datatable({
+        'class': 'table--full table--horizontal',
+        'data-order': '[[ 3, \"desc\" ]]',
+        'data': data
+    }) 
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Custom message') }}
+
+    <p>You should customise your no results message to reflect the kind of content the table normally contains, ideally you should also include a call to action here so the user can quickly jump into the action of adding content.</p>
+
+    {{ docs.example({ 
+        twig: "
+{% 
+    set data = {
+        'columns': [
+            { 'title': 'Title' },
+            { 'title': 'Owner' },
+            { 'title': 'Modified' },
+            {
+                'title': 'Live',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            },
+            {
+                'title': 'Visible',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            }
+        ],
+        'data': [
+        ]
+    }
+%}
+{{ 
+    html.datatable({
+        'class': 'table--full table--horizontal',
+        'data-empty-table': 'There are currently no Arnie movies to display<br /><br /><button class=\"btn btn--primary\">Add Movie</button>',
+        'data-order': '[[ 3, \"desc\" ]]',
+        'data': data
+    }) 
+}}
+    " }) }}
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <div class="page-nav-wrapper">
+        <h4>On this page</h4>
+        <ul class="page-nav">
+            <li><a href="#dependencies">Dependencies</a>
+                <ul>
+                    <li><a href="#javascript">Javascript</a></li>
+                    <li><a href="#sass">Sass</a></li>
+                </ul>
+            </li>
+            <li><a href="#configuration">Configuration</a></li>
+            <li><a href="#example-usage">Example usage</a></li>
+            <li><a href="#disable-row-selection">Disable row selection</a></li>
+            <li><a href="#set-initial-column-sort">Set initial column sort</a></li>
+            <li><a href="#disable-column-sorting">Disable column sorting</a></li>
+            <li><a href="#sorting-date/time-columns">Sorting date/time columns</a></li>
+            <li><a href="#no-results">No results</a>
+                <ul>
+                    <li><a href="#default-message">Default message</a></li>
+                    <li><a href="#custom-message">Custom message</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+{% endblock tab_sidebar %}

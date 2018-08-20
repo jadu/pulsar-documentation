@@ -1,0 +1,35 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Card' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Components', 'href': '#'},
+        {'label': 'Card', 'href': '#'}
+    ]
+%}
+
+{% set tab_code %}
+    {% include 'components/card/code.html.twig' %}
+{% endset %}
+{% set tab_guidelines %}
+    {% include 'components/card/guidelines.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "code",
+          "class" : "ui-report",
+          "label" : "Code",
+          "src"   : tab_code,
+          "active": true
+        },
+        {
+          "id"    : "guidelines",
+          "class" : "ui-report",
+          "label" : "Guidelines",
+          "src"   : tab_guidelines
+        }
+    ]
+%}

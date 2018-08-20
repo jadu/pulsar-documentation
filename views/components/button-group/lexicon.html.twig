@@ -1,0 +1,72 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    {%- include 'partials/lexicon-lede.html.twig' -%}
+
+    {{ docs.heading('h2', 'Button groups') }}
+    
+    <div class="btn__toolbar">
+        {{
+            html.button_group({
+                buttons: [
+                    html.button({ label: 'Left' }),
+                    html.button({ label: 'Middle' }),
+                    html.button({ label: 'Right' })
+                ]
+            })
+        }}
+        {{
+            html.button_group({
+                buttons: [
+                    html.button({
+                        label: html.icon('align-left', {
+                            'label': 'Align left'
+                        })
+                    }),
+                    html.button({
+                        label: html.icon('align-center', {
+                            'label': 'Align center'
+                        })
+                    }),
+                    html.button({
+                        label: html.icon('align-right', {
+                            'label': 'Align right'
+                        })
+                    }),
+                    html.button({
+                        label: html.icon('align-justify', {
+                            'label': 'Align justify'
+                        })
+                     })
+                ]
+            })
+        }}
+        {{
+            html.button_group({
+                buttons: [
+                    html.button({ label: 'Left', 'class': 'btn--primary' }),
+                    html.button({ label: 'Middle', 'class': 'btn--primary' }),
+                    html.button({ label: 'Right', 'class': 'btn--primary' })
+                ]
+            })
+        }}
+
+        {{
+            html.button_group({
+                buttons: [
+                    html.button({ label: 'Left', 'class': 'btn--danger' }),
+                    html.button({ label: 'Middle', 'class': 'btn--danger' }),
+                    html.button({ label: 'Right', 'class': 'btn--danger' })
+                ]
+            })
+        }}
+    </div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#button-groups">Button groups</a></li>
+    </ul>
+{% endblock tab_sidebar %}

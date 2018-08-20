@@ -1,0 +1,55 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+
+<div class="report">
+
+    {{ docs.heading('h2', 'General guidance') }}
+
+    <p>Button groups should follow the <a href="button?tab=guidelines">general button guidelines</a>.</p>
+
+    {{ docs.heading('h2', 'Icon-only buttons') }}
+
+    <p>For screenreaders, you must make sure your icons have their own labels which will be announced when the button receives focus.</p>
+
+    {{ docs.example({ 
+        screenreader: "Text align: left, button<br />⇥ Text align: center, button<br />⇥ Text align: right, button<br />⇥ Text align: justify, button",
+        twig: "
+{{
+    html.button_group({
+        'buttons': [
+            html.button({
+                'label': html.icon('align-left', {
+                    'label': 'Text align: left' 
+                }) 
+            }),
+            html.button({
+                'label': html.icon('align-center', {
+                    'label': 'Text align: center' 
+                }) 
+            }),
+            html.button({
+                'label': html.icon('align-right', {
+                    'label': 'Text align: right' 
+                }) 
+            }),
+            html.button({
+                'label': html.icon('align-justify', {
+                    'label': 'Text align: justify'
+                 }) 
+            })
+        ]
+    })
+}}
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#general-guidance">General guidance</a></li>
+        <li><a href="#icon-only-buttons">Icon-only buttons</a></li>
+    </ul>
+{% endblock tab_sidebar %}

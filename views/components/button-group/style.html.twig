@@ -1,0 +1,213 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    {{ docs.heading('h2', 'Variants') }}
+    {{ docs.heading('h3', 'Base') }}
+
+    <p>The majority of the time you will use the base button styling unless you want to explicitly draw attention to a specific action.</o>
+
+    {{ docs.example({ 
+        screenreader: "Foo, button<br />⇥ Bar, button<br />⇥ Baz, button",
+        twig: "
+{{
+    html.button_group({
+        'buttons': [
+            html.button({ 'label': 'Foo' }),
+            html.button({ 'label': 'Bar' }),
+            html.button({ 'label': 'Baz' })
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Small') }}
+
+    <p>Use in places where space is limited.</p>
+
+    {{ docs.example({ 
+        screenreader: "Foo, button<br />⇥ Bar, button<br />⇥ Baz, button",
+        twig: "
+{{
+    html.button_group({
+        'buttons': [
+            html.button({ 'class': 'btn--small', 'label': 'Foo' }),
+            html.button({ 'class': 'btn--small', 'label': 'Bar' }),
+            html.button({ 'class': 'btn--small', 'label': 'Baz' })
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'States', 'button') }}
+
+    {{ docs.heading('h3', 'Base', 'states') }}
+
+    {{ docs.example({ 
+        screenreader: "Foo, button<br />⇥ Bar, button<br />⇥ Baz, button",
+        twig: "
+{{
+    html.button_group({
+        'buttons': [
+            html.button({ 'label': 'Foo' }),
+            html.button({ 'label': 'Bar' }),
+            html.button({ 'label': 'Baz' })
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Primary', 'states') }}
+
+    <p>Use to highlight the main action in a given UI.</p>
+
+    {{ docs.example({ 
+        screenreader: "Foo, button<br />⇥ Bar, button<br />⇥ Baz, button",
+        twig: "
+{{
+    html.button_group({
+        'buttons': [
+            html.button({ 'label': 'Foo', 'class': 'btn--primary' }),
+            html.button({ 'label': 'Bar', 'class': 'btn--primary' }),
+            html.button({ 'label': 'Baz', 'class': 'btn--primary' })
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Success', 'states') }}
+
+    <p>Use to highlight actions which result in a final, posivite outcome; Like publishing content to the public.</p>
+
+    {{ docs.example({ 
+        screenreader: "Foo, button<br />⇥ Bar, button<br />⇥ Baz, button",
+        twig: "
+{{
+    html.button_group({
+        'buttons': [
+            html.button({ 'label': 'Foo', 'class': 'btn--success' }),
+            html.button({ 'label': 'Bar', 'class': 'btn--success' }),
+            html.button({ 'label': 'Baz', 'class': 'btn--success' })
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Danger', 'states') }}
+
+    <p>Use to highlight dangerous or destructive actions, like permanently deleting data.</p>
+
+    {{ docs.example({ 
+        screenreader: "Foo, button<br />⇥ Bar, button<br />⇥ Baz, button",
+        twig: "
+{{
+    html.button_group({
+        'buttons': [
+            html.button({ 'label': 'Foo', 'class': 'btn--danger' }),
+            html.button({ 'label': 'Bar', 'class': 'btn--danger' }),
+            html.button({ 'label': 'Baz', 'class': 'btn--danger' })
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Warning', 'states') }}
+
+    <p>Use to highlight actions taking longer than expected, or intermediate states.</p>
+
+    {{ docs.example({ 
+        screenreader: "Foo, button<br />⇥ Bar, button<br />⇥ Baz, button",
+        twig: "
+{{
+    html.button_group({
+        'buttons': [
+            html.button({ 'label': 'Foo', 'class': 'btn--warning' }),
+            html.button({ 'label': 'Bar', 'class': 'btn--warning' }),
+            html.button({ 'label': 'Baz', 'class': 'btn--warning' })
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Inverse', 'states') }}
+
+    <p>Use to highlight critical actions that are not necessarily destructive, like locking content.</p>
+
+    {{ docs.example({ 
+        screenreader: "Foo, button<br />⇥ Bar, button<br />⇥ Baz, button",
+        twig: "
+{{
+    html.button_group({
+        'buttons': [
+            html.button({ 'label': 'Foo', 'class': 'btn--inverse' }),
+            html.button({ 'label': 'Bar', 'class': 'btn--inverse' }),
+            html.button({ 'label': 'Baz', 'class': 'btn--inverse' })
+        ]
+    })
+}}
+    " }) }}
+
+      {{ docs.heading('h3', 'White', 'states') }}
+
+    <p>For use on darker backgrounds.</p>
+
+    {{ docs.example({ 
+        screenreader: "Foo, button<br />⇥ Bar, button<br />⇥ Baz, button",
+        class: 'd-example--dark',
+        twig: "
+{{
+    html.button_group({
+        'buttons': [
+            html.button({ 'label': 'Foo', 'class': 'btn--white' }),
+            html.button({ 'label': 'Bar', 'class': 'btn--white' }),
+            html.button({ 'label': 'Baz', 'class': 'btn--white' })
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Disabled', 'states') }}
+
+    <p>Prevent buttons from being interactive to stop users from performing this action. Read the disabled guidance for more information.
+
+    {{ docs.example({ 
+        screenreader: "{{ html.icon('exclamation-sign') }} Will not be announced",
+        twig: "
+{{
+    html.button_group({
+        'buttons': [
+            html.button({ 'label': 'Foo', 'disabled': true }),
+            html.button({ 'label': 'Bar', 'disabled': true }),
+            html.button({ 'label': 'Baz', 'disabled': true })
+        ]
+    })
+}}
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#variants">Variants</a>
+            <ul>
+                <li><a href="#base">Base</a></li>
+                <li><a href="#small">Small</a></li>
+            </ul>
+        </li>
+        <li><a href="#button-states">States</a>
+            <ul>
+                <li><a href="#states-base">Base</a></li>
+                <li><a href="#states-primary">Primary</a></li>
+                <li><a href="#states-success">Success</a></li>
+                <li><a href="#states-danger">Danger</a></li>
+                <li><a href="#states-warning">Warning</a></li>
+                <li><a href="#states-info">Info</a></li>
+                <li><a href="#states-inverse">Inverse</a></li>
+                <li><a href="#states-white">White</a></li>
+                <li><a href="#states-disabled">Disabled</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock tab_sidebar %}

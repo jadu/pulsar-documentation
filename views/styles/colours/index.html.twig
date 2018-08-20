@@ -1,0 +1,26 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Colours' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Styles', 'href': '#'},
+        {'label': 'Colours', 'href': '#'}
+    ]
+%}
+
+{% set tab_palettes %}
+    {% include 'styles/colours/palettes.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "palettes",
+          "class" : "ui-report",
+          "label" : "Palettes",
+          "src"   : tab_palettes,
+          "active": true
+        }
+    ]
+%}

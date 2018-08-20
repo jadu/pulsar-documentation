@@ -1,0 +1,166 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    {{ docs.heading('h3', 'Primary', 'states') }}
+
+    <p>Use to highlight the main action in a given UI.</p>
+
+    {{ docs.example({ 
+        screenreader: "My Action, Button",
+        twig: "
+{{
+    html.button_dropdown({
+        'label': 'My Action',
+        'class': 'btn--primary',
+        'items': [
+            html.link({ 'label': 'Foo', 'href': '#foo' }),
+            html.link({ 'label': 'Bar', 'href': '#bar' })
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Success', 'states') }}
+
+    <p>Use to highlight actions which result in a final, posivite outcome; Like publishing content to the public.</p>
+
+    {{ docs.example({ 
+        screenreader: "My Action, Button",
+        twig: "
+{{
+    html.button_dropdown({
+        'label': 'My Action',
+        'class': 'btn--success',
+        'items': [
+            html.link({ 'label': 'Foo', 'href': '#foo' }),
+            html.link({ 'label': 'Bar', 'href': '#bar' })
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Danger', 'states') }}
+
+    <p>Use to highlight dangerous or destructive actions, like permanently deleting data.</p>
+
+    {{ docs.example({ 
+        screenreader: "My Action, Button",
+        twig: "
+{{
+    html.button_dropdown({
+        'label': 'My Action',
+        'class': 'btn--danger',
+        'items': [
+            html.link({ 'label': 'Foo', 'href': '#foo' }),
+            html.link({ 'label': 'Bar', 'href': '#bar' })
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Warning', 'states') }}
+
+    <p>Use to highlight actions taking longer than expected, or intermediate states.</p>
+
+    {{ docs.example({ 
+        screenreader: "My Action, Button",
+        twig: "
+{{
+    html.button_dropdown({
+        'label': 'My Action',
+        'class': 'btn--warning',
+        'items': [
+            html.link({ 'label': 'Foo', 'href': '#foo' }),
+            html.link({ 'label': 'Bar', 'href': '#bar' })
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Inverse', 'states') }}
+
+    <p>Use to highlight critical actions that are not necessarily destructive, like locking content.</p>
+
+    {{ docs.example({ 
+        screenreader: "My Action, Button",
+        twig: "
+{{
+    html.button_dropdown({
+        'label': 'My Action',
+        'class': 'btn--inverse',
+        'items': [
+            html.link({ 'label': 'Foo', 'href': '#foo' }),
+            html.link({ 'label': 'Bar', 'href': '#bar' })
+        ]
+    })
+}}
+    " }) }}
+
+      {{ docs.heading('h3', 'White', 'states') }}
+
+    <p>For use on darker backgrounds.</p>
+
+    {{ docs.example({
+        class: 'd-example--dark',
+        screenreader: "My Action, Button",
+        twig: "
+{{
+    html.button_dropdown({
+        'label': 'My Action',
+        'class': 'btn--white',
+        'items': [
+            html.link({ 'label': 'Foo', 'href': '#foo' }),
+            html.link({ 'label': 'Bar', 'href': '#bar' })
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Disabled', 'states') }}
+    <p>Prevent buttons from being interactive to stop users from performing this action. Read the disabled guidance for more information.
+
+    {{ docs.example({ 
+        screenreader: "{{ html.icon('exclamation-sign') }} Will not be announced",
+        twig: "
+{{
+    html.button_dropdown({
+        'label': 'Button Action',
+        'disabled': true,
+        'items': [
+            html.link({ 'label': 'Foo', 'href': '#foo' }),
+            html.link({ 'label': 'Bar', 'href': '#bar' })
+        ]
+    })
+}}
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#variants">Variants</a>
+            <ul>
+                <li><a href="#base">Base</a></li>
+                <li><a href="#small">Small</a></li>
+                <li><a href="#outline">Outline</a></li>
+                <li><a href="#small-outline">Small outline</a></li>
+            </ul>
+        </li>
+        <li><a href="#button-states">States</a>
+            <ul>
+                <li><a href="#states-base">Base</a></li>
+                <li><a href="#states-primary">Primary</a></li>
+                <li><a href="#states-success">Success</a></li>
+                <li><a href="#states-danger">Danger</a></li>
+                <li><a href="#states-warning">Warning</a></li>
+                <li><a href="#states-info">Info</a></li>
+                <li><a href="#states-inverse">Inverse</a></li>
+                <li><a href="#states-white">White</a></li>
+                <li><a href="#states-disabled">Disabled</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock tab_sidebar %}

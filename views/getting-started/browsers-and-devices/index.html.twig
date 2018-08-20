@@ -1,0 +1,26 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Browsers and Devices' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Getting started', 'href': '#'},
+        {'label': 'Browsers and devices', 'href': '#'}
+    ]
+%}
+
+{% set tab_browsers %}
+    {% include 'getting-started/browsers-and-devices/browsers-and-devices.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "browsers-and-devices",
+          "class" : "ui-report",
+          "label" : "Info",
+          "src"   : tab_browsers,
+          "active": true
+        }
+    ]
+%}

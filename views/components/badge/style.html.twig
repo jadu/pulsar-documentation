@@ -1,0 +1,160 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+
+    {{ docs.heading('h2', 'States', 'badge') }}
+    {{ docs.heading('h3', 'Base', 'states') }}
+
+    {{ docs.example({ 
+        screenreader: "9",
+        twig: "
+{{
+    html.badge({
+        'label': '9'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Primary', 'states') }}
+
+    {{ docs.example({ 
+        screenreader: "9",
+        twig: "
+{{
+    html.badge({
+        'label': '9',
+        'class': 'btn--primary'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Success', 'states') }}
+
+    {{ docs.example({
+        screenreader: "9",
+        twig: "
+{{
+    html.badge({
+        'label': '9',
+        'class': 'badge--success'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Danger', 'states') }}
+
+    {{ docs.example({ 
+        screenreader: "9",
+        twig: "
+{{
+    html.badge({
+        'label': '9',
+        'class': 'badge--danger'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Warning', 'states') }}
+
+    {{ docs.example({ 
+        screenreader: "9",
+        twig: "
+{{
+    html.badge({
+        'label': '9',
+        'class': 'badge--warning'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Info', 'states') }}
+
+    {{ docs.example({ 
+        screenreader: "9",
+        twig: "
+{{
+    html.badge({
+        'label': '9',
+        'class': 'badge--info'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Inverse', 'states') }}
+
+    <p>Use to highlight critical actions that are not necessarily destructive, like locking content.</p>
+
+    {{ docs.example({ 
+        screenreader: "9",
+        twig: "
+{{
+    html.badge({
+        'label': '9',
+        'class': 'badge--inverse'
+    })
+}}
+    " }) }}
+
+      {{ docs.heading('h3', 'White', 'states') }}
+
+    <p>For use on darker backgrounds.</p>
+
+    {{ docs.example({
+        class: 'd-example--dark',
+        screenreader: "9",
+        twig: "
+{{
+    html.badge({
+        'label': '9',
+        'class': 'badge--white'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Badged buttons') }}
+
+    <p>Badges will inherit the button state colour and use a slightly darker variant to ensure the badge remains visible.</p>
+
+    {{ docs.example({ 
+        screenreader: "Button 7, button",
+        twig: "
+{{
+    html.button({
+        'label': 'Button ' ~
+            html.badge({
+                'label': '1',
+            })
+    })
+}}
+
+{{ html.button({'class': 'btn--primary', 'label': 'Button ' ~ html.badge({'label': '2'}) }) }}
+{{ html.button({'class': 'btn--success', 'label': 'Button ' ~ html.badge({'label': '3'}) }) }}
+{{ html.button({'class': 'btn--danger', 'label': 'Button ' ~ html.badge({'label': '4'}) }) }}
+{{ html.button({'class': 'btn--warning', 'label': 'Button ' ~ html.badge({'label': '5'}) }) }}
+{{ html.button({'class': 'btn--info', 'label': 'Button ' ~ html.badge({'label': '6'}) }) }}
+{{ html.button({'class': 'btn--inverse', 'label': 'Button ' ~ html.badge({'label': '7'}) }) }}
+{{ html.button({'class': 'btn--white', 'label': 'Button ' ~ html.badge({'label': '8'}) }) }}
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#button-states">States</a>
+            <ul>
+                <li><a href="#states-base">Base</a></li>
+                <li><a href="#states-primary">Primary</a></li>
+                <li><a href="#states-success">Success</a></li>
+                <li><a href="#states-danger">Danger</a></li>
+                <li><a href="#states-warning">Warning</a></li>
+                <li><a href="#states-info">Info</a></li>
+                <li><a href="#states-inverse">Inverse</a></li>
+                <li><a href="#states-white">White</a></li> 
+            </ul>
+        </li>
+        <li><a href="#badged-buttons">Badged buttons</a></li>
+    </ul>
+{% endblock tab_sidebar %}

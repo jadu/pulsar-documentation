@@ -1,0 +1,29 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Cards are a flexible container for standout content with a range of configurable options for headers and footers, images and calls to action.
+    <br /><br />Cards can be sized and arranged using the common grid classes and respond well at small screen widths.</p>
+    
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({ 
+        html: '
+<div class="card">
+    <div class="card__body">
+        <h3 class="card__title">Card Title</h3>
+        <p>This is the card body, it should be helpful and descriptive.</p>
+        <a href="#cta" class="btn btn--primary">Call to Action</a>
+    </div>
+</div>
+    ' }) }}
+    
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+    </ul>
+{% endblock tab_sidebar %}

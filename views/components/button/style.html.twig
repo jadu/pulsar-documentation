@@ -1,0 +1,344 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    {{ docs.heading('h2', 'Variants') }}
+    {{ docs.heading('h3', 'Base') }}
+
+    <p>The majority of the time you will use the base button styling unless you want to explicitly draw attention to a specific action.</o>
+
+    {{ docs.example({ 
+        screenreader: "My Action, Button",
+        twig: "
+{{
+    html.button({
+        'label': 'My Action'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Small') }}
+
+    <p>Use in places where space is limited, such as table rows or flash messages.</p>
+
+    {{ docs.example({ 
+        screenreader: "My Action, Button",
+        twig: "
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--small'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Outline') }}
+
+    <p>Creates a lower contrast action for use either in high-contrast contexts like panels or flash messages, or where you don’t want to draw too much attention to the action.</p>
+
+    {{ docs.example({ 
+        screenreader: "My Action, Button",
+        twig: "
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--outline'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Small outline') }}
+
+    {{ docs.example({ 
+        screenreader: "My Action, Button",
+        twig: "
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--outline btn--small'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'States', 'button') }}
+
+    {{ docs.heading('h3', 'Base', 'states') }}
+
+    {{ docs.example({ 
+        screenreader: "My Action, Button",
+        twig: "
+{{
+    html.button({
+        'label': 'My Action'
+    })
+}}
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--outline'
+    })
+}}
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--small'
+    })
+}}
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--small btn--outline'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Primary', 'states') }}
+
+    <p>Use to highlight the main action in a given UI.</p>
+
+    {{ docs.example({ 
+        screenreader: "My Action, Button",
+        twig: "
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--primary'
+    })
+}}
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--primary btn--outline'
+    })
+}}
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--primary btn--small'
+    })
+}}
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--primary btn--small btn--outline'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Success', 'states') }}
+
+    <p>Use to highlight actions which result in a final, posivite outcome; Like publishing content to the public.</p>
+
+    {{ docs.example({ 
+        screenreader: "My Action, Button",
+        twig: "
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--success'
+    })
+}}
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--success btn--outline'
+    })
+}}
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--success btn--small'
+    })
+}}
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--success btn--small btn--outline'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Danger', 'states') }}
+
+    <p>Use to highlight dangerous or destructive actions, like permanently deleting data.</p>
+
+    {{ docs.example({ 
+        screenreader: "My Action, Button",
+        twig: "
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--danger'
+    })
+}}
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--danger btn--outline'
+    })
+}}
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--danger btn--small'
+    })
+}}
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--danger btn--small btn--outline'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Warning', 'states') }}
+
+    <p>Use to highlight actions taking longer than expected, or intermediate states.</p>
+
+    {{ docs.example({ 
+        screenreader: "My Action, Button",
+        twig: "
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--warning'
+    })
+}}
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--warning btn--outline'
+    })
+}}
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--warning btn--small'
+    })
+}}
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--warning btn--small btn--outline'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Inverse', 'states') }}
+
+    <p>Use to highlight critical actions that are not necessarily destructive, like locking content.</p>
+
+    {{ docs.example({ 
+        screenreader: "My Action, Button",
+        twig: "
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--inverse'
+    })
+}}
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--inverse btn--outline'
+    })
+}}
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--inverse btn--small'
+    })
+}}
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--inverse btn--small btn--outline'
+    })
+}}
+    " }) }}
+
+      {{ docs.heading('h3', 'White', 'states') }}
+
+    <p>For use on darker backgrounds.</p>
+
+    {{ docs.example({
+        class: 'd-example--dark',
+        screenreader: "My Action, Button",
+        twig: "
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--white'
+    })
+}}
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--white btn--outline'
+    })
+}}
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--white btn--small'
+    })
+}}
+{{
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--white btn--small btn--outline'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Disabled', 'states') }}
+    <p>Prevent buttons from being interactive to stop users from performing this action. Read the disabled guidance for more information.
+
+    {{ docs.example({ 
+        screenreader: "{{ html.icon('exclamation-sign') }} Will not be announced",
+        twig: "
+{{
+    html.button({
+        'label': 'Button Action',
+        'disabled': true
+    })
+}}
+
+{{
+    html.button({
+        'label': 'Link Action',
+        'type': 'link',
+        'disabled': true
+    })
+}}
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#variants">Variants</a>
+            <ul>
+                <li><a href="#base">Base</a></li>
+                <li><a href="#small">Small</a></li>
+                <li><a href="#outline">Outline</a></li>
+                <li><a href="#small-outline">Small outline</a></li>
+            </ul>
+        </li>
+        <li><a href="#button-states">States</a>
+            <ul>
+                <li><a href="#states-base">Base</a></li>
+                <li><a href="#states-primary">Primary</a></li>
+                <li><a href="#states-success">Success</a></li>
+                <li><a href="#states-danger">Danger</a></li>
+                <li><a href="#states-warning">Warning</a></li>
+                <li><a href="#states-info">Info</a></li>
+                <li><a href="#states-inverse">Inverse</a></li>
+                <li><a href="#states-white">White</a></li>
+                <li><a href="#states-disabled">Disabled</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock tab_sidebar %}

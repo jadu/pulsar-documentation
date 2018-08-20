@@ -1,0 +1,169 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+
+<div class="report">
+
+    {{ docs.heading('h2', 'Body') }}
+
+    <p>At its most basic, a card can just contain a body.</p>
+
+    {{ docs.example({ 
+        html: '
+<div class="card">
+    <div class="card__body">
+        <p>This is the card body, it should be helpful and descriptive.</p>
+    </div>
+</div>
+    ' }) }}
+
+    {{ docs.heading('h2', 'Headers and footers') }}
+
+    <p>Add an optional header and/or footer within a card. You can choose whether or not to also include a card title.</p>
+
+    {{ docs.example({ 
+        html: '
+<div class="card">
+    <div class="card__header">
+        <h3 class="card__heading">Card Heading</h3>
+    </div>
+    <div class="card__body">
+        <p>This is the card body, it should be helpful and descriptive.</p>
+        <a href="#cta-one" class="card-link">Card link</a>
+        <a href="#cta-two" class="card-link">Another link</a>
+    </div>
+    <div class="card__footer muted">
+        <p>Card footer</p>
+    </div>
+</div>
+    ' }) }}
+
+    {{ docs.heading('h2', 'Titles, text and links') }}
+
+    <p>A card can contain a <code>.card__title</code> using a heading element within the body.</p>
+
+    <p>Links using the <code>.card-link</code> class will be spaced apart slightly.</p>
+
+    {{ docs.example({ 
+        html: '
+<div class="card">
+    <div class="card__body">
+        <h3 class="card__title">Card Title</h3>
+        <p>This is the card body, it should be helpful and descriptive.</p>
+        <a href="#cta-one" class="card-link">Card link</a>
+        <a href="#cta-two" class="card-link">Another link</a>
+    </div>
+</div>
+    ' }) }}
+
+    {{ docs.heading('h2', 'Images') }}
+
+    <p>Images can be added to the top of a card, they will be automatically made to respond to the card width.</p>
+
+    <p>Use <code>.card--full-bleed</code> on the <code>.card</code> to make the image cover the default border of the card.</p>
+
+    {{ docs.example({ 
+        html: '
+<div class="card g-col g-col--6 g-col--first">
+    <img src="http://via.placeholder.com/600x250/ebebeb/000000?text=image" class="card-img" />
+    <div class="card__body">
+        <h3 class="card__title">Normal</h3>
+        <p>The image will be contained within the cards default border.</p>
+        <a href="#cta-one" class="card-link">Card link</a>
+        <a href="#cta-two" class="card-link">Another link</a>
+    </div>
+</div>
+
+<div class="card card--full-bleed g-col g-col--6">
+    <img src="http://via.placeholder.com/600x250/ebebeb/000000?text=image" class="card-img" />
+    <div class="card__body">
+        <h3 class="card__title">Full bleed</h3>
+        <p>This card uses <code>.card--full-bleed</code>, the difference is subtle.</p>
+        <a href="#cta-one" class="card-link">Card link</a>
+        <a href="#cta-two" class="card-link">Another link</a>
+    </div>
+</div>
+    ' }) }}
+
+    {{ docs.heading('h2', 'Grid sizing') }}
+
+    <p>Cards will be 100% width by default and can be modified using grid classes. Use <code>.g-row</code> divs to organise cards into rows until we get fancier with flexbox.</p>
+
+    {{ docs.example({ 
+        html: '
+<div class="card g-col g-col--6 g-col--first">
+    <div class="card__body">
+        <h3 class="card__title">Card Title</h3>
+        <p>This is the card body, it should be helpful and descriptive.</p>
+        <a href="#cta" class="btn btn--primary">Call to Action</a>
+    </div>
+</div>
+<div class="card g-col g-col--6">
+    <div class="card__body">
+        <h3 class="card__title">Card Title</h3>
+        <p>This is the card body, it should be helpful and descriptive.</p>
+        <a href="#cta" class="btn btn--primary">Call to Action</a>
+    </div>
+</div>
+    ' }) }}
+
+    {{ docs.example({ 
+        html: '
+<div class="card g-col g-col--4 g-col--first">
+    <div class="card__body">
+        <h3 class="card__title">Card Title</h3>
+        <p>This is the card body, it should be helpful and descriptive.</p>
+        <a href="#cta" class="btn btn--primary">Call to Action</a>
+    </div>
+</div>
+<div class="card g-col g-col--4">
+    <div class="card__body">
+        <h3 class="card__title">Card Title</h3>
+        <p>This is the card body, it should be helpful and descriptive.</p>
+        <a href="#cta" class="btn btn--primary">Call to Action</a>
+    </div>
+</div>
+<div class="card g-col g-col--4">
+    <div class="card__body">
+        <h3 class="card__title">Card Title</h3>
+        <p>This is the card body, it should be helpful and descriptive.</p>
+        <a href="#cta" class="btn btn--primary">Call to Action</a>
+    </div>
+</div>
+    ' }) }}
+
+    {{ docs.heading('h2', 'Centered') }}
+
+    <p>Use the <code>.u-text-align-center</code> utility class to make an entire card centered.</p>
+
+    {{ docs.example({ 
+        html: '
+<div class="card u-text-align-center">
+    <div class="card__header">
+        <p class="card__heading">Card Heading</p>
+    </div>
+    <div class="card__body">
+        <h3 class="card__title">Card Title</h3>
+        <p>This is the card body, it should be helpful and descriptive.</p>
+        <a href="#cta-one" class="card-link">Card link</a>
+        <a href="#cta-two" class="card-link">Another link</a>
+    </div>
+    <div class="card__footer muted">
+        <p>Card footer</p>
+    </div>
+</div>
+    ' }) }}
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#body">Body</a></li>
+        <li><a href="#headers-and-footers">Headers and footers</li>
+        <li><a href="#titles,-text-and-links">Titles, text and links</a></li>
+        <li><a href="#images">Images</a></li>
+        <li><a href="#grid-sizing">Grid sizing</a></li>
+        <li><a href="#centered">Centered</a></li>
+    </ul>
+{% endblock tab_sidebar %}

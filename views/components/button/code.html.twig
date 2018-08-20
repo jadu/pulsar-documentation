@@ -1,0 +1,49 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Pulsar buttons are an all purpose user interface element allowing users to perform actions, submit forms and progress through transactions.</p>
+    
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({ 
+        screenreader: "My Action, Button",
+        twig: "
+{{
+    html.button({
+        'label': 'My Action'
+    })
+}}
+    " }) }}
+
+{{ docs.heading('h2', 'Helper options') }}
+
+<p>You can configure this helper using the <a href="../getting-started/using-helpers?tab=common-options">common helper options</a>, the following options are specific to this helper.</p>
+
+<table class="table table--full">
+    <thead>
+        <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>type</code></td>
+            <td>string</td>
+            <td>Type type of button to create, can be <code>button</code> (default), <code>link</code>, <code>input</code> or <code>submit</code></td>
+        </tr>
+    </tbody>
+</table>
+    
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#helper-options">Helper options</a></li>
+    </ul>
+{% endblock tab_sidebar %}

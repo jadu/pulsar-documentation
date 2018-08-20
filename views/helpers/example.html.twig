@@ -1,0 +1,76 @@
+{% macro example(options) %}
+{% import '@pulsar/pulsar/v2/helpers/html.html.twig' as html %}
+{% import '@pulsar/pulsar/v2/helpers/form.html.twig' as form %}
+
+{% set code = false %}
+{% set sr = false %}
+{% if options.code is not defined or options.code != 0 %}
+    {% set code = true %}
+{% endif %}
+{% if options.screenreader is defined and options.screenreader is not empty %}
+    {% set sr = true %}
+{% endif %}
+
+<div class="d-example{% if code == true %} d-example--with-code{% endif %} {{ options.class|default }}">
+    {% if options.twig is defined and options.twig is not empty %}
+
+        <div class="d-example__live">{{ include(template_from_string(options.twig)) }}</div>
+        
+        {% if code == true %}
+            <nav class="d-example-nav">
+                <button class="d-example-nav__link is-active" data-toggle="twig">Twig</button>
+                <button class="d-example-nav__link" data-toggle="html">HTML</button>
+                {% if sr %}
+                    <button class="d-example-nav__link" data-toggle="sr">Screenreader</button>
+                {% endif %}
+            </nav>
+            
+            <pre class="d-example__code js-twig"><code lang="twig">{{ options.twig|trim }}</code></pre>
+            <pre class="d-example__code js-html" style="display: none"><code lang="html">{{ include(template_from_string(options.twig))|trim|e }}</code></pre>
+            {% if sr %}
+                <div class="d-example__code d-example__code--screenreader js-sr" style="display: none">{{ include(template_from_string(options.screenreader))|trim|raw }}</div>
+            {% endif %}
+        {% endif %}
+        
+    {% elseif options.html is defined and options.html is not empty %}
+
+        <div class="d-example__live">{{ options.html|trim|raw }}</div>
+        
+        <nav class="d-example-nav">
+            <button class="d-example-nav__link is-active" data-toggle="html">HTML</button>
+        </nav>
+        
+        <pre class="d-example__code js-html"><code lang="html">{{ options.html|trim|raw }}</code></pre>
+
+    {% endif %}
+</div>
+{% endmacro %}
+
+{% macro guidelines(options) %}
+{% import '@pulsar/pulsar/v2/helpers/html.html.twig' as html %}
+{% import '@pulsar/pulsar/v2/helpers/form.html.twig' as form %}
+
+<div class="d-guidelines">
+    {% if options.do is defined and options.do is not empty %}
+        <div class="d-guidelines__block d-guidelines__block--do">
+            <div class="d-guidelines-preview">{{ include(template_from_string(options.do.twig)) }}</div>
+            <div class="d-guidelines-label"><em class="d-guidelines-label__title">Do</em> {{ options.do.label }}</div>
+        </div>
+    {% endif %}
+    {% if options.not is defined and options.not is not empty %}
+        <div class="d-guidelines__block d-guidelines__block--not">
+            <div class="d-guidelines-preview">{{ include(template_from_string(options.not.twig)) }}</div>
+            <div class="d-guidelines-label"><em class="d-guidelines-label__title">Don’t</em> {{ options.not.label }}</div>
+        </div>
+    {% endif %}
+</div>
+
+{% endmacro %}
+
+{% macro heading(level, title, prefix) %}
+    {% if prefix is defined and prefix is not empty %}
+        {% set prefix = prefix ~ '-' %}
+    {% endif %}
+    {% set id = prefix|default ~ title|lower|replace({ ' ': '-' }) %}
+    <{{ level }} id="{{ id }}" class="docs-heading">{{ title }} <a aria-label="Jump to section" href="#{{ id }}">#</a></{{level}}>
+{% endmacro %}

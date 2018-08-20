@@ -1,0 +1,53 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+
+<div class="report">
+
+    {{ docs.heading('h2', 'Accessibility') }}
+
+    <p>Badges strongly rely on the context in which they're presented to properly communicate what the badge means. You should not rely on colour alone to indicate what a badge means.</p>
+
+    <p>Ideally, treat badges as a secondary piece of information, which is visually associated with an obvious text label, or a <a href="#screenreader-friendly-labels">screenreader friendly label</a>.</p>
+
+    {{ docs.example({ 
+        screenreader: "Notifications 7, button",
+        twig: "
+{{
+    html.button({
+        'label': 'Notifications ' ~
+            html.badge({
+                'label': '7',
+                'class': 'badge--danger'
+            })
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Screenreader friendly labels') }}
+
+    <p>Badges may be confusing to users of screen readers and other assistive technologies where a user may not be able to rely on visual cues or positioning to judge the context of the numbers.</p>
+
+    <p>Unless an associated text label is close enough to make it clear what the badge is counting, such as &lsquo;Notifications (8)&rsquo;, consider adding additional information with a visually hidden label.</p>
+
+    {{ docs.example({ 
+        screenreader: "7 unread items",
+        twig: "
+{{
+    html.badge({
+        'label': '7 <span class=\"hide\">unread items</span>',
+        'class': 'badge--danger'
+    })
+}}
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#accessibility">Accessibility</a></li>
+        <li><a href="#screenreader-friendly-labels">Screenreader friendly labels</a></li>
+    </ul>
+{% endblock tab_sidebar %}

@@ -1,0 +1,321 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+
+<div class="report">
+
+    {{ docs.heading('h2', 'Labelling your button') }}
+
+    <p>The text label you use for a button should be clear enough for any user to understand what will happen if the user clicks the button, don't rely on colour alone to indicate whether this is a primary or dangerous action, the label is the most important piece of information.</p>
+
+    <p>If the button relates to an action, the label should ideally be a verb, use the <a href="?tab=states">common state classes</a> to reinforce dangerous or destructive actions with colour, but don't rely on colour alone to communicate a button’s intention.</p>
+
+    {{ docs.example({ twig: "
+{{
+    html.button({
+        'label': 'New Thing',
+        'class': 'btn--primary'
+    })
+}}
+{{
+    html.button({
+        'label': 'Save',
+        'class': 'btn--primary'
+    })
+}}
+{{
+    html.button({
+        'label': 'Edit'
+    })
+}}
+{{
+    html.button({
+        'label': 'Copy'
+    })
+}}
+{{
+    html.button({
+        'label': 'Show'
+    })
+}}
+{{
+    html.button({
+        'label': 'Hide'
+    })
+}}
+{{
+    html.button({
+        'label': 'Delete',
+        'class': 'btn--danger'
+    })
+}}
+    ", code: false }) }}
+
+        {{ docs.guidelines({
+        do: {
+            label: 'use title case',
+            twig: "
+{{
+    html.button({
+        'label': 'New Document',
+        'class': 'btn--primary'
+    })
+}}
+    "
+        },
+        not: {
+            label: 'use sentence case or all caps',
+            twig: "
+{{
+    html.button({
+        'label': 'New document',
+        'class': 'btn--primary'
+    })
+}}
+{{
+    html.button({
+        'label': 'DELETE',
+        'class': 'btn--danger'
+    })
+}}
+    "       
+        }
+    }) }}
+
+    {{ docs.guidelines({
+        do: {
+            label: 'use a text only label for primary actions, unless explicitly required for the UI',
+            twig: "
+{{
+    html.button({
+        'label': 'New Event',
+        'class': 'btn--primary'
+    })
+}}
+    "
+        },
+        not: {
+            label: 'add icons to primary actions',
+            twig: "
+{{
+    html.button({
+        'label': html.icon('plus') ~ ' Create Event',
+        'class': 'btn--primary'
+    })
+}}
+    "       
+        }
+    }) }}
+
+    <p>If an action is related to creating new items of content, use ‘New’.</p>
+
+    {{ docs.example({ code: false, twig: "
+{{
+    html.button({
+        'label': 'New Event',
+        'class': 'btn--primary'
+    })
+}}
+    " }) }}
+
+    <p>If the action involves adding to a parent item, choosing from a list of existing things, or to a context that already exists (such as adding a keyword to a content item) use ‘Add’.</p>
+
+    {{ docs.example({ code: false, twig: "
+{{
+    html.button({
+        'label': 'Add Keyword'
+    })
+}}
+    " }) }}
+
+    <p>If a button triggers more than one action, we should communicate this to the user where possible to help explain more complex workflows to users and build their mental model of the system.</p>
+
+    {{ docs.example({ code: false, twig: "
+{{
+    html.button({
+        'label': 'Save Changes and Publish Now',
+        'class': 'btn--primary'
+    })
+}}
+{{
+    html.button({
+        'label': 'Save Changes and Submit for Proofing',
+        'class': 'btn--primary'
+    })
+}}
+{{
+    html.button({
+        'label': 'Reset Password and Notify User',
+        'class': 'btn--danger'
+    })
+}}
+    ", code: false }) }}
+
+    {{ docs.heading('h3', 'Using icons') }}
+
+    <p>If your button is labelled using only an icon, you must supply an appropriately descriptive label to be announced by screenreaders, either by the icon's label option, or using <code>aria-label</code>.
+
+        {{ docs.example({ 
+            screenreader: "Both announced as <q>Add to list, button</q>",
+            twig: "
+{{
+    html.button({
+        'label': html.icon('plus', { 'label': 'Add to list' })
+    })
+}}
+
+{{
+    html.button({
+        'label': html.icon('plus'),
+        'aria-label': 'Add to list'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Button vs. Link') }}
+
+    <p>The underlying HTML element you use for a button is an important choice, particularly for accessibility reasons, and your choice will usually be based on the type of action you with to perform.</p>
+    <ul>
+        <li>If the button navigates to another place, you should use a <strong>link</strong></li>
+        <li>If the button performs an action, such as submitting a form, toggling visibility of an element or any action that doesn't navigate away from the page, use <strong>button</strong></li>
+    </ul>
+
+    <p>If your button performs an action on the same page, use a button instead of a link, and <strong>never</strong> use a link with <code lang="html">href="#"</code> as it will cause errors in accessibility testing tools.</p>
+
+    {{ docs.heading('h3', 'Example link type') }}
+
+    {{ docs.example({ twig: "
+{{
+    html.button({
+        'label': 'Next',
+        'class': 'btn--primary',
+        'type': 'link'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Example button type') }}
+
+    {{ docs.example({ twig: "
+{{
+    html.button({
+        'label': 'Add Keyword'
+    })
+}}
+    " }) }}
+
+    <p>If you absolutely have to use a link, you should add the following affordances:
+        <ul>
+            <li>Add the <code lang="html">aria-role="button"</code> attribute to make the element announce itself as a button</li>
+            <li>Add a javascript event handler to be triggered when the user presses the <kbd>space</kbd> key, as regular buttons will be triggered on both <kbd>space</kbd> and <kbd>enter</kbd>, but links will not
+        </ul>
+    </p>
+
+    {{ docs.example({ twig: "
+{{
+    html.button({
+        'label': 'Show',
+        'type': 'link',
+        'href': '#example-show',
+        'aria-role': 'button'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Example input type') }}
+    <p>Only for use within forms, and you should have a really good reason not to use a normal button.</p>
+    {{ docs.example({ twig: "
+{{
+    html.button({
+        'label': 'Add Keyword',
+        'type': 'input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Example submit type') }}
+
+    <p>Should only be used to submit forms, if you're building a Pulsar styled form you can use standard submit controls with the <a href="#">form end component</a>.</p>
+
+    {{ docs.example({ twig: "
+{{
+    html.button({
+        'label': 'Submit',
+        'type': 'submit'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Disabled') }}
+
+    <p>Prevent buttons from being interactive to stop users from performing this action. The common <code>is-disabled</code> class will visually style the disabled state.</p>
+
+    <ul>
+        <li>If using <code>button</code>, <code>input</code> or <code>submit</code> type: add the <code>disabled</code> attribute</li>
+        <li>If using <code>link</code> type: add the <code>aria-disabled="true"</code> attribute</li>
+    </ul>
+
+    <p>{{ html.icon('info-sign') }} Disabled buttons cannot be focused with the keyboard so will be invisible to screenreaders.</p>
+
+    {{ docs.example({ 
+        screenreader: "{{ html.icon('exclamation-sign') }} Will not be announced",
+        twig: "
+{{
+    html.button({
+        'label': 'Button Action',
+        'disabled': true
+    })
+}}
+
+{{
+    html.button({
+        'label': 'Link Action',
+        'type': 'link',
+        'disabled': true
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h4', 'Adding tooltips to disabled buttons') }}
+
+    <p>The disabled attribute prevents mouse events from firing and stops tooltips from working entirely. The only way around this which works for all our supported browsers is to wrap the button in a containing <code>div</code>, and attach the tooltip to that element.</p>
+
+    {{ docs.example({ 
+        screenreader: "{{ html.icon('exclamation-triangle') }} Will not be announced",
+        twig: "
+<div rel=\"tooltip\" data-toggle=\"tooltips\" title=\"A nice descriptive reason why this button is disabled\">
+    {{
+        html.button({
+            'label': 'Button Action',
+            'disabled': true
+        })
+    }}
+</div>
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Labelling your button</a>
+            <ul>
+                <li><a href="#using-icons">Using icons</a></li>
+            </ul>
+        </li>
+        <li><a href="#button-vs.-link">Button vs. Link</a>
+            <ul>
+                <li><a href="#example-link-type">Example link type</a></li>
+                <li><a href="#example-button-type">Example button type</a></li>
+                <li><a href="#example-input-type">Example input type</a></li>
+                <li><a href="#example-submit-type">Example submit type</a></li>
+            </ul>
+        </li>
+        <li><a href="#button-vs.-link">Disabled</a>
+            <ul>
+                <li><a href="#adding-tooltips-to-disabled-buttons">Adding tooltips to disabled buttons</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock tab_sidebar %}

@@ -1,0 +1,63 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Display a contextual list of actions or links when a button is pressed.</p>
+    
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({ 
+        screenreader: "My Action, Button",
+        twig: "
+{{
+    html.button_dropdown({
+        'label': 'My Action',
+        'items': [
+            html.link({ 'label': 'Foo', 'href': '#foo' }),
+            html.link({ 'label': 'Bar', 'href': '#bar' })
+        ]
+    })
+}}
+    " }) }}
+
+{{ docs.heading('h2', 'Helper options') }}
+
+<p>You can configure this helper using the <a href="../getting-started/using-helpers?tab=common-options">common helper options</a>, the following options are specific to this helper.</p>
+
+<table class="table table--full">
+    <thead>
+        <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>caret</code></td>
+            <td>boolean <small>(true)</small></td>
+            <td>Whether to show the caret arrow next to the label</td>
+        </tr>
+        <tr>
+            <td><code>direction</code></td>
+            <td>string</td>
+            <td>The direction to open the menu, either <code>down</code> (default) or <code>up</code></td>
+        </tr>
+        <tr>
+            <td><code>items</code></td>
+            <td>array</td>
+            <td>An array of items to put in the dropdown list (usually links)</td>
+        </tr>
+    </tbody>
+</table>
+    
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#helper-options">Helper options</a></li>
+    </ul>
+{% endblock tab_sidebar %}

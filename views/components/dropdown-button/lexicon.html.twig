@@ -1,0 +1,86 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+{%
+    set example_dropdown = [
+        html.link({
+            label: html.icon('save') ~ ' Save',
+            href: '#'
+        }),
+        html.link({
+            label: html.icon('print') ~ ' Print',
+            'class': 'is-disabled'
+        }),
+        html.link({
+            label: html.icon('lock') ~ ' Lock',
+            disabled: true
+        }),
+        html.link({
+            label: html.icon('group') ~ ' Collaborators ' ~ html.badge({ 'label': 3 })
+        }),
+        html.divider(),
+        html.link({
+            label: html.icon('trash') ~ ' Delete',
+            href: '#',
+            class: 'link--danger'
+        })
+    ]
+%}
+<div class="report">
+    {%- include 'partials/lexicon-lede.html.twig' -%}
+
+    <p>
+        {{
+            html.button_dropdown({
+                'items': example_dropdown,
+                'label': 'Drop Down'
+            })
+        }}
+    </p>
+
+    <p>
+        {{
+            html.button_dropdown({
+                'direction': 'up',
+                'items': example_dropdown,
+                'label': 'Drop Up'
+            })
+        }}
+    </p>
+
+    <p>
+        {{
+            html.button_dropdown({
+                'direction': 'down',
+                'items': example_dropdown,
+                'label': 'Right Menu',
+                'placement': 'right'
+            })
+        }}
+    </p>
+
+    <p>
+        {{
+            html.button_dropdown({
+                'direction': 'down',
+                'items': example_dropdown,
+                'label': 'Primary Action Drop Down',
+                'class': 'btn--primary'
+            })
+        }}
+    </p>
+        
+</div>
+<style>
+    .row-inverse {
+        background-color: #999;
+    }
+</style>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        
+    </ul>
+{% endblock tab_sidebar %}

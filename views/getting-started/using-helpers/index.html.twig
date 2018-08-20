@@ -1,0 +1,35 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Helpers' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Getting started', 'href': '#'},
+        {'label': 'Using helpers', 'href': '#'}
+    ]
+%}
+
+{% set tab_use %}
+    {% include 'getting-started/using-helpers/how-to-use.html.twig' %}
+{% endset %}
+{% set tab_options %}
+    {% include 'getting-started/using-helpers/common-options.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "how-to-use",
+          "class" : "ui-report",
+          "label" : "How to use",
+          "src"   : tab_use,
+          "active": true
+        },
+        {
+          "id"    : "common-options",
+          "class" : "ui-report",
+          "label" : "Common options",
+          "src"   : tab_options
+        }
+    ]
+%}

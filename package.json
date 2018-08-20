@@ -1,0 +1,41 @@
+{
+    "name": "pulsar-docs",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jadu/pulsar-docs.git"
+    },
+    "devDependencies": {
+        "aliasify": "^1.9.0",
+        "babel-core": "^6.26.0",
+        "babel-istanbul": "^0.12.2",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-es2017": "^6.24.1",
+        "babel-register": "^6.24.1",
+        "babelify": "^7.3.0",
+        "browserify": "10.0.0",
+        "browserify-shim": "^3.8.9",
+        "datatables.net": "^1.10.11",
+        "datatables.net-buttons": "^1.1.2",
+        "datatables.net-buttons-dt": "^1.1.2",
+        "datatables.net-dt": "^1.10.10",
+        "datatables.net-responsive": "^2.0.2",
+        "datatables.net-responsive-dt": "^2.0.0",
+        "datatables.net-select": "^1.1.2",
+        "datatables.net-select-dt": "^1.1.2",
+        "grunt": "^1.0.3",
+        "grunt-browserify": "^5.0.0",
+        "grunt-autoprefixer": "^3.0.4",
+        "grunt-contrib-watch": "^1.0.0",
+        "grunt-sass": "^1.1.0",
+        "matchdep": "^1.0.1"
+    },
+    "aliasify": {
+        "aliases": {
+            "jquery": "./vendor/jadu/pulsar/libs/jquery/dist/jquery.min"
+        }
+    },
+    "dependencies": {
+        "babel-polyfill": "^6.26.0",
+        "jquery": "1.x"
+    }
+}

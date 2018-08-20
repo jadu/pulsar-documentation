@@ -1,0 +1,248 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Pulsar uses a standardised colour palette which incorporates the colours defined in Jadu’s brand styleguide.</p>
+
+{{ docs.heading('h2', 'Accessibility') }}
+
+    <p>Particular care should be taken to ensure that the colour of any text against it’s background must meet the <a href="https://www.w3.org/TR/WCAG21/#contrast-minimum">WCAG AA ratio for visual contrast (4.5:1)</a>, which is especially important given that our main typeface (Proxima Nova) is rather thin.</p>
+
+    <p>To make your life easier you can use the <code>pick_best_color()</code> sass function which will measure a background colour and choose an whichever foreground colour has the highest contrast ratio. (The palette examples on this page use this function to define the text colour).</p>
+
+<pre><code lang="scss">pick_best_color(background, (foreground-1, foreground-2))</code></pre>
+
+<pre><code lang="scss">.hex-example {
+    background-color: #bada55;
+    color: pick_best_color(#bada55, (#fff, #000));
+}
+
+.palette-example {
+    background-color: color(gray, dark);
+    color: pick_best_color(color(gray, dark), (#fff, #000));
+}</code></pre>
+
+    {{ docs.heading('h2', 'Fetching palette colours') }}
+
+    <p>Colour variables are defined in the <code>_palette.base.scss</code> file and can be used anywhere. You should aim to use the sass variables rather than the hex/rgb values where possible.</p>
+
+    <p>Use the <code>color()</code> function to fetch a colour from the palette.</p>
+
+    <pre><code lang="scss">.element {
+    background-color: color(jadu-blue)
+}</code></pre>
+
+    <p>Pass the optional ‘tone’ argument to fetch a variation of a colour if available in the palette.</p>
+
+    <pre><code lang="scss">.element {
+    background-color: color(jadu-blue, light)
+}</code></pre>
+
+{{ docs.heading('h2', 'Colour palettes') }}
+{{ docs.heading('h3', 'State colours') }}
+
+<div class="g-row u-margin-bottom--large">
+    <div class="swatches g-col g-col--4 g-col--first">
+        <div class="swatch swatch--primary-base">
+            <span class="swatch__text">Primary</span>
+            <span class="swatch__label">color(primary)</span>
+        </div>
+        <div class="swatch swatch--info-base">
+            <span class="swatch__text">Info</span>
+            <span class="swatch__label">color(info)</span>
+        </div>
+        <div class="swatch swatch--success-base">
+            <span class="swatch__text">Success</span>
+            <span class="swatch__label">color(success)</span>
+        </div>
+        <div class="swatch swatch--warning-base">
+            <span class="swatch__text">Warning</span>
+            <span class="swatch__label">color(warning)</span>
+        </div>
+        <div class="swatch swatch--danger-base">
+            <span class="swatch__text">Danger</span>
+            <span class="swatch__label">color(danger)</span>
+        </div>
+        <div class="swatch swatch--inverse-base">
+            <span class="swatch__text">Inverse</span>
+            <span class="swatch__label">color(inverse)</span>
+        </div>
+    </div>
+
+    <div class="swatches g-col g-col--4">
+        <div class="swatch swatch--primary-light">
+            <span class="swatch__text">Primary Light</span>
+            <span class="swatch__label">color(primary, light)</span>
+        </div>
+        <div class="swatch swatch--info-light">
+            <span class="swatch__text">Info Light</span>
+            <span class="swatch__label">color(info, light)</span>
+        </div>
+        <div class="swatch swatch--success-light">
+            <span class="swatch__text">Success Light</span>
+            <span class="swatch__label">color(success, light)</span>
+        </div>
+        <div class="swatch swatch--warning-light">
+            <span class="swatch__text">Warning Light</span>
+            <span class="swatch__label">color(warning, light)</span>
+        </div>
+        <div class="swatch swatch--danger-light">
+            <span class="swatch__text">Danger Light</span>
+            <span class="swatch__label">color(danger, light)</span>
+        </div>
+        <div class="swatch swatch--inverse-light">
+            <span class="swatch__text">Inverse Light</span>
+            <span class="swatch__label">color(inverse, light)</span>
+        </div>
+    </div>
+
+    <div class="swatches g-col g-col--4">
+        <div class="swatch swatch--primary-dark">
+            <span class="swatch__text">Primary Dark</span>
+            <span class="swatch__label">color(primary, dark)</span>
+        </div>
+        <div class="swatch swatch--info-dark">
+            <span class="swatch__text">Info Dark</span>
+            <span class="swatch__label">color(info, dark)</span>
+        </div>
+        <div class="swatch swatch--success-dark">
+            <span class="swatch__text">Success Dark</span>
+            <span class="swatch__label">color(success, dark)</span>
+        </div>
+        <div class="swatch swatch--warning-dark">
+            <span class="swatch__text">Warning Dark</span>
+            <span class="swatch__label">color(warning, dark)</span>
+        </div>
+        <div class="swatch swatch--danger-dark">
+            <span class="swatch__text">Danger Dark</span>
+            <span class="swatch__label">color(danger, dark)</span>
+        </div>
+        <div class="swatch swatch--inverse-dark">
+            <span class="swatch__text">Inverse Dark</span>
+            <span class="swatch__label">color(inverse, dark)</span>
+        </div>
+    </div>
+</div>
+
+<p>State colours have an <code>alt</code> variation that can be used for text colour which will ensure compatibility with WCAG 2.1 AA contrast ratios.</p>
+
+<pre><code lang="scss">.element {
+    background-color: color(primary);
+    color: color(primary, alt);
+}</code></pre>
+
+{{ docs.heading('h3', 'Monochromes') }}
+
+<div class="g-row u-margin-bottom--large">
+    <div class="swatches g-col g-col--6 g-col--first">
+        <div class="swatch swatch--black-base">
+            <span class="swatch__text">Black</span>
+            <span class="swatch__label">color(black)
+            </span>
+        </div>
+        <div class="swatch swatch--gray-darker">
+            <span class="swatch__text">Darker gray</span>
+            <span class="swatch__label">color(gray, darker)</span>
+        </div>
+        <div class="swatch swatch--gray-dark">
+            <span class="swatch__text">Dark gray</span>
+            <span class="swatch__label">color(gray, dark)</span>
+        </div>
+        <div class="swatch swatch--gray-dull">
+            <span class="swatch__text">Dull gray</span>
+            <span class="swatch__label">color(gray, dull)</span>
+        </div>
+        <div class="swatch swatch--gray-base">
+            <span class="swatch__text">Gray</span>
+            <span class="swatch__label">color(gray)</span>
+        </div>
+        <div class="swatch swatch--gray-light">
+            <span class="swatch__text">Light gray</span>
+            <span class="swatch__label">color(gray, light)</span>
+        </div>
+        <div class="swatch swatch--gray-lighter">
+            <span class="swatch__text">Lighter gray</span>
+            <span class="swatch__label">color(gray, lighter)</span>
+        </div>
+        <div class="swatch swatch--gray-lightest">
+            <span class="swatch__text">Lightest gray</span>
+            <span class="swatch__label">color(gray, lightest)</span>
+        </div>
+        <div class="swatch swatch--gray-off-white">
+            <span class="swatch__text">Off-white</span>
+            <span class="swatch__label">color(off-white)</span>
+        </div>
+        <div class="swatch swatch--white">
+            <span class="swatch__text">White</span>
+            <span class="swatch__label">color(white)
+            </span>
+        </div>
+    </div>
+</div>
+
+{{ docs.heading('h3', 'Text and links') }}
+
+<div class="g-row u-margin-bottom--large">
+    <div class="swatches g-col g-col--6 g-col--first">
+        <div class="swatch swatch--text-base">
+            <span class="swatch__text">Text</span>
+            <span class="swatch__label">color(text)</span>
+        </div>
+        <div class="swatch swatch--text-light">
+            <span class="swatch__text">Text Light</span>
+            <span class="swatch__label">color(text, light)</span>
+        </div>
+        <div class="swatch swatch--link-base">
+            <span class="swatch__text">Link</span>
+            <span class="swatch__label">color(link)</span>
+        </div>
+        <div class="swatch swatch--link-hover">
+            <span class="swatch__text">Link Hover</span>
+            <span class="swatch__label">color(link, hover)</span>
+        </div>
+    </div>
+</div>
+
+{{ docs.heading('h3', 'Borders and backgrounds') }}
+
+<div class="g-row u-margin-bottom--large">
+    <div class="swatches g-col g-col--6 g-col--first">
+        <div class="swatch swatch--border-base">
+            <span class="swatch__text">Border</span>
+            <span class="swatch__label">color(border)</span>
+        </div>
+        <div class="swatch swatch--background-light">
+            <span class="swatch__text">Background Light</span>
+            <span class="swatch__label">color(background, light)</span>
+        </div>
+        <div class="swatch swatch--background-base">
+            <span class="swatch__text">Background</span>
+            <span class="swatch__label">color(background)</span>
+        </div>
+        <div class="swatch swatch--background-selected">
+            <span class="swatch__text">Background Selected</span>
+            <span class="swatch__label">color(background, selected)</span>
+        </div>
+    </div>
+</div>
+</div>
+
+
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#accessibility">Accessibility</a></li>
+        <li><a href="#fetching-palette-colours">Fetching palette colours</a></li>
+        <li>
+            <a href="#colour-palettes">Colour palettes</a>
+            <ul>
+                <li><a href="#state-colours">State colours</a></li>
+                <li><a href="#monochromes">Monochromes</a></li>
+                <li><a href="#text-and-links">Text and links</a></li>
+                <li><a href="#borders-and-backgrounds">Borders and backgrounds</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock tab_sidebar %}

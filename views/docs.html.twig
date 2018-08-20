@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+
+{% import '@pulsar/pulsar/v2/helpers/flash.html.twig' as flash %}
+{% import '@pulsar/pulsar/v2/helpers/html.html.twig' as html %}
+{% import '@pulsar/pulsar/v2/helpers/form.html.twig' as form %}
+{% import '@pulsar/pulsar/v2/helpers/tabs.html.twig' as tabs %}
+
+{% block title %}Lexicon{% endblock %}
+
+
+{%
+    set actions_menu = [
+        html.link({
+          'label': html.icon('save') ~ ' Save',
+          'href': '#save'
+        }),
+        html.link({
+          'label': html.icon('print') ~ ' Print',
+          'href': '#print'
+        }),
+        html.divider(),
+        html.link({
+          'label': html.icon('trash') ~ ' Delete',
+          'href': '#delete',
+          'class': 'link--danger disabled',
+          'attributes': 'data-on-datagrid-item-selected=enable'
+        })
+    ]
+%}
+
+{%
+    set nav_data = {
+        '1': {
+            'label': 'Getting Started',
+            'href': '#lexicon',
+            'icon': 'rocket',
+            'items': {
+                '1.1': {
+                    '1.1.1': {
+                        'label': 'Browsers and devices',
+                        'href': '/app.php/getting-started/browsers-and-devices'
+                    },
+                    '1.1.2': {
+                        'label': 'Using helpers',
+                        'href': '/app.php/getting-started/using-helpers'
+                    }
+                }
+            }
+        },
+        '2': {
+            'label': 'Styles',
+            'href': '#styles',
+            'icon': 'paint-brush',
+            'items': {
+                '2.1': {
+                    '2.1.1': {
+                        'label': 'Colours',
+                        'href': '/app.php/styles/colours'
+                    },
+                    '2.1.2': {
+                        'label': 'Utilities',
+                        'href': '/app.php/styles/utilities'
+                    }
+                }
+            }
+        },
+        '3': {
+            'label': 'Components',
+            'href': '#components',
+            'icon': 'cube',
+            'items': {
+                '3.1': {
+                    '3.1.1': {
+                        'label': 'Badge',
+                        'href': '/app.php/components/badge'
+                    },
+                    '3.1.2': {
+                        'label': 'Button',
+                        'href': '/app.php/components/button'
+                    },
+                    '3.1.3': {
+                        'label': 'Button Group',
+                        'href': '/app.php/components/button-group'
+                    },
+                    '3.1.4': {
+                        'label': 'Dropdown Button',
+                        'href': '/app.php/components/dropdown-button'
+                    },
+                    '3.1.5': {
+                        'label': 'Card',
+                        'href': '/app.php/components/card'
+                    },
+                    '3.1.6': {
+                        'label': 'Datatable',
+                        'href': '/app.php/components/datatable'
+                    }
+                }
+            }
+        },
+        '4': {
+            'label': 'Forms',
+            'href': '#forms',
+            'icon': 'wpforms',
+            'items': {}
+        },
+        '5': {
+            'label': 'Patterns',
+            'href': '#patterns',
+            'icon': 'cubes',
+            'items': {}
+        }
+    }
+%}
+
+{% block tabs_list %}
+    {{ tabs.list(tabs_content) }}
+{% endblock %}
+
+{% block tabs_content %}
+    {{ tabs.content(tabs_content) }}
+{% endblock %}
+
+{% block notifications %}
+    {% include '@pulsar/lexicon/includes/notifications.html.twig' %}
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}

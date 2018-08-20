@@ -1,0 +1,30 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Pulsar helpers are a quick way to include and configure components into your user interface.</p>
+    <p>The Pulsar team often make improments to components, either by fixing bugs or improving accessiblity by changing the underlying markup. You should use helpers as much as possible to take advantage of these improments without having to go back and make changes to your hardcoded HTML.</p>
+
+    <p>Pulsar helpers also have accessibility support baked in where possible, certain attributes and aria roles may be added automatically depending on the options you supply and it’s very easy to miss these out if you're using hardcoded HTML. Your first instinct should always be to use the helpers where possible.</p>
+
+    {{ docs.heading('h2', 'How to use') }}
+    <p>The options are usually passed as the first argument to the helper, however for some simple helpers (like icon) it may be the second. Each component may have specialised options and, unless otherwise stated, they should all accept the <a href="?tab=common-options">common helper options</a>.</p>
+
+    <pre><code lang="javascript">&#123;&#123;
+    html.button({
+        'label': 'My Action',
+        'class': 'btn--primary btn--small',
+        'id': 'foo',
+        'disabled': true,
+        'data-toggle': 'an-action'
+    })
+&#125;&#125;</code></pre>
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#how-to-use">How to use</a></li>
+    </ul>
+{% endblock tab_sidebar %}

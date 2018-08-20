@@ -1,0 +1,53 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Button Group' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Components', 'href': '#'},
+        {'label': 'Button Group', 'href': '#'}
+    ]
+%}
+
+{% set tab_code %}
+    {% include 'components/button-group/code.html.twig' %}
+{% endset %}
+{% set tab_guidelines %}
+    {% include 'components/button-group/guidelines.html.twig' %}
+{% endset %}
+{% set tab_style %}
+    {% include 'components/button-group/style.html.twig' %}
+{% endset %}
+{% set tab_lexicon %}
+    {% include 'components/button-group/lexicon.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "code",
+          "class" : "ui-report",
+          "label" : "Code",
+          "src"   : tab_code,
+          "active": true
+        },
+        {
+          "id"    : "guidelines",
+          "class" : "ui-report",
+          "label" : "Guidelines",
+          "src"   : tab_guidelines
+        },
+        {
+          "id"    : "states",
+          "class" : "ui-report",
+          "label" : "Style",
+          "src"   : tab_style
+        },
+        {
+          "id"    : "lexicon",
+          "class" : "ui-report",
+          "label" : "Lexicon",
+          "src"   : tab_lexicon
+        }
+    ]
+%}

@@ -1,0 +1,143 @@
+[
+    {
+        "name": "jadu/pulsar",
+        "version": "dev-develop",
+        "version_normalized": "dev-develop",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jadu/pulsar.git",
+            "reference": "9d392d0291aeea698e12cb49e7c0e7c3f37ce2c1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/jadu/pulsar/zipball/9d392d0291aeea698e12cb49e7c0e7c3f37ce2c1",
+            "reference": "9d392d0291aeea698e12cb49e7c0e7c3f37ce2c1",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://repo-packagist.hq.jadu.net/jadu/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "twig/twig": "^1.21"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "*",
+            "symfony/yaml": "*"
+        },
+        "time": "2018-08-14T13:07:28+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Jadu\\Pulsar": "src"
+            }
+        },
+        "notification-url": "https://repo-packagist.hq.jadu.net/jadu/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "The User Experience and Interface framework for the Jadu Continuum Platform"
+    },
+    {
+        "name": "jadu/pulsar-fonts",
+        "version": "0.0.3",
+        "version_normalized": "0.0.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://gitlab.hq.jadu.net/pulsar/pulsar-fonts.git",
+            "reference": "8b6b6112e22beccb699e7e42e61346ef83ff73bc"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://repo-packagist.hq.jadu.net/jadu/dists/jadu/pulsar-fonts/0.0.3.0/8b6b6112e22beccb699e7e42e61346ef83ff73bc.zip",
+            "reference": "8b6b6112e22beccb699e7e42e61346ef83ff73bc",
+            "shasum": null,
+            "mirrors": [
+                {
+                    "url": "https://repo-packagist.hq.jadu.net/jadu/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "time": "2016-01-19T13:55:55+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "notification-url": "https://repo-packagist.hq.jadu.net/jadu/downloads/"
+    },
+    {
+        "name": "twig/twig",
+        "version": "v1.35.3",
+        "version_normalized": "1.35.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/twigphp/Twig.git",
+            "reference": "b48680b6eb7d16b5025b9bfc4108d86f6b8af86f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/twigphp/Twig/zipball/b48680b6eb7d16b5025b9bfc4108d86f6b8af86f",
+            "reference": "b48680b6eb7d16b5025b9bfc4108d86f6b8af86f",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://repo-packagist.hq.jadu.net/jadu/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "psr/container": "^1.0",
+            "symfony/debug": "^2.7",
+            "symfony/phpunit-bridge": "^3.3"
+        },
+        "time": "2018-03-20T04:25:58+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.35-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Twig_": "lib/"
+            },
+            "psr-4": {
+                "Twig\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com",
+                "homepage": "http://fabien.potencier.org",
+                "role": "Lead Developer"
+            },
+            {
+                "name": "Armin Ronacher",
+                "email": "armin.ronacher@active-4.com",
+                "role": "Project Founder"
+            },
+            {
+                "name": "Twig Team",
+                "homepage": "http://twig.sensiolabs.org/contributors",
+                "role": "Contributors"
+            }
+        ],
+        "description": "Twig, the flexible, fast, and secure template language for PHP",
+        "homepage": "http://twig.sensiolabs.org",
+        "keywords": [
+            "templating"
+        ]
+    }
+]

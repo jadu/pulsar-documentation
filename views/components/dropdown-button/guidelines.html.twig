@@ -1,0 +1,78 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+
+<div class="report">
+
+    {{ docs.heading('h2', 'General guidance') }}
+
+    <p>Dropdown buttons should follow the <a href="button?tab=guidelines">general button guidelines</a>.</p>
+
+    {{ docs.heading('h2', 'Separating items with dividers') }}
+
+    <p>Use the divider helper to insert a horizontal line between links. This is a useful way to visually group related actions.</p>
+
+    {{ docs.example({ 
+        screenreader: "My Action, Button",
+        twig: "
+{{
+    html.button_dropdown({
+        'label': 'My Action',
+        'items': [
+            html.link({ 'label': 'Foo', 'href': '#foo' }),
+            html.divider(),
+            html.link({ 'label': 'Bar', 'href': '#bar' })
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Tooltips on dropdown items') }}
+
+    <p>To add a tooltip to a dropdown menu item, you'll need to use the <code>data-container: 'body'</code> tooltip option to avoid the tooltip text wrapping incorrectly.</p>
+
+    {{ docs.example({ 
+        screenreader: "My Action, Button",
+        twig: "
+{{
+    html.button_dropdown({
+        'label': 'My Action',
+        'items': [
+            html.link({ 'label': 'No tooltip', 'href': '#foo' }),
+            html.link({
+                'label': 'With tooltip',
+                'href': '#bar',
+                'title': 'My tooltip',
+                'data-toggle': 'tooltips',
+                'data-placement': 'right',
+                'data-container': 'body'
+            })
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Default tooltip behaviour') }}
+    <figure>
+        <img src="/views/components/dropdown-button/img/dropdown-menu-with-tooltip.png" alt="Screenshot showing a tooltip which is narrower than expected" />
+    </figure>
+
+    {{ docs.heading('h2', 'Tooltip with data-container') }}
+    <figure>
+        <img src="/views/components/dropdown-button/img/dropdown-menu-with-tooltip-on-body.png" alt="Screenshot showing a tooltip which the right size" />
+    </figure>
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#general-guidance">General guidance</a></li>
+        <li><a href="#separating-items-with-dividers">Separating items with dividers</a></li>
+        <li><a href="#tooltips-on-dropdown-items">Tooltips on dropdown items</a>
+            <ul>
+                <li><a href="#default-tooltip-behaviour">Default tooltip behaviour</a></li>
+                <li><a href="#tooltip-with-data-container">Tooltip with data-container</a></li>
+        </li>        
+    </ul>
+{% endblock tab_sidebar %}
