@@ -1,0 +1,84 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+
+    {{ docs.heading('h2', 'States') }}
+    {{ docs.heading('h3', 'Success') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    flash.message({
+        'message': 'This is an important notice',
+        'type': 'success'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Warning') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    flash.message({
+        'message': 'This is an important notice',
+        'type': 'warning'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Error') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    flash.message({
+        'message': 'This is an important notice',
+        'type': 'error'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Info') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    flash.message({
+        'message': 'This is an important notice',
+        'type': 'info'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Inverse') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    flash.message({
+        'message': 'This is an important notice',
+        'type': 'inverse'
+    })
+}}
+    " }) }}
+
+    
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#states">States</a>
+            <ul>
+                <li><a href="#success">Success</a></li>
+                <li><a href="#warning">Warning</a></li>
+                <li><a href="#error">Error</a></li>
+                <li><a href="#info">Info</a></li>
+                <li><a href="#inverse">Inverse</a></li>
+            </ul>
+        </a></li>
+    </ul>
+{% endblock tab_sidebar %}

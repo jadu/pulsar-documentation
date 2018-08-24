@@ -1,0 +1,135 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+
+<div class="report">
+
+    {{ docs.heading('h2', 'Using icons') }}
+
+    <p>Icons should sparingly to further illustrate the action where necessary. To avoid unnecessary visual noise, action bar buttons should avoid the use of icons.</p>
+
+    <p>Icons should be used in:
+        <ul>
+            <li>All actions menu items</li>
+            <li>Inline delete (times, not trash)</li>
+            <li>Blocking actions/states (locked)</li>
+            <li>Microinteractions (saving)</li>
+        </ul>
+    </p>
+
+    {{ docs.example({
+        code: false,
+        twig: '
+<div class="btn__group dropdown">
+    <button class="btn dropdown__toggle" data-toggle="dropdown">Actions&nbsp;<span class="caret"></span></button>
+    <ul class="dropdown__menu pull-left">
+        <li><a href="/save"><i class="icon-save"></i>&nbsp;Save</a></li>
+        <li><a href="/edit"><i class="icon-pencil"></i>&nbsp;Edit</a></li>
+        <li><span class="divider"></span></li>
+        <li><a href="/publish"><i class="icon-cloud-upload"></i>&nbsp;Publish</a></li>
+        <li><a href="/translate"><i class="icon-globe"></i>&nbsp;Translate</a></li>
+        <li><a href="/locl"><i class="icon-lock"></i>&nbsp;Lock</a></li>
+        <li><span class="divider"></span></li>
+        <li><a href="/delete"><i class="icon-remove"></i>&nbsp;Delete</a></li>
+    </ul>
+</div>
+<button class="btn btn--warning"><i class="icon-refresh"></i> Rescan Assets</button>
+<button class="btn"><i class="icon-unlock"></i> Unlock</button>
+<button class="btn btn--inverse"><i class="icon-lock"></i> Locked</button>
+<button class="btn btn--primary is-disabled" disabled="disabled"><i class="icon-spinner icon-spin"></i> Saving</button>
+<button class="btn btn--success is-disabled"><i class="icon-ok"></i> Saved</button>
+'
+    }) }}
+
+    {{ docs.heading('h2', 'Accessibility') }}
+
+    <p>You should never rely on icons alone to communicate their meaning. Where possible, icons should be used to supplement a visible, descriptive text label which clearly explains the state or action tha icon is illustrating.</p>
+
+    <p>If the icon needs to be standalone, you must supply a descriptive label using the <code>label</code> attribute which will be visually hidden, but still announced by a screenreader.</p>
+
+    {{ docs.heading('h3', 'Example with visible label') }}
+
+    {{ docs.example({ 
+        screenreader: 'Close, Button',
+        twig: "
+{{ 
+    html.button({
+        'label': html.icon('times') ~ ' Close',
+        'class': 'btn--naked'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Example with hidden label') }}
+
+    {{ docs.example({ 
+        screenreader: 'Close, Button',
+        twig: "
+{{ 
+    html.button({
+        'label': html.icon('times', { 'label': 'close' }),
+        'class': 'btn--naked'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Actions menu') }}
+    
+    <ul>
+        <li>Use dividers to group related actions</li>
+        <li>Use icons related to the action</li>
+        <li>Primary actions should be grouped at the top of the list</li>
+        <li>Disabled items should use a tooltip explaining why they are disabled</li>
+    </ul>
+
+    {{ docs.example({
+        code: false,
+        twig: '
+<div class="btn__group dropdown">
+    <button class="btn dropdown__toggle" data-toggle="dropdown">Actions&nbsp;<span class="caret"></span></button>
+    <ul class="dropdown__menu pull-left">
+        <li><a href="/save"><i class="icon-save"></i>&nbsp;Save</a></li>
+        <li><a href="/edit"><i class="icon-pencil"></i>&nbsp;Edit</a></li>
+        <li><span class="divider"></span></li>
+        <li><a href="/publish"><i class="icon-cloud-upload"></i>&nbsp;Publish</a></li>
+        <li><a href="/translate"><i class="icon-globe"></i>&nbsp;Translate</a></li>
+        <li><a href="/locl"><i class="icon-lock"></i>&nbsp;Lock</a></li>
+        <li><span class="divider"></span></li>
+        <li><a href="/delete"><i class="icon-remove"></i>&nbsp;Delete</a></li>
+    </ul>
+</div>
+'
+    }) }}
+
+    {{ docs.heading('h2', 'Communicating state vs. actions') }}
+
+    <p>When using iconography you may need to use different icons to illustrate a state and the associated action which modifies the state.</p>
+
+    {{ docs.example({ 
+        code: false,
+        twig: "
+<p>State: {{ 
+    html.label({
+        'label': html.icon('lock') ~ ' Locked',
+        'class': 'label--inverse'
+    })
+}}
+</p>
+<p>
+Action: {{ 
+    html.button({
+        'label': html.icon('unlock') ~ ' Unlock'
+    })
+}}
+</p>
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#general-guidance">General guidance</a></li>
+    </ul>
+{% endblock tab_sidebar %}

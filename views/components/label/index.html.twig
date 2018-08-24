@@ -1,0 +1,44 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Label' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Components', 'href': '#'},
+        {'label': 'Label', 'href': '#'}
+    ]
+%}
+
+{% set tab_code %}
+    {% include 'components/label/code.html.twig' %}
+{% endset %}
+{% set tab_guidelines %}
+    {% include 'components/label/guidelines.html.twig' %}
+{% endset %}
+{% set tab_style %}
+    {% include 'components/label/style.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "code",
+          "class" : "ui-report",
+          "label" : "Code",
+          "src"   : tab_code,
+          "active": true
+        },
+        {
+          "id"    : "guidelines",
+          "class" : "ui-report",
+          "label" : "Guidelines",
+          "src"   : tab_guidelines
+        },
+        {
+          "id"    : "style",
+          "class" : "ui-report",
+          "label" : "Style",
+          "src"   : tab_style
+        }
+    ]
+%}

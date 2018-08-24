@@ -1,0 +1,175 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+
+    {{ docs.heading('h2', 'States') }}
+    {{ docs.heading('h3', 'Primary') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.label({
+        'label': 'My Label',
+        'class': 'label--primary'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Success') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.label({
+        'label': 'My Label',
+        'class': 'label--success'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Warning') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.label({
+        'label': 'My Label',
+        'class': 'label--warning'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Danger') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.label({
+        'label': 'My Label',
+        'class': 'label--danger'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Info') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.label({
+        'label': 'My Label',
+        'class': 'label--info'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Inverse') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.label({
+        'label': 'My Label',
+        'class': 'label--inverse'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Large labels') }}
+
+{{ docs.example({ 
+        twig: "
+{{
+    html.label({
+        'label': 'My Label',
+        'class': 'label--large'
+    })
+}}
+{{
+    html.label({
+        'label': 'My Label',
+        'class': 'label--primary label--large',
+        'removable': true
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Large') }}
+
+    {{ docs.heading('h2', 'Removable labels') }}
+
+
+    <p>This adds <code>data-action="remove" data-action-target="this"</code> to the markup, which can use used as a hook for your own javascript.</p>
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.label({
+        'label': 'My Label',
+        'removable': true
+    })
+}}
+{{
+    html.label({
+        'label': 'My Label',
+        'removable': true,
+        'class': 'label--primary'
+    })
+}}
+{{
+    html.label({
+        'label': 'My Label',
+        'removable': true,
+        'class': 'label--success'
+    })
+}}
+{{
+    html.label({
+        'label': 'My Label',
+        'removable': true,
+        'class': 'label--warning'
+    })
+}}
+{{
+    html.label({
+        'label': 'My Label',
+        'removable': true,
+        'class': 'label--danger'
+    })
+}}
+{{
+    html.label({
+        'label': 'My Label',
+        'removable': true,
+        'class': 'label--info'
+    })
+}}
+{{
+    html.label({
+        'label': 'My Label',
+        'removable': true,
+        'class': 'label--inverse'
+    })
+}}
+    " }) }}
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#states">States</a>
+            <ul>
+                <li><a href="#primary">Primary</a></li>
+                <li><a href="#success">Success</a></li>
+                <li><a href="#warning">Warning</a></li>
+                <li><a href="#danger">Danger</a></li>
+                <li><a href="#info">Info</a></li>
+                <li><a href="#inverse">Inverse</a></li>
+            </ul>
+        </li>
+        <li><a href="#large-labels">Large labels</a></li>
+        <li><a href="#removable-labels">Removable labels</a></li>
+    </ul>
+{% endblock tab_sidebar %}

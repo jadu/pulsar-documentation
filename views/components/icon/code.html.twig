@@ -1,0 +1,163 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Help visually distinguish and provide extra meaning to certain items or actions. You can pass an icon name or mime type to generate the appropriate icon.</p>
+
+    <p>Pulsar currently uses <a href="https://fontawesome.com/v4.7.0/">Font Awesome 4</a>, please refer to the <a href="https://fontawesome.com/v4.7.0/icons/">icon cheatsheet</a> to see the full list of available icons.</p>
+    
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({ 
+        screenreader: "Save",
+        twig: "
+{{
+    html.icon('save', {
+        'label': 'Save'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Helper options') }}
+
+    <table class="table table--full">
+    <thead>
+        <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>class</code></td>
+            <td>string</td>
+            <td>A space-separated list of additional class names, these will be added to whatever classes the component requires for its own styling</td>
+        </tr>
+        <tr>
+            <td><code>label</code></td>
+            <td>string</td>
+            <td>An optional label which can be accessed by screen readers, this should be used when there is no visible text label which can be used for context</td>
+        </tr>
+    </tbody>
+</table>
+
+    {{ docs.heading('h2', 'Mime type icons') }}
+
+    <p>The icon helper can take a standard mime type string to make it easier to illustrate certain file types.</p>
+
+    {{ docs.example({ 
+        screenreader: "Save",
+        twig: "
+{{
+    html.icon('application/msword', {
+        'label': 'Microsoft Word'
+    })
+}}
+    " }) }}
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+                <th>Mime Type</th>
+                <th>Icon</th>
+                <th>Preview</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>application/msword</td>
+                <td>file-word-o</td>
+                <td>{{ html.icon('application/msword') }}</td>
+            </tr>
+            <tr>
+                <td>application/vnd.openxmlformats-officedocument.wordprocessingml.document</td>
+                <td>file-word-o</td>
+                <td>{{ html.icon('application/vnd.openxmlformats-officedocument.wordprocessingml.document') }}</td>
+            </tr>
+            <tr>
+                <td>application/vnd.ms-excel</td>
+                <td>file-excel-o</td>
+                <td>{{ html.icon('application/vnd.ms-excel') }}</td>
+            </tr>
+            <tr>
+                <td>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</td>
+                <td>file-excel-o</td>
+                <td>{{ html.icon('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') }}</td>
+            </tr>
+            <tr>
+                <td>application/vnd.ms-powerpoint</td>
+                <td>file-powerpoint-o</td>
+                <td>{{ html.icon('application/vnd.ms-powerpoint') }}</td>
+            </tr>
+            <tr>
+                <td>application/vnd.ms-office</td>
+                <td>file-o</td>
+                <td>{{ html.icon('application/vnd.ms-office') }}</td>
+            </tr>
+            <tr>
+                <td>application/pdf</td>
+                <td>file-pdf-o</td>
+                <td>{{ html.icon('application/pdf') }}</td>
+            </tr>
+            <tr>
+                <td>text/plain</td>
+                <td>file-text-o</td>
+                <td>{{ html.icon('text/plain') }}</td>
+            </tr>
+            <tr>
+                <td>text/html</td>
+                <td>file-code-o</td>
+                <td>{{ html.icon('text/html') }}</td>
+            </tr>
+            <tr>
+                <td>application/*</td>
+                <td>file-o</td>
+                <td>{{ html.icon('application/*') }}</td>
+            </tr>
+            <tr>
+                <td>text/*</td>
+                <td>file-text-o</td>
+                <td>{{ html.icon('text/*') }}</td>
+            </tr>
+            <tr>
+                <td>video/*</td>
+                <td>file-movie-o</td>
+                <td>{{ html.icon('video/*') }}</td>
+            </tr>
+            <tr>
+                <td>audio/*</td>
+                <td>file-audio-o</td>
+                <td>{{ html.icon('audio/*') }}</td>
+            </tr>
+            <tr>
+                <td>image/*</td>
+                <td>file-image-o</td>
+                <td>{{ html.icon('image/*') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'Icon sizes') }}
+
+    <p>Icons inherit their size and colour attributes from their parents and can be nested within other helpers, like buttons, links and tabs.</p>
+
+    {{ docs.example({ 
+        twig: "
+<h1>{{ html.icon('info-sign') }} Example Heading</h1>
+<h2>{{ html.icon('info-sign') }} Example Heading</h2>
+<h3>{{ html.icon('info-sign') }} Example Heading</h3>
+<h4>{{ html.icon('info-sign') }} Example Heading</h4>
+<h5>{{ html.icon('info-sign') }} Example Heading</h5>
+<h6>{{ html.icon('info-sign') }} Example Heading</h6>
+    " }) }}
+    
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+    </ul>
+{% endblock tab_sidebar %}
