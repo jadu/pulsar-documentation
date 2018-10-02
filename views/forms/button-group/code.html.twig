@@ -1,0 +1,176 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Group a series of related buttons together on a single line. Great for creating toolbars.</p>
+
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    <p>The button group helper will use the <code>radio</code> type by default providing a single-choice control. If you're using radios you should ensure one item is <code>checked</code> by default.</p>
+
+    <p>The array of options within <code>items</code> will be passed to the helper <code>type</code> you choose. You should consult the documentation for radio, checkbox or button for a full list of available item options.</p>
+
+    {{ docs.example({
+        screenreader: "",
+        twig: "
+{{
+    form.button_group({
+        'label': 'Button group',
+        'items': [
+            {
+                'id': 'foo1',
+                'label': 'Foo',
+                'name': 'foo-1',
+                'checked': true
+            },
+            {
+                'id': 'bar1',
+                'label': 'Bar',
+                'name': 'foo-1'
+            },
+            {
+                'id': 'baz1',
+                'label': 'Baz',
+                'name': 'foo-1'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Helper options') }}
+
+    <p>You can configure this helper using the <a href="../guides/using-helpers?tab=common-options">common helper options</a>, the following options are specific to this helper.</p>
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>items</td>
+                <td>array</td>
+                <td>An array of options to pass to the helper specified by <code>type</code></td>
+            </tr>
+            <tr>
+                <td>type</td>
+                <td>string</td>
+                <td>The type of input to create, can be <code>radio</code> (default), <code>checkbox</code> or <code>button</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'Single choice (radio)') }}
+
+    {{ docs.example({
+        screenreader: "",
+        twig: "
+{{
+    form.button_group({
+        'label': 'Button group',
+        'items': [
+            {
+                'id': 'foo2',
+                'label': 'Foo',
+                'name': 'foo-2',
+                'checked': true
+            },
+            {
+                'id': 'bar2',
+                'label': 'Bar',
+                'name': 'foo-2'
+            },
+            {
+                'id': 'baz2',
+                'label': 'Baz',
+                'name': 'foo-2'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Multiple choice (checkbox)') }}
+
+    {{ docs.example({
+        screenreader: "",
+        twig: "
+{{
+    form.button_group({
+        'label': 'Button group',
+        'type': 'checkbox',
+        'items': [
+            {
+                'id': 'foo3',
+                'label': 'Foo',
+                'name': 'foo-3',
+                'checked': true
+            },
+            {
+                'id': 'bar3',
+                'label': 'Bar',
+                'name': 'foo-3'
+            },
+            {
+                'id': 'baz3',
+                'label': 'Baz',
+                'name': 'foo-3'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Using icons') }}
+
+        {{ docs.example({
+        screenreader: "",
+        twig: "
+{{
+    form.button_group({
+        'label': 'Alignment',
+        'type': 'radio',
+        'items': [
+            {
+                'id': 'align-left',
+                'label': html.icon('align-left'),
+                'name': 'alignment',
+                'checked': true
+            },
+            {
+                'id': 'align-center',
+                'label': html.icon('align-center'),
+                'name': 'alignment',
+            },
+            {
+                'id': 'align-right',
+                'label': html.icon('align-right'),
+                'name': 'alignment',
+            },
+            {
+                'id': 'justify',
+                'label': html.icon('align-justify'),
+                'name': 'alignment',
+            }
+        ]
+    })
+}}
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#helper-options">Helper options</a></li>
+        <li><a href="#single-choice-(radio)">Single choice (radio)</a></li>
+        <li><a href="#single-choice-(checkbox)">Multiple choice (checkbox)</a></li>
+        <li><a href="#using-icons">Using icons</a></li>
+    </ul>
+{% endblock tab_sidebar %}

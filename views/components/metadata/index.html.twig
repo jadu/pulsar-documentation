@@ -1,0 +1,26 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Metadata' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Components', 'href': '#'},
+        {'label': 'Metadata', 'href': '#'}
+    ]
+%}
+
+{% set tab_code %}
+    {% include 'components/metadata/code.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "code",
+          "class" : "ui-report",
+          "label" : "Code",
+          "src"   : tab_code,
+          "active": true
+        }
+    ]
+%}

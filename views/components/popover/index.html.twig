@@ -1,0 +1,26 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Popover' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Components', 'href': '#'},
+        {'label': 'Popover', 'href': '#'}
+    ]
+%}
+
+{% set tab_code %}
+    {% include 'components/popover/code.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "code",
+          "class" : "ui-report",
+          "label" : "Code",
+          "src"   : tab_code,
+          "active": true
+        }
+    ]
+%}

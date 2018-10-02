@@ -1,0 +1,71 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Displays a small visual indication of state; helpful when used within table cells or piano list keys to avoid the need for a user to check many items individually to determine their state.</p>
+
+    <p>Status indicators should ideally have some text which indicates their context. For example, they could be sat next to a text label called ‘Active’, or within a table column entitled ‘Online’. Try not to rely on this indicator alone.</p>
+    
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({
+        twig: "
+<p>I am online {{ html.status('online') }}</p>
+<p>I am offline {{ html.status('offline') }}</p>
+<p>I am active {{ html.status('active') }}</p>
+<p>I am inactive {{ html.status('inactive') }}</p>
+    " }) }}
+
+{{ docs.heading('h2', 'States') }}
+
+    <ul>
+        <li>online (default)</li>
+        <li>offline</li>
+        <li>active</li>
+        <li>inactive</li>
+    </ul>
+
+    <p>Some states are simply synonyms of each other, the choice of verb will be defined by the context in which it is to be used.</p>
+
+    <p>The ‘state’ will be used for both the title attribute, and for the stateful class name.</p>
+
+    <pre><code lang="html">&lt;span class="status is-online" title="online"&gt;&lt;/span&gt;</code></pre>
+
+{{ docs.heading('h2', 'Accessibility') }}
+
+    <p>You may notice ‘offline’ uses a square instead of a circle, this is to visually distinguish it from the green ‘online’ status for red/green colourblind users as colour alone isn’t a reliable indicator of status. The title attribute is also added which is displayed on hover and for screen readers.</p>
+
+    <blockquote>
+        …ensure that all users can access information that is conveyed by color differences, that is, by the use of color where each color has a meaning assigned to it. If the information is conveyed through color differences in an image (or other non-text format), the color may not be seen by users with color deficiencies. In this case, providing the information conveyed with color through another visual means ensures users who cannot see color can still perceive the information.
+        <cite><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html">WCAG 2.0 Guideline 1.4.1</a></cite>
+    </blockquote>
+
+    <div class="g-row">
+        <figure class="g-col g-col--5 g-col--first">
+            <img src="/views/components/status/img/status-col1.png" alt="Screenshot showing how this component is viewed by people affected by deuteranopia" />
+        </figure>
+
+        <figure class="g-col g-col--5">
+            <img src="/views/components/status/img/status-col2.png" alt="Screenshot showing how this component is viewed by people affected by deuteranomoly" />
+        </figure>
+    </div>
+    <div class="g-row">
+        <figure class="g-col g-col--5 g-col--first">
+            <img src="/views/components/status/img/status-col3.png" alt="Screenshot showing how this component is viewed by people affected by protanopia" />
+        </figure>
+
+        <figure class="g-col g-col--5">
+            <img src="/views/components/status/img/status-col4.png" alt="Screenshot showing how this component is viewed by people affected by monochromacy" />
+        </figure>
+    </div>
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#helper-options">Helper options</a></li>
+        <li><a href="#accessibility">Accessibility</a></li>
+    </ul>
+{% endblock tab_sidebar %}

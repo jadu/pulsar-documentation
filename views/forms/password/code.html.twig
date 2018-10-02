@@ -1,0 +1,52 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Generates a password input field.</p>
+
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({
+        screenreader: 'My label, secure edit text.',
+        twig: "
+{{
+    form.password({
+        'label': 'My label',
+        'id': 'password-1',
+        'name': 'password-1'
+    })
+}}
+    " }) }}
+    
+    {{ docs.heading('h2', 'Helper options') }}
+
+    <p>You can configure this helper using the <a href="../guides/using-helpers?tab=common-options">common helper options.</a></p>
+
+    {{ docs.heading('h2', 'Disabled input') }}
+
+    <p>Add the <code>'disabled': true</code> option to disable the field on load. See the <a href="../guides/disabling-elements">disabling elements guide</a> for more information about how to disable elements via javascript. Provide help text or information within the UI where possible to explain why elements are disabled.</p>
+
+    {{ docs.example({
+        screenreader: 'My label, secure edit text.',
+        twig: "
+{{
+    form.password({
+        'label': 'My label',
+        'id': 'password-2',
+        'name': 'password-2',
+        'disabled': true
+    })
+}}
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#helper-options">Helper options</a></li>
+        <li><a href="#disabled-input">Disabled input</a></li>
+    </ul>
+{% endblock tab_sidebar %}

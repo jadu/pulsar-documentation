@@ -1,0 +1,179 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">The compound helper allows you to build a form group using multiple separate inputs with a single common label, and render those in a screenreader-friendly way.</p>
+
+    {{ docs.heading('h2', 'Defining inputs') }}
+
+    <p>The inputs option accepts the same hash of options you would normally pass to a form helper, however you will need to explicitly define the type of input to create, which currently can be text, textarea, select or select2.</p>
+
+    <p>You should provide sensible labels as well as unique IDs for each individual inputs so that screenreaders can announce the separate fields sensibly, use show-label': false to visually hide them from the user interface.</p>
+
+    {{ docs.example({
+        screenreader: "",
+        twig: "
+{{
+    form.compound({
+        'id': 'compound-1',
+        'label': 'Example',
+        'inputs': [
+            {
+                'class': 'form__control-col--1',
+                'label': 'One',
+                'id': 'one',
+                'placeholder': 'One',
+                'show-label': false,
+                'type': 'text'
+            },
+            {
+                'class': 'form__control-col--1',
+                'label': 'Two',
+                'id': 'two',
+                'placeholder': 'Two',
+                'show-label': false,
+                'type': 'text'
+            }
+        ]
+    })
+}}
+    " }) }}
+    
+    {{ docs.heading('h2', 'Example patterns') }}
+    {{ docs.heading('h3', 'Date of birth') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.compound({
+        'id': 'compound-2',
+        'help': 'For example: 25 12 1980',
+        'label': 'Date of birth',
+        'inputs': [
+            {
+                'class': 'form__control-col--1',
+                'label': 'Day',
+                'id': 'dd',
+                'placeholder': 'DD',
+                'show-label': false,
+                'type': 'text'
+            },
+            {
+                'class': 'form__control-col--1',
+                'label': 'Month',
+                'id': 'mm',
+                'placeholder': 'MM',
+                'show-label': false,
+                'type': 'text'
+            },
+            {
+                'class': 'form__control-col--2',
+                'label': 'Year',
+                'id': 'yyyy',
+                'placeholder': 'YYYY',
+                'show-label': false,
+                'type': 'text'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Date of birth with one invalid field') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.compound({
+        'id': 'compound-3',
+        'help': 'For example: 25 12 1980',
+        'label': 'Date for birth',
+        'error': 'Please complete your month of birth',
+        'class': 'form__group--partial-state',
+        'inputs': [
+            {
+                'class': 'form__control-col--1',
+                'label': 'Day',
+                'id': 'dd',
+                'placeholder': 'DD',
+                'show-label': false,
+                'type': 'text'
+            },
+            {
+                'class': 'form__control-col--1 has-error',
+                'label': 'Month',
+                'id': 'mm',
+                'placeholder': 'MM',
+                'show-label': false,
+                'type': 'text'
+            },
+            {
+                'class': 'form__control-col--2',
+                'label': 'Year',
+                'id': 'yyyy',
+                'placeholder': 'YYYY',
+                'show-label': false,
+                'type': 'text'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Timeout') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.compound({
+        'id': 'compound-4',
+        'help': 'How long the system should wait for a response, usually 30 seconds',
+        'label': 'Response timeout',
+        'inputs': [
+            {
+                'class': 'form__control-col--1',
+                'label': 'Value',
+                'id': 'value',
+                'maxlength': '3',
+                'show-label': false,
+                'type': 'text',
+                'value': '30'
+            },
+            {
+                'class': 'u-width-auto',
+                'label': 'Unit of time',
+                'id': 'Unit',
+                'show-label': false,
+                'type': 'select',
+                'options': [
+                    {
+                        'label': 'Seconds',
+                        'value': 'sec'
+                    },
+                    {
+                        'label': 'Minutes',
+                        'value': 'min'
+                    }
+                ]
+            }
+        ]
+    })
+}}
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#defining-inputs">Defining inputs</a></li>
+        <li><a href="#example-patterns">Example patterns</a>
+            <ul>
+                <li><a href="#date-of-birth">Date of birth</a></li>
+                <li><a href="#date-of-birth-with-one-invalid-field">Date of birth with one invalid field</a></li>
+                <li><a href="#timeout">Timeout</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock tab_sidebar %}

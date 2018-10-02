@@ -1,0 +1,281 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Create the opening and closing form elements to wrap your inputs.</p>
+
+    {{ docs.heading('h2', 'Opening a form') }}
+
+    <pre><code lang="twig">&#123;&#123; form.create() &#125;&#125;</code></pre>
+    
+    {{ docs.heading('h3', 'Helper options') }}
+
+    <p>You can configure this helper using the <a href="../guides/using-helpers?tab=common-options">common helper options</a>, the following options are specific to this helper.</p>
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>action</td>
+                <td>string</td>
+                <td>URL to post to, will submit to self if empty</td>
+            </tr>
+            <tr>
+                <td>class</td>
+                <td>string</td>
+                <td>A space separated list of class names</td>
+            </tr>
+            <tr>
+                <td>enctype</td>
+                <td>string</td>
+                <td>How the form-data should be encoded (requires method = POST)</td>
+            </tr>
+            <tr>
+                <td>id</td>
+                <td>string</td>
+                <td>A unique identifier, if required</td>
+            </tr>
+            <tr>
+                <td>name</td>
+                <td>string</td>
+                <td>The name of the form</td>
+            </tr>
+            <tr>
+                <td>nonce</td>
+                <td>string</td>
+                <td>Random string used to prevent CSRF, adds a hidden <code class="highlighter-rouge">nonce</code> input after <code class="highlighter-rouge">&lt;form&gt;</code></td>
+            </tr>
+            <tr>
+                <td>method</td>
+                <td>string</td>
+                <td>The HTTP method to be used to submit the form</td>
+            </tr>
+            <tr>
+                <td>data-*</td>
+                <td>string</td>
+                <td>Data attributes, eg: <code class="highlighter-rouge">'data-foo': 'bar'</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h3', 'Enctype') }}
+
+    <p>The <code>enctype</code> attribute will be set to <code>application/x-www-form-urlencoded</code> by default, unless you’re using a method other than <code>POST</code>.</p>
+
+    <pre><code lang="twig">&#123;&#123; form.create() &#125;&#125;</code></pre>
+
+    <pre><code lang="html">&lt;form method="POST" enctype="application/x-www-form-urlencoded" class="form"&gt;</code></pre>
+
+    {{ docs.heading('h3', 'Using PUT') }}
+
+    <p>If you specify <code>'method': 'PUT'</code> then a hidden input will be created automatically after the <code>&lt;form&gt;</code> element, and the method attribute on the form element will be set to <code>POST</code>.</p>
+
+    <pre><code lang="twig">&#123;&#123; 
+    form.create(&#123;
+        'method': 'PUT'
+    &#125;) 
+&#125;&#125;</code></pre>
+
+    <pre><code lang="html">&lt;form method="POST" enctype="application/x-www-form-urlencoded" class="form"&gt;
+    &lt;input name="_method" value="PUT" type="hidden" /&gt;</code></pre>
+
+    {{ docs.heading('h3', 'CSRF protection') }}
+
+    <p>Supply a <code>nonce</code> and it will be added as a hidden input after the opening <code>&lt;form&gt;</code> element.</p>
+
+    <pre><code lang="twig">&#123;&#123; 
+    form.create(&#123;
+        'nonce': 'D2A619A309DCE1BEF50F01F08EB764B42D9B36BF8128A8D303FD6DCF91E5FDD6'
+    &#125;) 
+&#125;&#125;</code></pre>
+
+    <pre><code lang="html">&lt;form method="POST" enctype="application/x-www-form-urlencoded" class="form"&gt;
+    &lt;input name="nonce" value="D2A619A309DCE1BEF50F01F08EB764B42D9B36BF8128A8D303FD6DCF91E5FDD6" type="hidden" /&gt;</code></pre>
+
+    {{ docs.heading('h2', 'Closing a form') }}
+
+    <p>allows you to specify the buttons required to submit/cancel the form, then closes the form with the <code>&lt;/form&gt;</code> element.</p>
+
+    {{ docs.example({
+        screenreader: "",
+        twig: "
+{{
+    form.end({
+        'actions': [
+            form.submit({
+                'class': 'btn--primary',
+                'label': 'Primary Action'
+            }),
+            html.button({
+                'class': 'btn--naked',
+                'type': 'link',
+                'label': 'Cancel',
+                'href': '/home'
+            })
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Helper options', 'closing') }}
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>actions</td>
+                <td>string</td>
+                <td>Helpers to display as the actions, usually <code>form.submit()</code> but can be buttons, links etc&hellip;</td>
+            </tr>
+            <tr>
+                <td>class</td>
+                <td>string</td>
+                <td>A space separated list of class names</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h3', 'Button placement') }}
+
+    <p>Primary actions should be the first buttons in the form.end actions, where possible you should also include a ‘Cancel’ action to allow the user to exit a form with no changes, this should use <code>.btn--naked</code> styling.</p>
+
+    <p>If the UI is one which could/should allow the user to delete the item you can add a delete button to the form actions. You should use the <code>.pull-right</code> class to align this on the right hand side.</p>
+
+    {{ docs.example({
+        screenreader: "",
+        twig: "
+{{
+    form.end({
+        'actions': [
+            form.submit({
+                'class': 'btn--primary',
+                'label': 'Primary Action'
+            }),
+            html.button({
+                'class': 'btn--naked',
+                'type': 'link',
+                'label': 'Cancel',
+                'href': '/home'
+            }),
+            html.button({
+                'class': 'btn--danger pull-right',
+                'label': 'Delete'
+            })
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Variations') }}
+    {{ docs.heading('h4', 'Form-aligned actions') }}
+
+    <p>Normally form actions are positioned so they they’re inline with the form controls above it.</p>
+
+    {{ docs.example({
+        screenreader: "",
+        twig: "
+{{ form.create() }}
+{{
+    form.text({
+        'label': 'Example',
+        'id': 'example',
+        'name': 'example'
+    })
+}}
+{{
+    form.end({
+        'actions': [
+            form.submit({
+                'class': 'btn--primary',
+                'label': 'Primary Action'
+            }),
+            html.button({
+                'class': 'btn--naked',
+                'type': 'link',
+                'label': 'Cancel',
+                'href': '/home'
+            })
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h4', 'Flush-aligned actions') }}
+
+    <p>You can make the form actions align to the left hand edge of a form by adding the <code>form__actions--flush</code> class.<p>
+
+    {{ docs.example({
+        screenreader: "",
+        twig: "
+{{ form.create() }}
+{{
+    form.text({
+        'label': 'Example',
+        'id': 'example',
+        'name': 'example'
+    })
+}}
+{{
+    form.end({
+        'class': 'form__actions--flush',
+        'actions': [
+            form.submit({
+                'class': 'btn--primary',
+                'label': 'Primary Action'
+            }),
+            html.button({
+                'class': 'btn--naked',
+                'type': 'link',
+                'label': 'Cancel',
+                'href': '/home'
+            })
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Tooltips on disabled actions') }}
+
+    <p>If you have a disabled action and want to add a tooltip, please refer to the <a href="guides/disabling-elements">disabling elements guide</a> for more information.</p>
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#opening-a-form">Opening a form</a>
+            <ul>
+                <li><a href="#helper-options">Helper options</a></li>
+                <li><a href="#enctype">Enctype</a></li>
+                <li><a href="#using-put">Using PUT</a></li>
+                <li><a href="#csrf-protection">CSRF protection</a></li>
+            </ul>
+        </li>
+        <li><a href="#closing-a-form">Closing a form</a>
+            <ul>
+                <li><a href="#closing-helper-options">Helper options</a></li>
+                <li><a href="#button-placement">Button placement</a></li>
+                <li><a href="#variations">Variations</a>
+                    <ul>
+                        <li><a href="#form-aligned-actions">Form-aligned actions</a></li>
+                        <li><a href="#flush-aligned-actions">Flush-aligned actions</a></li>
+                    </ul>
+                </li>
+                <li><a href="#tooltips-on-disabled-actions">Tooltips on disabled actions</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock tab_sidebar %}

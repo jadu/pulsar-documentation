@@ -1,0 +1,26 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Link' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Components', 'href': '#'},
+        {'label': 'Link', 'href': '#'}
+    ]
+%}
+
+{% set tab_code %}
+    {% include 'components/link/code.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "code",
+          "class" : "ui-report",
+          "label" : "Code",
+          "src"   : tab_code,
+          "active": true
+        }
+    ]
+%}

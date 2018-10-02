@@ -145,3 +145,8 @@ code {
 .report {
     overflow: auto;
 }
+
+blockquote {
+    border-left: 4px solid color(border);
+    padding-left: 20px;
+}

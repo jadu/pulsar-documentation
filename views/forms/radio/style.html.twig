@@ -1,0 +1,297 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    {{ docs.heading('h2', 'Validation') }}
+    {{ docs.heading('h3', 'Error') }}
+
+    {{ docs.example({
+        screenreader: 'My label, unticked, tickbox. Something went wrong',
+        twig: "
+{{
+    form.radio({
+        'label': 'My label',
+        'id': 'radio-b1', 
+        'name': 'radio-b1',
+        'error': 'Something went wrong'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Multiple Errors') }}
+
+    {{ docs.example({
+        screenreader: 'My label, unticked, tickbox. Something went wrong something else went wrong',
+        twig: "
+{{
+    form.radio({
+        'label': 'My label',
+        'id': 'radio-b2', 
+        'name': 'radio-b2',
+        'error': [
+            'Something went wrong',
+            'Something else went wrong'
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Error and Help') }}
+
+    {{ docs.example({
+        screenreader: 'My label, unticked, tick box .Help text to give more information about expected input Something went wrong',
+        twig: "
+{{
+    form.radio({
+        'label': 'My label',
+        'id': 'radio-b3', 
+        'name': 'radio-b3',
+        'error': 'Something went wrong',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'States') }}
+    {{ docs.heading('h3', 'Success') }}
+
+    <p>Highlight positive actions or indicate that something has successfully saved with the <code>has-success</code> class.</p>
+
+    {{ docs.example({
+        screenreader: 'Something went wrong, selected invalid data, radio button, 1 of 3',
+        twig: "
+{{
+    form.radio({
+        'label': 'My label',
+        'class': 'has-success',
+        'id': 'radio-b5', 
+        'name': 'radio-b5',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Warning') }}
+
+    <p>Highlight states which may need extra attention from the user, but which aren’t quite errors, with the <code>has-warning</code> class.</p>
+
+    {{ docs.example({
+        screenreader: 'Help text to give more information about expected input, selected, radio button, 1 of 3',
+        twig: "
+{{
+    form.radio({
+        'label': 'My label',
+        'class': 'has-success',
+        'id': 'radio-b6', 
+        'name': 'radio-b6',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Error') }}
+
+    <p>The <code>has--error</code> class is automatically added when using the <code>error</code> option.</p>
+
+    {{ docs.example({
+        screenreader: 'Help text to give more information about expected input, selected, radio button, 1 of 3',
+        twig: "
+{{
+    form.radio({
+        'label': 'My label',
+        'class': 'has-error',
+        'id': 'radio-b7', 
+        'name': 'radio-b7',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Changed') }}
+
+    <p>Highlight actions which may have changed depending on other choices elsewhere in the user interface using the <code>has-changed</code> class.</p>
+
+    {{ docs.example({
+        screenreader: 'Something went wrong, selected invalid data, radio button, 1 of 3',
+        twig: "
+{{
+    form.radio({
+        'label': 'My label',
+        'class': 'has-changed',
+        'id': 'radio-b4', 
+        'name': 'radio-b4',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+    
+    {{ docs.heading('h2', 'Variations') }}
+    {{ docs.heading('h3', 'Help') }}
+
+    {{ docs.example({
+        screenreader: 'Help text to give more information about selected input, selected, radio button, 1 of 3',
+        twig: "
+{{
+    form.radio({
+        'label': 'My label',
+        'id': 'radio-b8', 
+        'name': 'radio-b8',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Required') }}
+
+    {{ docs.example({
+        screenreader: 'selected, radio button, 1 of 3',
+        twig: "
+{{
+    form.radio({
+        'label': 'My label',
+        'id': 'radio-b9', 
+        'name': 'radio-b9',
+        'required': true,
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Guidance') }}
+
+    {{ docs.example({
+        screenreader: 'selected, radio button, 1 of 3',
+        twig: "
+{{
+    form.radio({
+        'label': 'My label',
+        'id': 'radio-b10', 
+        'name': 'radio-b10',
+        'guidance': 'Guidance text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Alignment') }}
+    {{ docs.heading('h2', 'Hide Label') }}
+    
+    {{ docs.example({
+        screenreader: 'radio button, 1 of 3',
+        twig: "
+{{
+    form.radio({
+        'label': 'My label',
+        'show-label': false,
+        'id': 'radio-b11', 
+        'name': 'radio-b11',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Long Label Behaviour') }}
+    
+    {{ docs.example({
+        screenreader: 'Example block level help text here, radio button, 1 of 3',
+        twig: "
+{{
+    form.radio({
+        'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
+        'id': 'radio-b11', 
+        'name': 'radio-b11',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Top Labels') }}
+
+    <p>You should avoid using really long labels, but if you have to, it may be more appropriate to use the <code>form__group--top</code> class to give it more space.</p>
+    
+    {{ docs.example({
+        screenreader: 'Example block level help text here, radio button, 1 of 3',
+        twig: "
+{{
+    form.radio({
+        'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
+        'class': 'form__group--top',
+        'id': 'radio-b12', 
+        'name': 'radio-b12',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Flush Inputs') }}
+
+    <p>Depending on the flow of your user interface you may want to position your inputs along the left edge of the UI</p>
+    
+    {{ docs.example({
+        screenreader: 'Example block level help text here, radio button, 1 of 3',
+        twig: "
+{{
+    form.radio({
+        'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
+        'class': 'form__group--flush',
+        'id': 'radio-b12', 
+        'name': 'radio-b12',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Flush Inputs & Top Label') }}
+    
+    {{ docs.example({
+        screenreader: 'Example block level help text here, radio button, 1 of 3',
+        twig: "
+{{
+    form.radio({
+        'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
+        'class': 'form__group--top form__group--flush',
+        'id': 'radio-b13', 
+        'name': 'radio-b13',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+    
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#states">Validation</a>
+            <ul>
+                <li><a href="#error">Error</a></li>
+                <li><a href="#multiple-errors">Multiple errors</a></li>
+                <li><a href="#error-and-help">Error and Help</a></li>
+            </ul>
+        </li>
+        <li><a href="#states">States</a>
+            <ul>
+                <li><a href="#success">Success</a></li>
+                <li><a href="#warning">Warning</a></li>
+                <li><a href="#error">Error</a></li>
+                <li><a href="#changed">Changed</a></li>
+            </ul>
+        </li>
+        <li><a href="#variations">Variations</a>
+            <ul>
+                <li><a href="#help">Help</a></li>
+                <li><a href="#required">Required</a></li>
+                <li><a href="#guidance">Guidance</a></li>
+            </ul>
+        </li>
+        <li><a href="#alignment">Alignment</a>
+            <ul>
+                <li><a href="#hide-label">Hide label</a></li>
+                <li><a href="#long-label-behaviour">Long label behaviour</a></li>
+                <li><a href="#top-labels">Top labels</a></li>
+                <li><a href="#flush-inputs">Flush inputs</a></li>
+                <li><a href="#flush-inputs-&-top-label">Flush inputs &amp; top label</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock tab_sidebar %}

@@ -1,0 +1,36 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Button group' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Forms', 'href': '#'},
+        {'label': 'Button group', 'href': '#'}
+    ]
+%}
+
+{% set tab_code %}
+    {% include 'forms/button-group/code.html.twig' %}
+{% endset %}
+{% set tab_style %}
+    {% include 'forms/button-group/style.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "code",
+          "class" : "ui-report",
+          "label" : "Code",
+          "src"   : tab_code,
+          "active": true
+        },
+        {
+          "id"    : "style",
+          "class" : "ui-report",
+          "label" : "Style",
+          "src"   : tab_style,
+          "active": true
+        }
+    ]
+%}

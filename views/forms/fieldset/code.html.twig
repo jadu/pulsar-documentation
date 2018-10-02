@@ -1,0 +1,74 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Fieldsets group several controls into logical sections</p>
+
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    <pre><code lang="twig">&#123;&#123; 
+    form.fieldset_start() 
+&#125;&#125;
+
+    &#123;# form fields #&#125;
+
+&#123;&#123; 
+    form.fieldset_end() 
+&#125;&#125;</code></pre>
+    
+    {{ docs.heading('h3', 'Helper options') }}
+
+    <p>You can configure this helper using the <a href="../guides/using-helpers?tab=common-options">common helper options</a>, the following options are specific to this helper.</p>
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>legend</td>
+                <td>string</td>
+                <td>Label for the optional <code>&lt;legend&gt;</code> element</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h3', 'Legend') }}
+
+    <p>Give fieldsets a descriptive legend to break your form into logical sections.</p>
+
+    {{ docs.example({
+        screenreader: "",
+        twig: "
+{{
+    form.fieldset_start({
+        'legend': 'I am legend'
+    }) 
+}}
+{{
+    form.text({
+        'label': 'Example field',
+        'id': 'field-1', 
+        'name': 'field-1'
+    })
+}}
+{{
+    form.fieldset_end()
+}}
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#helper-options">Helper options</a></li>
+        <li><a href="#Legend">Legend</a></li>
+    </ul>
+{% endblock tab_sidebar %}

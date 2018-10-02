@@ -1,0 +1,52 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Provides a simple way to mark up key/value information provided by a Twig hash or JSON object.</p>
+    
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.metadata({
+        'items': {
+            'File': 'true_lies.avi',
+            'Size': '1.2 Gb',
+            'Type': 'Video'
+        }
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Helper options') }}
+
+    <p>You can configure this helper using the <a href="../guides/using-helpers?tab=common-options">common helper options</a>, the following options are specific to this helper.</p>
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+                <th>Option</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>items</code></td>
+                <td>hash</td>
+                <td>A hash of links formatted by <code>{ 'key': 'value' }</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#helper-options">Helper options</a></li>
+    </ul>
+{% endblock tab_sidebar %}

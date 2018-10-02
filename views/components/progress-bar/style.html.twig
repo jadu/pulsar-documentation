@@ -1,0 +1,93 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+
+    {{ docs.heading('h2', 'States') }}
+
+    <p>Use the state variations to help communicate progress, or lack of it. Showing visible labels can help to show the precise progress or show other relevant updates.</p>
+
+    {{ docs.heading('h3', 'Base') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.progress({
+        'value': 25,
+        'value_visible': true,
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Warning') }}
+
+    <p><code>.progress-bar--warning</code></p>
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.progress({
+        'label': 'Having trouble connecting&hellip;',
+        'value': 33,
+        'value_visible': true,
+        'class': 'progress-bar--warning'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Danger') }}
+
+    <p><code>.progress-bar--danger</code></p>
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.progress({
+        'label': 'Upload failed ' ~ html.icon('warning-sign'),
+        'value': 75,
+        'class': 'progress-bar--danger'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Success') }}
+
+    <p><code>.progress-bar--success</code></p>
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.progress({
+        'label': 'Uploaded ' ~ html.icon('ok'),
+        'value': 100,
+        'class': 'progress-bar--success'
+    })
+}}
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#variations">Variations</a>
+            <ul>
+                <li><a href="#basic-panels">Basic panels</a></li>
+                <li><a href="#padded">Padded</a></li>
+                <li><a href="#centered">Centered</a></li>
+            </ul>
+        </li>
+        <li><a href="#states">States</a>
+            <ul>
+                <li><a href="#Base">Base</a></li>
+                <li><a href="#primary">Primary</a></li>
+                <li><a href="#info">Info</a></li>
+                <li><a href="#success">Success</a></li>
+                <li><a href="#warning">Warning</a></li>
+                <li><a href="#danger">Danger</a></li>
+                <li><a href="#inverse">Inverse</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock tab_sidebar %}

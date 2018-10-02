@@ -1,0 +1,28 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Make sure your forms give the best possible experience when used with assistive technologies.</p>
+
+    <p>{{ html.icon('info-sign') }} Pulsar helpers do their best to be as accessible as possible out of the box and are updated over time with improved accessibility support. You should avoid using hardcoded markup where possible.<p>
+
+    {{ docs.heading('h2', 'Always supply an ID attribute') }}
+
+    <p>Each form helper should have a unique ID attribute, you should consider this a requirement. The ID is used for the following reasons:</p>
+
+    <ul>
+        <li>Link the input to the corresponding label using the <code>for</code> attribute</li>
+        <li>Link the input to any available help text using the <code>aria-describedby</code> attribute</li>
+    </ul>
+
+    <p>These additional attributes ensure that the form component is properly announced by screenreaders and meets the appropriate WCAG guidelines.</p>
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#always-supply-an-id-attribute">Always supply an ID attribute</a></li>
+    </ul>
+{% endblock tab_sidebar %}

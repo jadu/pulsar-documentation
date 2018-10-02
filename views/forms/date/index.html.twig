@@ -1,0 +1,35 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Date' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Forms', 'href': '#'},
+        {'label': 'Date', 'href': '#'}
+    ]
+%}
+
+{% set tab_code %}
+    {% include 'forms/date/code.html.twig' %}
+{% endset %}
+{% set tab_style %}
+    {% include 'forms/date/style.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "code",
+          "class" : "ui-report",
+          "label" : "Code",
+          "src"   : tab_code,
+          "active": true
+        },
+        {
+          "id"    : "style",
+          "class" : "ui-report",
+          "label" : "Style",
+          "src"   : tab_style,
+        }
+    ]
+%}

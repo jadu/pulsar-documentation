@@ -1,0 +1,208 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Display important information in a prominent container.</p>
+    
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.panel({
+        'title': 'In West Philadelphia born and raised',
+        'body': 'In the playground was where I spent most of my days.',
+        'icon': 'info-sign'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Helper options') }}
+
+    <p>You can configure this helper using the <a href="../guides/using-helpers?tab=common-options">common helper options</a>, the following options are specific to this helper.</p>
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+                <th>Option</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>actions</code></td>
+                <td>array</td>
+                <td>An array of <a href="button">html.button</a> options to be displayed within the panel</td>
+            </tr>
+            <tr>
+                <td><code>actions_position</code></td>
+                <td>string</td>
+                <td>Position of the actions, <code>left</code> (default), <code>inline</code>, <code>center</code>, <code>right</code></td>
+            </tr>
+            <tr>
+                <td><code>body</code></td>
+                <td>string</td>
+                <td>The main content of the panel</td>
+            </tr>
+            <tr>
+                <td><code>icon</code></td>
+                <td>string</td>
+                <td>Icon to display next to the panel title (optional)</td>
+            </tr>
+            <tr>
+                <td><code>title</code></td>
+                <td>string</td>
+                <td>The title of the panel (optional)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'Actions') }}
+
+    <p>The actions option will accept an array of options which will be passed to the <a href="button">html.button</a> helper.</p>
+
+    <p>For action styles, use a combination of <code>.btn--outline</code> and <code>.btn--small</code> with either <code>.btn--inverse</code> or <code>.btn--white</code> depending on the colour of the panel you’re using.</p>
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.panel({
+        'title': 'Hello',
+        'icon': 'info-sign',
+        'body': 'You need to do a thing.',
+        'actions': [
+            {
+                'label': 'Don’t Do the Thing',
+                'class': 'btn--outline btn--small btn--inverse'
+            },
+            {
+                'label': 'Do the Thing',
+                'class': 'btn--outline btn--small btn--inverse'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Actions position') }}
+
+    <p>Use the <code>actions_placement</code> option to control the position of your action buttons, they can be <code>left</code> (default), <code>inline</code>, <code>center</code> or <code>right</code>.</p>
+
+    {{ docs.heading('h3', 'Left') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.panel({
+        'title': 'Hello',
+        'icon': 'info-sign',
+        'body': 'You need to do a thing.',
+        'actions': [
+            {
+                'label': 'Don’t Do the Thing',
+                'class': 'btn--outline btn--small btn--inverse'
+            },
+            {
+                'label': 'Do the Thing',
+                'class': 'btn--outline btn--small btn--inverse'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Inline') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.panel({
+        'title': 'Hello',
+        'icon': 'info-sign',
+        'body': 'You need to do a thing.',
+        'actions_placement': 'inline',
+        'actions': [
+            {
+                'label': 'Don’t Do the Thing',
+                'class': 'btn--outline btn--small btn--inverse'
+            },
+            {
+                'label': 'Do the Thing',
+                'class': 'btn--outline btn--small btn--inverse'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+
+{{ docs.heading('h2', 'Center') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.panel({
+        'title': 'Hello',
+        'icon': 'info-sign',
+        'body': 'You need to do a thing.',
+        'actions_placement': 'center',
+        'actions': [
+            {
+                'label': 'Don’t Do the Thing',
+                'class': 'btn--outline btn--small btn--inverse'
+            },
+            {
+                'label': 'Do the Thing',
+                'class': 'btn--outline btn--small btn--inverse'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+
+{{ docs.heading('h2', 'Right') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.panel({
+        'title': 'Hello',
+        'icon': 'info-sign',
+        'body': 'You need to do a thing.',
+        'actions_placement': 'right',
+        'actions': [
+            {
+                'label': 'Don’t Do the Thing',
+                'class': 'btn--outline btn--small btn--inverse'
+            },
+            {
+                'label': 'Do the Thing',
+                'class': 'btn--outline btn--small btn--inverse'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#helper-options">Helper options</a></li>
+        <li><a href="#actions">Actions</a></li>
+        <li><a href="#actions-position">Actions position</a>
+            <ul>
+                <li><a href="#left">Left</a></li>
+                <li><a href="#inline">Inline</a></li>
+                <li><a href="#center">Center</a></li>
+                <li><a href="#right">Right</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock tab_sidebar %}

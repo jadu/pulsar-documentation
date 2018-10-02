@@ -6,12 +6,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/jadu/pulsar.git",
-            "reference": "9d392d0291aeea698e12cb49e7c0e7c3f37ce2c1"
+            "reference": "83ab3028ead8b8f2f1aaa740e66c249147a783b8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/jadu/pulsar/zipball/9d392d0291aeea698e12cb49e7c0e7c3f37ce2c1",
-            "reference": "9d392d0291aeea698e12cb49e7c0e7c3f37ce2c1",
+            "url": "https://api.github.com/repos/jadu/pulsar/zipball/83ab3028ead8b8f2f1aaa740e66c249147a783b8",
+            "reference": "83ab3028ead8b8f2f1aaa740e66c249147a783b8",
             "shasum": "",
             "mirrors": [
                 {
@@ -27,7 +27,7 @@
             "phpunit/phpunit": "*",
             "symfony/yaml": "*"
         },
-        "time": "2018-08-14T13:07:28+00:00",
+        "time": "2018-09-20T14:43:25+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {

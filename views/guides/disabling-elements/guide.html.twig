@@ -1,0 +1,94 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Disabling an element requires adding the appropriate attribute for the browser and any assistive device to recognise the element as being disabled, as well as a class to toggle the disabled styling of a given element.</p>
+
+    <p>{{ html.icon('info-sign') }} Pulsar helpers will automatically use the correct attribute to use when you add <code>'disabled': true</code> to your helper options.</p>
+
+    {{ docs.heading('h2', 'The disabled attribute') }}
+
+    <p>The following elements are the only ones which support the <code>disabled</code> attribute. You do not need to add <code>aria-diasbled</code> for these.</p>
+
+    <ul>
+        <li><code>&lt;button&gt;</code></li>
+        <li><code>&lt;fieldset&gt;</code></li>
+        <li><code>&lt;input&gt;</code></li>
+        <li><code>&lt;optgroup&gt;</code></li>
+        <li><code>&lt;option&gt;</code></li>
+        <li><code>&lt;select&gt;</code></li>
+        <li><code>&lt;textarea&gt;</code></li>
+    </ul>
+
+    {{ docs.heading('h2', 'The aria-disabled attribute') }}
+
+    <p>If an element doesn’t support <code>disabled</code>, you should use <code>aria-disabled="true"</code> to indicate to assistive technologies that an element is no longer interactive.</p>
+
+    {{ docs.heading('h2', 'Disabled visual style') }}
+
+    <p>Elements consistently use the <code>.is-disabled</code> class to visually represent the disabled state of the element.</p>
+
+    {{ docs.heading('h2', 'Disabling on load') }}
+    
+    <p>Add the <code>'disabled': true</code> option to most helpers to disable the element, the required attributes and class should be added automatically.</p>
+
+    {{ docs.example({
+        screenreader: "",
+        twig: "
+{{
+    html.button({ 
+        'label': 'Button',
+        'disabled': true
+    })
+}}
+{{
+    html.link({
+        'href': 'http://www.jadu.net',
+        'label': 'Jadu',
+        'disabled': true
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Disabling with JavaScript') }}
+
+    <p>If you’re writing javascript to disable/enable an element you must toggle both the correct attribute and class to maintain the support for assistive devices as well as compliance with relevant accessibility guidelines.</p>
+
+<pre><code lang="javascript">if ($elementSupportsDisable) {
+    $('#elementToDisable').prop('disabled', true).addClass('.is-disabled');
+} else {
+    $('#elementToDisable').attr('aria-disabled', 'true').addClass('.is-disabled');
+}</code></pre>
+
+    {{ docs.heading('h2', 'Tooltips on disabled elements') }}
+
+    <p>The <code>disabled</code> parameter prevents mouse events from firing and stops tooltips from working entirely. The only way around this which works for all our supported browsers is to wrap the button in a containing div, and attach the tooltip to that element.</p>
+
+    {{ docs.example({
+        screenreader: "",
+        twig: "
+<div rel=\"tooltip\" data-toggle=\"tooltips\" title=\"This tooltip explains why the action is disabled\">
+{{
+    html.button({ 
+        'label': 'Button',
+        'disabled': true
+    })
+}}
+</div>
+    " }) }}
+
+</div>
+
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#the-disabled-attribute">The disabled attribute</a></li>
+        <li><a href="#the-aria-disabled-attribute">The aria-disabled attribute</a></li>
+        <li><a href="#disabled-visual-style">Disabled visual style</a></li>
+        <li><a href="#disabling-on-load">Disabling on load</a></li>
+        <li><a href="#disabling-with-javascript">Disabling with JavaScript</a></li>
+        <li><a href="#Tooltops on disabled elements">Tooltips on disabled elements</a></li>
+    </ul>
+{% endblock tab_sidebar %}

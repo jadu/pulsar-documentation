@@ -21,15 +21,24 @@ var $                     = require('jquery'),
     matchMedia            = require('../vendor/jadu/pulsar/js/polyfills/matchMedia'),
     matchMediaAddListener = require('../vendor/jadu/pulsar/js/polyfills/matchMedia.addListener'),
 
+    pikaday               = require('../vendor/jadu/pulsar/libs/pikaday/plugins/pikaday.jquery'),
+    clickover             = require('../vendor/jadu/pulsar/libs/bootstrapx-clickover/js/bootstrapx-clickover'),
+
     dt            = require('datatables.net')(window, $),
     dt_buttons    = require('datatables.net-buttons')(window, $),
     dt_responsive = require('datatables.net-responsive')(window, $),
     dt_select     = require('datatables.net-select')(window, $),
     
     NavMainComponent      = require('../vendor/jadu/pulsar/js/NavMainComponent'),
-    PulsarUIComponent     = require('../vendor/jadu/pulsar/js/PulsarUIComponent');
+    PulsarUIComponent     = require('../vendor/jadu/pulsar/js/PulsarUIComponent'),
+    PulsarFormComponent   = require('../vendor/jadu/pulsar/js/PulsarFormComponent'),
+    RepeaterManagerComponent = require('../vendor/jadu/pulsar/js/Repeater/RepeaterManagerComponent'),
+    repeaterComponentFactory = require('../vendor/jadu/pulsar/js/Repeater/repeaterComponentFactory');
 
 module.exports = {
     NavMainComponent,
-    PulsarUIComponent
+    PulsarUIComponent,
+    PulsarFormComponent,
+    RepeaterManagerComponent,
+    repeaterComponentFactory,
 };

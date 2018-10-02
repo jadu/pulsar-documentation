@@ -1,0 +1,74 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+
+    {{ docs.heading('h2', 'Variations') }}
+    {{ docs.heading('h3', 'Danger') }}
+
+    <p>Add the <code>.modal--danger</code> class to apply highlight dangerous or potentially destructive actions.</p>
+    <p>Your primary action should use the <code>.btn--danger</code> class instead of primary styling to also highlight the dangerous nature of the action.</p>
+
+    {{ docs.example({
+        html: '
+<div class="modal modal--danger show" id="myDangerModal" role="dialog" aria-modal="true" aria-labelledby="myDangerModal-title" aria-describedby="myDangerModal-description">
+    <div class="modal__dialog">
+        <div class="modal__content">
+            <div class="modal__header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close dialog">×</button>
+                <h1 class="modal__title" id="myDangerModal-title">Delete Account?</h1>
+            </div>
+            <div class="modal__body">
+                <p id="myDangerModal-description" class="hide">Are you sure you want to delete this account?</p>
+                <p>Deleting this account will remove all cases associated with the <code>example@example.com</code> email address, and prevent this user from signing in.</p>
+                <p>They <strong>will not</strong> be notified of this action.</p>
+            </div>
+            <div class="modal__footer">
+                <button type="button" class="btn btn--danger">Delete Account</button>
+                <button type="button" class="btn btn--naked" data-dismiss="modal">Cancel</button>
+            </div>
+        </div><!-- /.modal__content -->
+    </div><!-- /.modal__dialog -->
+</div><!-- /.modal -->
+    ' }) }}
+
+    {{ docs.heading('h3', 'Large') }}
+
+    <p>For modals containing lots of content, or with more interactive elements, using the large modal variation will give your UI more space to work with.
+
+    {{ docs.example({
+        html: '
+<div class="modal modal--large show" id="myModal" role="dialog" aria-modal="true" aria-labelledby="myModal-title" aria-describedby="myModal-description">
+    <div class="modal__dialog">
+        <div class="modal__content">
+            <div class="modal__header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close dialog">×</button>
+                <h1 class="modal__title" id="myModal-title">A simple example</h1>
+            </div>
+            <div class="modal__body">
+                <p id="myModal-description" class="hide">Here goes a short description (a couple of lines) about the modal’s purpose, if needed.</p>
+                <p>Large modals have a larger max-width and will stretch further to accommodate more content or more interactive elements.</p>
+            </div>
+            <div class="modal__footer">
+                <button type="button" class="btn btn--primary">Save Changes</button>
+                <button type="button" class="btn btn--naked" data-dismiss="modal">Cancel</button>
+            </div>
+        </div><!-- /.modal__content -->
+    </div><!-- /.modal__dialog -->
+</div><!-- /.modal -->
+    ' }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#variations">Variationss</a>
+            <ul>
+                <li><a href="#danger">Danger</a></li>
+                <li><a href="#large">Large</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock tab_sidebar %}

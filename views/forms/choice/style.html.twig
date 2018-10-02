@@ -1,0 +1,582 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    {{ docs.heading('h2', 'Validation') }}
+    {{ docs.heading('h3', 'Error') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'Assign blame to',
+        'error': 'Something went wrong',
+        'options': [
+            {
+                'label': 'Sunshine',
+                'name': 'choice-b1',
+                'value': 'sun'
+            },
+            {
+                'label': 'Moonlight',
+                'name': 'choice-b1',
+                'value': 'moon'
+            },
+            {
+                'label': 'Good times',
+                'name': 'choice-b1',
+                'value': 'good'
+            },
+            {
+                'label': 'Boogie',
+                'name': 'choice-b1',
+                'value': 'boogie'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Multiple Errors') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'Assign blame to',
+        'error': [
+            'Something went wrong',
+            'Something else went wrong'
+        ],
+        'options': [
+            {
+                'label': 'Sunshine',
+                'name': 'choice-b2',
+                'value': 'sun'
+            },
+            {
+                'label': 'Moonlight',
+                'name': 'choice-b2',
+                'value': 'moon'
+            },
+            {
+                'label': 'Good times',
+                'name': 'choice-b2',
+                'value': 'good'
+            },
+            {
+                'label': 'Boogie',
+                'name': 'choice-b2',
+                'value': 'boogie'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Error and Help') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'Assign blame to',
+        'error': 'Something went wrong',
+        'help': 'Help text to give more information about expected input',
+        'options': [
+            {
+                'label': 'Sunshine',
+                'name': 'choice-b3',
+                'value': 'sun'
+            },
+            {
+                'label': 'Moonlight',
+                'name': 'choice-b3',
+                'value': 'moon'
+            },
+            {
+                'label': 'Good times',
+                'name': 'choice-b3',
+                'value': 'good'
+            },
+            {
+                'label': 'Boogie',
+                'name': 'choice-b3',
+                'value': 'boogie'
+            }
+        ]
+    })
+}} 
+    " }) }}
+
+    {{ docs.heading('h2', 'States') }}
+    {{ docs.heading('h3', 'Success') }}
+
+    <p>Highlight positive actions or indicate that something has successfully saved with the <code>has-success</code> class.</p>
+
+    {{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'Assign blame to',
+        'class': 'has-success',
+        'help': 'Help text to give more information about expected input',
+        'options': [
+            {
+                'label': 'Sunshine',
+                'name': 'choice-b4',
+                'value': 'sun'
+            },
+            {
+                'label': 'Moonlight',
+                'name': 'choice-b4',
+                'value': 'moon'
+            },
+            {
+                'label': 'Good times',
+                'name': 'choice-b4',
+                'value': 'good'
+            },
+            {
+                'label': 'Boogie',
+                'name': 'choice-b4',
+                'value': 'boogie'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Warning') }}
+
+    <p>Highlight states which may need extra attention from the user, but which aren’t quite errors, with the <code>has-warning</code> class.</p>
+
+    {{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'Assign blame to',
+        'class': 'has-warning',
+        'help': 'Help text to give more information about expected input',
+        'options': [
+            {
+                'label': 'Sunshine',
+                'name': 'choice-b5',
+                'value': 'sun'
+            },
+            {
+                'label': 'Moonlight',
+                'name': 'choice-b5',
+                'value': 'moon'
+            },
+            {
+                'label': 'Good times',
+                'name': 'choice-b5',
+                'value': 'good'
+            },
+            {
+                'label': 'Boogie',
+                'name': 'choice-b5',
+                'value': 'boogie'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Error') }}
+
+    <p>The <code>has--error</code> class is automatically added when using the <code>error</code> option.</p>
+
+{{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'Assign blame to',
+        'class': 'has-error',
+        'help': 'Help text to give more information about expected input',
+        'options': [
+            {
+                'label': 'Sunshine',
+                'name': 'choice-b6',
+                'value': 'sun'
+            },
+            {
+                'label': 'Moonlight',
+                'name': 'choice-b6',
+                'value': 'moon'
+            },
+            {
+                'label': 'Good times',
+                'name': 'choice-b6',
+                'value': 'good'
+            },
+            {
+                'label': 'Boogie',
+                'name': 'choice-b6',
+                'value': 'boogie'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Changed') }}
+
+    <p>Highlight actions which may have changed depending on other choices elsewhere in the user interface using the <code>has-changed</code> class.</p>
+
+{{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'Assign blame to',
+        'class': 'has-changed',
+        'help': 'Help text to give more information about expected input',
+        'options': [
+            {
+                'label': 'Sunshine',
+                'name': 'choice-b7',
+                'value': 'sun'
+            },
+            {
+                'label': 'Moonlight',
+                'name': 'choice-b7',
+                'value': 'moon'
+            },
+            {
+                'label': 'Good times',
+                'name': 'choice-b7',
+                'value': 'good'
+            },
+            {
+                'label': 'Boogie',
+                'name': 'choice-b7',
+                'value': 'boogie'
+            }
+        ]
+    })
+}}
+    " }) }}
+    
+    {{ docs.heading('h2', 'Variations') }}
+    {{ docs.heading('h3', 'Help') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'Assign blame to',
+        'help': 'Help text to give more information about expected input',
+        'options': [
+            {
+                'label': 'Sunshine',
+                'name': 'choice-b8',
+                'value': 'sun'
+            },
+            {
+                'label': 'Moonlight',
+                'name': 'choice-b8',
+                'value': 'moon'
+            },
+            {
+                'label': 'Good times',
+                'name': 'choice-b8',
+                'value': 'good'
+            },
+            {
+                'label': 'Boogie',
+                'name': 'choice-b8',
+                'value': 'boogie'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Required') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'Assign blame to',
+        'required': true,
+        'help': 'Help text to give more information about expected input',
+        'options': [
+            {
+                'label': 'Sunshine',
+                'name': 'choice-b9',
+                'value': 'sun'
+            },
+            {
+                'label': 'Moonlight',
+                'name': 'choice-b9',
+                'value': 'moon'
+            },
+            {
+                'label': 'Good times',
+                'name': 'choice-b9',
+                'value': 'good'
+            },
+            {
+                'label': 'Boogie',
+                'name': 'choice-b9',
+                'value': 'boogie'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Guidance') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'Assign blame to',
+        'guidance': 'Guidance text to give more information about expected input',
+        'options': [
+            {
+                'label': 'Sunshine',
+                'name': 'choice-b10',
+                'value': 'sun'
+            },
+            {
+                'label': 'Moonlight',
+                'name': 'choice-b10',
+                'value': 'moon'
+            },
+            {
+                'label': 'Good times',
+                'name': 'choice-b10',
+                'value': 'good'
+            },
+            {
+                'label': 'Boogie',
+                'name': 'choice-b10',
+                'value': 'boogie'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Alignment') }}
+    {{ docs.heading('h2', 'Hide Label') }}
+    
+    {{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'Assign blame to',
+        'show-label': false,
+        'help': 'Help text to give more information about expected input',
+        'options': [
+            {
+                'label': 'Sunshine',
+                'name': 'choice-b11',
+                'value': 'sun'
+            },
+            {
+                'label': 'Moonlight',
+                'name': 'choice-b11',
+                'value': 'moon'
+            },
+            {
+                'label': 'Good times',
+                'name': 'choice-b11',
+                'value': 'good'
+            },
+            {
+                'label': 'Boogie',
+                'name': 'choice-b11',
+                'value': 'boogie'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Long Label Behaviour') }}
+    
+    {{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
+        'help': 'Help text to give more information about expected input',
+        'options': [
+            {
+                'label': 'Sunshine',
+                'name': 'choice-b12',
+                'value': 'sun'
+            },
+            {
+                'label': 'Moonlight',
+                'name': 'choice-b12',
+                'value': 'moon'
+            },
+            {
+                'label': 'Good times',
+                'name': 'choice-b12',
+                'value': 'good'
+            },
+            {
+                'label': 'Boogie',
+                'name': 'choice-b12',
+                'value': 'boogie'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Top Labels') }}
+
+    <p>You should avoid using really long labels, but if you have to, it may be more appropriate to use the <code>form__group--top</code> class to give it more space.</p>
+
+    {{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
+        'class': 'form__group--top',
+        'help': 'Help text to give more information about expected input',
+        'options': [
+            {
+                'label': 'Sunshine',
+                'name': 'choice-b13',
+                'value': 'sun'
+            },
+            {
+                'label': 'Moonlight',
+                'name': 'choice-b13',
+                'value': 'moon'
+            },
+            {
+                'label': 'Good times',
+                'name': 'choice-b13',
+                'value': 'good'
+            },
+            {
+                'label': 'Boogie',
+                'name': 'choice-b13',
+                'value': 'boogie'
+            }
+        ]
+    })
+}}
+    " }) }}
+    
+    {{ docs.heading('h2', 'Flush Inputs') }}
+
+    <p>Depending on the flow of your user interface you may want to position your inputs along the left edge of the UI</p>
+    
+    {{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
+        'class': 'form__group--flush',
+        'help': 'Help text to give more information about expected input',
+        'options': [
+            {
+                'label': 'Sunshine',
+                'name': 'choice-b14',
+                'value': 'sun'
+            },
+            {
+                'label': 'Moonlight',
+                'name': 'choice-b14',
+                'value': 'moon'
+            },
+            {
+                'label': 'Good times',
+                'name': 'choice-b14',
+                'value': 'good'
+            },
+            {
+                'label': 'Boogie',
+                'name': 'choice-b14',
+                'value': 'boogie'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Flush Inputs & Top Label') }}
+    
+    {{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
+        'class': 'form__group--top form__group--flush',
+        'help': 'Help text to give more information about expected input',
+        'options': [
+            {
+                'label': 'Sunshine',
+                'name': 'choice-b15',
+                'value': 'sun'
+            },
+            {
+                'label': 'Moonlight',
+                'name': 'choice-b15',
+                'value': 'moon'
+            },
+            {
+                'label': 'Good times',
+                'name': 'choice-b15',
+                'value': 'good'
+            },
+            {
+                'label': 'Boogie',
+                'name': 'choice-b15',
+                'value': 'boogie'
+            }
+        ]
+    })
+}}
+    " }) }}
+    
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#states">Validation</a>
+            <ul>
+                <li><a href="#error">Error</a></li>
+                <li><a href="#multiple-errors">Multiple errors</a></li>
+                <li><a href="#error-and-help">Error and Help</a></li>
+            </ul>
+        </li>
+        <li><a href="#states">States</a>
+            <ul>
+                <li><a href="#success">Success</a></li>
+                <li><a href="#warning">Warning</a></li>
+                <li><a href="#error">Error</a></li>
+                <li><a href="#changed">Changed</a></li>
+            </ul>
+        </li>
+        <li><a href="#variations">Variations</a>
+            <ul>
+                <li><a href="#help">Help</a></li>
+                <li><a href="#required">Required</a></li>
+                <li><a href="#guidance">Guidance</a></li>
+            </ul>
+        </li>
+        <li><a href="#alignment">Alignment</a>
+            <ul>
+                <li><a href="#hide-label">Hide label</a></li>
+                <li><a href="#long-label-behaviour">Long label behaviour</a></li>
+                <li><a href="#top-labels">Top labels</a></li>
+                <li><a href="#flush-inputs">Flush inputs</a></li>
+                <li><a href="#flush-inputs-&-top-label">Flush inputs &amp; top label</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock tab_sidebar %}

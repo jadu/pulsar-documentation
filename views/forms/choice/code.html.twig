@@ -1,0 +1,346 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Displayed as a question with multiple answers, each of which has its own label and can allow either singular (checkboxes) or multiple (radios) choice.</p>
+
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'Assign blame to',
+        'id': 'choice-a1',
+        'options': [
+            {
+                'label': 'Sunshine',
+                'name': 'choice-a1',
+                'value': 'sun'
+            },
+            {
+                'label': 'Moonlight',
+                'name': 'choice-a1',
+                'value': 'moon'
+            },
+            {
+                'label': 'Good times',
+                'name': 'choice-a1',
+                'value': 'good'
+            },
+            {
+                'label': 'Boogie',
+                'name': 'choice-a1',
+                'value': 'boogie'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Helper options') }}
+
+    <p>You can configure this helper using the <a href="../guides/using-helpers?tab=common-options">common helper options</a>, the following options are specific to this helper.</p>
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>optimize</td>
+                <td>string</td>
+                <td>
+                    <ul>
+                        <li><code>auto</code> use a select element if number of <code>options</code> is greater than 5 (default)</li>
+                        <li><code>few</code> force the use of checkboxes/radios regardless of the number of options</li>
+                        <li><code>many</code> force the use of select regardless of the number of options</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>options</td>
+                <td>array</td>
+                <td>
+                    An array of <code>option</code> hashes that will be passed to the checkbox or radio helper, see their documentation for specifics
+                </td>
+            </tr>
+            <tr>
+                <td>multiple</td>
+                <td>bool</td>
+                <td>
+                    If <code>true</code>, uses checkboxes instead of radios, or passes the <code>multiple</code> attribute to the select2 element
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'Multiple choice') }}
+
+    <p>To allow multiple options to be chosen (checkboxes instead of radios), add the <code>'multiple': true</code> option.
+
+    {{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'Assign blame to',
+        'multiple': true,
+        'options': [
+            {
+                'label': 'Sunshine',
+                'name': 'choice-a2',
+                'value': 'sun'
+            },
+            {
+                'label': 'Moonlight',
+                'name': 'choice-a2',
+                'value': 'moon'
+            },
+            {
+                'label': 'Good times',
+                'name': 'choice-a2',
+                'value': 'good'
+            },
+            {
+                'label': 'Boogie',
+                'name': 'choice-a2',
+                'value': 'boogie'
+            }
+        ]
+    })
+}}               
+    " }) }}
+
+    {{ docs.heading('h2', 'Disabled choices') }}
+
+    <p>You can disable individual choices by adding the disabled attribute to the option, or options, you need.
+
+    <p>Add the <code>'disabled': true</code> option to disable the field on load. See the <a href="../guides/disabling-elements">disabling elements guide</a> for more information about how to disable elements via javascript. Provide help text or information within the UI where possible to explain why elements are disabled.</p>
+
+    {{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'Assign blame to',
+        'options': [
+            {
+                'label': 'Sunshine',
+                'name': 'choice-a3',
+                'value': 'sun'
+            },
+            {
+                'label': 'Moonlight',
+                'name': 'choice-a3',
+                'value': 'moon',
+                'disabled': true
+            },
+            {
+                'label': 'Good times',
+                'name': 'choice-a3',
+                'value': 'good'
+            },
+            {
+                'label': 'Boogie',
+                'name': 'choice-a3',
+                'value': 'boogie'
+            }
+        ]
+    })
+}}               
+    " }) }}
+
+    {{ docs.heading('h2', 'Input types') }}
+
+    <p>If there are more than five options, the choice helper will automatically switch to using a select input, this prevents long lists of radio/checkboxes. This behaviour can be overridden with the <code>optimize</code> option</p>
+
+        {{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'Highlight colour',
+        'options': [
+            {
+                'label': 'Red',
+                'name': 'highlight',
+                'value': 'red'
+            },
+            {
+                'label': 'Orange',
+                'name': 'highlight',
+                'value': 'orange',
+                'disabled': true
+            },
+            {
+                'label': 'Yellow',
+                'name': 'highlight',
+                'value': 'yellow'
+            },
+            {
+                'label': 'Green',
+                'name': 'highlight',
+                'value': 'green'
+            },
+            {
+                'label': 'Blue',
+                'name': 'highlight',
+                'value': 'blue'
+            },
+            {
+                'label': 'Indigo',
+                'name': 'highlight',
+                'value': 'indigo'
+            },
+            {
+                'label': 'Violet',
+                'name': 'highlight',
+                'value': 'violet'
+            }
+        ]
+    })
+}}               
+    " }) }}
+    
+
+    {{ docs.heading('h2', 'Help text') }}
+
+    <p>Depending on the needs of your UI you have two options for adding help text to the choice helper. To avoid confusion you should avoid using both help options.</p>
+
+    {{ docs.heading('h3', 'Help for all choices') }}
+
+    <p>If you pass the <code>help</code> option as a direct child of the choice helper it will be displayed in the usual position underneath the whole component. Use this method if your help text describes the whole component and all the available options.</p>
+
+    {{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'Sharing Method',
+        'id': 'sharedType',
+        'help': 'Choose how this content will be shared',
+        'options': [
+            {
+                'label': 'Duplicate',
+                'name': 'choice-a4',
+                'value': '1'
+            },
+            {
+                'label': 'Link Only',
+                'name': 'choice-a4',
+                'value': '2'
+            }
+        ]
+    })
+}}    
+    " }) }}
+
+    {{ docs.heading('h3', 'Help for individual choices') }}
+
+    <p>You can pass <code>help</code> to each individual choice within the <code>options</code> array. This method is useful if you want to give specific guidance for each option.</p>
+
+    {{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'Sharing Method',
+        'id': 'sharedType',
+        'options': [
+            {
+                'label': 'Duplicate',
+                'name': 'choice-a5',
+                'value': '1',
+                'help': 'Visitor will stay on the shared site, your content will look and feel like part of that site'
+            },
+            {
+                'label': 'Link Only',
+                'name': 'choice-a5',
+                'value': '2',
+                'help': 'Visitors will be redirected to this site to view the content'
+            }
+        ]
+    })
+}}    
+    " }) }}
+
+    {{ docs.heading('h2', 'Choice block') }}
+
+    <p>Block styling is available for the choice helper by adding the <code>choice--block</code> modifier class. Pass a standard form width modifier to the choice helper’s class option to control the width of all options.</p>
+
+    {{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'Assign blame to',
+        'class': 'choice--block',
+        'options': [
+            {
+                'label': 'Sunshine',
+                'name': 'choice-a6',
+                'value': 'sun'
+            },
+            {
+                'label': 'Moonlight',
+                'name': 'choice-a6',
+                'value': 'moon'
+            },
+            {
+                'label': 'Good times',
+                'name': 'choice-a6',
+                'value': 'good'
+            },
+            {
+                'label': 'Boogie',
+                'name': 'choice-a6',
+                'value': 'boogie'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    <p>Add <code>choice--block choice--block-inline</code> to lay the options out horizontally.</p>
+
+    {{ docs.example({
+        twig: "
+{{
+    form.choice({
+        'label': 'Are you over 18?',
+        'class': 'choice--block choice--block-inline form__group--small',
+        'options': [
+            {
+                'label': 'Yes',
+                'name': 'age-gate',
+                'value': 'true'
+            },
+            {
+                'label': 'No',
+                'name': 'age-gate',
+                'value': 'false'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#helper-options">Helper options</a></li>
+        <li><a href="#multiple-choice">Multiple choice</a></li>
+        <li><a href="#disabled-choices">Disabled choices</a></li>
+        <li><a href="#input-types">Input types</a></li>
+        <li><a href="#help-text">Help text</a>
+            <ul>
+                <li><a href="#help-for-all-choices">Help for all choices</a></li>
+                <li><a href="#help-for-individual-choices">Help for individual choices</a></li>
+            </ul>
+        </li>
+        <li><a href="#choice-block">Choice block</a></li>
+    </ul>
+{% endblock tab_sidebar %}

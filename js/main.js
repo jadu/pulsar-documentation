@@ -11,11 +11,19 @@
     $html.removeClass('no-js');
 
     pulsar.pulsarUI = new pulsar.PulsarUIComponent($html, window.History);
+    pulsar.pulsarForm = new pulsar.PulsarFormComponent($html);
     pulsar.navMain = new pulsar.NavMainComponent($html, window);
+    pulsar.repeaterManager = new pulsar.RepeaterManagerComponent(
+        pulsar.pulsarForm,
+        pulsar.repeaterComponentFactory,
+        $html
+    );
 
     $(function () {
         pulsar.pulsarUI.init();
+        pulsar.pulsarForm.init();
         pulsar.navMain.init();
+        pulsar.repeaterManager.init();
 
         $('.d-example-nav__link').on('click', function() {
             var $this = $(this),
@@ -28,6 +36,11 @@
                 $parent.find('.js-' + lang).show();
                 $parent.find('.d-example__code:not(.js-' + lang + ')').hide();
         });
+
+        // Use clickover enhancements for popovers
+        $('[rel="clickover"]').clickover({ 'global_close': true });
+
+        
     });
 
 }(jQuery));

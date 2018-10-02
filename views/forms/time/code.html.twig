@@ -1,0 +1,116 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Generate a text input field which will show a time picker overlay when focused.</p>
+
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({
+        screenreader: "",
+        twig: "
+{{
+    form.time({
+        'label': 'Start time',
+        'id': 'time-1',
+        'name': 'time-1'
+    })
+}}
+    " }) }}
+    
+    {{ docs.heading('h2', 'Helper options') }}
+
+    <p>You can configure this helper using the <a href="../guides/using-helpers?tab=common-options">common helper options</a>, the following options are specific to this helper.</p>
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>data-appendTo</td>
+                <td>string</td>
+                <td>Override where the dropdown is appended (default <code>body</code>)</td>
+            </tr>
+            <tr>
+                <td>data-className</td>
+                <td>string</td>
+                <td>A class to apply to the input that has the timepicker dropdown</td>
+            </tr>
+            <tr>
+                <td>data-closeOnWindowScroll</td>
+                <td>boolean</td>
+                <td>Close the timepicker when the window is scrolled (default <code>false</code></td>
+            </tr>
+            <tr>
+                <td>data-disableTimeRanges</td>
+                <td>array</td>
+                <td>Disable selection of certain time ranges by passing an array of time pairs, for example<br /><code>[['3:00am', '4:30am'], ['5:00pm', '8:00pm']]</code>.<br /><br />The start of the interval will be disabled but the end won’t</td>
+            </tr>
+            <tr>
+                <td>data-disableTextInput</td>
+                <td>boolean</td>
+                <td>Disable the ability to type in the input box, forcing users to select from the list. (default <code>false</code>)</td>
+            </tr>
+            <tr>
+                <td>data-maxTime</td>
+                <td>string</td>
+                <td>The time that should appear last in the dropdown list. Can be used to limit the range of time options</td>
+            </tr>
+            <tr>
+                <td>data-minTime</td>
+                <td>string</td>
+                <td>The time that should appear first in the dropdown list</td>
+            </tr>
+            <tr>
+                <td>data-orientation</td>
+                <td>string</td>
+                <td>By default the timepicker will be aligned to the bottom left of the input element, or aligned to the top left if there isn’t enough room below the input. Values can be:
+                <ul>
+                    <li><code>l</code> (left (default))</li>
+                    <li><code>r</code> (right)</li>
+                    <li><code>t</code> (top)</li>
+                    <li><code>b</code> (bottom)</li>
+                </td>
+                Combine letters to move to corners, e.g. <code>tr</code> for top-right
+            </tr>
+            <tr>
+                <td>data-timeFormat</td>
+                <td>string</td>
+                <td>How times should be displayed in the list and input element. Uses PHP’s <code>date()</code> formatting syntax. Characters can be escaped with a preceeding double shash (e.g. <code>H\\hi</code><br /><br />(Default: <code>g:ia</code>)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'Disabled input') }}
+
+    <p>Add the <code>'disabled': true</code> option to disable the field on load. See the <a href="../guides/disabling-elements">disabling elements guide</a> for more information about how to disable elements via javascript. Provide help text or information within the UI where possible to explain why elements are disabled.</p>
+
+    {{ docs.example({
+        screenreader: "",
+        twig: "
+{{
+    form.time({
+        'label': 'Start time',
+        'id': 'time-3',
+        'name': 'time-3',
+        'disabled': true
+    })
+}}
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#helper-options">Helper options</a></li>
+        <li><a href="#disabled-input">Disabled input</a></li>
+    </ul>
+{% endblock tab_sidebar %}

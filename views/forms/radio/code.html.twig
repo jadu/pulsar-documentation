@@ -1,0 +1,125 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Generates a radio input field. There are various different options available to control the position of the radio and labels.</p>
+
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({
+        screenreader: "My label, unticked, tick box",
+        twig: "
+{{
+    form.radio({
+        'label': 'My label',
+        'id': 'radio-1', 
+        'name': 'radio-1'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Helper options') }}
+
+    <p>You can configure this helper using the <a href="../guides/using-helpers?tab=common-options">common helper options</a>, the following options are specific to this helper.</p>
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>input_placement</td>
+                <td>string</td>
+                <td><code>left</code> (default) / <code>right</code> position of the input vs the label value</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'Disabled radios') }}
+
+    <p>Add the <code>'disabled': true</code> option to disable the field on load. See the <a href="../guides/disabling-elements">disabling elements guide</a> for more information about how to disable elements via javascript. Provide help text or information within the UI where possible to explain why elements are disabled.</p>
+
+    {{ docs.example({
+        screenreader: "My label, dimmed, tick box<br /><br />{{ html.icon('warning-sign') }} Will not be announced on tab",
+        twig: "
+{{
+    form.radio({
+        'label': 'My label',
+        'id': 'radio-2', 
+        'name': 'radio-2',
+        'disabled': true
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Inline radios') }}
+
+    <p>The <code>form.radio_inline()</code> helper creates a <code>&lt;label&gt;</code> element with the radio placed inside, this allows the radio to be positioned either before or after the label value through the <code>input_placement</code> option.</p>
+
+    {{ docs.example({
+        screenreader: "<ol>
+            <li>Standard left aligned, unticked, tick box</li>
+            <li>Right aligned, unticked, tick box</li>
+        </ul>",
+        twig: "
+{{
+    form.radio_inline({
+        'label': 'Standard left aligned',
+        'id': 'radio-3', 
+        'name': 'radio-3'
+    })
+}}
+{{
+    form.radio_inline({
+        'label': 'Right aligned',
+        'id': 'radio-4', 
+        'name': 'radio-4',
+        'input_placement': 'right'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Indented radios') }}
+
+    <p>Using <code>form.radio_inline</code> will cause the radio input to not follow the normal flow of a regular Pulsar form. If you want to maintain form alignment, use the <code>.form__group--indent</code> class to restore the position.</p>
+
+    {{ docs.example({
+        screenreader: "<ol>
+            <li>Standard inline position, unticked, tick box</li>
+            <li>Indented position, unticked, tick box</li>
+        </ul>",
+        twig: "
+{{
+    form.radio_inline({
+        'label': 'Standard inline position',
+        'id': 'radio-5', 
+        'name': 'radio-5'
+    })
+}}
+{{
+    form.radio_inline({
+        'label': 'Indented position',
+        'class': 'form__group--indent',
+        'id': 'radio-6', 
+        'name': 'radio-6'
+    })
+}}
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#helper-options">Helper options</a></li>
+        <li><a href="#disabled-radios">Disabled radios</a></li>
+        <li><a href="#inline-radios">Inline radios</a></li>
+        <li><a href="#indented-radios">Indented radios</a></li>
+    </ul>
+{% endblock tab_sidebar %}

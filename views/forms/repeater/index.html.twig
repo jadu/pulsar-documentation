@@ -1,0 +1,26 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Repeater' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Forms', 'href': '#'},
+        {'label': 'Repeater', 'href': '#'}
+    ]
+%}
+
+{% set tab_code %}
+    {% include 'forms/repeater/code.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "code",
+          "class" : "ui-report",
+          "label" : "Code",
+          "src"   : tab_code,
+          "active": true
+        }
+    ]
+%}

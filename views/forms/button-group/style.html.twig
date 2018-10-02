@@ -1,0 +1,527 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+
+    {{ docs.heading('h2', 'Validation') }}
+    {{ docs.heading('h3', 'Error') }}
+
+    {{ docs.example({
+        screenreader: 'Something went wrong, selected invalid data, radio button, 1 of 3',
+        twig: "
+
+{{
+    form.button_group({
+        'label': 'Button group',
+        'error': 'Something went wrong',
+        'items': [
+            {
+                'id': 'foo1',
+                'label': 'Foo',
+                'name': 'foo-1',
+                'checked': true
+            },
+            {
+                'id': 'bar1',
+                'label': 'Bar',
+                'name': 'foo-1'
+            },
+            {
+                'id': 'baz1',
+                'label': 'Baz',
+                'name': 'foo-1'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Multiple Errors') }}
+
+    {{ docs.example({
+        screenreader: 'Something went wrong, selected invalid data, radio button, 1 of 3',
+        twig: "
+
+{{
+    form.button_group({
+        'label': 'Button group',
+        'error': [
+            'Something went wrong',
+            'Something else went wrong'
+        ],
+        'items': [
+            {
+                'id': 'foo1',
+                'label': 'Foo',
+                'name': 'foo-1',
+                'checked': true
+            },
+            {
+                'id': 'bar1',
+                'label': 'Bar',
+                'name': 'foo-1'
+            },
+            {
+                'id': 'baz1',
+                'label': 'Baz',
+                'name': 'foo-1'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Error and Help') }}
+
+    {{ docs.example({
+        screenreader: 'Something went wrong Help text to give more information about expected input, selected invalid data, radio button, 1 of 3',
+        twig: "
+
+{{
+    form.button_group({
+        'label': 'Button group',
+        'error': 'Something went wrong',
+        'help': 'Help text to give more information about expected input',
+        'items': [
+            {
+                'id': 'foo3',
+                'label': 'Foo',
+                'name': 'foo-3',
+                'checked': true
+            },
+            {
+                'id': 'bar3',
+                'label': 'Bar',
+                'name': 'foo-3'
+            },
+            {
+                'id': 'baz3',
+                'label': 'Baz',
+                'name': 'foo-3'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'States') }}
+    {{ docs.heading('h3', 'Changed') }}
+
+    <p>Highlight actions which may have changed depending on other choices elsewhere in the user interface using the <code>has-changed</code> class.</p>
+
+    {{ docs.example({
+        screenreader: 'Something went wrong, selected invalid data, radio button, 1 of 3',
+        twig: "
+
+{{
+    form.button_group({
+        'label': 'Button group',
+        'class': 'has-changed',
+        'help': 'Help text to give more information about expected input',
+        'items': [
+            {
+                'id': 'foo1',
+                'label': 'Foo',
+                'name': 'foo-1',
+                'checked': true
+            },
+            {
+                'id': 'bar1',
+                'label': 'Bar',
+                'name': 'foo-1'
+            },
+            {
+                'id': 'baz1',
+                'label': 'Baz',
+                'name': 'foo-1'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Success') }}
+
+    <p>Highlight positive actions or indicate that something has successfully saved with the <code>has-success</code> class.</p>
+
+    {{ docs.example({
+        screenreader: 'Something went wrong, selected invalid data, radio button, 1 of 3',
+        twig: "
+{{
+    form.button_group({
+        'label': 'Button group',
+        'class': 'has-success',
+        'help': 'Help text to give more information about expected input',
+        'items': [
+            {
+                'id': 'foo1',
+                'label': 'Foo',
+                'name': 'foo-1',
+                'checked': true
+            },
+            {
+                'id': 'bar1',
+                'label': 'Bar',
+                'name': 'foo-1'
+            },
+            {
+                'id': 'baz1',
+                'label': 'Baz',
+                'name': 'foo-1'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Warning') }}
+
+    <p>Highlight states which may need extra attention from the user, but which aren’t quite errors, with the <code>has-warning</code> class.</p>
+
+    {{ docs.example({
+        screenreader: 'Help text to give more information about expected input, selected, radio button, 1 of 3',
+        twig: "
+{{
+    form.button_group({
+        'label': 'Button group',
+        'class': 'has-warning',
+        'help': 'Help text to give more information about expected input',
+        'items': [
+            {
+                'id': 'foo1',
+                'label': 'Foo',
+                'name': 'foo-1',
+                'checked': true
+            },
+            {
+                'id': 'bar1',
+                'label': 'Bar',
+                'name': 'foo-1'
+            },
+            {
+                'id': 'baz1',
+                'label': 'Baz',
+                'name': 'foo-1'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Error') }}
+
+    <p>The <code>has--error</code> class is automatically added when using the <code>error</code> option.</p>
+
+    {{ docs.example({
+        screenreader: 'Help text to give more information about expected input, selected, radio button, 1 of 3',
+        twig: "
+{{
+    form.button_group({
+        'label': 'Button group',
+        'class': 'has-error',
+        'help': 'Help text to give more information about expected input',
+        'items': [
+            {
+                'id': 'foo1',
+                'label': 'Foo',
+                'name': 'foo-1',
+                'checked': true
+            },
+            {
+                'id': 'bar1',
+                'label': 'Bar',
+                'name': 'foo-1'
+            },
+            {
+                'id': 'baz1',
+                'label': 'Baz',
+                'name': 'foo-1'
+            }
+        ]
+    })
+}}
+    " }) }}
+    
+    {{ docs.heading('h2', 'Variations') }}
+    {{ docs.heading('h3', 'Help') }}
+
+    {{ docs.example({
+        screenreader: 'Help text to give more information about selected input, selected, radio button, 1 of 3',
+        twig: "
+
+{{
+    form.button_group({
+        'label': 'Button group',
+        'help': 'Help text to give more information about expected input',
+        'items': [
+            {
+                'id': 'foo2',
+                'label': 'Foo',
+                'name': 'foo-2',
+                'checked': true
+            },
+            {
+                'id': 'bar2',
+                'label': 'Bar',
+                'name': 'foo-2'
+            },
+            {
+                'id': 'baz2',
+                'label': 'Baz',
+                'name': 'foo-2'
+            }
+        ]
+    })
+}}
+
+    " }) }}
+
+    {{ docs.heading('h3', 'Required') }}
+
+    {{ docs.example({
+        screenreader: 'selected, radio button, 1 of 3',
+        twig: "
+{{
+    form.button_group({
+        'label': 'Button group',
+        'required': true,
+        'items': [
+            {
+                'id': 'foo4',
+                'label': 'Foo',
+                'name': 'foo-4',
+                'checked': true
+            },
+            {
+                'id': 'bar4',
+                'label': 'Bar',
+                'name': 'foo-4'
+            },
+            {
+                'id': 'baz4',
+                'label': 'Baz',
+                'name': 'foo-4'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Guidance') }}
+
+    {{ docs.example({
+        screenreader: 'selected, radio button, 1 of 3',
+        twig: "
+
+{{
+    form.button_group({
+        'label': 'Button group',
+        'guidance': 'Guidance text to give more information about expected input',
+        'items': [
+            {
+                'id': 'foo5',
+                'label': 'Foo',
+                'name': 'foo-5',
+                'checked': true
+            },
+            {
+                'id': 'bar5',
+                'label': 'Bar',
+                'name': 'foo-5'
+            },
+            {
+                'id': 'baz5',
+                'label': 'Baz',
+                'name': 'foo-5'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Alignment') }}
+    {{ docs.heading('h2', 'Hide Label') }}
+    
+    {{ docs.example({
+        screenreader: 'radio button, 1 of 3',
+        twig: "
+
+{{
+    form.button_group({
+        'label': 'Button group',
+        'help': 'Example block-level help text here',
+        'show-label': false,
+        'items': [
+            {
+                'id': 'foo1',
+                'label': 'Foo',
+                'name': 'foo-1',
+                'checked': true
+            },
+            {
+                'id': 'bar1',
+                'label': 'Bar',
+                'name': 'foo-1'
+            },
+            {
+                'id': 'baz1',
+                'label': 'Baz',
+                'name': 'foo-1'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Long Label Behaviour') }}
+    
+    {{ docs.example({
+        screenreader: 'Example block level help text here, radio button, 1 of 3',
+        twig: "
+
+{{
+    form.button_group({
+        'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
+        'help': 'Example block-level help text here',
+        'items': [
+            {
+                'id': 'foo1',
+                'label': 'Foo',
+                'name': 'foo-1',
+                'checked': true
+            },
+            {
+                'id': 'bar1',
+                'label': 'Bar',
+                'name': 'foo-1'
+            },
+            {
+                'id': 'baz1',
+                'label': 'Baz',
+                'name': 'foo-1'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Top Labels') }}
+
+    <p>You should avoid using really long labels, but if you have to, it may be more appropriate to use the <code>form__group--top</code> class to give it more space.</p>
+    
+    {{ docs.example({
+        screenreader: 'Example block level help text here, radio button, 1 of 3',
+        twig: "
+
+{{
+    form.button_group({
+        'label': 'A longer than expected label which will probably wrap multiple lines',
+        'class': 'form__group--top',
+        'help': 'Example block-level help text here',
+        'items': [
+            {
+                'id': 'foo1',
+                'label': 'Foo',
+                'name': 'foo-1',
+                'checked': true
+            },
+            {
+                'id': 'bar1',
+                'label': 'Bar',
+                'name': 'foo-1'
+            },
+            {
+                'id': 'baz1',
+                'label': 'Baz',
+                'name': 'foo-1'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Flush Inputs') }}
+
+    <p>Depending on the flow of your user interface you may want to position your inputs along the left edge of the UI</p>
+    
+    {{ docs.example({
+        screenreader: 'Example block level help text here, radio button, 1 of 3',
+        twig: "
+
+{{
+    form.button_group({
+        'label': 'A longer than expected label which will probably wrap multiple lines',
+        'class': 'form__group--flush',
+        'help': 'Example block-level help text here',
+        'items': [
+            {
+                'id': 'foo1',
+                'label': 'Foo',
+                'name': 'foo-1',
+                'checked': true
+            },
+            {
+                'id': 'bar1',
+                'label': 'Bar',
+                'name': 'foo-1'
+            },
+            {
+                'id': 'baz1',
+                'label': 'Baz',
+                'name': 'foo-1'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Flush Inputs & Top Label') }}
+    
+    {{ docs.example({
+        screenreader: 'Example block level help text here, radio button, 1 of 3',
+        twig: "
+
+{{
+    form.button_group({
+        'label': 'A longer than expected label which will probably wrap multiple lines',
+        'class': 'form__group--top form__group--flush',
+        'help': 'Example block-level help text here',
+        'items': [
+            {
+                'id': 'foo1',
+                'label': 'Foo',
+                'name': 'foo-1',
+                'checked': true
+            },
+            {
+                'id': 'bar1',
+                'label': 'Bar',
+                'name': 'foo-1'
+            },
+            {
+                'id': 'baz1',
+                'label': 'Baz',
+                'name': 'foo-1'
+            }
+        ]
+    })
+}}
+    " }) }}
+    
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#states">States</a>
+            <ul>
+                <li><a href="#success">Success</a></li>
+                <li><a href="#warning">Warning</a></li>
+                <li><a href="#error">Error</a></li>
+                <li><a href="#info">Info</a></li>
+                <li><a href="#inverse">Inverse</a></li>
+            </ul>
+        </a></li>
+    </ul>
+{% endblock tab_sidebar %}

@@ -1,0 +1,204 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Generates a text input field allowing users to input data, with a variety of options for additional help and guidance information.</p>
+
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.text({
+        'label': 'My label',
+        'id': 'text-1',
+        'name': 'text-1'
+    })
+}}
+    " }) }}
+    
+    {{ docs.heading('h2', 'Helper options') }}
+
+    <p>You can configure this helper using the <a href="../guides/using-helpers?tab=common-options">common helper options.</a></p>
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>append</td>
+                <td>string</td>
+                <td>Text or markup to include after the input element</td>
+            </tr>
+            <tr>
+                <td>append_type</td>
+                <td>string</td>
+                <td>Use only when appending a button. <code>button</code> is the only valid value</td>
+            </tr>
+            <tr>
+                <td>prepend</td>
+                <td>string</td>
+                <td>Text or markup to include before the input element</td>
+            </tr>
+            <tr>
+                <td>prepend_type</td>
+                <td>string</td>
+                <td>Use only when prepending a button. <code>button</code> is the only valid value</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'Disabled input') }}
+
+    <p>Add the <code>'disabled': true</code> option to disable the field on load. See the <a href="../guides/disabling-elements">disabling elements guide</a> for more information about how to disable elements via javascript. Provide help text or information within the UI where possible to explain why elements are disabled.</p>
+
+    {{ docs.example({
+        twig: "
+{{
+    form.text({
+        'label': 'My label',
+        'id': 'text-2',
+        'name': 'text-2',
+        'disabled': true
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Prepended information') }}
+    {{ docs.heading('h3', 'String', 'pre') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.text({
+        'label': 'Price',
+        'id': 'text-3',
+        'name': 'text-3',
+        'prepend': '£'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Button', 'pre') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.text({
+        'label': 'My label',
+        'id': 'text-4',
+        'name': 'text-4',
+        'prepend': html.button({ 
+            'label': 'Clear'
+        }),
+        'prepend_type': 'button'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Appended information') }}
+    {{ docs.heading('h3', 'String', 'app') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.text({
+        'label': 'Price',
+        'id': 'text-5',
+        'name': 'text-5',
+        'append': '.00'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Button', 'app') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.text({
+        'label': 'Postcode',
+        'id': 'text-6',
+        'name': 'text-6',
+        'append': html.button({ 
+            'label': 'Find Address'
+        }),
+        'append_type': 'button'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Prepended and Appended information') }}
+    {{ docs.heading('h3', 'Strings', 'pre-app') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.text({
+        'label': 'Price',
+        'id': 'text-7',
+        'name': 'text-7',
+        'prepend': '£',
+        'append': '.00'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Buttons', 'pre-app') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.text({
+        'label': 'Value',
+        'id': 'text-8',
+        'name': 'text-8',
+        'prepend': html.button({ 
+            'label': html.icon('minus'),
+            'data-action': 'decrement'
+        }),
+        'prepend_type': 'button',
+        'append': html.button({ 
+            'label': html.icon('plus'),
+            'data-action': 'increment'
+        }),
+        'append_type': 'button'
+    })
+}}
+    " }) }}
+
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#helper-options">Helper options</a></li>
+        <li><a href="#disabled-input">Disabled input</a></li>
+        <li><a href="#prepended-information">Prepended information</a>
+            <ul>
+                <li><a href="#pre-string">String</a></li>
+                <li><a href="#pre-button">Button</a></li>
+            </ul>
+        </li>
+        <li><a href="#appended-information">Appended information</a>
+            <ul>
+                <li><a href="#app-string">String</a></li>
+                <li><a href="#app-button">Button</a></li>
+            </ul>
+        </li>
+        <li><a href="#prepended-and-appended-information">Prepended and appended information</a>
+            <ul>
+                <li><a href="#pre-app-strings">Strings</a></li>
+                <li><a href="#pre-app-buttons">Buttons</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock tab_sidebar %}

@@ -1,0 +1,26 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Disabling Elements' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Guides', 'href': '#'},
+        {'label': 'Disabling elements', 'href': '#'}
+    ]
+%}
+
+{% set tab_guide %}
+    {% include 'guides/disabling-elements/guide.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "guide",
+          "class" : "ui-report",
+          "label" : "Guide",
+          "src"   : tab_guide,
+          "active": true
+        }
+    ]
+%}

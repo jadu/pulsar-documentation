@@ -1,0 +1,26 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Accessibility' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Guides', 'href': '#'},
+        {'label': 'Accessiblity', 'href': '#'}
+    ]
+%}
+
+{% set tab_forms %}
+    {% include 'guides/accessibility/forms.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "a11y-forms",
+          "class" : "ui-report",
+          "label" : "Forms",
+          "src"   : tab_forms,
+          "active": true
+        }
+    ]
+%}

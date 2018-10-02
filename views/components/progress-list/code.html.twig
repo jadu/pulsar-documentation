@@ -1,0 +1,109 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Show a user’s position in a multi-step workflow.</p>
+    
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({ 
+        html: '
+<div class="progress-list">
+
+    <a href="#" class="progress-list__item progress-list__item--current">
+        <span class="progress-list__label">
+            <span class="badge badge--round badge--outline">Step 1</span>
+            Cut a hole in a box
+        </span>
+        <span class="progress-list__arrow">&gt;</span>
+    </a>
+
+    <a href="#" class="progress-list__item">
+        <span class="progress-list__label">
+            <span class="badge badge--round badge--outline">Step 2</span>
+            Put your junk in that box
+        </span>
+        <span class="progress-list__arrow">&gt;</span>
+    </a>
+
+</div>
+    ' }) }}
+
+    {{ docs.heading('h2', 'States') }}
+
+    <p>There are three states of a progress list item.</p>
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+            <th>State</th>
+            <th>Class</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>Complete (user has completed this step)</td>
+            <td><code>progress-list__item--complete</code></td>
+            </tr>
+            <tr>
+            <td>Current (the currently active step)</td>
+            <td><code>progress-list__item--current</code></td>
+            </tr>
+            <tr>
+            <td>Disabled (user cannot yet access this step</td>
+            <td><code>is-disabled</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.example({ 
+        html: '
+<div class="progress-list">
+        <a href="#" class="progress-list__item progress-list__item--complete">
+            <span class="progress-list__label">
+                <span class="badge badge--round badge--outline">Step 1</span>
+                Complete
+            </span>
+            <span class="progress-list__arrow">&gt;</span>
+        </a>
+
+        <a href="#" class="progress-list__item progress-list__item--current">
+            <span class="progress-list__label">
+                <span class="badge badge--round badge--outline">Step 2</span>
+                Current
+            </span>
+            <span class="progress-list__arrow">&gt;</span>
+        </a>
+
+        <a href="#" class="progress-list__item is-disabled">
+            <span class="progress-list__label">
+                <span class="badge badge--round badge--outline">Step 3</span>
+                Disabled
+            </span>
+            <span class="progress-list__arrow">&gt;</span>
+        </a>
+    </div>
+    ' }) }}
+    
+
+    {{ docs.heading('h2', 'Disabled steps') }}
+
+    <p>Use the <code>.is-disabled</code> class when the user cannot, or should not be able to navigate to a progress step.</p>
+
+    {{ docs.heading('h2', 'Mixing element types for items') }}
+
+    <p>You must ensure that the direct children of the <code>progress-list</code> container are always <code>progress-list__item</code> elements. The styling used for this component contains <code>:first-child</code> and <code>:last-child</code> rules, to allow the use of mixed element types. Using other elements nested alongside <code>progress-list__item</code> elements may introduce layout problems.</p>
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#helper-options">Helper options</a></li>
+        <li><a href="#states">States</a></li>
+        <li><a href="#disabled-steps">Disable steps</a></li>
+        <li><a href="#mixing-element-types-for-items">Mixing element types for items</a></li>
+    </ul>
+{% endblock tab_sidebar %}

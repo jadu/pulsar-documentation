@@ -1,0 +1,141 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Modals are a blocking element, they should be used sparingly and only when we absolutely, positively have to stop the user in their tracks to perform a specific action.</p>
+    
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    <p>{{ html.icon('info-sign') }} The following example uses the <code>.show</code> class to make sure the modal is visible on load, you should not use this class if you want your modal hidden on page load.</p>
+
+    {{ docs.example({
+        style: '
+            .d-example .modal__dialog {
+                padding-top: 30px;
+            }
+        ',
+        html: '
+<div class="modal show" id="myModal" role="dialog" aria-modal="true" aria-labelledby="myModal-title" aria-describedby="myModal-description">
+    <div class="modal__dialog">
+        <div class="modal__content">
+            <div class="modal__header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close dialog">×</button>
+                <h1 class="modal__title" id="myModal-title">A simple example</h1>
+            </div>
+            <div class="modal__body">
+                <p id="myModal-description" class="hide">Here goes a short description (a couple of lines) about the modal’s purpose, if needed.</p>
+                <p>The modal body might have instructions, a form, or other stuff.</p>
+            </div>
+            <div class="modal__footer">
+                <button type="button" class="btn btn--primary">Save Changes</button>
+                <button type="button" class="btn btn--naked" data-dismiss="modal">Cancel</button>
+            </div>
+        </div><!-- /.modal__content -->
+    </div><!-- /.modal__dialog -->
+</div><!-- /.modal -->
+    ' }) }}
+
+    {{ docs.heading('h2', 'Accessibility') }}
+
+    <p>Be sure to add <code>role="dialog"</code> to your primary modal div. In the example above, <code>div#myModal</code>. Also, the <code>aria-labelledby</code> attribute references your modal title. In this example, <code>h4#myModalLabel</code>. Additionally, you may give a description of your modal dialog. Use the aria-describedby attribute in the modal’s primary <code>&lt;div&gt;</code> to point to this description (this is not shown in the above example).</p>
+
+    {{ docs.heading('h2', 'Closing modals') }}
+
+    <p>A button within a modal can close itself using the <code>data-dismiss="modal"</code> attribute.</p>
+
+    <p>{{ html.icon('info-sign') }} Avoid using a link with an empty href attribute <code>&lt   ;a href="#"...</code> as this will throw accessibility warnings in some automated a11y testing tools. Remember, if an action goes somewhere, use a link, if it does something, use a button.</p>
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.button({
+        'label': 'Cancel',
+        'class': 'btn--naked',
+        'data-dismiss': 'modal'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Methods') }}
+
+    <code>.modal(options)</code>
+
+    <p>Activates your content as a modal. Accepts an optional options object.</p>
+
+    <pre><code lang="javascript">$('#myModal').modal({
+  keyboard: false
+})
+</code></pre>
+
+    {{ docs.heading('h3', 'Toggle') }}
+
+    <p>Manually toggles a modal. Returns to the caller before the modal has actually been shown or hidden (i.e. before the <code>shown.bs.modal</code> or <code>hidden.bs.modal</code> event occurs).</p>
+
+    <pre><code lang="javascript">$('#myModal').modal('toggle')</code></pre>
+
+    {{ docs.heading('h3', 'Show') }}
+
+    <p>Manually opens a modal. Returns to the caller before the modal has actually been shown (i.e. before the shown.bs.modal event occurs).</p>
+
+    <pre><code lang="javascript">$('#myModal').modal('show')</code></pre>
+
+    {{ docs.heading('h3', 'Hide') }}
+
+    <p>Manually hides a modal. Returns to the caller before the modal has actually been hidden (i.e. before the hidden.bs.modal event occurs).</p>
+
+    <pre><code lang="javascript">$('#myModal').modal('hide')</code></pre>
+
+    {{ docs.heading('h2', 'Events') }}
+
+    <p>The modal class exposes a few events for hooking into modal functionality. All modal events are fired at the modal itself (i.e. at the <code>&lt;div id="myModal" class="modal"&gt;</code>).</p>
+
+    <pre><code lang="javascript">$('#myModal').on('show.bs.modal', function (e) {
+  // do something...
+})</code></pre>
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+                <th>Event</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>show.bs.modal</code></td>
+                <td>This event fires immediately when the show instance method is called. If caused by a click, the clicked element is available as the <code>relatedTarget</code> property of the event</td>
+            </tr>
+            <tr>
+                <td><code>shown.bs.modal</code></td>
+                <td>This event is fired when the modal has been made visible to the user (will wait for CSS transitions to complete). If caused by a click, the clicked element is available as the relatedTarget property of the event</td>
+            </tr>
+            <tr>
+                <td><code>hide.bs.modal</code></td>
+                <td>This event is fired immediately when the hide instance method has been called</td>
+            </tr>
+            <tr>
+                <td><code>hidden.bs.modal</code></td>
+                <td>This event is fired when the modal has finished being hidden from the user (will wait for CSS transitions to complete)</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#accessibility">Accessibility</a></li>
+        <li><a href="#closing-modals">Closing modals</a></li>
+        <li><a href="#methods">Methods</a>
+            <ul>
+                <li><a href="#toggle">Toggle</a></li>
+                <li><a href="#show">Show</a></li>
+                <li><a href="#hide">Hide</a></li>
+            </ul>
+        </li>
+        <li><a href="#events">Events</a></li>
+    </ul>
+{% endblock tab_sidebar %}

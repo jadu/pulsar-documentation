@@ -1,0 +1,36 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Provide a control for users to navigate through 'pages' of content.</p>
+    
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    <p>This component can be used where developers have implemented their own pagination controllers, if you're using datatables, this component will be used to paginate the table if there are an appropriate number of rows.</p>
+
+    <p>{{ html.icon('info-sign') }} The previous and next links should always be visible, but disabled if they’re not applicable (if the user is on the first/last page).</p>
+
+    {{ docs.example({ 
+        html: '
+<div class="pagination">
+    <ul class="pull-left"><!--
+        --><li class="is-disabled"><a href="#"><i class="icon-double-angle-left"></i> Previous</a></li><!--
+        --><li><a href="#">1</a></li><!--
+        --><li class="selected"><a href="#">2</a></li><!--
+        --><li><a href="#">3</a></li><!--
+        --><li><a href="#">4</a></li><!--
+        --><li><a href="#">5</a></li><!--
+        --><li><a href="#">Next <i class="icon-double-angle-right"></i></a></li><!--
+    --></ul>
+</div>
+    ' }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+    </ul>
+{% endblock tab_sidebar %}

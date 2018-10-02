@@ -1,0 +1,55 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Generates a paragraph of text where an input would normally be positioned within a form while still allowing a regular form label to illustrate it.</p>
+
+    <p>Useful for presenting non-editable information within a form where you’d prefer not to use a disabled input.</p>
+
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({
+        screenreader: "",
+        twig: "
+{{
+    form.content({
+        'label': 'It’s the remix to ignition',
+        'value': 'Hot and fresh out the kitchen'
+    })
+}}
+    " }) }}
+    
+    {{ docs.heading('h2', 'Helper options') }}
+
+    <p>You can configure this helper using the <a href="../guides/using-helpers?tab=common-options">common helper options</a>, the following options are specific to this helper.</p>
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>raw</td>
+                <td>bool</td>
+                <td>
+                    <p>If <code>true</code>, Instead of wrapping the value in a <code>&lt;p&gt;</code>, just render the value/helper instead (default: <code>false</code>).</p>
+                    <p>Using <code>true</code> will also prevent any options that would normally be added to the paragraph from being used.</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#helper-options">Helper options</a></li>
+    </ul>
+{% endblock tab_sidebar %}

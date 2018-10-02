@@ -1,0 +1,81 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Pass an array of items and have them rendered as a simple unordered or ordered list, this is particularly useful when chained with other helpers.</p>
+
+    <p>Lists are purposely left unstyled, but you can use <a href="block-list">block lists</a> if you need nicer styling.</p>
+    
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.list({
+        'items': [
+            'foo',
+            'bar'
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Helper options') }}
+
+    <p>You can configure this helper using the <a href="../guides/using-helpers?tab=common-options">common helper options</a>, the following options are specific to this helper.</p>
+
+    <table class="table table--full">
+    <thead>
+        <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>active_item</code></td>
+            <td>int</td>
+            <td>The index of the active item, will have the <code>.is-active<code> class applied</td>
+        </tr>
+        <tr>
+            <td><code>items</code></td>
+            <td>hash</td>
+            <td>A hash of links formatted by <code>{ 'label': 'href' }</code></td>
+        </tr>
+        <tr>
+            <td><code>type</code></td>
+            <td>string</td>
+            <td>Markup scheme to use: <code>ul</code> (default), <code>ol</code>, <code>div</code> or <code>link</code></td>
+        </tr>
+    </tbody>
+</table>
+
+    {{ docs.heading('h2', 'Setting the active item') }}
+
+    <p>The list link is indexed (indexed by one), you can pass the index of the item you would like to be marked as active and it will have the <code>.is-active</code> class applied. You will need to style this active class yourself.</p>
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.list({
+        'active_item': 2,
+        'items': [
+            'foo',
+            'bar'
+        ]
+    })
+}}
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#helper-options">Helper options</a></li>
+        <li><a href="#setting-the-active-item">Setting the active item</a></li>
+    </ul>
+{% endblock tab_sidebar %}

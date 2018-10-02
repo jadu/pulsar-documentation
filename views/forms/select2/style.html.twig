@@ -1,0 +1,213 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Generates a select input.</p>
+
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.select({
+        'label': 'Pick a colour',
+        'id': 'select-1',
+        'options': [
+            {
+                'label': 'Choose',
+                'value': ''
+            },
+            {
+                'label': 'Red',
+                'value': 'colour_red'
+            },
+            {
+                'label': 'Blue',
+                'value': 'colour_blue'
+            }
+        ]
+    })
+}}
+    " }) }}
+    
+    {{ docs.heading('h2', 'Helper options') }}
+
+    <p>You can configure this helper using the <a href="../guides/using-helpers?tab=common-options">common helper options.</a></p>
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>multiple</td>
+                <td>boolean</td>
+                <td>Whether multiple options can be selected (default: <code>false</code>)</td>
+            </tr>
+            <tr>
+                <td>options</td>
+                <td>array</td>
+                <td>An array of labels and values to use as <code>options</code></td>
+            </tr>
+            <tr>
+                <td>selected</td>
+                <td>string</td>
+                <td>The <code>value</code> of the item in <code>options</code> that should be initially selected</td>
+            </tr>
+            <tr>
+                <td>size</td>
+                <td>int</td>
+                <td>The number of <code>options</code> to display when the list is shown</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'Selected option') }}
+
+    <p>Set the currently selected item by passing the option's <code>value</code> to the main <code>selected</code> option.</p>
+
+    {{ docs.example({
+        twig: "
+{{
+    form.select({
+        'label': 'Pick a colour',
+        'id': 'select-2',
+        'selected': 'colour_blue',
+        'options': [
+            {
+                'label': 'Choose',
+                'value': ''
+            },
+            {
+                'label': 'Red',
+                'value': 'colour_red'
+            },
+            {
+                'label': 'Blue',
+                'value': 'colour_blue'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Disabled input') }}
+
+    <p>Add the <code>'disabled': true</code> option to disable the field on load. See the <a href="../guides/disabling-elements">disabling elements guide</a> for more information about how to disable elements via javascript. Provide help text or information within the UI where possible to explain why elements are disabled.</p>
+
+    {{ docs.example({
+        twig: "
+{{
+    form.select({
+        'label': 'Pick a colour',
+        'id': 'select-3',
+        'disabled': true,
+        'selected': 'color',
+        'options': [
+            {
+                'label': 'Choose',
+                'value': ''
+            },
+            {
+                'label': 'Red',
+                'value': 'colour_red'
+            },
+            {
+                'label': 'Blue',
+                'value': 'colour_blue'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Disabled option') }}
+
+    <p>Disable individual options by adding the <code>disabled</code> attribute to the option you want to disable.</p>
+
+    {{ docs.example({
+        twig: "
+{{
+    form.select({
+        'label': 'Pick a colour',
+        'id': 'select-4',
+        'options': [
+            {
+                'label': 'Choose',
+                'value': ''
+            },
+            {
+                'label': 'Red',
+                'value': 'colour_red',
+                'disabled': true
+            },
+            {
+                'label': 'Blue',
+                'value': 'colour_blue'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Using optgroups') }}
+
+    <p>Your options can be arranged within optgroups using the <code>optgroup</code> nested syntax.</p>
+
+    {{ docs.example({
+        twig: "
+{{
+    form.select2({
+        'label': 'My label',
+        'id': 'select-5',
+        'options':
+        [
+            {
+                'label': 'optgroup one',
+                'options': [
+                    {
+                        'label': 'alpha',
+                        'value': 'val-alpha'
+                    },
+                    {
+                        'label': 'bravo',
+                        'value': 'val-bravo'
+                    }
+                ]
+            },
+            {
+                'label': 'optgroup two',
+                'options': [
+                    {
+                        'label': 'charlie',
+                        'value': 'val-charlie'
+                    },
+                    {
+                        'label': 'delta',
+                        'value': 'val-delta'
+                    }
+                ]
+            }
+        ]
+    })
+}}
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#helper-options">Helper options</a></li>
+        <li><a href="#selected-option">Selected option</a></li>
+        <li><a href="#disabled-input">Disabled input</a></li>
+        <li><a href="#disabled-option">Disabled option</a></li>
+        <li><a href="#using-optgroups">Using optgroups</a></li>
+    </ul>
+{% endblock tab_sidebar %}

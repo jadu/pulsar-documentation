@@ -1,0 +1,167 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Create a repeatable set of form fields that can be added, removed &amp; deleted.</p>
+
+    {{ docs.heading('h2', 'Example usage') }}
+
+    {{ docs.example({
+        twig: "
+{{ form.create() }}
+    {{ 
+        form.repeater_start({
+            'label': 'The Pulsar team',
+            'empty': 'You have not added any team members',
+            'headings': [
+                { name: 'text', label: 'Name' },
+                { name: 'select2multi', label: 'Favourite food' }
+            ],
+            'max-entries': 3,
+            'add-new-group-text': 'Add',
+            'add-another-group-text': 'Add another'
+        }) 
+    }}
+    
+        {{
+            form.fieldset_start({
+                'legend': 'Team Member'
+            })
+        }}
+        
+        {{
+            form.text({
+                'label': 'name',
+                'id': 'repeater-text',
+                'name': 'text'
+            })
+        }}
+        
+        {{
+            form.select2({
+                'label': 'Favourite food',
+                'id': 'repeater-select2multi',
+                'name': 'select2multi',
+                'multiple': true,
+                'options': [
+                    { value: 'food_pizza', label: 'Pizza' },
+                    { value: 'food_gravy', label: 'Gravy' },
+                    { value: 'food_puds', label: 'Yorkshire Pudding' }
+                ]
+            })
+        }}
+    
+    {{ form.repeater_end() }}
+{{ form.end() }}
+        "
+        }) 
+    }}
+
+    {{ docs.heading('h2', 'Dependencies') }}
+
+    <p>Example code based on common Pulsar/import methods, may need to be modified to suit your needs</p>
+
+    {{ docs.heading('h3', 'index.js') }}
+<pre><code lang="javascript">var RepeaterManagerComponent = require('/path/to/Repeater/RepeaterManagerComponent'),
+    repeaterComponentFactory = require('/path/to/Repeater/repeaterComponentFactory');
+
+module.exports = {
+    RepeaterManagerComponent,
+    repeaterComponentFactory,
+};</code></pre>
+
+{{ docs.heading('h3', 'main.js') }}
+
+<pre><code lang="javascript">(function ($) {
+    pulsar.repeaterManager = new pulsar.RepeaterManagerComponent(
+        pulsar.pulsarForm,
+        pulsar.repeaterComponentFactory,
+        $html
+    );
+
+    $(function () {
+        pulsar.repeaterManager.init();
+    });
+}(jQuery));</code></pre>
+
+    {{ docs.heading('h2', 'Options') }}
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>label</td>
+                <td>string</td>
+                <td>The repeater input label text</td>
+            </tr>
+            <tr>
+                <td>empty</td>
+                <td>string</td>
+                <td>The empty placeholder text when no items have been added</td>
+            </tr>
+            <tr>
+                <td>headings</td>
+                <td>Array</td>
+                <td>An array of heading config objects: <code>{ name: string, label: string }</code></td>
+            </tr>
+            <tr>
+                <td>max-entries</td>
+                <td>int</td>
+                <td>Maximum (inclusive) number of entries that can be added</td>
+            </tr>
+            <tr>
+                <td>add-new-group-text</td>
+                <td>string</td>
+                <td>The text content of the add new entry button</td>
+            </tr>
+            <tr>
+                <td>add-another-group-text</td>
+                <td>string</td>
+                <td>The text content of the add another new entry button</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    {{ docs.heading('h2', 'Headings') }}
+
+    <p>The main configuration item of note is the <code>headings</code> property. It is here that we define which nested components are represented as a heading in the Repeater preview. If a nested component does not have an associated heading it will still function as desired, it’s input will be saved and submitted as part of the form request. This allows a user to choose 2-3 preview headings to summarise the contents of a Repeater whilst having as many fields as required.</p>
+
+    <p>Headings must be described as an array of objects in the following schema:</p>
+
+<pre><code lang="json">&#123;
+    headings: [
+        &#123; name: string, label: string &#125;
+    ]    
+&#125;</code></pre>
+
+    <p>The <code>name</code> property refers, and must match, the corresponding nested field. The <code>label</code> property is the text content of the preview column heading.</p>
+    
+    {{ docs.heading('h2', 'Nested fields') }}
+
+    <p>Nested fields are the input components inside a Repeater. All Pulsar form components should be compatible with the Repeater at the time of publishing. Any additional form components should take into consideration their repeater integration. The Repeater will remove <code>name</code> attributes from inputs in order to function, therefore any stateful components that depend on this attribute may need a integration service creating. See the <code>js/Repeater/PseudoRadioInputService.js</code> as an example.</p>
+
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#example-usage">Example usage</a></li>
+        <li><a href="#dependencies">Dependencies</a>
+            <ul>
+                <li><a href="#index.js">index.js</a></li>
+                <li><a href="#main.js">main.js</a></li>
+            </ul>
+        </li>
+        <li><a href="#options">Options</a></li>
+        <li><a href="#headings">Headings</a></li>
+        <li><a href="#nested-fields">Nested fields</a></li>
+    </ul>
+{% endblock tab_sidebar %}
