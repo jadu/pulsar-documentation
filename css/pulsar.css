@@ -17994,6 +17994,10 @@ blockquote {
   border-left: 4px solid #bebebe;
   padding-left: 20px; }
 
+figure > img {
+  width: 100%;
+  max-width: 800px; }
+
 .d-example {
   border: 1px solid #bebebe;
   clear: left;

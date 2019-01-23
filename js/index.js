@@ -30,6 +30,8 @@ var $                     = require('jquery'),
     dt_select     = require('datatables.net-select')(window, $),
     
     NavMainComponent      = require('../vendor/jadu/pulsar/js/NavMainComponent'),
+    DisableUiComponent    = require('../vendor/jadu/pulsar/js/DisableUiComponent'),
+    FilterBarComponent    = require('../vendor/jadu/pulsar/js/FilterBarComponent'),
     PulsarUIComponent     = require('../vendor/jadu/pulsar/js/PulsarUIComponent'),
     PulsarFormComponent   = require('../vendor/jadu/pulsar/js/PulsarFormComponent'),
     RepeaterManagerComponent = require('../vendor/jadu/pulsar/js/Repeater/RepeaterManagerComponent'),
@@ -37,6 +39,8 @@ var $                     = require('jquery'),
 
 module.exports = {
     NavMainComponent,
+    DisableUiComponent,
+    FilterBarComponent,
     PulsarUIComponent,
     PulsarFormComponent,
     RepeaterManagerComponent,

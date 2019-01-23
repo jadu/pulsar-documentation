@@ -1,0 +1,101 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">The Disabled UI pattern allows you to disable a parts of a UI. This can be useful when an external action needs completing before the UI can be used. A message should be shown advising the user what action needs to be taken.</p>
+
+    <figure>
+        <img src="/views/patterns/disabled-ui/disabled-ui.png" alt="Screenshot showing what a disabled UI looks like" />
+    </figure>
+
+    {{ docs.heading('h2', 'Dependencies') }}
+
+    <p>You will need the <code>DisableUiComponent</code> to be included in your browserify configuration.</p>
+
+    <p>Depending on your setup, this will probably need to be in be in a file called <code>index.js</code> or <code>main.js</code>.</p>
+
+    <pre><code lang="javascript">// index.js
+
+var DisableUiComponent = require('/path/to/pulsar/DisableUiComponent');
+
+module.exports = {
+    DisableUiComponent: DisableUiComponent
+}</code></pre>
+
+    <pre><code lang="javascript">// main.js
+
+var $html = $('html');
+
+pulsar.disableUi = new pulsar.DisableUiComponent($html);
+
+$(function () {
+    pulsar.disableUi.init();
+});</code></pre>
+
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    <p>Add <code>data-disable-ui="true"</code> to the element you wish to disable. All child elements will also be disabled.</p>
+
+    {{ docs.example({
+        twig: "
+<p>This is outside the containing div and will not be disabled</p>        
+<div data-disable-ui=\"true\">
+    {{ form.create() }}
+        {{ form.fieldset_start({'legend': 'Filter by'}) }}
+
+        {{
+            form.text({
+                'label': 'Text field example',
+                'id': 'foo'
+            })
+        }}
+
+    {{ form.fieldset_end() }}
+    {{
+        form.end({
+            'actions': [
+                form.submit({
+                    'label': 'Save',
+                    'class': 'btn--primary'
+                }),
+                html.link({
+                    'label': 'Cancel',
+                    'class': 'btn--naked',
+                })
+            ]
+        })
+    }}
+
+</div>
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#file-structure">File structure</a></li>
+        <li><a href="#twig-dependencies">Twig dependencies</a></li>
+        <li><a href="#tab-content">Tab content</a></li>
+        <li><a href="#tabs-object">Tabs object</a>
+            <ul>
+                <li><a href="#attributes">Attributes</a></li>
+            </ul>
+        </li>
+        <li><a href="#setting-active-tab">Setting active tab</a>
+            <ul>
+                <li><a href="#from-the-url">From the URL</a></li>
+                <li><a href="#from-the-view">From the view</a></li>
+                <li><a href="#default">Default</a></li>
+            </ul>
+        </li>
+        <li><a href="#updating-url">Updating URL location</a></li>
+        <li><a href="#tabs-list">Tabs list</a></li>
+        <li><a href="#tabs-content">Tabs content</a></li>
+        <li><a href="#putting-it-all-together">Putting it all together</a></li>
+        <li><a href="#ajaxy-tabs">Ajaxy tabs</a></li>
+        <li><a href="#referencing-an-existing-tab-pane">Referencing-an-existing-tab-pane</a></li>
+        <li><a href="#data-attributes">Data attributes</a></li>
+    </ul>
+{% endblock tab_sidebar %}

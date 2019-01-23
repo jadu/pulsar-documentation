@@ -11,6 +11,8 @@
     $html.removeClass('no-js');
 
     pulsar.pulsarUI = new pulsar.PulsarUIComponent($html, window.History);
+    pulsar.disableUI = new pulsar.DisableUiComponent($html);
+    pulsar.filterBar = new pulsar.FilterBarComponent($html);
     pulsar.pulsarForm = new pulsar.PulsarFormComponent($html);
     pulsar.navMain = new pulsar.NavMainComponent($html, window);
     pulsar.repeaterManager = new pulsar.RepeaterManagerComponent(
@@ -21,6 +23,8 @@
 
     $(function () {
         pulsar.pulsarUI.init();
+        pulsar.disableUI.init();
+        pulsar.filterBar.init();
         pulsar.pulsarForm.init();
         pulsar.navMain.init();
         pulsar.repeaterManager.init();

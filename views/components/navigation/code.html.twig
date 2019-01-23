@@ -1,0 +1,134 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Creates the main Pulsar left hand navigation from a JSON object.</p>
+
+    <figure>
+        <img src="/views/components/navigation/navigation.png" alt="Screenshot showing where the navigation component will appear" />
+    </figure>
+
+    {{ docs.heading('h2', 'Dependencies') }}
+
+    <p>The navigation component depends on the JavaScript <code>NavigationComponent</code>, this is a global component and should always be available to a Pulsar UI.</p>
+    
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({ 
+        preview: false,
+        twig: '
+{%
+    set nav_data = {
+        "1": {
+            "label": "First",
+            "class": "",
+            "href": "#first-item",
+            "icon": "pencil",
+            "items": {
+                "1.1": {
+                    "1.1.1": {
+                        "label": "One",
+                        "href": "#one"
+                    },
+                    "1.1.2": {
+                        "label": "Two",
+                        "href": "#two"
+                    }
+                },
+                "1.2": {
+                    "1.2.1": {
+                        "label": "Three",
+                        "href": "#three"
+                    },
+                    "1.2.2": {
+                        "label": "Four",
+                        "href": "#four"
+                    }
+                }
+            }
+        },
+        "2": {
+            "label": "Second",
+            "class": "",
+            "href": "#second",
+            "icon": "check-sign",
+            "items": {
+                "2.1": {
+                    "2.1.1": {
+                        "label": "Five",
+                        "href": "#five"
+                    }
+                }
+            }
+        }
+    }
+%}
+
+{{ nav.primary({ data: nav_data|default() }) }}
+    ' }) }}
+
+    {{ docs.heading('h2', 'Helper options') }}
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+                <th>Option</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>class</code></td>
+                <td>string</td>
+                <td>Classes to be applied to the button group (not the buttons inside it)</td>
+            </tr>
+            <tr>
+                <td><code>href</code></td>
+                <td>string</td>
+                <td>The URL, top level items should define unique <code>#fragments</code></td>
+            </tr>
+            <tr>
+                <td><code>icon</code></td>
+                <td>string</td>
+                <td>An optional icon, mainly used on primary navigation items</td>
+            </tr>
+            <tr>
+                <td><code>image</code></td>
+                <td>string</td>
+                <td>An image icon for primary navigation, overrides <code>icon</code></td>
+            </tr>
+            <tr>
+                <td><code>image_alt</code></td>
+                <td>string</td>
+                <td><code>alt</code> attribute for the <code>image</code>, required for accessibility reasons</td>
+            </tr>
+            <tr>
+                <td><code>label</code></td>
+                <td>string</td>
+                <td>Text label used in the links</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'Primary navigation') }}
+
+    <p>The top level links should contain both an <code>icon</code> and a <code>label</code> element. The Jadu branding, ‘home’ and ‘search’ navigation elements are automatically added so you don’t need to define these in the JSON.</p>
+
+    <p>The <code>href</code> attribute will also be used to link together the related secondary navigation element.</p>
+
+    <p>The <code>items</code> element should contain nested elements that will be turned into the secondary navigation items.</p>
+
+    {{ docs.heading('h2', 'Secondary navigation') }}
+
+    <p>Secondary navigation items can be grouped together in blocks which will be visually separated for the user. Blocks are defined by nesting multiple objects.</p>
+    
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+    </ul>
+{% endblock tab_sidebar %}

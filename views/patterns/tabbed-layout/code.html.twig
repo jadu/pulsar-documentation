@@ -1,0 +1,362 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">The tabbed layout is Pulsar’s default and consists of a list of tabs which switch between different content views. The tab content is usually a table or a form, but can be more complex depending on the needs of the interface.</p>
+
+    <figure>
+        <img src="/views/patterns/tabbed-layout/tabbed-layout.png" alt="Screenshot showing where the navigation component will appear" />
+    </figure>
+
+    {{ docs.heading('h2', 'File structure') }}
+
+    <p>A simple Pulsar UI typically consists of a main view (<code>index.html.twig</code>) and a collection of tab views, these should be organised like so:</p>
+
+    <pre><code>/path/to/views/my_view
+    └── index.html.twig
+    └── /tabs
+        └── foo.html.twig
+        └── bar.html.twig
+        └── baz.html.twig</pre></code>
+    
+    {{ docs.heading('h2', 'Twig dependencies') }}
+
+    <p>A tabbed view needs to extend the tabbed layout and import the tabs helper, which is used to render the required HTML elements:</p>
+
+    <pre><code>&#123;# index.html.twig #&#125;
+
+&#123;% extends '@pulsar/pulsar/layouts/tabbed.html.twig' %&#125;
+&#123;% import '@pulsar/pulsar/v2/helpers/tabs.html.twig' %&#125;</pre></code>
+
+    {{ docs.heading('h2', 'Tab content') }}
+
+    <p>The content of tabs should ideally be kept in separate views and then included into your main view template. You can then include these views and set them as variables, ready to pass to the tabs object.</p>
+
+<pre><code>&#123;# index.html.twig #&#125;
+
+&#123;% set tab_foo %&#125;
+    &#123;% include 'tabs/foo.html.twig' %&#125;
+&#123;% endset %&#125;
+
+&#123;% set tab_bar %&#125;
+    &#123;% include 'tabs/bar.html.twig' %&#125;
+&#123;% endset %&#125;
+
+&#123;% set tab_baz %&#125;
+    &#123;% include 'tabs/baz.html.twig' %&#125;
+&#123;% endset %&#125;
+```
+&#123;% endraw %&#125;
+</code></pre>
+
+    {{ docs.heading('h2', 'Tabs object') }}
+
+    <p>The information for the individual tabs and their content is defined in a JSON object that you will pass to the <code>tabs.tabs()</code> and <code>tabs.tabs_content()</code> helpers to generate the necessary markup.</p>
+
+    {{ docs.heading('h3', 'Attributes') }}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>active</td>
+      <td>bool</td>
+      <td>Whether this tab should be the active tab on page load and visually highlighted</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>href</td>
+      <td>string</td>
+      <td>Makes the tab a simple link instead of switching tabs. Can be an absolute URL, relative URL (<code class="highlighter-rouge">/foo</code>), or fragment identifier (<code class="highlighter-rouge">#foo</code>). <strong>Note</strong> If <code class="highlighter-rouge">src</code> contains an absolute URL or fragment identifier, it take precedence over <code class="highlighter-rouge">href</code></td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td>string</td>
+      <td>A unique identifier which will be used on both the tab link (as a URL fragment), and the tab content pane</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>label</td>
+      <td>string</td>
+      <td>The tab link title</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>src</td>
+      <td>string</td>
+      <td>Usually a Twig variable containing an included tab content view, or the ID of another tab to reference (see ‘ajaxy tabs’ below)</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>data-href</td>
+      <td>string</td>
+      <td>Absolute or relative URL to update browser address using pushState</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>data-*</td>
+      <td>string</td>
+      <td>Data attributes, eg: <code class="highlighter-rouge">'data-foo': 'bar'</code></td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+    <p>{{ html.icon('warning-sign') }} While it is currently possible to pass a URL through the <code>src</code> attribute, this functionality is deprecated and should not be used. Use <code>href</code> instead.</p>
+
+<pre><code>&#123;# index.html.twig #&#125;
+
+&#123;%
+    set tabs_content = [
+        &#123;
+             'id': 'foo',
+             'label': 'My Foo Things',
+             'src': tab_foo
+         &#125;,
+         &#123;
+             'id': 'bar',
+             'label': 'My Bar Things',
+             'src': tab_bar
+         &#125;,
+         &#123;
+             'id': 'baz',
+             'label': 'My Baz Things',
+             'src': tab_baz
+         &#125;
+     ]
+%&#125;
+```
+&#123;% endraw %&#125;
+</code></pre>
+
+    {{ docs.heading('h2', 'Setting the active tab') }}
+
+    <p>There are a few different ways to set the active tab for a view, because more than one fo these conditions may be present within a UI at any one time, they are processed in the following priority order:</p>
+
+    <ol>
+        <li>URL contains <code>tab=</code> parameter</li>
+        <li><code>tabs</code> object has <code>active</code> param in the view</li>
+        <li>None of the above, first tab will be set to active</li>
+    </ol>
+
+    {{ docs.heading('h3', 'From the URL') }}
+
+    <p>Specify the tab ID in the URL to load the desired tab on page load. This method will trump any attempts to set the tab from within the view.</p>
+
+<pre><code>
+http://my-pulsar-example.com/my-view?tab=bar
+</code></pre>
+
+    <p>Would load the tab using the ID <code>bar</code>.</p>
+
+    {{ docs.heading('h3', 'From the view') }}
+
+    <p>Set the active tab on page load by adding the <code>"active": true</code> attribute to the required tab.</p>
+
+<pre><code>...
+{
+    'id': 'bar',
+    'label': 'My Bar Things',
+    'src': tab_bar,
+    'active': true
+}
+...</code></pre>
+
+    {{ docs.heading('h3', 'Default') }}
+
+    <p>If no URL parameter is supplied, or <code>active</code> option present within the tabs object in the view, then the first tab will be set as active.</p>
+
+    {{ docs.heading('h2', 'Updating URL location') }}
+
+    <p>Pulsar supports pushState, which is a HTML5 method of updating the URL within the address bar when a tab is clicked. Because the <code>href</code> attribute of a tab link will contain the fragment ID of the tab.</p>
+
+    <p>Provide an absolute or relative URL by the <code>data-href</code> attribute and it will replace, or be appended to the URL in the browser's address bar (and to the browser's URL history) without triggering a refresh of the page.</p>
+
+<pre><code>...
+{
+    'id': 'bar',
+    'label': "My Bar Things',
+    'src': tab_bar,
+    'data-href': '?tab=bar'
+}
+...</code></pre>
+
+    <p>If, for example, the above link is on a page located at <code>http://jadu.net</code>, when clicked, the above tab link will open the <code>#bar</code> tab content as usual, but the browser's URL will change to <code>http://jadu.net?tab=bar</code>. You could make this work for friendly URLs too, as long as those friendlies are able to tell Pulsar which tab to open.</p>
+
+    {{ docs.heading('h2', 'Tabs list') }}
+
+    <p>Pass your tabs object to the <code>tabs.list()</code> helper and they’ll be rendered as clickable links with all the required attributes.</p>
+
+<pre><code>&#123;# index.html.twig #&#125;
+
+&#123;% block tabs_list %&#125;
+    &#123;&#123; tabs.list(tabs_content) &#125;&#125;
+&#123;% endblock %&#125;</code></pre>
+
+    <p>The ID attribute for each tab link will be automatically generated in the format <code>tab_x</code> so that they correspond with their respective tab content.</p>
+
+    {{ docs.heading('h2', 'Tabs content') }}
+
+    <p>Pass your tabs object to the <code>tabs.content()</code> helper to render each tabs <code>src</code> attribute as a tab content pane.</p>
+
+<pre><code>&#123;# index.html.twig #&#125;
+
+&#123;% block tabs_content %&#125;
+    &#123;&#123; tabs.content(tabs_content) &#125;&#125;
+&#123;% endblock %&#125;
+</code></pre>
+
+    {{ docs.heading('h2', 'Putting it all together') }}
+
+<pre><code>&#123;# index.html.twig #&#125;
+
+&#123;# Extend the tabbed view #&#125;
+
+    &#123;% extends '@pulsar/pulsar/layouts/tabbed.html.twig' %&#125;
+
+&#123;# Include required helpers (there may be others in the real world) #&#125;
+
+    &#123;% import '@pulsar/pulsar/v2/helpers/html.html.twig' as html %&#125;
+    &#123;% import '@pulsar/pulsar/v2/helpers/tabs.html.twig' as tabs %&#125;
+
+&#123;# Grab the tab files and set them as variables to use as tab `src` #&#125;
+
+    &#123;% set tab_foo %&#125;
+        &#123;% include 'tabs/foo.html.twig' %&#125;
+    &#123;% endset %&#125;
+
+    &#123;% set tab_bar %&#125;
+        &#123;% include 'tabs/bar.html.twig' %&#125;
+    &#123;% endset %&#125;
+
+    &#123;% set tab_baz %&#125;
+        &#123;% include 'tabs/baz.html.twig' %&#125;
+    &#123;% endset %&#125;
+
+&#123;#
+    Create the tab object, mostly you are defining the tab links themselves,
+    but `src` will render your tab view as a tab content pane
+#&#125;
+
+    &#123;%
+        set tabs_content = [
+            &#123;
+                "id"    : "foo",
+                "label" : "My Foo Things",
+                "src"   : tab_foo,
+                "active": true
+            &#125;,
+            &#123;
+                "id"    : "bar",
+                "label" : "My Bar Things",
+                "src"   : tab_bar
+            &#125;,
+            &#123;
+                "id"    : "baz",
+                "label" : "My Baz Things",
+                "src"   : tab_baz
+            &#125;
+        ]
+    %&#125;
+
+&#123;# Pass everything to the view #&#125;
+
+    &#123;% block tabs_list %&#125;
+        &#123;&#123; tabs.list(tabs_content) &#125;
+    &#123;% endblock %&#125;
+
+    &#123;% block tabs_content %&#125;
+        &#123;&#123; tabs.content(tabs_content) &#125;
+    &#123;% endblock %&#125;
+
+&#123;# Profit? #&#125;
+</code></pre>
+
+{{ docs.heading('h2', 'Ajaxy tabs') }}
+
+<p>It’s possible for multiple tab links to point to a single tab content pane for you to do fancy javascripty/ajaxy things to. It’s also possible to add extra data attributes to the tab links.</p>
+
+{{ docs.heading('h2', 'Referencing an existing tab pane') }}
+
+<p>At least one tab in your tab object must contain a proper template as it’s <code>src</code> attribute, other tabs can then reference the 'proper' tab’s ID as their <code>src</code>.</p>
+
+<p>{{ html.icon('warning-sign') }} Using this method will mean that you can’t use the <code>shown.bs.tab</code> type events in your javascript as there's the strong possibility that your tab pane is already active when you click another link referencing the same tab pane. Use regular click events instead.</p>
+
+<pre><code>&#123;% set tab_foo %&#125;
+    &#123;% include 'tabs/foo.html.twig' %&#125;
+&#123;% endset %&#125;
+
+&#123;%
+    set tabs_content = [
+        &#123;
+            'id': 'foo',
+            'label': 'My Foo Things',
+            'src': tab_foo
+        &#125;,
+        &#123;
+            'id': 'bar",
+            'label': 'My Bar Things',
+            'src': '#foo'
+        &#125;
+    ]
+%&#125;</code></pre>
+
+    <p>In the above example, only the <code>tab_foo</code> pane will be created by the <code>tabs.content()</code> helper, both <code>foo</code> and <code>bar</code> links will open <code>tab_foo</code> when clicked.</p>
+
+    {{ docs.heading('h2', 'Data attributes') }}
+
+    <p>You can add data attributes to tab links for your javascript behaviour by passing a hash of attributes in your tab object.</p>
+
+    <pre><code>...
+&#123;
+    'id': 'bar',
+    'label': 'My Bar Things',
+    'src': '#foo',
+    'data': &#123;
+        'data-one': 'uno',
+        'data-two': 'dos'
+    &#125
+&#125
+...
+</code></pre>
+
+<pre><code>&lt;a href="#foo" data-toggle="tab" data-one="uno" data-two="dos"&gt;My Bar Things&lt;/a&gt;</code></pre>
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#file-structure">File structure</a></li>
+        <li><a href="#twig-dependencies">Twig dependencies</a></li>
+        <li><a href="#tab-content">Tab content</a></li>
+        <li><a href="#tabs-object">Tabs object</a>
+            <ul>
+                <li><a href="#attributes">Attributes</a></li>
+            </ul>
+        </li>
+        <li><a href="#setting-active-tab">Setting active tab</a>
+            <ul>
+                <li><a href="#from-the-url">From the URL</a></li>
+                <li><a href="#from-the-view">From the view</a></li>
+                <li><a href="#default">Default</a></li>
+            </ul>
+        </li>
+        <li><a href="#updating-url">Updating URL location</a></li>
+        <li><a href="#tabs-list">Tabs list</a></li>
+        <li><a href="#tabs-content">Tabs content</a></li>
+        <li><a href="#putting-it-all-together">Putting it all together</a></li>
+        <li><a href="#ajaxy-tabs">Ajaxy tabs</a></li>
+        <li><a href="#referencing-an-existing-tab-pane">Referencing-an-existing-tab-pane</a></li>
+        <li><a href="#data-attributes">Data attributes</a></li>
+    </ul>
+{% endblock tab_sidebar %}

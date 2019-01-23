@@ -1,0 +1,26 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Integrations' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Patterns', 'href': '#'},
+        {'label': 'Integrations', 'href': '#'}
+    ]
+%}
+
+{% set tab_guidance %}
+    {% include 'patterns/integrations/guidance.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "guidance",
+          "class" : "ui-report",
+          "label" : "Guidance",
+          "src"   : tab_guidance,
+          "active": true
+        }
+    ]
+%}

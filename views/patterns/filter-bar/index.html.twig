@@ -1,0 +1,26 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Filter bar' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Patterns', 'href': '#'},
+        {'label': 'Filter bar', 'href': '#'}
+    ]
+%}
+
+{% set tab_code %}
+    {% include 'patterns/filter-bar/code.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "code",
+          "class" : "ui-report",
+          "label" : "Code",
+          "src"   : tab_code,
+          "active": true
+        }
+    ]
+%}

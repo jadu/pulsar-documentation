@@ -1,0 +1,175 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Provides a prominent location for notifications to be displayed. A toolbar indicator highlights when new notifications are available and a dropdown list displays the actual notifications.</p>
+
+    {{ docs.heading('h2', 'Dependencies') }}
+
+    <p>The navigation component depends on the JavaScript <code>NavigationComponent</code>, this is a global component and should always be available to a Pulsar UI.</p>
+    
+    {{ docs.heading('h2', 'Toolbar indicator') }}
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.link({
+        'class': 'notifications-toggle',
+        'href': '#',
+        'label': html.icon('bell-o'),
+        'data-toggle': 'dropdown'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'States') }}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Class</th>
+                <th>Style</th>
+                <th>Preview</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code class="highlighter-rouge">notifications-toggle</code></td>
+                <td>greyed out (inactive)</td>
+                <td>
+                    {{
+                        html.link({
+                            'class': 'notifications-toggle',
+                            'href': '#',
+                            'label': html.icon('bell-o'),
+                            'data-toggle': 'dropdown'
+                        })
+                    }}
+                </td>
+            </tr>
+            <tr>
+                <td><code class="highlighter-rouge">notifications-toggle is-active</code></td>
+                <td>black outline (active)</td>
+                <td>
+                    {{
+                        html.link({
+                            'class': 'notifications-toggle is-active',
+                            'href': '#',
+                            'label': html.icon('bell-o'),
+                            'data-toggle': 'dropdown'
+                        })
+                    }}
+                </td>
+            </tr>
+            <tr>
+                <td><code class="highlighter-rouge">notifications-toggle is-active has-new</code></td>
+                <td>black outline with red indicator (new unreads)</td>
+                <td>
+                    {{
+                        html.link({
+                            'class': 'notifications-toggle is-active has-new',
+                            'href': '#',
+                            'label': html.icon('bell-o'),
+                            'data-toggle': 'dropdown'
+                        })
+                    }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'Notifications list') }}
+
+    <p>The notifications list is a simple dropdown wrapper around multiple media objects.</p>
+
+    <p>A main notifications container holds both the notifications-toggle and the notifications-list.</p>
+
+    {{ docs.example({
+        preview: false,
+        twig: '
+<div class="dropdown notifications">
+    {{
+        html.link({
+            \'class\': \'notifications-toggle is-active\',
+            \'href\': \'#\',
+            \'label\': html.icon("bell-o"),
+            \'data-toggle\': \'dropdown\'
+        })
+    }}
+    <div class="notifications-list dropdown__menu"><!--
+        --><div class="notifications__header">
+            <h1 class="notifications-title">Notifications</h1>
+          <a href="#" class="notifications-dismiss">dismiss all</a>
+        </div><!--
+        --><div class="notification is-new">
+            <div class="media">
+                <img src="/images/favicons/cms/android-chrome-48x48.png" alt="CMS Logo" class="media__image" />
+
+                <div class="media__body">
+                    <button
+                        type="button"
+                        class="remove-button pull-right"
+                        data-toggle="tooltips"
+                        data-placement="left"
+                        title="Dismiss"
+                        data-action="remove"
+                        data-action-target="#itemToRemove"
+                        >
+                        <i class="icon-remove"></i>
+                    </button>
+                    <p>CMS Continuum #29 now available.</p>
+                    <span class="small-type muted">2 minutes ago</span>
+
+                    <span class="divider"></span>
+
+                    <p>We’ve updated our user manual to feature our new and improved user interface. If you need a copy, drop us a message and we’ll be happy to send one over.</p>
+
+                    <p><i class="icon-file-text-alt"></i> <a href="#">View detailed release notes</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notification">
+            <div class="media">
+                <img src="/images/favicons/xfp/android-chrome-48x48.png" alt="" class="media__image" />
+
+                <div class="media__body">
+                    <button
+                        type="button"
+                        class="remove-button pull-right"
+                        data-toggle="tooltips"
+                        data-placement="left"
+                        title="Dismiss"
+                        data-action="remove"
+                        data-action-target="#itemToRemove"
+                        >
+                        <i class="icon-remove"></i>
+                    </button>
+                    <p>CMS Continuum #29 now available.</p>
+                    <span class="small-type muted">2 minutes ago</span>
+
+                    <span class="divider"></span>
+
+                    <p>We’ve updated our user manual to feature our new and improved user interface. If you need a copy, drop us a message and we’ll be happy to send one over.</p>
+
+                    <p><i class="icon-file-text-alt"></i> <a href="#">View detailed release notes</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="notifications__footer">
+            <a href="#" class="notifications-all">View all</a>
+        </div>
+    </div>
+</div>
+    ' }) }}
+    
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+    </ul>
+{% endblock tab_sidebar %}

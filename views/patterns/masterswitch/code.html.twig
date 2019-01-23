@@ -1,0 +1,117 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">The masterswitch pattern allows you to enable and disable a larger UI with a single control. Commonly used in ‘settings’ interfaces it provides an easy to understand on/off switch for users.</p>
+
+    <figure>
+        <img src="/views/patterns/masterswitch/masterswitch.png" alt="Screenshot showing the masterswitch layout" />
+    </figure>
+
+    {{ docs.heading('h2', 'Dependencies') }}
+
+    <p>You will need the <code>MasterSwitchComponent</code> to be included in your browserify configuration.</p>
+
+    <p>Depending on your setup, this will probably need to be in be in a file called <code>index.js</code> or <code>main.js</code>.</p>
+
+    <pre><code lang="javascript">// index.js
+
+var MasterSwitchComponent = require('/path/to/pulsar/MasterSwitchComponent');
+
+module.exports = {
+    MasterSwitchComponent: MasterSwitchComponent
+}</code></pre>
+
+    <pre><code lang="javascript">// main.js
+
+var $html = $('html');
+
+pulsar.masterSwitch = new pulsar.MasterSwitchComponent($html);
+
+$(function () {
+    pulsar.masterSwitch.init();
+});</code></pre>
+
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    <p>{{ html.icon('warning-sign') }} There should only be one masterswitch within a given UI, although there could be multiple masterswitches on different tabs.</p>
+
+    {{ docs.example({
+        twig: "
+<div class=\"masterswitch\">
+    {{
+        form.toggle_switch({
+            'class': 'masterswitch-control',
+            'label': 'Your label',
+            'id': 'toggletest',
+            'name': 'toggletest'
+        })
+    }}
+
+    <hr />
+
+    <section class=\"masterswitch-content is-disabled\">
+        <!-- your content here -->
+    </section>
+</div>
+    " }) }}
+
+    {{ docs.heading('h2', 'Setting initial state') }}
+
+    <p>You can tell the UI to be enabled or disabled on page load by setting the <code>checked</code> attribute on the form.toggle_switch input. This will affect both the masterswitch control and the masterswitch content.</p>
+
+    {{ docs.heading('h3', 'Load with the masterswitch enabled') }}
+
+<pre><code>&#123;
+    form.toggle_switch(&#123;
+        'checked': true,
+        'class': 'masterswitch-control',
+        'label': 'Your label',
+        'id': 'toggletest',
+        'name': 'toggletest'
+    &#125;)
+&#125;</pre></code>
+
+    {{ docs.heading('h3', 'Load with the masterswitch disabled') }}
+
+<pre><code>&#123;
+    form.toggle_switch(&#123;
+        'class': 'masterswitch-control',
+        'label': 'Your label',
+        'id': 'toggletest',
+        'name': 'toggletest'
+    &#125;)
+&#125;</pre></code>
+
+    {{ docs.heading('h2', 'Switching on') }}
+
+    <p>Toggling the masterswitch will enable any interactive elements (like form fields and links) within the related masterswitch content block. The majority of time this will be by the user clicking the masterswitch control.</p>
+
+    {{ docs.heading('h2', 'Switching off') }}
+
+    <p>Switching off the masterswitch should immediately disable the relevant settings for the user without the need for a page refresh or clicking a confirmation button.</p>
+
+    <p>Any inputs inside the <code>masterswitch-content</code> should not be cleared, it should be possible for a user to restore their original settings by switching the masterswitch back on.</p>
+
+    <p>Clickable elements inside <code>masterswitch-content</code> should be disabled when the masterswitch is switched off, a user should not be able to interact with the disabled UI.</p>
+
+    <p>There may be situations where you require the user to confirm their choice to switch off a masterswitch, an example is the two-step verification UI where we need to warn the user that this will make their account less secure, and prompts them to re-enter their password and verification code.</p>
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#dependencies">Dependencies</a></li>
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#setting-initial-state">Setting initial state</a>
+            <ul>
+                <li><a href="#load-with-the-masterswitch-enabled">Load enabled</a></li>
+                <li><a href="#load-with-the-masterswitch-disabled">Load disabled</a></li>
+            </ul>
+        </li>
+        <li><a href="#switching-on">Switching on</a></li>
+        <li><a href="#switching-off">Switching off</a></li>
+    </ul>
+{% endblock tab_sidebar %}
