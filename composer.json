@@ -8,15 +8,8 @@
             "Jadu\\Pulsar": "src"
         }
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://repo-packagist.hq.jadu.net/jadu/"
-        }
-    ],
     "require": {
         "twig/twig": "^1.21",
-        "jadu/pulsar": "dev-develop",
-        "jadu/pulsar-fonts": "^0.0.3"
+        "jadu/pulsar": "dev-develop"
     }
 }

@@ -40,7 +40,7 @@ $twig->addExtension(new Twig_Extension_Debug());
 if (strstr($_SERVER['PATH_INFO'], '.html.twig')) {
     $template = $twig->loadTemplate($_SERVER['PATH_INFO']);
 } else {
-    $template = $twig->loadTemplate($_SERVER['PATH_INFO'] . '/index.html.twig');
+    $template = $twig->loadTemplate($_SERVER['PATH_INFO'] . 'guides/browsers-and-devices/index.html.twig');
 }
 
 // define('theme', 'projector');
