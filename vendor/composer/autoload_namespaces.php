@@ -7,5 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
+    'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src'),
     'Jadu\\Pulsar' => array($baseDir . '/src', $vendorDir . '/jadu/pulsar/src'),
 );

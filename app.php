@@ -1,9 +1,11 @@
 <?php
 
-$baseDir = '/var/www/pulsar-docs/public_html';
-$templateDir = $baseDir . '/views';
+require_once 'vendor/autoload.php';
 
-require_once $baseDir . '/vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::create(__DIR__);
+$dotenv->load();
+
+$webroot = getenv('WEBROOT');
 
 use Jadu\Pulsar\Twig\Extension\ArrayExtension;
 use Jadu\Pulsar\Twig\Extension\AttributeParserExtension;
@@ -15,8 +17,8 @@ use Jadu\Pulsar\Twig\Extension\RelativeTimeExtension;
 use Jadu\Pulsar\Twig\Extension\UrlParamsExtension;
 use Jadu\Pulsar\Twig\Extension\TabsExtension;
 
-$loader = new Twig_Loader_Filesystem($templateDir);
-$loader->addPath($baseDir . '/vendor/jadu/pulsar/views', 'pulsar');
+$loader = new Twig_Loader_Filesystem($webroot . '/views');
+$loader->addPath($webroot . '/vendor/jadu/pulsar/views', 'pulsar');
 
 $twig = new Twig_Environment($loader,
 	array(
@@ -27,7 +29,7 @@ $twig = new Twig_Environment($loader,
 
 $twig->addExtension(new ArrayExtension());
 $twig->addExtension(new AttributeParserExtension());
-$twig->addExtension(new ConfigExtension($baseDir . 'pulsar.json'));
+$twig->addExtension(new ConfigExtension($webroot . 'pulsar.json'));
 $twig->addExtension(new ConstantDefinedExtension());
 $twig->addExtension(new HelperOptionsModifierExtension());
 $twig->addExtension(new GetConstantExtension());
