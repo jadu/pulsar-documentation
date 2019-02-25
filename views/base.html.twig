@@ -50,36 +50,6 @@
 
                 <button class="mobile-menu-button t-mobile-menu-button" aria-expanded="false" aria-controls="aria-main-nav" aria-label="Toggle main menu">Menu</button>
 
-                {% block notifications %}{% endblock %}
-
-                <div class="nav-user">
-                {% block user_menu %}
-                {{
-                    html.button_dropdown({
-                        'parent_class': 'dropdown user-menu btn--naked',
-                        'label': 'Paul Stanton',
-                        'items': [
-                            html.link({
-                                "label": html.icon('user') ~ " My details",
-                                "href": "#foo"
-                            }),
-                            html.link({
-                                "label": html.icon('key') ~ " Change password",
-                                "href": "#foo"
-                            }),
-                            html.divider(),
-                            html.link({
-                                "label": html.icon('power-off') ~ " Sign out",
-                                "href": "#foo"
-                            })
-                        ]
-                    })
-                }}
-                {% endblock %}
-                </div>
-
-                {% include '@pulsar/pulsar/components/nav_help.html.twig' %}
-
             </div>
 
             {% block search %}
