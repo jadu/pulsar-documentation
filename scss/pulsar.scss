@@ -47,6 +47,10 @@ $fa-css-prefix: 'icon';
 $image-path: '../vendor/jadu/pulsar/images/';
 @import 'config.branding';
 
+$nav-color-light: #3e4994; // must be AA 4.5:1
+$nav-color-dark: darken(#3e4994, 7.5%);
+$nav-color-darker: darken(#3e4994, 10%);
+
 // Functions
 @import 'function.math';
 @import 'function.color-luminance';
@@ -54,7 +58,7 @@ $image-path: '../vendor/jadu/pulsar/images/';
 @import 'function.color';
 
 // Base colour palette
-@import 'palette.base';
+@import 'palette.docs';
 
 // Apply palette to components
 @import 'config.theme';

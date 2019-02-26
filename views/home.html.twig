@@ -1,0 +1,48 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+
+<h2>Learn</h2>
+<div class="landing-blocks">
+    <div class="landing-block">
+        {{ html.icon('play') }}
+        <h3 class="landing-block__header">Getting Started</h3>
+        <p>So you have to create a UI in CMS, XFP or CXM&hellip; What now?</p>
+    </div>
+
+    <div class="landing-block">
+        {{ html.icon('universal-access') }}
+        <h3 class="landing-block__header">Accessibility Guidance</h3>
+        <p>Make your user interfaces as accessible as possible</p>
+    </div>
+
+    <div class="landing-block">
+        {{ html.icon('diamond') }}
+        <h3 class="landing-block__header">Sketch Toolkit</h3>
+        <p>Create mockups with ready-to-use components</p>
+    </div>
+</div>
+
+<h2>Build</h2>
+<div class="landing-blocks">
+    <div class="landing-block">
+        {{ html.icon('cube') }}
+        <h3 class="landing-block__header">Components</h3>
+        <p>A library of elements with code examples, styles and usage guidelines</p>
+    </div>
+
+    <div class="landing-block">
+        {{ html.icon('wpforms') }}
+        <h3 class="landing-block__header">Forms</h3>
+        <p>All form input types, with code examples and a11y best practices</p>
+    </div>
+
+    <div class="landing-block">
+        {{ html.icon('cubes') }}
+        <h3 class="landing-block__header">Patterns</h3>
+        <p>Larger scale interfaces, comprised of smaller components and/or forms</p>
+    </div>
+</div>
+
+{% endblock tab_content %}

@@ -1,1 +1,24 @@
-Landing page goes 'ere
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Pulsar' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Home', 'href': '#'}
+    ]
+%}
+
+{% set tab_home %}
+    {% include 'home.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "home",
+          "label" : "Home",
+          "src"   : tab_home,
+          "active": true
+        }
+    ]
+%}

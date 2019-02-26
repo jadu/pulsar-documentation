@@ -155,3 +155,36 @@ figure > img {
     width: 100%;
     max-width: 800px;
 }
+
+.landing-blocks {
+    align-content: stretch;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: $line-height-base;
+}
+
+.landing-block {
+    background-color: #3e4994;
+    border-radius: 20px;
+    color: #fff;
+    flex-grow: 1;
+    margin: 0 1%;
+    padding: 2%;
+    text-align: center;
+    width: 33%;
+
+    i {
+        // color: #3e4994;
+        font-size: 38px;
+        margin-bottom: 5%;
+    }
+
+    .landing-block__header {
+        // color: #3e4994;
+        margin-bottom: 5%;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+}
