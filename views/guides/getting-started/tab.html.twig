@@ -1,0 +1,52 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">As a Jadu designer or developer, you’re probably working on one or more of the Jadu platform products (CMS, XFP and CXM). Pulsar is already installed and available for you to use in your user-interface. There are, however, some important things to know.</p>
+
+    {{ docs.heading('h2', 'The basics') }}
+    {{ docs.heading('h3', 'Getting help') }}
+
+    <p>The #pulsar Jadu slack channel is the main place to ask for assistance.</p>
+
+    {{ docs.heading('h3', 'Bug reports and feature requests') }}
+
+    <p>You can <a href="https://github.com/jadu/pulsar/issues/new?template=bug_report.md">create a bug report</a> or a <a href="https://github.com/jadu/pulsar/issues/new?template=feature_request.md">new feature request</a> on GitHub, you will need a GitHub account to do so.</p>
+    
+    {{ docs.heading('h2', 'Developing with Pulsar') }}
+
+    <p>So you have to build a user interface in a Jadu product, well there's a few things we should cover first.</p>
+
+    {{ docs.heading('h3', 'Not all interfaces use Pulsar') }}
+    
+    <p><a href="https://www.jadu.net/cms">Jadu CMS</a> is our longest-standing flagship product and as such, has a lot of older interfaces that haven’t yet been updated to use Pulsar. We commonly refer to these as ‘legacy’ UIs. They still use the consistent sidebar navigation, toolbar and footer elements from Pulsar, however the main content of the UI does not use Pulsar.</p>
+
+    <p>It’s fairly easy to spot a legacy UI, if it has a table with a light grey background it’s probably legacy.</p>
+
+    <p>Nearly all of <a href="https://www.jadu.net/xfp">XFP</a> now uses Pulsar, and <a href="https://www.jadu.net/cxm">CXM</a> was built from the ground-up in Pulsar.</p>
+
+    {{ docs.heading('h3', 'How to update the Pulsar version used in a product') }}
+
+    <p>The Pulsar team releases frequent updates to the design system and publish the <a href="https://github.com/jadu/pulsar/releases">release notes</a> on GitHub. Each product team has their own internal process on how to request a Pulsar update as this will typically involve a risk analysis and testing plan to identify areas of the software which will need extra testing because of the expected changes in a given release.</p>
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#the-basics">The basics</a>
+            <ul>
+                <li><a href="#getting-help">Getting help</a></li>
+                <li><a href="#bug-reports-and-feature-requests">Bug reports and feature requests</a></li>
+            </ul>
+        </li>
+        <li><a href="#developing-with-pulsar">Developing with Pulsar</a>
+            <ul>
+                <li><a href="#not-all-interfaces-use-pulsar">Not all interfaces use Pulsar</a></li>
+                <li><a href="#how-to-update-the-pulsar-version-used-in-a-jadu-product">How to update the Pulsar version</a></li>
+            </ul>
+        </li>
+
+    </ul>
+{% endblock tab_sidebar %}

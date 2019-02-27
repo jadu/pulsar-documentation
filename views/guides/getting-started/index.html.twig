@@ -1,0 +1,26 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Getting Started' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Guides', 'href': '#'},
+        {'label': 'Getting Started', 'href': '#'}
+    ]
+%}
+
+{% set tab_forms %}
+    {% include 'guides/getting-started/tab.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "intro",
+          "class" : "ui-report",
+          "label" : "Intro",
+          "src"   : tab_forms,
+          "active": true
+        }
+    ]
+%}

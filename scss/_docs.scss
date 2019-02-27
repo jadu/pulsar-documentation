@@ -130,7 +130,7 @@ code {
         @if $variant != 'alt' {
             .swatch--#{$name}-#{$variant} {
                 background-color: color($name, $variant);
-                color: pick_best_color(color($name, $variant), (#fff, #000));
+                color: pick_best_color(color($name, $variant), (color(white), #000));
             }
         }
     }
@@ -166,12 +166,19 @@ figure > img {
 .landing-block {
     background-color: #3e4994;
     border-radius: 20px;
-    color: #fff;
+    color: color(white);
     flex-grow: 1;
     margin: 0 1%;
     padding: 2%;
     text-align: center;
+    text-decoration: none;
     width: 33%;
+
+    &:hover {
+        color: color(white);
+        background-color: darken(#3e4994, 5);
+
+    }
 
     i {
         // color: #3e4994;
