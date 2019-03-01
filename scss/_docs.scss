@@ -70,6 +70,10 @@ code {
 
     a {
         color: color(link);
+
+        &:hover {
+            color: color(text);
+        }
     }
 }
 
