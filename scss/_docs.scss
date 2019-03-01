@@ -187,11 +187,39 @@ figure > img {
     }
 
     .landing-block__header {
-        // color: #3e4994;
+        font-weight: 300;
+        font-size: 32px;
         margin-bottom: 5%;
     }
 
     p {
         margin-bottom: 0;
     }
+}
+
+.motto {
+    border: 0;
+    font-size: 48px;
+    font-family: bookmania, serif;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 48px;
+    margin: 0 0 1em 0;
+    padding: 0;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+
+    cite {
+        display: block;
+        color: color(text, light);
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: $font-size-small;
+        width: 100%;
+    }
+}
+
+.subheading {
+    color: #3e4994;
+    font-size: $font-size-small;
+    margin-top: -10px;
 }

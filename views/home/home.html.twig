@@ -3,7 +3,11 @@
 
 {% block tab_content %}
 
-<h2>Learn</h2>
+<blockquote class="motto">
+    &ldquo;Design is the conscious effort to impose a meaningful order&rdquo;
+    <cite>Victor Papanek, 1974</cite>
+</blockquote>
+
 <div class="landing-blocks">
     <a href="/guides/getting-started" class="landing-block">
         {{ html.icon('play') }}
@@ -11,11 +15,11 @@
         <p>So you have to create a UI in CMS, XFP or CXM&hellip; What now?</p>
     </a>
 
-    <a href="/guides/accessibility" class="landing-block">
+    <div href="/guides/accessibility" class="landing-block">
         {{ html.icon('universal-access') }}
         <h3 class="landing-block__header">Accessibility Guidance</h3>
-        <p>Make your user interfaces as accessible as possible</p>
-    </a>
+        <p>Make your user interfaces as accessible as possible (work in progress)</p>
+    </div>
 
     <a href="https://github.com/jadu/pulsar-sketch-toolkit" class="landing-block">
         {{ html.icon('diamond') }}
@@ -23,8 +27,7 @@
         <p>Create mockups with ready-to-use components</p>
     </a>
 </div>
-
-<h2>Build</h2>
+<!--
 <div class="landing-blocks">
     <div class="landing-block">
         {{ html.icon('cube') }}
@@ -44,5 +47,5 @@
         <p>Larger scale interfaces, comprised of smaller components and/or forms</p>
     </div>
 </div>
-
+-->
 {% endblock tab_content %}

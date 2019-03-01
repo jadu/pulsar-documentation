@@ -1,5 +1,17 @@
 <?php
 
+if (strstr($_SERVER['REQUEST_URI'], '.png')) {
+	$filename =  '/var/www/html/views/' . $_SERVER['REQUEST_URI'];
+	$handle = fopen($filename, "rb");
+	$contents = fread($handle, filesize($filename));
+	fclose($handle);
+ 
+	header("content-type: image/png");
+ 
+	echo $contents;
+	exit;
+}
+
 require_once 'vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::create(__DIR__);

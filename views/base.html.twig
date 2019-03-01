@@ -55,6 +55,8 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
+    <link rel="stylesheet" href="https://use.typekit.net/xhd6hjj.css">
+
     <script src="../../js/bundle.js"></script>
     <script src="../../js/main.js"></script>
 
@@ -85,6 +87,13 @@
                 <div class="tabs__content">
                     {{ nav.breadcrumbs(breadcrumbs|default) }}
 
+                    {{
+                        html.button({
+                            'label': 'GitHub',
+                            'class': 'btn--outline btn--inverse u-float-right'
+                        })
+                    }}
+
                     {% set _ribbon = '' %}
                     {% set _ribbon = block('ribbon') %}
                     {% if _ribbon is not empty %}
@@ -97,6 +106,9 @@
                         {% endblock %}
                     {% else %}
                         <h1 class="main-title">{{ heading|default('MISSING HEADING') }}</h1>
+                        {% if subheading is defined and subheading is not empty %}
+                            <h2 class="subheading">{{ subheading }}</h2>
+                        {% endif %}
                     {% endif %}
 
                     {% block tabs_list %}{% endblock %}

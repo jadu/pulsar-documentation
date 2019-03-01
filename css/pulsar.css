@@ -367,6 +367,11 @@ td,
 th {
   padding: 0; }
 
+body {
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -3390,7 +3395,7 @@ body {
 
 body {
   background-color: #fff;
-  font-family: "proxima_novalight", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 14px;
   line-height: 1.5;
   margin: 0 0 48px;
@@ -7732,7 +7737,7 @@ fieldset {
 
 .form__group:not(.form__group--partial-state).has-changed .help-block.is-error + .help-block:not(.is-error) {
   color: #757575;
-  font-family: "proxima_novalight", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+  font-family: "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
 .form__group:not(.form__group--partial-state).has-changed .form__control {
   background-color: #d9edf7;
@@ -7769,7 +7774,7 @@ fieldset {
 
 .form__group:not(.form__group--partial-state).has-warning .help-block.is-error + .help-block:not(.is-error) {
   color: #757575;
-  font-family: "proxima_novalight", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+  font-family: "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
 .form__group:not(.form__group--partial-state).has-warning .form__control {
   background-color: #fcf8e3;
@@ -7806,7 +7811,7 @@ fieldset {
 
 .form__group:not(.form__group--partial-state).has-error .help-block.is-error + .help-block:not(.is-error) {
   color: #757575;
-  font-family: "proxima_novalight", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+  font-family: "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
 .form__group:not(.form__group--partial-state).has-error .form__control {
   background-color: #faefef;
@@ -7843,7 +7848,7 @@ fieldset {
 
 .form__group:not(.form__group--partial-state).has-success .help-block.is-error + .help-block:not(.is-error) {
   color: #757575;
-  font-family: "proxima_novalight", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+  font-family: "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
 .form__group:not(.form__group--partial-state).has-success .form__control {
   background-color: #dff0d8;
@@ -7880,7 +7885,7 @@ fieldset {
 
 .form__group--partial-state.has-changed .help-block.is-error + .help-block:not(.is-error) {
   color: #757575;
-  font-family: "proxima_novalight", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+  font-family: "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
 .form__group--partial-state.has-changed .select2-selection {
   border-color: #a4d2df; }
@@ -7894,7 +7899,7 @@ fieldset {
 
 .form__group--partial-state.has-warning .help-block.is-error + .help-block:not(.is-error) {
   color: #757575;
-  font-family: "proxima_novalight", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+  font-family: "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
 .form__group--partial-state.has-warning .select2-selection {
   border-color: #eaa96a; }
@@ -7908,7 +7913,7 @@ fieldset {
 
 .form__group--partial-state.has-error .help-block.is-error + .help-block:not(.is-error) {
   color: #757575;
-  font-family: "proxima_novalight", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+  font-family: "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
 .form__group--partial-state.has-error .select2-selection {
   border-color: #c84d40; }
@@ -7922,7 +7927,7 @@ fieldset {
 
 .form__group--partial-state.has-success .help-block.is-error + .help-block:not(.is-error) {
   color: #757575;
-  font-family: "proxima_novalight", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+  font-family: "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
 .form__group--partial-state.has-success .select2-selection {
   border-color: #297c46; }
@@ -9914,7 +9919,7 @@ fieldset.form__group--compound {
 
 .jadu-logomark {
   background: url("../vendor/jadu/pulsar/images/branding/logo-cms-white.png");
-  background: url("../vendor/jadu/pulsar/images/branding/logo-cms-white.svg"), linear-gradient(transparent, transparent);
+  background: url("/img/pulsar-brand.svg"), linear-gradient(transparent, transparent);
   background-size: 50px 50px;
   background-repeat: no-repeat;
   display: inline-block;
@@ -9943,7 +9948,7 @@ fieldset.form__group--compound {
   border-bottom: 1px solid #3e4994;
   color: #fff;
   display: block;
-  font-family: "proxima_novalight", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 1.2em;
   margin-bottom: 24px; }
   .nav-item--header:not(:first-of-type) {
@@ -10765,7 +10770,7 @@ fieldset.form__group--compound {
 
 .piano__item-badge {
   float: right;
-  font-family: "proxima_novalight", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-weight: normal; }
 
 .piano__item-header {
@@ -12299,7 +12304,7 @@ a + .remove-button {
 
 .ribbon__heading {
   display: inline-block;
-  font-family: "proxima_novalight", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 1.5em;
   letter-spacing: .5px;
   line-height: 24px;
@@ -13434,7 +13439,7 @@ body {
 
 .jadu-logomark {
   background: url("../vendor/jadu/pulsar/images/branding/logo-cms-white.png");
-  background: url("../vendor/jadu/pulsar/images/branding/logo-cms-white.svg"), linear-gradient(transparent, transparent);
+  background: url("/img/pulsar-brand.svg"), linear-gradient(transparent, transparent);
   background-size: 50px 50px;
   background-repeat: no-repeat;
   display: inline-block;
@@ -14142,7 +14147,7 @@ body {
     padding: 2em 0;
     text-align: center; }
     .table .no-results.no-results, .table--datagrid .no-results.no-results, .table .dataTables_empty, .table--datagrid .dataTables_empty {
-      font-family: "proxima_novalight", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+      font-family: "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
   .table th, .table--datagrid th {
     text-align: left; }
   .table th, .table--datagrid th,
@@ -15274,7 +15279,7 @@ th.sorting_disabled:hover {
   display: block;
   visibility: visible;
   font-size: 14px;
-  font-family: "proxima_novalight", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   line-height: 1.2; }
   .tooltip.in {
     opacity: 1; }
@@ -18126,9 +18131,34 @@ figure > img {
     font-size: 38px;
     margin-bottom: 5%; }
   .landing-block .landing-block__header {
+    font-weight: 300;
+    font-size: 32px;
     margin-bottom: 5%; }
   .landing-block p {
     margin-bottom: 0; }
+
+.motto {
+  border: 0;
+  font-size: 48px;
+  font-family: bookmania, serif;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 48px;
+  margin: 0 0 1em 0;
+  padding: 0;
+  text-align: center;
+  border-bottom: 1px solid #ccc; }
+  .motto cite {
+    display: block;
+    color: #bebebe;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 14px;
+    width: 100%; }
+
+.subheading {
+  color: #3e4994;
+  font-size: 14px;
+  margin-top: -10px; }
 
 .d-example {
   border: 1px solid #bebebe;

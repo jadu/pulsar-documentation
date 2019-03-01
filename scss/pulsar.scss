@@ -22,7 +22,13 @@ $ie-version: 12 !default;
 
 // Proxima Nova (requires license)
 $font-path: '../fonts/';
-@import '../fonts/config.fonts';
+$font-family-light: 'proxima-nova', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+body {
+	font-weight: 300;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
 
 // Font awesome
 $fa-font-path: '../vendor/jadu/pulsar/libs/font-awesome/fonts';
@@ -47,6 +53,7 @@ $fa-css-prefix: 'icon';
 $image-path: '../vendor/jadu/pulsar/images/';
 @import 'config.branding';
 
+$branding-navigation: '/img/pulsar-brand.svg';
 $nav-color-light: #3e4994; // must be AA 4.5:1
 $nav-color-dark: darken(#3e4994, 7.5%);
 $nav-color-darker: darken(#3e4994, 10%);
