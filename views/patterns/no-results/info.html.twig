@@ -1,0 +1,67 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">When an interface needs to list items you should provide a helpful fallback message for when no results are found. If the user has the relevant permissions to create or add one of these items, you should provide a call to action to help them along their way.</p>
+    
+    <p>No result messages have subtle, unique styling to differentiate them from regular content.</p>
+
+    {{ docs.heading('h2', 'Basic message') }}
+
+    <p>A generic component to use wherever suitable, can be used within an empty tab if no content is available but the tab still needs to be displayed for navigation purposes.</p>
+
+    {{ docs.example({
+        html: "
+<div class=\"no-results\">
+    <div class=\"no-results__message\">
+        <p>There are currently no {things} to display</p>
+    </div>
+    <a href=\"#\" class=\"btn btn--primary no-results__action\">Create {Thing}</a>
+</div>
+    " }) }}
+
+    {{ docs.heading('h2', 'Empty tables') }}
+
+    <p>You should still display the column titles in the table header, this helps to inform the user about what kind of data is normally present in the table.</p>
+
+    {{
+    html.panel({
+        'title': 'Using no-results with Datatables',
+        'body': 'If you’re using datatables instead of plain HTML tables you simply need to have a table with no rows in the body and this message will be displayed automatically. Check the <a href=\"datatable.md\">datatable  documentation</a> for more information on how to customise this message.',
+        'icon': 'info-sign',
+        'class': 'panel--warning'
+    })
+}}
+
+     {{ docs.example({
+        html: "
+<table class=\"table table--full\">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class=\"no-results\" colspan=\"99\">
+                <div class=\"no-results__message\">
+                    <p>There are currently no {things} to display</p>
+                </div>
+                <a href=\"#\" class=\"btn btn--primary no-results__action\">Create {Thing}</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-message">Basic message</a></li>
+        <li><a href="#empty-tables">Empty tables</a></li>
+    </ul>
+{% endblock tab_sidebar %}

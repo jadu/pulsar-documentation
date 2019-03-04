@@ -1,0 +1,27 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'No results' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Home', 'href': '/'},
+        {'label': 'Patterns', 'href': '#'},
+        {'label': 'No results', 'href': '#'}
+    ]
+%}
+
+{% set tab_code %}
+    {% include 'patterns/no-results/info.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "code",
+          "class" : "ui-report",
+          "label" : "Info",
+          "src"   : tab_code,
+          "active": true
+        }
+    ]
+%}
