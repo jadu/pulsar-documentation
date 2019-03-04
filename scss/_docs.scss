@@ -134,7 +134,11 @@ code {
         @if $variant != 'alt' {
             .swatch--#{$name}-#{$variant} {
                 background-color: color($name, $variant);
-                color: pick_best_color(color($name, $variant), (color(white), #000));
+                color: pick_best_color(color($name, $variant), (#fff, #000));
+
+                .swatch__label {
+                    color: pick_best_color(color($name, $variant), (#fff, #000));
+                }
             }
         }
     }

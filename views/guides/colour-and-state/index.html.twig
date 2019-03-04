@@ -1,0 +1,37 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Colour and State' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Home', 'href': '/'},
+        {'label': 'Guides', 'href': '#'},
+        {'label': 'Colour and State', 'href': '#'}
+    ]
+%}
+
+{% set tab_palettes %}
+    {% include 'guides/colour-and-state/palettes.html.twig' %}
+{% endset %}
+
+{% set tab_state %}
+    {% include 'guides/colour-and-state/state.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "palettes",
+          "class" : "ui-report",
+          "label" : "Palettes",
+          "src"   : tab_palettes,
+          "active": true
+        },
+        {
+          "id"    : "state",
+          "class" : "ui-report",
+          "label" : "State",
+          "src"   : tab_state
+        }
+    ]
+%}

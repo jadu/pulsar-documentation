@@ -1,0 +1,144 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Use the correct colour and language combinations to properly communicate the state of a component to the user.</p>
+
+    {{ docs.heading('h2', 'Colour') }}
+
+    <p>Colour should be used where possible to reinforce the action or state that you are presenting to the user. The language used in the textual label is the key component here, colour should never be solely relied upon.</p>
+
+    <ul class="list--naked">
+        <li><label class="label">grey</label> indicates benign, or neutral actions/states</li>
+        <li><label class="label label--primary">blue</label> indicates the primary action for a given screen, should be used sparingly, ideally once per UI
+        <li><label class="label label--success">green</label> indicates positive actions/states</li>
+        <li><label class="label label--danger">red</label> indicates negative or destructive actions/states</li>
+        <li><label class="label label--inverse">black</label> indicates blocking or restrictive actions/states</li>
+    </ul>
+
+    {{ docs.heading('h2', 'Language') }}
+
+    <p>The state of a ‘thing’ can be indicated by a label, and modified by an action. You should carefully choose appropriate terms that make the most sense to people, while providing clear information in as few words as possible.</p>
+
+    <p>Actions which <u>modify</u> a state should (principally) use a verb:</p>
+
+    <p>
+        <button class="btn">Lock</button>
+        <button class="btn btn--inverse">Unlock</button>
+    </p>
+
+    <p>
+        <button class="btn btn--primary">Show</button>
+        <button class="btn">Hide</button>
+    </p>
+
+    <p>
+        <button class="btn btn--success">Publish</button>
+        <button class="btn btn--danger">Unpublish</button>
+    </p>
+
+    <p>Labels which <u>indicate</u> the state should use past-participles or adjectives:</p>
+
+    <p>
+        <span class="label label--inverse">Locked</span>
+        <span class="label">Unlocked</span>
+    </p>
+
+    <p>
+        <span class="label label--success">Visible</span>
+        <span class="label label--danger">Hidden</span>
+    </p>
+
+    <p>
+        <span class="label label--success">Published</span>
+        <span class="label label--danger">Offline</span>
+    </p>
+
+    <p>Note the careful choice of terms in the examples above for the 'Unpublish' action, 'offline' is a better label adjective to use than 'unpublished'.</p>
+
+    {{ docs.heading('h2', 'Icons') }}
+
+    <p>When using iconography there may be the opportunity to use different icons to reflect the state and action; They may often appear together in the same interface.</p>
+
+    <p>State: <span class="label label--inverse"><i class="icon-lock"></i> Locked</span></p>
+    <p>Action: <button class="btn"><i class="icon-unlock"></i> Unlock</button></p>
+
+    {{ docs.heading('h2', 'State classes') }}
+
+    <p>Pulsar has a collection of common state classes, many components (like buttons, labels, badges etc) cater for these states, eg: <code>.btn--primary</code>, <code>.btn--success</code> etc.</p>
+
+    <ul>
+        <li>primary</li>
+        <li>success</li>
+        <li>warning</li>
+        <li>danger</li>
+        <li>info</li>
+        <li>inverse</li>
+    </ul>
+
+    <p>The actual presentation of these state classes will differ depending on the component it is applied to. A danger button may differ to a danger text input field. You should refer to the individual component's documentation for state examples.</p>
+
+    {{ docs.heading('h2', 'Switching state') }}
+
+    <p>When your styles need to switch based on state you should use these common <code>is-</code> or <code>has-</code> namespaced classes. When writing your own components you should try to stick to this convention to modify or communicate state.</p>
+
+    <p>{{ html.icon('info-sign') }} Avoid hooking javascript behaviour to these classes, use <code>js-</code> namespaced classes instead, it's ok to have multiple classes, one for style and one for behaviour eg: <code>class="is-open js-open"</code>.</p>
+
+    <ul>
+        <li><code>.is-open</code></li>
+        <li><code>.is-closed</code></li>
+        <li><code>.is-active</code></li>
+        <li><code>.is-disabled</code></li>
+    </ul>
+
+    <ul>
+        <li><code>.has-success</code></li>
+        <li><code>.has-warning</code></li>
+        <li><code>.has-error</code></li>
+        <li><code>.has-changed</code></li>
+    </ul>
+
+    <p>As a general rule, the <code>.has-</code> classes will apply a lighter version of the related state colour as the background colour of the element. Depending on the UI component, it may have other effects too.</p>
+
+    <p>You can also make this colour fade to white after 5 seconds by adding the <code>.fade</code> class.</p>
+
+    <p>Regular text can also use the main state classes, using the colours defined in the palette. You can also extend these with the Sass <code>%</code> placeholder.</p>
+
+    <ul>
+        <li><code>.text--primary</code></li>
+        <li><code>.text--success</code></li>
+        <li><code>.text--warning</code></li>
+        <li><code>.text--danger</code></li>
+        <li><code>.text--info</code></li>
+        <li><code>.text--inverse</code></li>
+        <li><code>.text--white</code></li>
+        <li><code>.text--new</code></li>
+    </ul>
+
+    {{ docs.heading('h2', 'State variable Sass map') }}
+
+    <p>There is a Sass map defined in <code>_palette.base.scss</code> which contains the state colours, along with their text-colour alternates, it's handy to loop over the map to output repetitive rulesets that cover all states.</p>
+
+<pre><code lang="scss">@each $state, $state-color, $state-color-alt in $state-colors {
+    .myComponent--#{$state} {
+        background-color: $state-color;
+        color: $state-color-alt;
+    }
+}</code><pre>
+
+</div>
+{% endblock tab_content %}
+
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#colour">Colour</a></li>
+        <li><a href="#language">Language</a></li>
+        <li><a href="#icons">Icons</a></li>
+        <li><a href="#state-classes">State classes</a></li>
+        <li><a href="#language">Language</a></li>
+        <li><a href="#switching-state">Switching state</a></li>
+        <li><a href="#state-variable-sass-map">State variable Sass map</a></li>
+    </ul>
+{% endblock tab_sidebar %}

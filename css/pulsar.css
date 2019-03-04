@@ -17773,326 +17773,488 @@ code {
 .swatch--jadu-red-darkest {
   background-color: #731313;
   color: #fff; }
+  .swatch--jadu-red-darkest .swatch__label {
+    color: #fff; }
 
 .swatch--jadu-red-dark {
   background-color: #9a1717;
   color: #fff; }
+  .swatch--jadu-red-dark .swatch__label {
+    color: #fff; }
 
 .swatch--jadu-red-base {
   background-color: #c01c1d;
   color: #fff; }
+  .swatch--jadu-red-base .swatch__label {
+    color: #fff; }
 
 .swatch--jadu-red-light {
   background-color: #da2021;
   color: #000; }
+  .swatch--jadu-red-light .swatch__label {
+    color: #000; }
 
 .swatch--jadu-red-pale {
   background-color: #e73a22;
   color: #000; }
+  .swatch--jadu-red-pale .swatch__label {
+    color: #000; }
 
 .swatch--jadu-blue-darkest {
   background-color: #226586;
   color: #fff; }
+  .swatch--jadu-blue-darkest .swatch__label {
+    color: #fff; }
 
 .swatch--jadu-blue-dark {
   background-color: #2d86b3;
   color: #000; }
+  .swatch--jadu-blue-dark .swatch__label {
+    color: #000; }
 
 .swatch--jadu-blue-base {
   background-color: #3399cc;
   color: #000; }
+  .swatch--jadu-blue-base .swatch__label {
+    color: #000; }
 
 .swatch--jadu-blue-light {
   background-color: #60b0d7;
   color: #000; }
+  .swatch--jadu-blue-light .swatch__label {
+    color: #000; }
 
 .swatch--jadu-blue-pale {
   background-color: #a4d2df;
   color: #000; }
+  .swatch--jadu-blue-pale .swatch__label {
+    color: #000; }
 
 .swatch--jadu-green-darkest {
   background-color: #517423;
   color: #fff; }
+  .swatch--jadu-green-darkest .swatch__label {
+    color: #fff; }
 
 .swatch--jadu-green-dark {
   background-color: #6b9c2f;
   color: #000; }
+  .swatch--jadu-green-dark .swatch__label {
+    color: #000; }
 
 .swatch--jadu-green-base {
   background-color: #80ba27;
   color: #000; }
+  .swatch--jadu-green-base .swatch__label {
+    color: #000; }
 
 .swatch--jadu-green-light {
   background-color: #a4c858;
   color: #000; }
+  .swatch--jadu-green-light .swatch__label {
+    color: #000; }
 
 .swatch--jadu-green-pale {
   background-color: #bdd686;
   color: #000; }
+  .swatch--jadu-green-pale .swatch__label {
+    color: #000; }
 
 .swatch--jadu-teal-darkest {
   background-color: #337368;
   color: #fff; }
+  .swatch--jadu-teal-darkest .swatch__label {
+    color: #fff; }
 
 .swatch--jadu-teal-dark {
   background-color: #459a8c;
   color: #000; }
+  .swatch--jadu-teal-dark .swatch__label {
+    color: #000; }
 
 .swatch--jadu-teal-base {
   background-color: #54b9a9;
   color: #000; }
+  .swatch--jadu-teal-base .swatch__label {
+    color: #000; }
 
 .swatch--jadu-teal-light {
   background-color: #86c9bf;
   color: #000; }
+  .swatch--jadu-teal-light .swatch__label {
+    color: #000; }
 
 .swatch--jadu-teal-pale {
   background-color: #8cd2ca;
   color: #000; }
+  .swatch--jadu-teal-pale .swatch__label {
+    color: #000; }
 
 .swatch--jadu-pink-darkest {
   background-color: #893247;
   color: #fff; }
+  .swatch--jadu-pink-darkest .swatch__label {
+    color: #fff; }
 
 .swatch--jadu-pink-dark {
   background-color: #b7435f;
   color: #fff; }
+  .swatch--jadu-pink-dark .swatch__label {
+    color: #fff; }
 
 .swatch--jadu-pink-base {
   background-color: #dc5172;
   color: #000; }
+  .swatch--jadu-pink-base .swatch__label {
+    color: #000; }
 
 .swatch--jadu-pink-light {
   background-color: #e06985;
   color: #000; }
+  .swatch--jadu-pink-light .swatch__label {
+    color: #000; }
 
 .swatch--jadu-pink-pale {
   background-color: #efb4c3;
   color: #000; }
+  .swatch--jadu-pink-pale .swatch__label {
+    color: #000; }
 
 .swatch--white-base {
   background-color: #fff;
   color: #000; }
+  .swatch--white-base .swatch__label {
+    color: #000; }
 
 .swatch--white-light {
   background-color: #fff;
   color: #000; }
+  .swatch--white-light .swatch__label {
+    color: #000; }
 
 .swatch--white-dark {
   background-color: #efefef;
   color: #000; }
+  .swatch--white-dark .swatch__label {
+    color: #000; }
 
 .swatch--black-base {
   background-color: #1e1e1e;
   color: #fff; }
+  .swatch--black-base .swatch__label {
+    color: #fff; }
 
 .swatch--gray-darker {
   background-color: #3e3e3e;
   color: #fff; }
+  .swatch--gray-darker .swatch__label {
+    color: #fff; }
 
 .swatch--gray-dark {
   background-color: #5f5f5f;
   color: #fff; }
+  .swatch--gray-dark .swatch__label {
+    color: #fff; }
 
 .swatch--gray-dull {
   background-color: #757575;
   color: #fff; }
+  .swatch--gray-dull .swatch__label {
+    color: #fff; }
 
 .swatch--gray-base {
   background-color: #7e7e7e;
   color: #000; }
+  .swatch--gray-base .swatch__label {
+    color: #000; }
 
 .swatch--gray-light {
   background-color: #9d9d9d;
   color: #000; }
+  .swatch--gray-light .swatch__label {
+    color: #000; }
 
 .swatch--gray-lighter {
   background-color: #bebebe;
   color: #000; }
+  .swatch--gray-lighter .swatch__label {
+    color: #000; }
 
 .swatch--gray-lightest {
   background-color: #dedede;
   color: #000; }
+  .swatch--gray-lightest .swatch__label {
+    color: #000; }
 
 .swatch--gray-off-white {
   background-color: #efefef;
   color: #000; }
+  .swatch--gray-off-white .swatch__label {
+    color: #000; }
 
 .swatch--text-base {
   background-color: #3e3e3e;
   color: #fff; }
+  .swatch--text-base .swatch__label {
+    color: #fff; }
 
 .swatch--text-help {
   background-color: #757575;
   color: #fff; }
+  .swatch--text-help .swatch__label {
+    color: #fff; }
 
 .swatch--text-light {
   background-color: #bebebe;
   color: #000; }
+  .swatch--text-light .swatch__label {
+    color: #000; }
 
 .swatch--text-disabled {
   background-color: #bebebe;
   color: #000; }
+  .swatch--text-disabled .swatch__label {
+    color: #000; }
 
 .swatch--link-base {
   background-color: #2a7da7;
   color: #000; }
+  .swatch--link-base .swatch__label {
+    color: #000; }
 
 .swatch--link-dark {
   background-color: #256e93;
   color: #fff; }
+  .swatch--link-dark .swatch__label {
+    color: #fff; }
 
 .swatch--link-hover {
   background-color: #256e93;
   color: #fff; }
+  .swatch--link-hover .swatch__label {
+    color: #fff; }
 
 .swatch--link-focus {
   background-color: #1b4f6a;
   color: #fff; }
+  .swatch--link-focus .swatch__label {
+    color: #fff; }
 
 .swatch--link-inverse {
   background-color: #fff;
   color: #000; }
+  .swatch--link-inverse .swatch__label {
+    color: #000; }
 
 .swatch--link-inverse-hover {
   background-color: #e6e6e6;
   color: #000; }
+  .swatch--link-inverse-hover .swatch__label {
+    color: #000; }
 
 .swatch--link-disabled {
   background-color: #bebebe;
   color: #000; }
+  .swatch--link-disabled .swatch__label {
+    color: #000; }
 
 .swatch--border-base {
   background-color: #bebebe;
   color: #000; }
+  .swatch--border-base .swatch__label {
+    color: #000; }
 
 .swatch--border-focus {
   background-color: #ffbf47;
   color: #000; }
+  .swatch--border-focus .swatch__label {
+    color: #000; }
 
 .swatch--background-base {
   background-color: #efefef;
   color: #000; }
+  .swatch--background-base .swatch__label {
+    color: #000; }
 
 .swatch--background-dark {
   background-color: #dedede;
   color: #000; }
+  .swatch--background-dark .swatch__label {
+    color: #000; }
 
 .swatch--background-light {
   background-color: #f4f4f4;
   color: #000; }
+  .swatch--background-light .swatch__label {
+    color: #000; }
 
 .swatch--background-selected {
   background-color: #ddeef3;
   color: #000; }
+  .swatch--background-selected .swatch__label {
+    color: #000; }
 
 .swatch--background-focus {
   background-color: #ffbf47;
   color: #000; }
+  .swatch--background-focus .swatch__label {
+    color: #000; }
 
 .swatch--base-base {
   background-color: #dedede;
   color: #000; }
+  .swatch--base-base .swatch__label {
+    color: #000; }
 
 .swatch--base-light {
   background-color: #ebebeb;
   color: #000; }
+  .swatch--base-light .swatch__label {
+    color: #000; }
 
 .swatch--base-dark {
   background-color: #3e3e3e;
   color: #fff; }
+  .swatch--base-dark .swatch__label {
+    color: #fff; }
 
 .swatch--primary-base {
   background-color: #2575b0;
   color: #fff; }
+  .swatch--primary-base .swatch__label {
+    color: #fff; }
 
 .swatch--primary-light {
   background-color: #c7e1f3;
   color: #000; }
+  .swatch--primary-light .swatch__label {
+    color: #000; }
 
 .swatch--primary-dark {
   background-color: #21679b;
   color: #fff; }
+  .swatch--primary-dark .swatch__label {
+    color: #fff; }
 
 .swatch--success-base {
   background-color: #297c46;
   color: #fff; }
+  .swatch--success-base .swatch__label {
+    color: #fff; }
 
 .swatch--success-light {
   background-color: #cfefda;
   color: #000; }
+  .swatch--success-light .swatch__label {
+    color: #000; }
 
 .swatch--success-dark {
   background-color: #23693b;
   color: #fff; }
+  .swatch--success-dark .swatch__label {
+    color: #fff; }
 
 .swatch--warning-base {
   background-color: #eaa96a;
   color: #000; }
+  .swatch--warning-base .swatch__label {
+    color: #000; }
 
 .swatch--warning-light {
   background-color: #faeada;
   color: #000; }
+  .swatch--warning-light .swatch__label {
+    color: #000; }
 
 .swatch--warning-dark {
   background-color: #8e5014;
   color: #fff; }
+  .swatch--warning-dark .swatch__label {
+    color: #fff; }
 
 .swatch--danger-base {
   background-color: #c84d40;
   color: #fff; }
+  .swatch--danger-base .swatch__label {
+    color: #fff; }
 
 .swatch--danger-light {
   background-color: #f6e1de;
   color: #000; }
+  .swatch--danger-light .swatch__label {
+    color: #000; }
 
 .swatch--danger-dark {
   background-color: #b94235;
   color: #fff; }
+  .swatch--danger-dark .swatch__label {
+    color: #fff; }
 
 .swatch--info-base {
   background-color: #a4d2df;
   color: #000; }
+  .swatch--info-base .swatch__label {
+    color: #000; }
 
 .swatch--info-light {
   background-color: #ddeef3;
   color: #000; }
+  .swatch--info-light .swatch__label {
+    color: #000; }
 
 .swatch--info-dark {
   background-color: #307487;
   color: #fff; }
+  .swatch--info-dark .swatch__label {
+    color: #fff; }
 
 .swatch--inverse-base {
   background-color: #3e3e3e;
   color: #fff; }
+  .swatch--inverse-base .swatch__label {
+    color: #fff; }
 
 .swatch--inverse-light {
   background-color: #d7d7d7;
   color: #000; }
+  .swatch--inverse-light .swatch__label {
+    color: #000; }
 
 .swatch--inverse-dark {
   background-color: #3e3e3e;
   color: #fff; }
+  .swatch--inverse-dark .swatch__label {
+    color: #fff; }
 
 .swatch--new-base {
   background-color: #e5ecf2;
   color: #000; }
+  .swatch--new-base .swatch__label {
+    color: #000; }
 
 .swatch--new-light {
   background-color: #f6f8fb;
   color: #000; }
+  .swatch--new-light .swatch__label {
+    color: #000; }
 
 .swatch--new-dark {
   background-color: #d4e0ea;
   color: #000; }
+  .swatch--new-dark .swatch__label {
+    color: #000; }
 
 .swatch--sorting-base {
   background-color: #ffffec;
   color: #000; }
+  .swatch--sorting-base .swatch__label {
+    color: #000; }
 
 .swatch--sorting-dark {
   background-color: #cccc00;
   color: #000; }
+  .swatch--sorting-dark .swatch__label {
+    color: #000; }
 
 .g-row {
   float: left;
