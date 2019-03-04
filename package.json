@@ -4,6 +4,10 @@
         "type": "git",
         "url": "https://github.com/jadu/pulsar-docs.git"
     },
+    "scripts": {
+        "start": "docker-compose up -d && grunt",
+        "stop": "docker-compose down"
+    },
     "devDependencies": {
         "aliasify": "^1.9.0",
         "babel-core": "^6.26.0",
