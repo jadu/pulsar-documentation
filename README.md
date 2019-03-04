@@ -22,4 +22,4 @@ The docker container can also be stopped using the `npm stop` command.
 
 ## Publishing to live
 
-Documentation for this process is interla-only, and available on request from Paul Stanton or James Jacobs.
+Documentation for this process is interal-only, and available on request from Paul Stanton or James Jacobs.
