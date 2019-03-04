@@ -15,6 +15,7 @@
     pulsar.filterBar = new pulsar.FilterBarComponent($html);
     pulsar.pulsarForm = new pulsar.PulsarFormComponent($html);
     pulsar.navMain = new pulsar.NavMainComponent($html, window);
+    pulsar.tableDetail = new pulsar.TableDetailComponent($html);
     pulsar.repeaterManager = new pulsar.RepeaterManagerComponent(
         pulsar.pulsarForm,
         pulsar.repeaterComponentFactory,
@@ -28,6 +29,7 @@
         pulsar.pulsarForm.init();
         pulsar.navMain.init();
         pulsar.repeaterManager.init();
+        pulsar.tableDetail.init();
 
         $('.d-example-nav__link').on('click', function() {
             var $this = $(this),

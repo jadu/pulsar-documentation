@@ -35,7 +35,8 @@ var $                     = require('jquery'),
     PulsarUIComponent     = require('../vendor/jadu/pulsar/js/PulsarUIComponent'),
     PulsarFormComponent   = require('../vendor/jadu/pulsar/js/PulsarFormComponent'),
     RepeaterManagerComponent = require('../vendor/jadu/pulsar/js/Repeater/RepeaterManagerComponent'),
-    repeaterComponentFactory = require('../vendor/jadu/pulsar/js/Repeater/repeaterComponentFactory');
+    repeaterComponentFactory = require('../vendor/jadu/pulsar/js/Repeater/repeaterComponentFactory'),
+    TableDetailComponent = require('../vendor/jadu/pulsar/js/TableDetailComponent');
 
 module.exports = {
     NavMainComponent,
@@ -45,4 +46,5 @@ module.exports = {
     PulsarFormComponent,
     RepeaterManagerComponent,
     repeaterComponentFactory,
+    TableDetailComponent,
 };
