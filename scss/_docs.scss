@@ -164,63 +164,74 @@ figure > img {
     max-width: 800px;
 }
 
+.docs-title {
+    color: #3e4994;
+    font-family: $font-family-light;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 48px;
+    margin-bottom: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.docs-subtitle {
+    margin-bottom: $line-height-base * 2;
+    text-align: center;
+}
+
 .landing-blocks {
-    align-content: stretch;
-    display: flex;
-    justify-content: space-evenly;
     margin-bottom: $line-height-base;
+    
+    @include respond-min($screen-tablet) {
+        align-content: stretch;
+        display: flex;
+        justify-content: space-evenly;
+    }
 }
 
 .landing-block {
-    background-color: #3e4994;
-    border-radius: 20px;
-    color: color(white);
     flex-grow: 1;
-    margin: 0 1%;
+    margin: 0 .5% $line-height-base .5%;
     padding: 2%;
     text-align: center;
     text-decoration: none;
-    width: 33%;
+    width: 100%;
 
-    &:hover {
-        color: color(white);
-        background-color: darken(#3e4994, 5);
-
-    }
-
-    i {
-        // color: #3e4994;
-        font-size: 38px;
-        margin-bottom: 5%;
+    @include respond-min($screen-tablet) {
+        width: 33%;
     }
 
     .landing-block__header {
-        font-weight: 300;
-        font-size: 32px;
+        color: #3e4994;
+        font-weight: 800;
+        font-size: 28px;
         margin-bottom: 5%;
     }
 
-    p {
-        margin-bottom: 0;
+    .landing-block__detail {
+        margin-bottom: $line-height-base;
     }
 }
 
 .motto {
+    background-color: color(background, light);
     border: 0;
+    border-bottom: 3px double #ccc;
+    border-top: 3px double #ccc;
+    color: color(gray, dark);
     font-size: 48px;
     font-family: bookmania, serif;
     font-weight: 700;
     font-style: normal;
     line-height: 48px;
-    margin: 0 0 1em 0;
-    padding: 0;
+    margin: 0 -20px $line-height-base -20px;
+    padding: .5em 0 0 0;
     text-align: center;
-    border-bottom: 1px solid #ccc;
 
     cite {
         display: block;
         color: color(text, light);
-        font-family: Georgia, 'Times New Roman', Times, serif;
         font-size: $font-size-small;
         width: 100%;
     }
@@ -230,4 +241,9 @@ figure > img {
     color: #3e4994;
     font-weight: 300;
     margin-top: -10px;
+}
+
+.btn--docs {
+    border-color: #3e4994;
+    color: #3e4994 !important;
 }

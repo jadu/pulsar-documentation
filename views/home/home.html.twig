@@ -3,49 +3,52 @@
 
 {% block tab_content %}
 
+<h1 class="docs-title">Pulsar</h1>
+<h2 class="docs-subtitle">the design system for the Jadu platform</h2>
+
 <blockquote class="motto">
-    &ldquo;Design is the conscious effort to impose a meaningful order&rdquo;
+    Design is the conscious effort to<br />impose a meaningful order
     <cite>Victor Papanek, 1974</cite>
 </blockquote>
 
 <div class="landing-blocks">
-    <a href="/guides/getting-started" class="landing-block">
-        {{ html.icon('play') }}
-        <h3 class="landing-block__header">Getting Started</h3>
-        <p>So you have to create a UI in CMS, XFP or CXM&hellip; What now?</p>
-    </a>
-
-    <div href="/guides/accessibility" class="landing-block">
-        {{ html.icon('universal-access') }}
-        <h3 class="landing-block__header">Accessibility Guidance</h3>
-        <p>Make your user interfaces as accessible as possible (work in progress)</p>
+    <div class="landing-block">
+        <h3 class="landing-block__header">About Pulsar</h3>
+        <p class="landing-block__detail">Pulsar provides a common framework, tools and documentation to help designers and developers build user interfaces within the Jadu platform.</p>
+        {{
+            html.button({
+                'label': 'Get Started',
+                'class': 'btn--outline btn--docs',
+                'href': '/guides/getting-started',
+                'type': 'link'
+            })
+        }}
     </div>
 
-    <a href="https://github.com/jadu/pulsar-sketch-toolkit" class="landing-block">
-        {{ html.icon('diamond') }}
-        <h3 class="landing-block__header">Sketch Toolkit</h3>
-        <p>Create mockups with ready-to-use components</p>
+    <div class="landing-block">
+        <h3 class="landing-block__header">Designed for Jadu</h3>
+        <p class="landing-block__detail">Components are designed with accessibility, usability and responsiveness in mind, providing additional features requiring as little configuration as possible.</p>
+        {{
+            html.button({
+                'label': 'Components',
+                'class': 'btn--outline btn--docs is-disabled',
+                'href': '#',
+                'type': 'link'
+            })
+        }}
+    </div>
+
+    <div class="landing-block">
+        <h3 class="landing-block__header">Collaborate</h3>
+        <p class="landing-block__detail">We welcome any feedback and ideas on how to improve the design system. If you are interested in contributing you can check out our contribution guidelines or report an issue.</p>
+        {{
+            html.button({
+                'label': 'View on GitHub',
+                'class': 'btn--outline btn--docs',
+                'href': 'https://github.com/jadu/pulsar',
+                'type': 'link'
+            })
+        }}
     </a>
 </div>
-<!--
-<div class="landing-blocks">
-    <div class="landing-block">
-        {{ html.icon('cube') }}
-        <h3 class="landing-block__header">Components</h3>
-        <p>A library of elements with code examples, styles and usage guidelines</p>
-    </div>
-
-    <div class="landing-block">
-        {{ html.icon('wpforms') }}
-        <h3 class="landing-block__header">Forms</h3>
-        <p>All form input types, with code examples and a11y best practices</p>
-    </div>
-
-    <div class="landing-block">
-        {{ html.icon('cubes') }}
-        <h3 class="landing-block__header">Patterns</h3>
-        <p>Larger scale interfaces, comprised of smaller components and/or forms</p>
-    </div>
-</div>
--->
 {% endblock tab_content %}

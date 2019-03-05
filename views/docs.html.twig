@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-landing.html.twig' %}
 
 {% import '@pulsar/pulsar/v2/helpers/flash.html.twig' as flash %}
 {% import '@pulsar/pulsar/v2/helpers/html.html.twig' as html %}
@@ -316,10 +316,6 @@
         }
     }
 %}
-
-{% block tabs_list %}
-    {{ tabs.list(tabs_content) }}
-{% endblock %}
 
 {% block tabs_content %}
     {{ tabs.content(tabs_content) }}
