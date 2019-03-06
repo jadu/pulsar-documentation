@@ -18325,7 +18325,9 @@ figure > img {
       margin-bottom: 24px; } }
 
 .landing-block__illustration {
-  display: none; }
+  display: none;
+  margin: 0 auto;
+  max-width: 300px; }
   @media screen and (min-width: 767px) {
     .landing-block__illustration {
       display: block; } }
