@@ -169,7 +169,7 @@ figure > img {
     font-family: $font-family-light;
     font-size: 48px;
     font-weight: 800;
-    line-height: 48px;
+    line-height: $line-height-base * 2.5;
     margin-bottom: 0;
     text-align: center;
     text-transform: uppercase;
@@ -191,6 +191,9 @@ figure > img {
 }
 
 .landing-block {
+    align-items: flex-start;
+    align-content: space-between;
+    display: flex;
     flex-grow: 1;
     margin: 0 .5% $line-height-base .5%;
     padding: 2%;
@@ -199,18 +202,35 @@ figure > img {
     width: 100%;
 
     @include respond-min($screen-tablet) {
+        display: block;
         width: 33%;
     }
+}
 
-    .landing-block__header {
-        color: #3e4994;
-        font-weight: 800;
-        font-size: 28px;
-        margin-bottom: 5%;
-    }
+.landing-block__header {
+    color: #3e4994;
+    font-weight: 800;
+    font-size: 28px;
+    margin-bottom: $line-height-base / 2;
 
-    .landing-block__detail {
+    @include respond-min($screen-tablet) {
         margin-bottom: $line-height-base;
+    }
+}
+
+.landing-block__detail {
+    margin-bottom: $line-height-base / 2;
+
+    @include respond-min($screen-tablet) {
+        margin-bottom: $line-height-base;
+    }
+}
+
+.landing-block__illustration {
+    display: none;
+    
+    @include respond-min($screen-tablet) {
+        display: block;
     }
 }
 
@@ -220,11 +240,11 @@ figure > img {
     border-bottom: 3px double #ccc;
     border-top: 3px double #ccc;
     color: color(gray, dark);
-    font-size: 48px;
+    font-size: 36px;
     font-family: bookmania, serif;
     font-weight: 700;
     font-style: normal;
-    line-height: 48px;
+    line-height: 36px;
     margin: 0 -20px $line-height-base -20px;
     padding: .5em 0 0 0;
     text-align: center;

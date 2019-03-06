@@ -18277,7 +18277,7 @@ figure > img {
   font-family: "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 48px;
   font-weight: 800;
-  line-height: 48px;
+  line-height: 60px;
   margin-bottom: 0;
   text-align: center;
   text-transform: uppercase; }
@@ -18295,6 +18295,9 @@ figure > img {
       justify-content: space-evenly; } }
 
 .landing-block {
+  align-items: flex-start;
+  align-content: space-between;
+  display: flex;
   flex-grow: 1;
   margin: 0 0.5% 24px 0.5%;
   padding: 2%;
@@ -18303,14 +18306,29 @@ figure > img {
   width: 100%; }
   @media screen and (min-width: 767px) {
     .landing-block {
+      display: block;
       width: 33%; } }
-  .landing-block .landing-block__header {
-    color: #3e4994;
-    font-weight: 800;
-    font-size: 28px;
-    margin-bottom: 5%; }
-  .landing-block .landing-block__detail {
-    margin-bottom: 24px; }
+
+.landing-block__header {
+  color: #3e4994;
+  font-weight: 800;
+  font-size: 28px;
+  margin-bottom: 12px; }
+  @media screen and (min-width: 767px) {
+    .landing-block__header {
+      margin-bottom: 24px; } }
+
+.landing-block__detail {
+  margin-bottom: 12px; }
+  @media screen and (min-width: 767px) {
+    .landing-block__detail {
+      margin-bottom: 24px; } }
+
+.landing-block__illustration {
+  display: none; }
+  @media screen and (min-width: 767px) {
+    .landing-block__illustration {
+      display: block; } }
 
 .motto {
   background-color: #f4f4f4;
@@ -18318,11 +18336,11 @@ figure > img {
   border-bottom: 3px double #ccc;
   border-top: 3px double #ccc;
   color: #5f5f5f;
-  font-size: 48px;
+  font-size: 36px;
   font-family: bookmania, serif;
   font-weight: 700;
   font-style: normal;
-  line-height: 48px;
+  line-height: 36px;
   margin: 0 -20px 24px -20px;
   padding: .5em 0 0 0;
   text-align: center; }
