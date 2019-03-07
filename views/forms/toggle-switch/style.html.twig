@@ -1,0 +1,306 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+
+    {{
+        html.panel({
+            'body': 'Toggle switches don’t apply validation or state styling to the toggle switch control to prevent causing any confusion with the switch state. The various states are still illustrated here to act as a reference for the expected visuals for each variation',
+            'icon': 'info-sign',
+            'class': 'panel--info'
+        })
+    }}
+
+    {{ docs.heading('h2', 'Validation') }}
+    {{ docs.heading('h3', 'Error') }}
+
+    {{ docs.example({
+        screenreader: 'My label, Something went wrong, unticked, tickbox',
+        twig: "
+{{
+    form.toggle_switch({
+        'label': 'My label',
+        'id': 'toggle-b1', 
+        'name': 'toggle-b1',
+        'error': 'Something went wrong'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Multiple Errors') }}
+
+    {{ docs.example({
+        screenreader: 'My label, Something went wrong something else went wrong, unticked, tickbox',
+        twig: "
+{{
+    form.toggle_switch({
+        'label': 'My label',
+        'id': 'toggle-b2', 
+        'name': 'toggle-b2',
+        'error': [
+            'Something went wrong',
+            'Something else went wrong'
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Error and Help') }}
+
+    {{ docs.example({
+        screenreader: 'My label, Help text to give more information about expected input Something went wrong, unticked, tickbox',
+        twig: "
+{{
+    form.toggle_switch({
+        'label': 'My label',
+        'id': 'toggle-b3', 
+        'name': 'toggle-b3',
+        'error': 'Something went wrong',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'States') }}
+    {{ docs.heading('h3', 'Success') }}
+
+    <p>Highlight positive actions or indicate that something has successfully saved with the <code>has-success</code> class.</p>
+
+    {{ docs.example({
+        screenreader: 'My label, Help text to give more information about expected input, unticked, tickbox',
+        twig: "
+{{
+    form.toggle_switch({
+        'label': 'My label',
+        'class': 'has-success',
+        'id': 'toggle-b5', 
+        'name': 'toggle-b5',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Warning') }}
+
+    <p>Highlight states which may need extra attention from the user, but which aren’t quite errors, with the <code>has-warning</code> class.</p>
+
+    {{ docs.example({
+        screenreader: 'My label, Help text to give more information about expected input, unticked, tickbox',
+        twig: "
+{{
+    form.toggle_switch({
+        'label': 'My label',
+        'class': 'has-warning',
+        'id': 'toggle-b6', 
+        'name': 'toggle-b6',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Error') }}
+
+    <p>The <code>has--error</code> class is automatically added when using the <code>error</code> option.</p>
+
+    {{ docs.example({
+        screenreader: 'My label, Help text to give more information about expected input, unticked, tickbox',
+        twig: "
+{{
+    form.toggle_switch({
+        'label': 'My label',
+        'class': 'has-error',
+        'id': 'toggle-b7', 
+        'name': 'toggle-b7',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Changed') }}
+
+    <p>Highlight actions which may have changed depending on other choices elsewhere in the user interface using the <code>has-changed</code> class.</p>
+
+    {{ docs.example({
+        screenreader: 'My label, Help text to give more information about expected input, unticked, tickbox',
+        twig: "
+{{
+    form.toggle_switch({
+        'label': 'My label',
+        'class': 'has-changed',
+        'id': 'toggle-b4', 
+        'name': 'toggle-b4',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+    
+    {{ docs.heading('h2', 'Variations') }}
+    {{ docs.heading('h3', 'Help') }}
+
+    {{ docs.example({
+        screenreader: 'My label, Help text to give more information about expected input, unticked, tickbox',
+        twig: "
+{{
+    form.toggle_switch({
+        'label': 'My label',
+        'id': 'toggle-b8', 
+        'name': 'toggle-b8',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Required') }}
+
+    {{ docs.example({
+        screenreader: 'My label, star, Help text to give more information about expected input, required, unticked, tickbox',
+        twig: "
+{{
+    form.toggle_switch({
+        'label': 'My label',
+        'id': 'toggle-b9', 
+        'name': 'toggle-b9',
+        'required': true,
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Guidance') }}
+
+    {{ docs.example({
+        screenreader: 'My label, unticked, tickbox',
+        twig: "
+{{
+    form.toggle_switch({
+        'label': 'My label',
+        'id': 'toggle-b10', 
+        'name': 'toggle-b10',
+        'guidance': 'Guidance text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Alignment') }}
+    {{ docs.heading('h2', 'Hide Label') }}
+    
+    {{ docs.example({
+        screenreader: 'My label, Help text to give more information about expected input, unticked, tickbox',
+        twig: "
+{{
+    form.toggle_switch({
+        'label': 'My label',
+        'show-label': false,
+        'id': 'toggle-b11', 
+        'name': 'toggle-b11',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Long Label Behaviour') }}
+    
+    {{ docs.example({
+        screenreader: 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline, Help text to give more information about expected input, unticked, tickbox',
+        twig: "
+{{
+    form.toggle_switch({
+        'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
+        'id': 'toggle-b12', 
+        'name': 'toggle-b12',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Top Labels') }}
+
+    <p>You should avoid using really long labels, but if you have to, it may be more appropriate to use the <code>form__group--top</code> class to give it more space.</p>
+    
+    {{ docs.example({
+        screenreader: 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline, Help text to give more information about expected input, unticked, tickbox',
+        twig: "
+{{
+    form.toggle_switch({
+        'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
+        'class': 'form__group--top',
+        'id': 'toggle-b13', 
+        'name': 'toggle-b13',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Flush Inputs') }}
+
+    <p>Depending on the flow of your user interface you may want to position your inputs along the left edge of the UI</p>
+    
+    {{ docs.example({
+        screenreader: 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline, Help text to give more information about expected input, unticked, tickbox',
+        twig: "
+{{
+    form.toggle_switch({
+        'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
+        'class': 'form__group--flush',
+        'id': 'toggle-b14', 
+        'name': 'toggle-b14',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Flush Inputs & Top Label') }}
+    
+    {{ docs.example({
+        screenreader: 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline, Help text to give more information about expected input, unticked, tickbox',
+        twig: "
+{{
+    form.toggle_switch({
+        'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
+        'class': 'form__group--top form__group--flush',
+        'id': 'toggle-b15', 
+        'name': 'toggle-b15',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+    
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#states">Validation</a>
+            <ul>
+                <li><a href="#error">Error</a></li>
+                <li><a href="#multiple-errors">Multiple errors</a></li>
+                <li><a href="#error-and-help">Error and Help</a></li>
+            </ul>
+        </li>
+        <li><a href="#states">States</a>
+            <ul>
+                <li><a href="#success">Success</a></li>
+                <li><a href="#warning">Warning</a></li>
+                <li><a href="#error">Error</a></li>
+                <li><a href="#changed">Changed</a></li>
+            </ul>
+        </li>
+        <li><a href="#variations">Variations</a>
+            <ul>
+                <li><a href="#help">Help</a></li>
+                <li><a href="#required">Required</a></li>
+                <li><a href="#guidance">Guidance</a></li>
+            </ul>
+        </li>
+        <li><a href="#alignment">Alignment</a>
+            <ul>
+                <li><a href="#hide-label">Hide label</a></li>
+                <li><a href="#long-label-behaviour">Long label behaviour</a></li>
+                <li><a href="#top-labels">Top labels</a></li>
+                <li><a href="#flush-inputs">Flush inputs</a></li>
+                <li><a href="#flush-inputs-&-top-label">Flush inputs &amp; top label</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock tab_sidebar %}

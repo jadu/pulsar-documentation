@@ -3,7 +3,7 @@
 
 {% block tab_content %}
 <div class="report">
-    <p class="lede">The Disabled UI pattern allows you to disable a parts of a UI. This can be useful when an external action needs completing before the UI can be used. A message should be shown advising the user what action needs to be taken.</p>
+    <p class="lede">The Disabled UI pattern allows you to prevent the user from interacting with parts of a UI. This can be useful when an external action needs completing before the UI can be used. A message should be shown advising the user what action needs to be taken.</p>
 
     <figure>
         <img src="/views/patterns/disabled-ui/disabled-ui.png" alt="Screenshot showing what a disabled UI looks like" />
@@ -36,6 +36,8 @@ $(function () {
     {{ docs.heading('h2', 'Basic usage') }}
 
     <p>Add <code>data-disable-ui="true"</code> to the element you wish to disable. All child elements will also be disabled.</p>
+
+    <p>{{ html.icon('info-sign') }} It is expected that you will write your own code to enable this UI when the correct conditions are met, if you want to disable the UI and present a single 'enable' control to the user, check out the <a href="masterswitch">Masterswitch pattern</a> instead.
 
     {{ docs.example({
         twig: "
@@ -75,27 +77,7 @@ $(function () {
 {% block tab_sidebar %}
     <h4>On this page</h4>
     <ul class="page-nav">
-        <li><a href="#file-structure">File structure</a></li>
-        <li><a href="#twig-dependencies">Twig dependencies</a></li>
-        <li><a href="#tab-content">Tab content</a></li>
-        <li><a href="#tabs-object">Tabs object</a>
-            <ul>
-                <li><a href="#attributes">Attributes</a></li>
-            </ul>
-        </li>
-        <li><a href="#setting-active-tab">Setting active tab</a>
-            <ul>
-                <li><a href="#from-the-url">From the URL</a></li>
-                <li><a href="#from-the-view">From the view</a></li>
-                <li><a href="#default">Default</a></li>
-            </ul>
-        </li>
-        <li><a href="#updating-url">Updating URL location</a></li>
-        <li><a href="#tabs-list">Tabs list</a></li>
-        <li><a href="#tabs-content">Tabs content</a></li>
-        <li><a href="#putting-it-all-together">Putting it all together</a></li>
-        <li><a href="#ajaxy-tabs">Ajaxy tabs</a></li>
-        <li><a href="#referencing-an-existing-tab-pane">Referencing-an-existing-tab-pane</a></li>
-        <li><a href="#data-attributes">Data attributes</a></li>
+        <li><a href="#dependencies">Dependencies</a></li>
+        <li><a href="#basic-usage">Basic usage</a></li>
     </ul>
 {% endblock tab_sidebar %}

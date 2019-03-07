@@ -11,25 +11,25 @@
 
     {{ docs.heading('h2', 'Dependencies') }}
 
-    <p>You will need the <code>MasterSwitchComponent</code> to be included in your browserify configuration.</p>
-
-    <p>Depending on your setup, this will probably need to be in be in a file called <code>index.js</code> or <code>main.js</code>.</p>
+    <p>You will need the <code>DisableUiComponent</code> and <code>MasterSwitchComponent</code> included in your browserify configuration.</p>
 
     <pre><code lang="javascript">// index.js
-
-var MasterSwitchComponent = require('/path/to/pulsar/MasterSwitchComponent');
+var DisableUiComponent = require('/path/to/pulsar/DisableUiComponent'),
+    MasterSwitchComponent = require('/path/to/pulsar/MasterSwitchComponent');
 
 module.exports = {
-    MasterSwitchComponent: MasterSwitchComponent
+    DisableUiComponent,
+    MasterSwitchComponent
 }</code></pre>
 
     <pre><code lang="javascript">// main.js
-
 var $html = $('html');
 
-pulsar.masterSwitch = new pulsar.MasterSwitchComponent($html);
+pulsar.disableUi = new pulsar.DisableUIComponent($html);
+pulsar.masterSwitch = new pulsar.MasterSwitchComponent($html, pulsar.disableUi);
 
 $(function () {
+    pulsar.disableUi.init();
     pulsar.masterSwitch.init();
 });</code></pre>
 
@@ -52,14 +52,37 @@ $(function () {
     <hr />
 
     <section class=\"masterswitch-content is-disabled\">
-        <!-- your content here -->
+        {{ form.create() }}
+        {{
+            form.text({
+                'label': 'An input',
+                'id': 'master-input',
+                'name': 'master-input'
+            })
+        }}     
+        {{
+            form.end({
+                'actions': [
+                    form.submit({
+                        'class': 'btn--primary',
+                        'label': 'Primary Action'
+                    }),
+                    html.button({
+                        'class': 'btn--naked',
+                        'type': 'link',
+                        'label': 'Cancel',
+                        'href': '/home'
+                    })
+                ]
+            })
+        }}    
     </section>
 </div>
     " }) }}
 
     {{ docs.heading('h2', 'Setting initial state') }}
 
-    <p>You can tell the UI to be enabled or disabled on page load by setting the <code>checked</code> attribute on the form.toggle_switch input. This will affect both the masterswitch control and the masterswitch content.</p>
+    <p>You can tell the UI to be enabled or disabled on page load by setting the <code>checked</code> attribute on the toggle switch. This will affect both the masterswitch control and the masterswitch content.</p>
 
     {{ docs.heading('h3', 'Load with the masterswitch enabled') }}
 

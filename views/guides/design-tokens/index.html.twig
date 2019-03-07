@@ -1,0 +1,27 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Design tokens' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Home', 'href': '/'},
+        {'label': 'Guides', 'data-toggle-nav': '#guides'},
+        {'label': 'Design tokens', 'href': '#'}
+    ]
+%}
+
+{% set tab_variables %}
+    {% include 'guides/design-tokens/tab.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "variables",
+          "class" : "ui-report",
+          "label" : "Info",
+          "src"   : tab_variables,
+          "active": true
+        }
+    ]
+%}

@@ -87,31 +87,16 @@
                 <div class="tabs__content">
                     {{ nav.breadcrumbs(breadcrumbs|default) }}
 
-                    {{
-                        html.button({
-                            'label': 'GitHub',
-                            'class': 'btn--outline btn--inverse u-float-right'
-                        })
-                    }}
-
-                    {% set _ribbon = '' %}
-                    {% set _ribbon = block('ribbon') %}
-                    {% if _ribbon is not empty %}
-                        {% block ribbon_content %}
-                            <div class="ribbon-wrapper">
-                                <header class="ribbon">
-                                    {{ _ribbon|raw }}
-                                </header>
-                            </div>
-                        {% endblock %}
-                    {% else %}
-                        <h1 class="main-title">{{ heading|default('MISSING HEADING') }}</h1>
-                        {% if subheading is defined and subheading is not empty %}
-                            <h2 class="subheading">{{ subheading }}</h2>
-                        {% endif %}
+                    {% if heading is defined and heading is not empty %}
+                        <h1 class="main-title">{{ heading }}</h1>
+                    {% endif %}
+                    {% if subheading is defined and subheading is not empty %}
+                        <h2 class="subheading">{{ subheading }}</h2>
                     {% endif %}
 
+                    {% if heading is defined and heading != 'Home' %}
                     {% block tabs_list %}{% endblock %}
+                    {% endif %}
                     {% block tabs_content %}{% endblock %}
                 </div>
             </div>

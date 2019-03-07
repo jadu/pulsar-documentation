@@ -17671,48 +17671,82 @@ div.no-results, div.dataTables_empty {
   color: #3e3e3e;
   padding: 0.75em 20px; }
 
-h1.docs-heading,
-h2.docs-heading,
-h3.docs-heading,
-h4.docs-heading,
-h5.docs-heading,
-h6.docs-heading {
-  color: #333;
-  font-weight: bold;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #3e4994;
+  font-weight: 600;
   width: 100%; }
-  h1.docs-heading a,
-  h2.docs-heading a,
-  h3.docs-heading a,
-  h4.docs-heading a,
-  h5.docs-heading a,
-  h6.docs-heading a {
+  h1 a,
+  h2 a,
+  h3 a,
+  h4 a,
+  h5 a,
+  h6 a {
     color: #ccc;
     text-decoration: none;
     border-bottom: 1px dotted #ccc; }
 
-h2.docs-heading {
+h2 {
   font-size: 1.75em;
   margin-top: 48px; }
-  h2.docs-heading:first-child {
+  h2:first-child {
     margin-top: 0; }
-  .lede + h2.docs-heading {
+  .lede + h2 {
     margin-top: 24px; }
 
-h3.docs-heading {
+h3 {
   font-size: 1.5em;
   margin-top: 48px; }
 
-h2.docs-heading + h3.docs-heading {
+h2 + h3 {
   margin-top: 0; }
 
-h4.docs-heading {
+h4 {
   font-size: 1.25em; }
 
-code {
+.docs-title {
+  color: #3e4994;
+  font-family: "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 60px;
+  margin-bottom: 0;
+  text-align: center;
+  text-transform: uppercase; }
+
+.docs-subtitle {
+  color: #3e3e3e;
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 24px;
+  text-align: center; }
+
+.breadcrumb a {
+  text-decoration: underline; }
+
+.tab__content code {
   background-color: #efefef;
   color: #000;
   padding: 3px 5px;
   border-radius: 4px; }
+
+.tab__content ul li {
+  list-style-type: none; }
+  .tab__content ul li:before {
+    color: #3e4994;
+    content: '\2022';
+    font-size: 2em;
+    display: inline-block;
+    margin-left: 0px;
+    width: 20px;
+    vertical-align: text-bottom; }
+
+.tab__content p {
+  margin-bottom: 16px; }
 
 .page-nav ul {
   margin-bottom: 0; }
@@ -17727,9 +17761,6 @@ code {
   color: #2a7da7; }
   .page-nav a:hover {
     color: #3e3e3e; }
-
-.title--main {
-  margin-bottom: 0; }
 
 .lede {
   border-bottom: 3px double #efefef;
@@ -18271,20 +18302,6 @@ blockquote {
 figure > img {
   width: 100%;
   max-width: 800px; }
-
-.docs-title {
-  color: #3e4994;
-  font-family: "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  font-size: 48px;
-  font-weight: 800;
-  line-height: 60px;
-  margin-bottom: 0;
-  text-align: center;
-  text-transform: uppercase; }
-
-.docs-subtitle {
-  margin-bottom: 48px;
-  text-align: center; }
 
 .landing-blocks {
   margin-bottom: 24px; }

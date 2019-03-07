@@ -1,0 +1,36 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Toggle switch' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Home', 'href': '#'},
+        {'label': 'Forms', 'data-toggle-nav': '#forms'},
+        {'label': 'Toggle switch', 'href': '#'}
+    ]
+%}
+
+{% set tab_code %}
+    {% include 'forms/toggle-switch/code.html.twig' %}
+{% endset %}
+{% set tab_style %}
+    {% include 'forms/toggle-switch/style.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "code",
+          "class" : "ui-report",
+          "label" : "Code",
+          "src"   : tab_code,
+        },
+        {
+          "id"    : "style",
+          "class" : "ui-report",
+          "label" : "Style",
+          "src"   : tab_style,
+          "active": true
+        }
+    ]
+%}

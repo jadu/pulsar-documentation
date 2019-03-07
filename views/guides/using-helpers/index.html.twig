@@ -4,7 +4,8 @@
 
 {%
     set breadcrumbs = [
-        {'label': 'Guides', 'href': '#'},
+        {'label': 'Home', 'href': '/'},
+        {'label': 'Guides', 'data-toggle-nav': '#guides'},
         {'label': 'Using helpers', 'href': '#'}
     ]
 %}
@@ -12,24 +13,15 @@
 {% set tab_use %}
     {% include 'guides/using-helpers/how-to-use.html.twig' %}
 {% endset %}
-{% set tab_options %}
-    {% include 'guides/using-helpers/common-options.html.twig' %}
-{% endset %}
 
 {%
     set tabs_content = [
         {
           "id"    : "how-to-use",
           "class" : "ui-report",
-          "label" : "How to use",
+          "label" : "Info",
           "src"   : tab_use,
           "active": true
-        },
-        {
-          "id"    : "common-options",
-          "class" : "ui-report",
-          "label" : "Common options",
-          "src"   : tab_options
         }
     ]
 %}

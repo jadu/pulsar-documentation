@@ -1,4 +1,4 @@
-{% extends 'base-landing.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% import '@pulsar/pulsar/v2/helpers/flash.html.twig' as flash %}
 {% import '@pulsar/pulsar/v2/helpers/html.html.twig' as html %}
@@ -32,7 +32,7 @@
     set nav_data = {
         '1': {
             'label': 'Guides',
-            'href': '#lexicon',
+            'href': '#guides',
             'icon': 'rocket',
             'items': {
                 '1.1': {
@@ -53,16 +53,16 @@
                         'href': '/guides/colour-and-state'
                     },
                     '1.1.5': {
+                        'label': 'Design tokens',
+                        'href': '/guides/design-tokens'
+                    },
+                    '1.1.6': {
                         'label': 'Disabling elements',
                         'href': '/guides/disabling-elements'
                     },
-                    '1.1.6': {
+                    '1.1.7': {
                         'label': 'Helpers',
                         'href': '/guides/using-helpers'
-                    },
-                    '1.1.7': {
-                        'label': 'Utility classes',
-                        'href': '/styles/utility-classes'
                     }
                 }
             }
@@ -273,6 +273,10 @@
                     '3.1.18': {
                         'label': 'Time',
                         'href': '/forms/time'
+                    },
+                    '3.1.19': {
+                        'label': 'Toggle switch',
+                        'href': '/forms/toggle-switch'
                     }
                 }
             }
@@ -316,6 +320,10 @@
         }
     }
 %}
+
+{% block tabs_list %}
+    {{ tabs.list(tabs_content) }}
+{% endblock %}
 
 {% block tabs_content %}
     {{ tabs.content(tabs_content) }}

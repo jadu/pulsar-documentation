@@ -1,0 +1,229 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">An alternative presentation for a checkbox, providing a more obvious visual indication of the on/off state.</p>
+
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({
+        screenreader: "Turn me on? Unticked. Tick box.",
+        twig: "
+{{
+    form.toggle_switch({
+        'label': 'Turn me on?',
+        'id': 'toggle',
+        'name': 'toggle'
+    })
+}}
+    " }) }}
+    
+    {{ docs.heading('h2', 'Helper options') }}
+
+    <p>You can configure this helper using the <a href="../guides/using-helpers#common-options">common helper options</a>, the following options are specific to this helper.</p>
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>checked</td>
+                <td>boolean</td>
+                <td>Whether the input should be checked</td>
+            </tr>
+            <tr>
+                <td>indeterminate</td>
+                <td>boolean</td>
+                <td>Neither on nor off, shows the toggle in the middle of the options</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'States') }}
+    {{ docs.heading('h3', 'Checked') }}
+
+    {{ docs.example({
+        screenreader: "Checked toggle. ticked. Tick box.",
+        twig: "
+{{
+    form.toggle_switch({
+        'label': 'Checked toggle',
+        'checked': true,
+        'id': 'toggle-checked',
+        'name': 'toggle-checked'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Disabled') }}
+
+    <p>Add the <code>'disabled': true</code> option to disable the field on load. See the <a href="../guides/disabling-elements">disabling elements guide</a> for more information about how to disable elements via javascript. Provide help text or information within the UI where possible to explain why elements are disabled.</p>
+
+    {{ docs.example({
+        screenreader: html.icon('info-sign') ~ " Will not be announced.",
+        twig: "
+{{
+    form.toggle_switch({
+        'label': 'Disabled (unchecked)',
+        'disabled': true,
+        'id': 'enable-1',
+        'name': 'enable-1'
+    })
+}}
+{{
+    form.toggle_switch({
+        'label': 'Disabled (checked)',
+        'checked': true,
+        'disabled': true,
+        'id': 'enable-2',
+        'name': 'enable-2'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Indeterminate') }}
+
+    <p>The indeterminate state can only be set via JavaScript. If you're using toggles in your own components, we'll presume you’re going to manage this.</p>
+
+    {{ docs.example({
+        screenreader: "Indeterminate toggle. Mixed. Tick box.",
+        twig: "
+{{
+    form.toggle_switch({
+        'label': 'Indeterminate toggle',
+        'id': 'toggle-indeterminate',
+        'name': 'toggle-indeterminate'
+    })
+}}
+<!-- example javascript -->
+<script type=\"text/javascript\">
+    var toggle = document.getElementById(\"toggle-indeterminate\");
+    toggle.indeterminate = true;
+</script>
+    " }) }}
+
+    {{ docs.heading('h2', 'Best practices') }}
+
+    <p>Toggle switches should:</p>
+
+    <ul>
+        <li>Be a standalone choice, not grouped together (Use checkboxes or radios instead)</li>
+        <li>Clearly indicate the implications of enabling or disabling the setting (e.g. &ldquo;Disabling this integration will prevent you from taking payments.&rdquo;)</li>
+        <li>Inform the user why a toggle switch is disabled. Provide clear steps explaining how to enable the functionality</li>
+    </ul>
+
+    {{ docs.heading('h2', 'Content guidelines') }}
+    {{ docs.heading('h3', 'Label') }}
+
+    <p>Toggle switch labels should:</p>
+
+    <ul>
+        <li>Use active voice/verbs where possible (e.g. Enable, Activate)</li>
+        <li>Use as few words as possible to convey their intent</li>
+    </ul>
+
+    {{ docs.guidelines({
+        do: {
+            label: 'keep the label consistent, to indicate state',
+            twig: "
+{{
+    form.toggle_switch({ 
+        'label': 'Enable integration',
+        'id': 'toggle-1',
+        'name': 'toggle-1'
+    })
+}}
+{{
+    form.toggle_switch({ 
+        'label': 'Enable integration',
+        'id': 'toggle-2',
+        'name': 'toggle-2',
+        'checked': true
+    })
+}}
+    "
+        },
+        not: {
+            label: 'change the label to indicate the action that will be performed',
+            twig: "
+{{
+    form.toggle_switch({ 
+        'label': 'Enable integration',
+        'id': 'toggle-1',
+        'name': 'toggle-1'
+    })
+}}
+{{
+    form.toggle_switch({ 
+        'label': 'Disable integration',
+        'id': 'toggle-2',
+        'name': 'toggle-2',
+        'checked': true
+    })
+}}
+    "       
+        }
+    }) }}
+
+    {{ docs.heading('h3', 'Help text') }}
+
+    {{ docs.guidelines({
+        do: {
+            label: 'Clearly explain the implications of changing this setting',
+            twig: "
+{{
+    form.toggle_switch({ 
+        'label': 'Enable integration',
+        'id': 'toggle-2',
+        'name': 'toggle-2',
+        'checked': true,
+        'help': 'Disabling will prevent customers from making card payments on your site'
+    })
+}}
+    "
+        },
+        not: {
+            label: 'Use the help text to indicate state',
+            twig: "
+{{
+    form.toggle_switch({ 
+        'label': 'Disable integration',
+        'id': 'toggle-2',
+        'name': 'toggle-2',
+        'checked': true,
+        'help': 'Card payments are enabled'
+    })
+}}
+    "       
+        }
+    }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#helper-options">Helper options</a></li>
+        <li><a href="#states">States</a>
+            <ul>
+                <li><a href="#checked">Checked</a></li>
+                <li><a href="#disabled">Disabled</a></li>
+                <li><a href="#indeterminate">Indeterminate</a></li>
+            </ul>
+        </li>
+        <li><a href="#best-practices">Best practices</a></li>
+        <li><a href="#content-guidelines">Content guidelines</a>
+            <ul>
+                <li><a href="#label">Label</a></li>
+                <li><a href="#help-text">Help text</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock tab_sidebar %}
