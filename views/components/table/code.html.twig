@@ -1,0 +1,170 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+{% set tableBody = "
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Owner</th>
+            <th>Modified</th>
+            <th class=\"u-text-align-center\">Live</th>
+            <th class=\"u-text-align-center\">Visible</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr role=\"row\">
+            <td>Terminator Genisys</td>
+            <td>Alan Taylor</td>
+            <td>2015-06-25 12:34</td>
+            <td class=\"u-text-align-center\"><i title=\"\" data-placement=\"top\" data-toggle=\"tooltips\" aria-hidden=\"true\" class=\"icon-check-circle status--icon is-online\" data-original-title=\"Live\"></i></td>
+            <td class=\"u-text-align-center\"><i title=\"\" data-placement=\"top\" data-toggle=\"tooltips\" aria-hidden=\"true\" class=\"icon-check-circle status--icon is-online\" data-original-title=\"Visible\"></i></td>
+        </tr>
+        <tr role=\"row\">
+            <td>The Terminator</td>
+            <td>James Cameron</td>
+            <td>1991-07-01 12:34</td>
+            <td class=\"u-text-align-center\"><i title=\"\" data-placement=\"top\" data-toggle=\"tooltips\" aria-hidden=\"true\" class=\"icon-check-circle status--icon is-online\" data-original-title=\"Live\"></i></td>
+            <td class=\"u-text-align-center\"><i title=\"\" data-placement=\"top\" data-toggle=\"tooltips\" aria-hidden=\"true\" class=\"icon-times-rectangle status--icon is-offline\" data-original-title=\"Not visible\"></i></td>
+        </tr>
+        <tr role=\"row\">
+            <td>Predator</td>
+            <td>John McTiernan</td>
+            <td>1988-01-01 12:34</td>
+            <td class=\"u-text-align-center\"><i title=\"\" data-placement=\"top\" data-toggle=\"tooltips\" aria-hidden=\"true\" class=\"icon-check-circle status--icon is-online\" data-original-title=\"Live\"></i></td>
+            <td class=\"u-text-align-center\"><i title=\"\" data-placement=\"top\" data-toggle=\"tooltips\" aria-hidden=\"true\" class=\"icon-check-circle status--icon is-online\" data-original-title=\"Visible\"></i></td>
+        </tr>
+        <tr role=\"row\">
+            <td>Commando</td>
+            <td>Mark L. Lester</td>
+            <td>1986-02-21 12:34</td>
+            <td class=\"u-text-align-center\"><i title=\"\" data-placement=\"top\" data-toggle=\"tooltips\" aria-hidden=\"true\" class=\"icon-check-circle status--icon is-online\" data-original-title=\"Live\"></i></td>
+            <td class=\"u-text-align-center\"><i title=\"\" data-placement=\"top\" data-toggle=\"tooltips\" aria-hidden=\"true\" class=\"icon-check-circle status--icon is-online\" data-original-title=\"Visible\"></i></td>
+        </tr>
+        <tr role=\"row\">
+            <td>Conan the Barbarian</td>
+            <td>John Millius</td>
+            <td>1982-04-02 12:34</td>
+            <td class=\"u-text-align-center\"><i title=\"\" data-placement=\"top\" data-toggle=\"tooltips\" aria-hidden=\"true\" class=\"icon-times-rectangle status--icon is-offline\" data-original-title=\"Not live\"></i></td>
+            <td class=\"u-text-align-center\"><i title=\"\" data-placement=\"top\" data-toggle=\"tooltips\" aria-hidden=\"true\" class=\"icon-check-circle status--icon is-online\" data-original-title=\"Visible\"></i></td>
+        </tr>
+    </tbody>" %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Tables (and the more interactive <a href="datatable">datatables</a>) allow the presentation of tabular data. For the table layout pattern, you’ll likely want to use a datatable instead of a basic table.</p>
+
+    <p>Because of the sheer amount of markup that tables can contain they're one of the only components where the styling is applied largely to element selectoirs. You do, however, need the <code>.table</code> class on the <code>&lt;table&gt;</code> element.
+
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({ 
+        html: "<table class=\"table\">" ~ tableBody ~ "</table>" 
+    }) }}
+
+    {{ docs.heading('h2', 'Width options') }}
+    {{ docs.heading('h3', 'Full width') }}
+
+    <p>Tables can use the full available width of the parent container by adding the <code>.table--full</code> class on the <code>&lt;table&gt;</code> element.</p>
+
+    {{ docs.example({ 
+        html: "<table class=\"table table--full\">" ~ tableBody ~ "</table>" 
+    }) }}
+
+    {{ docs.heading('h3', 'Fixed width') }}
+
+    <p>Tables will automatically resize their columns depending on the column widths and the available space. You can override this behaviour, and make columns equal width, by adding the <code>.table--fixed</code> class on the <code>&lt;table&gt;</code> element.</p>
+
+    {{ docs.example({ 
+        html: "<table class=\"table table--full table--fixed\">" ~ tableBody ~ "</table>" 
+    }) }}
+
+    {{ docs.heading('h2', 'Horizontal scroll') }}
+
+    <p>When dealing with user-supplied content and responsive design it's not possible to guarantee the table can nicely accommodate all content in the space available. For large tables it’s a good idea to allow the table to scroll horizontally when the content exceeds the viewport.
+
+    {{ docs.example({ 
+        html: "<h4>Normal scrolling example</h4>
+        <table class=\"table\">
+            <thead>
+                <th>Column One</th>
+                <th>Column Two</th>
+                <th>Column Three</th>
+                <th>Column Four</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A really really long bit of content that will cause the table to wrap and will look different if horizontal scroll is used or not</td>
+                    <td>A really really long bit of content that will also cause the table to wrap and will look different if horizontal scroll is used or not</td>
+                    <td>A really really long bit of content that will also cause the table to wrap and will look different if horizontal scroll is used or not</td>
+                    <td>A really really long bit of content that will also cause the table to wrap and will look different if horizontal scroll is used or not</td>
+                </tr>
+                <tr>
+                    <td>A really really long bit of content that will cause the table to wrap and will look different if horizontal scroll is used or not</td>
+                    <td>A really really long bit of content that will also cause the table to wrap and will look different if horizontal scroll is used or not</td>
+                    <td>A really really long bit of content that will also cause the table to wrap and will look different if horizontal scroll is used or not</td>
+                    <td>A really really long bit of content that will also cause the table to wrap and will look different if horizontal scroll is used or not</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>Horizontal scrolling example</h4>
+        <table class=\"table table--horizontal\">
+            <thead>
+                <th>Column One</th>
+                <th>Column Two</th>
+                <th>Column Three</th>
+                <th>Column Four</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A really really long bit of content that will cause the table to wrap and will look different if horizontal scroll is used or not</td>
+                    <td>A really really long bit of content that will also cause the table to wrap and will look different if horizontal scroll is used or not</td>
+                    <td>A really really long bit of content that will also cause the table to wrap and will look different if horizontal scroll is used or not</td>
+                    <td>A really really long bit of content that will also cause the table to wrap and will look different if horizontal scroll is used or not</td>
+                </tr>
+                <tr>
+                    <td>A really really long bit of content that will cause the table to wrap and will look different if horizontal scroll is used or not</td>
+                    <td>A really really long bit of content that will also cause the table to wrap and will look different if horizontal scroll is used or not</td>
+                    <td>A really really long bit of content that will also cause the table to wrap and will look different if horizontal scroll is used or not</td>
+                    <td>A really really long bit of content that will also cause the table to wrap and will look different if horizontal scroll is used or not</td>
+                </tr>
+            </tbody>
+        </table>" 
+    }) }}
+
+    {{ docs.heading('h2', 'Centered columns') }}
+
+    <p>Depending on the data you need to display you may wish to center-align the content within a column. Use the <code>.u-text-align-center</code> class on both the <code>&lt;th&gt;</code> and <code>&lt;td&gt;</code> elements you wish to center.</p>
+
+    <p>The ‘Live’ and ‘Visible’ columns on this page use this method.</p>
+
+    {{ docs.heading('h2', 'Increased contrast') }}
+
+    <p>Some patterns, such as the form table pattern, place tables on a darker background. The <code>.table--contrast</code> class will use a darker background on the table body.</p>
+
+    {{ docs.example({ 
+        html: "<table class=\"table table--full table--contrast\">" ~ tableBody ~ "</table>" 
+    }) }}
+    
+</div>
+{% endblock tab_content %}
+
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#width-options">Width options</a>
+            <ul>
+                <li><a href="#full-width">Full width</a></li>
+                <li><a href="#fixed-width">Fixed width</a></li>
+            </ul>
+        </li>
+        <li><a href="#horizontal-scroll">Horizontal scroll</a></li>
+        <li><a href="#centered-columns">Centered columns</a></li>
+        <li><a href="#increased-contrast">Increased contrast</a></li>
+    </ul>
+
+    <h4>Related components</h4>
+    <ul class="page-nav">
+        <li><a href="datatable">Datatable</a></li>
+        <li><a href="pagination">Pagination</a></li>
+    </ul>
+{% endblock tab_sidebar %}

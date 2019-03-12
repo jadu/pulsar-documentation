@@ -3,7 +3,11 @@
 
 {% block tab_content %}
 <div class="report">
-    <p class="lede">Datatables use the datatables.net plugin to provide a nice amount of functionality to your data. Pulsar’s configuration includes plugins to make them responsive. Where possible you should refer to the datatable documentation.</p>
+    <p class="lede">Datatables use the datatables.net plugin to provide a nice amount of functionality to your data. Pulsar’s configuration includes plugins to make them responsive. Where possible you should refer to the official <a href="https://datatables.net">datatable documentation</a>.</p>
+
+    {{ docs.heading('h2', 'Basic styling') }}
+
+    <p>For more information about basic table styles and layout options, refer to the <a href="table">table component</a>.</p>
     
     {{ docs.heading('h2', 'Dependencies') }}
     {{ docs.heading('h3', 'Javascript') }}
@@ -437,6 +441,7 @@
     <div class="page-nav-wrapper">
         <h4>On this page</h4>
         <ul class="page-nav">
+            <li><a href="#basic-styling">Basic styling</a></li>
             <li><a href="#dependencies">Dependencies</a>
                 <ul>
                     <li><a href="#javascript">Javascript</a></li>
@@ -455,6 +460,11 @@
                     <li><a href="#custom-message">Custom message</a></li>
                 </ul>
             </li>
+        </ul>
+
+        <h4>Related components</h4>
+        <ul class="page-nav">
+            <li><a href="table">Table</a></li>
         </ul>
     </div>
 {% endblock tab_sidebar %}

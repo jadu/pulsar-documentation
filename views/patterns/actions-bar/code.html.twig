@@ -1,0 +1,136 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">The actions bar is a component within a tab which is split into left/right sides and contains important controls for a given user interface.</p>
+
+    <p>The actions bar is optional and can be omitted if the UI doesn't require  an actions menu or primary actions.</p>
+
+    {{ docs.example({
+        twig: "
+<div class=\"actionsbar\">
+    <div class=\"u-float-left\">
+        {{
+            html.actions_menu({
+                'items': [
+                    [
+                        {
+                            'label': 'Save',
+                            'href': '/save',
+                            'icon': 'save'
+                        },
+                        {
+                            'label': 'Edit',
+                            'href': '/edit',
+                            'icon': 'pencil'
+                        }
+                    ],
+                    [
+                        {
+                            'label': 'Delete',
+                            'href': '/delete',
+                            'icon': 'remove'
+                        }
+                    ]
+                ]
+            })
+        }}
+    </div>
+    <div class=\"u-float-right\">
+        {{
+            html.button({
+                'label': 'Primary Action',
+                'class': 'btn--primary'
+            })
+        }}
+    </div>
+</div>
+    " }) }}
+
+    {{ docs.heading('h2', 'Layout blocks') }}
+    {{ docs.heading('h3', 'Dependencies') }}
+
+    <p>In order to use the layout blocks, the tab UI in question must extend the tab component template.</p>
+
+<pre><code lang="twig">&#123;% extends '@pulsar/pulsar/components/tab.html.twig' %&#125;
+
+ &#123;%- block actions_left -%&#125;
+     &#123;&#123; html.actions_menu( &#123; ... &#125;) &#125;&#125;
+ &#123;%- endblock -%&#125;
+
+ &#123;%- block actions_right -%&#125;
+     &#123;&#123; html.button( &#123; ... &#125;) &#125;&#125;
+ &#123;%- endblock -%&#125;
+
+ &#123;% block tab_content %&#125;
+     &#123;# Regular tab content goes here #&#125;
+ &#123;% endblock %&#125;
+</code></pre>
+
+    <p>There are two blocks that you can populate with actions: <code>actions_left</code> and <code>actions_right</code>. You probably guessed these are normally on either side of the screen but on mobile devices they’re stacked vertically, with the left block appearing above the right and buttons expanding to take up the full width of the screen.</p>
+
+    {{
+        html.panel({
+            'body': 'In order to use these blocks, the tab UI in question MUST extend the tab component template.',
+            'icon': 'info-sign'
+        })
+    }}
+
+    <p>The <code>actions_left</code> block will typically contain only the <code>html.actions_menu</code> dropdown helper, detailed below.</p>
+
+    <p>The <code>actions_right</code> block will typically contain <a href="/views/components/buttons">buttons</a> illustrating the primary action(s) for a given UI, but may also use <a href="/views/components/button-groups">button groups</a> and/or <a href="/views/components/dropdowns">dropdowns</a> if suitable.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#dependencies">Dependencies</a></li>
+        <li><a href="#basic-usage">Basic usage</a></li>
+    </ul>
+{% endblock tab_sidebar %}
