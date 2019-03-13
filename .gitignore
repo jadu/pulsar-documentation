@@ -3,3 +3,4 @@ vendor/
 /.vscode
 /.env
 /.htaccess
+.DS_Store
