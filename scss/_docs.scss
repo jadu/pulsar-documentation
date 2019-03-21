@@ -1,21 +1,55 @@
-h1, 
-h2, 
-h3, 
-h4, 
-h5, 
-h6 {
+@font-face {
+    font-family: 'code_pro_blackregular';
+    src: url('../fonts/Code_Pro_Black-webfont.woff2') format('woff2'),
+         url('../fonts/Code_Pro_Black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'code_pro_lcregular';
+    src: url('../fonts/Code_Pro_LC-webfont.woff2') format('woff2'),
+         url('../fonts/Code_Pro_LC-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'code_pro_bold_lcregular';
+    src: url('../fonts/Code_Pro_Bold_LC-webfont.woff2') format('woff2'),
+         url('../fonts/Code_Pro_Bold_LC-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+h1.docs-heading,
+h1.main-title, 
+h2.docs-heading, 
+h3.docs-heading, 
+h4.docs-heading, 
+h5.docs-heading, 
+h6.docs-heading {
     color: #3e4994;
-    font-weight: 600;
+    font-family: 'code_pro_lcregular';
+    font-weight: normal;
     width: 100%;
 
     a {
         color: #ccc;
+        font-family: 'code_pro_lcregular';
         text-decoration: none;
         border-bottom: 1px dotted #ccc;
     }
 }
 
-h2 {
+h1.main-title {
+    font-family: 'code_pro_bold_lcregular';
+}
+
+h2.docs-heading {
+    font-family: 'code_pro_bold_lcregular';
     font-size: 1.75em;
     margin-top: 48px;
 
@@ -28,24 +62,23 @@ h2 {
     }
 }
 
-h3 {
+h3.docs-heading {
     font-size: 1.5em;
     margin-top: 48px;
 }
 
-h2 + h3 {
+h2.docs-heading + h3.docs-heading {
     margin-top: 0;
 }
 
-h4 {
+h4.docs-heading {
     font-size: 1.25em;
 }
 
 .docs-title {
     color: #3e4994;
-    font-family: $font-family-light;
+    font-family: 'code_pro_blackregular';
     font-size: 48px;
-    font-weight: 800;
     line-height: $line-height-base * 2.5;
     margin-bottom: 0;
     text-align: center;
@@ -54,7 +87,7 @@ h4 {
 
 .docs-subtitle {
     color: color(text);
-    font-weight: 300;
+    font-family: 'code_pro_lcregular';
     margin-top: 0;
     margin-bottom: $line-height-base;
     text-align: center;
@@ -73,22 +106,24 @@ h4 {
         border-radius: 4px;
     }
 
-    ul li {
-        list-style-type: none;
-        
-        &:before {
-            color: #3e4994;
-            content: '\2022';
-            font-size: 2em;
-            display: inline-block;
-            margin-left: 0px;
-            width: 20px;
-            vertical-align: text-bottom;
+    > :not(.d-example) {
+        > ul li {
+            list-style-type: none;
+            
+            &:before {
+                color: #3e4994;
+                content: '\2022';
+                font-size: 2em;
+                display: inline-block;
+                margin-left: 0px;
+                width: 20px;
+                vertical-align: text-bottom;
+            }
         }
-    }
 
-    p {
-        margin-bottom: 16px;
+        p {
+            margin-bottom: 16px;
+        }
     }
 }
 
@@ -117,8 +152,9 @@ h4 {
 .lede {
     border-bottom: 3px double #efefef;
     font-size: 1.2em;
-    font-family: georgia;
+    font-family: bookmania, serif;
     font-style: italic;
+    font-weight: 300;
     margin-top: 5px;
     margin-bottom: 0;
     padding-bottom: 24px;
@@ -192,10 +228,7 @@ blockquote {
     padding-left: 20px;
 }
 
-figure > img {
-    width: 100%;
-    max-width: 800px;
-}
+
 
 .landing-blocks {
     margin-bottom: $line-height-base;
@@ -226,7 +259,8 @@ figure > img {
 
 .landing-block__header {
     color: #3e4994;
-    font-weight: 800;
+    font-family: 'code_pro_lcregular';
+    font-weight: normal;
     font-size: 28px;
     margin-bottom: $line-height-base / 2;
 
@@ -271,7 +305,10 @@ figure > img {
     cite {
         display: block;
         color: color(text, light);
+        font-family: bookmania, serif;
         font-size: $font-size-small;
+        font-style: italic;
+        font-weight: 400;
         width: 100%;
     }
 }
@@ -285,4 +322,44 @@ figure > img {
 .btn--docs {
     border-color: #3e4994;
     color: #3e4994 !important;
+}
+
+figure > img {
+    width: 100%;
+    max-width: 800px;
+}
+
+.wireframe {
+    margin: 2em 0;
+    text-align: center;
+}
+
+.wireframe img {
+    border: 3px solid #3e4994;
+    border-radius: 10px 10px 0 0;
+}
+
+.wireframe--small img {
+    width: 400px;
+}
+
+.wireframe figcaption {
+    background-color: #3e4994;
+    border-radius: 0 0 10px 10px;
+    color: #fff;
+    font-size: $font-size-small;
+    line-height: 30px;
+    width: 400px;
+}
+
+.wireframe img + figcaption {
+    margin: -10px auto 0 auto;
+}
+
+figcaption {
+    color: #3e4994;
+    font-family: bookmania, serif;
+    font-style: italic;
+    font-weight: 400;
+    text-align: center;
 }

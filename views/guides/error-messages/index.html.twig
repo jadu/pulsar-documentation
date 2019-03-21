@@ -1,0 +1,27 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Error messages' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Home', 'href': '/'},
+        {'label': 'Guides', 'data-toggle-nav': '#guides'},
+        {'label': 'Error messages', 'href': '#'}
+    ]
+%}
+
+{% set tab_info %}
+    {% include 'guides/error-messages/tab.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "variables",
+          "class" : "ui-report",
+          "label" : "Info",
+          "src"   : tab_info,
+          "active": true
+        }
+    ]
+%}
