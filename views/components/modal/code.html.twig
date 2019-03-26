@@ -3,7 +3,41 @@
 
 {% block tab_content %}
 <div class="report">
-    <p class="lede">Modals are a blocking element, they should be used sparingly and only when we absolutely, positively have to stop the user in their tracks to perform a specific action.</p>
+    <p class="lede">Modal windows, also known as dialogs or overlays, are UI components that sit on top of the current page, usually with a semi-transparent layer behind them to separate them from the main page.</p>
+
+    <p>Modals disable interaction with the rest of the page and force the user to first interact with the modal window. Modals are great for allowing a user to stay in the context of the current UI while being able to perform related actions without interrupting the workflow on the main page.</p>
+
+    {{ docs.heading('h2', 'When to consider using a modal') }}
+
+    <p>Modals are useful in many situations, where sending the user to another page might be disruptive. They should almost exclusively be triggered by user interaction. The purpose of the modal should be immediately apparent to the user.</p>
+
+    <p>Read our <a href="https://medium.com/pulsar/modern-enterprise-ui-design-part-2-modal-dialogs-2ccd3cc33c92">Medium post</a> for more information and examples.</p>
+
+    {{ docs.heading('h2', 'When not to use a modal') }}
+
+    <p>As modal windows block the user from interacting with the rest of the page, they should only be used when redirecting the user would break the flow of the interaction or task at hand. Misused, they can very quickly become annoying to the user to the point where they form a habit of dismissing them on instinct.</p>
+
+    <p><strong>❌ When the user hasn’t triggered the modal</strong></p>
+    
+    <p>Randomly showing a modal is a jarring experience and confusing for the user. The only exception to this would be a time-critical notification, such as a session time out or expiry warning.</p>
+
+    <p><strong>❌ Prompting users to complete unrelated tasks</strong></p>
+    <p>Asking a user to complete their profile when viewing customer information and potentially on the phone to a customer isn’t good for anyone.</p>
+    
+    <p><strong>❌ To display large amounts of data</strong></p>
+    <p>Modals by design are often smaller than the main page. Therefore they are less than ideal when you need to display a large amount of data.</p>
+    
+    <p><strong>❌ To display error messages</strong></p>
+    <p>Don’t use a modal to display error or success messages relating to actions performed on the main page.</p>
+    
+    <p><strong>❌ To display long forms</strong></p>
+    <p>Space is limited so displaying a long form in a modal should be avoided. Consider breaking the form down into simpler steps and the use of a multi-stage modal.</p>
+    
+    <p><strong>❌ When another modal is already is view</strong></p>
+    <p>Spawning a modal from another modal or showing additional modals when one is already displayed should be avoided. Multiple modals are confusing for the user and create accessibility and usability issues.</p>
+    
+    <p><strong>❌ To capture data unrelated to the users’ actions</strong></p>
+    <p>Don’t fall into the trap of using modals for everything. Very often, directing the user to a different page is the right solution. Use modals sparsely to enhance the experience.</p>
     
     {{ docs.heading('h2', 'Basic usage') }}
 
@@ -40,9 +74,69 @@
 
     <p>Be sure to add <code>role="dialog"</code> to your primary modal div. In the example above, <code>div#myModal</code>. Also, the <code>aria-labelledby</code> attribute references your modal title. In this example, <code>h4#myModalLabel</code>. Additionally, you may give a description of your modal dialog. Use the aria-describedby attribute in the modal’s primary <code>&lt;div&gt;</code> to point to this description (this is not shown in the above example).</p>
 
+    {{ docs.heading('h2', 'Opening modals') }}
+
+    <p>Typically, a modal will be opened when the user interacts with an action within the user interface, usually a button rather than a link (as the user doesn't navigate to another page).</p>
+
+    <p>Modals can also be triggered by 
+    <p>Modals can also be triggered by 
+
+    {{ docs.example({
+        twig: "
+{{
+    html.button({
+        'label': 'Show Example Modal',
+        'data-toggle': 'modal',
+        'data-target': '#modal-example'
+    })
+}}
+
+<div class=\"modal\" id=\"modal-example\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"myModal-title\" aria-describedby=\"myModal-description\">
+    <div class=\"modal__dialog\">
+        <div class=\"modal__content\">
+            <div class=\"modal__header\">
+                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close dialog\">×</button>
+                <h1 class=\"modal__title\" id=\"myModal-title\">A simple example</h1>
+            </div>
+            <div class=\"modal__body\">
+                <p id=\"myModal-description\" class=\"hide\">Here goes a short description (a couple of lines) about the modal’s purpose, if needed.</p>
+                <p>The modal body might have instructions, a form, or other stuff.</p>
+            </div>
+            <div class=\"modal__footer\">
+                <button type=\"button\" class=\"btn btn--primary\">Save Changes</button>
+                <button type=\"button\" class=\"btn btn--naked\" data-dismiss=\"modal\">Cancel</button>
+            </div>
+        </div><!-- /.modal__content -->
+    </div><!-- /.modal__dialog -->
+</div><!-- /.modal -->
+    " }) }}
+
+    {{ docs.heading('h3', 'Opening a modal from an existing modal') }}
+
+    <p>There will be times where a modal contains an action that requires a different modal to be presented to the user. This is possible, however there are a couple of important considerations to note.</p>
+
+    <p>When modal-1 opens modal-2, you should</li>
+
+    <ul>
+        <li>Close modal-1 (do not visually stack modals)</li>
+        <li>Return the user to modal-1 if they cancel out of modal-2</li>
+        <li>Consider if the actions within modal-2 (such as cancel) should return the user to modal-1, or back to the main user interface</li>
+    </li>
+
+    <p>For a button to both close an existing modal, and open a new one, you should use both the <code>data-dismiss</code> and the <code>data-toggle</code> attributes.
+
+<pre><code lang="twig">&#123;&#123;
+    html.button(&#123;
+        'label': 'Open Modal Two',
+        'data-dismiss': 'modal',
+        'data-toggle': 'modal',
+        'data-target': '#modal-two'
+    &#125;)
+&#125;&#125;</code></pre>
+
     {{ docs.heading('h2', 'Closing modals') }}
 
-    <p>A button within a modal can close itself using the <code>data-dismiss="modal"</code> attribute.</p>
+    <p>A button within a modal (or indeed anywhere within the UI) can close itself using the <code>data-dismiss="modal"</code> attribute.</p>
 
     <p>{{ html.icon('info-sign') }} Avoid using a link with an empty href attribute <code>&lt   ;a href="#"...</code> as this will throw accessibility warnings in some automated a11y testing tools. Remember, if an action goes somewhere, use a link, if it does something, use a button.</p>
 
@@ -126,8 +220,15 @@
 {% block tab_sidebar %}
     <h4>On this page</h4>
     <ul class="page-nav">
+        <li><a href="#when-to-consider-using-a-modal">When to consider using a modal</a></li>
+        <li><a href="#when-not-to-use-a-modal">When not to use a modal</a></li>
         <li><a href="#basic-usage">Basic usage</a></li>
         <li><a href="#accessibility">Accessibility</a></li>
+        <li><a href="#opening-modals">Opening modals</a>
+            <ul>
+                <li><a href="#opening-a-modal-from-an-existing-modal">Opening a modal from an existing modal</a></li>
+            </ul>
+        </li>
         <li><a href="#closing-modals">Closing modals</a></li>
         <li><a href="#methods">Methods</a>
             <ul>
