@@ -121,7 +121,7 @@
         <li>Close modal-1 (do not visually stack modals)</li>
         <li>Return the user to modal-1 if they cancel out of modal-2</li>
         <li>Consider if the actions within modal-2 (such as cancel) should return the user to modal-1, or back to the main user interface</li>
-    </li>
+    </ul>
 
     <p>For a button to both close an existing modal, and open a new one, you should use both the <code>data-dismiss</code> and the <code>data-toggle</code> attributes.
 
@@ -138,7 +138,7 @@
 
     <p>A button within a modal (or indeed anywhere within the UI) can close itself using the <code>data-dismiss="modal"</code> attribute.</p>
 
-    <p>{{ html.icon('info-sign') }} Avoid using a link with an empty href attribute <code>&lt   ;a href="#"...</code> as this will throw accessibility warnings in some automated a11y testing tools. Remember, if an action goes somewhere, use a link, if it does something, use a button.</p>
+    <p>{{ html.icon('info-sign') }} Avoid using a link with an empty href attribute <code>&lt;a href="#"...</code> as this will throw accessibility warnings in some automated a11y testing tools. Remember, if an action goes somewhere, use a link, if it does something, use a button.</p>
 
     {{ docs.example({ 
         twig: "
