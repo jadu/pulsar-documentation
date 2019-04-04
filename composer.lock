@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jadu/pulsar.git",
-                "reference": "83ab3028ead8b8f2f1aaa740e66c249147a783b8"
+                "reference": "1dfbe2dba0fad36d24575ad6b591b9db9a7b5615"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jadu/pulsar/zipball/83ab3028ead8b8f2f1aaa740e66c249147a783b8",
-                "reference": "83ab3028ead8b8f2f1aaa740e66c249147a783b8",
+                "url": "https://api.github.com/repos/jadu/pulsar/zipball/1dfbe2dba0fad36d24575ad6b591b9db9a7b5615",
+                "reference": "1dfbe2dba0fad36d24575ad6b591b9db9a7b5615",
                 "shasum": ""
             },
             "require": {
@@ -33,12 +33,12 @@
                     "Jadu\\Pulsar": "src"
                 }
             },
-            "notification-url": "https://repo-packagist.hq.jadu.net/jadu/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "The User Experience and Interface framework for the Jadu Continuum Platform",
-            "time": "2018-09-20T14:43:25+00:00"
+            "time": "2019-04-04T09:57:54+00:00"
         },
         {
             "name": "jadu/pulsar-fonts",
@@ -159,7 +159,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "BackEndTea@gmail.com"
+                    "email": "backendtea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
