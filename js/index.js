@@ -22,7 +22,6 @@ var $                     = require('jquery'),
     matchMediaAddListener = require('../vendor/jadu/pulsar/js/polyfills/matchMedia.addListener'),
 
     pikaday               = require('../vendor/jadu/pulsar/libs/pikaday/plugins/pikaday.jquery'),
-    clickover             = require('../vendor/jadu/pulsar/libs/bootstrapx-clickover/js/bootstrapx-clickover'),
 
     dt            = require('datatables.net')(window, $),
     dt_buttons    = require('datatables.net-buttons')(window, $),
