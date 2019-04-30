@@ -38,10 +38,10 @@
         {% if code == true %}
             <nav class="d-example-nav">
                 <button class="d-example-nav__link is-active" data-toggle="twig">Twig</button>
+                <button class="d-example-nav__link" data-toggle="html">HTML</button>
                 {% if js %}
                 <button class="d-example-nav__link" data-toggle="js">JS</button>
                 {% endif %}
-                <button class="d-example-nav__link" data-toggle="html">HTML</button>
                 {% if sr %}
                     <button class="d-example-nav__link" data-toggle="sr">Screenreader</button>
                 {% endif %}
@@ -63,6 +63,12 @@
         
         <nav class="d-example-nav">
             <button class="d-example-nav__link is-active" data-toggle="html">HTML</button>
+            {% if js %}
+            <button class="d-example-nav__link" data-toggle="js">JS</button>
+            {% endif %}
+            {% if sr %}
+            <button class="d-example-nav__link" data-toggle="sr">Screenreader</button>
+            {% endif %}
         </nav>
         
         <pre class="d-example__code js-html"><code lang="html">{{ options.html|trim }}</code></pre>
@@ -92,7 +98,7 @@
 
 {% endmacro %}
 
-{% macro heading(level, title, prefix) %}
+{% macro heading(level, title, prefix, nav_list) %}
     {% if prefix is defined and prefix is not empty %}
         {% set prefix = prefix ~ '-' %}
     {% endif %}
