@@ -37,7 +37,26 @@
         ]
     })
 }}
-    " }) }}
+        ",
+        symfony: "
+use Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType;
+
+$builder->add(
+    'choice-a1', 
+    ChoiceType::class, 
+    [
+        'label' => 'Assign blame to',
+        'required' => false,
+        'expanded' => true,
+        'choices'  => [
+            'Sunshine' => 'sun',
+            'Moonlight' => 'moon',
+            'Good times' => 'good',
+            'Boogie' => 'boogie'
+        ]
+    ]
+);
+        " }) }}
 
     {{ docs.heading('h2', 'Helper options') }}
 
@@ -82,7 +101,7 @@
 
     {{ docs.heading('h2', 'Multiple choice') }}
 
-    <p>To allow multiple options to be chosen (checkboxes instead of radios), add the <code>'multiple': true</code> option.
+    <p>To allow multiple options to be chosen (checkboxes instead of radios), add the <code>multiple</code> option.
 
     {{ docs.example({
         twig: "
@@ -114,13 +133,35 @@
         ]
     })
 }}               
+    ",
+    symfony: "
+use Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType;
+
+$builder->add(
+    'choice-a2', 
+    ChoiceType::class, 
+    [
+        'label' => 'Assign blame to',
+        'required' => false,
+        'expanded' => true,
+        'multiple' => true,
+        'choices'  => [
+            'Sunshine' => 'sun',
+            'Moonlight' => 'moon',
+            'Good times' => 'good',
+            'Boogie' => 'boogie'
+        ]
+    ]
+);
     " }) }}
 
     {{ docs.heading('h2', 'Disabled choices') }}
 
     <p>You can disable individual choices by adding the disabled attribute to the option, or options, you need.
 
-    <p>Add the <code>'disabled': true</code> option to disable the field on load. See the <a href="../guides/disabling-elements">disabling elements guide</a> for more information about how to disable elements via javascript. Provide help text or information within the UI where possible to explain why elements are disabled.</p>
+    <p>For Twig helpers you must add the <code>'disabled': true</code> option to each individual choice. For Symfony helpers you only need to declare this once.</p>
+    
+    <p>See the <a href="../guides/disabling-elements">disabling elements guide</a> for more information about how to disable elements via javascript. Provide help text or information within the UI where possible to explain why elements are disabled.</p>
 
     {{ docs.example({
         twig: "
@@ -131,7 +172,8 @@
             {
                 'label': 'Sunshine',
                 'name': 'choice-a3',
-                'value': 'sun'
+                'value': 'sun',
+                'disabled': true
             },
             {
                 'label': 'Moonlight',
@@ -142,21 +184,48 @@
             {
                 'label': 'Good times',
                 'name': 'choice-a3',
-                'value': 'good'
+                'value': 'good',
+                'disabled': true
             },
             {
                 'label': 'Boogie',
                 'name': 'choice-a3',
-                'value': 'boogie'
+                'value': 'boogie',
+                'disabled': true
             }
         ]
     })
-}}               
+}}  
+    ",
+    symfony: "
+use Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType;
+
+$builder->add(
+    'choice-a3', 
+    ChoiceType::class, 
+    [
+        'label' => 'Assign blame to',
+        'required' => false,
+        'expanded' => true,
+        'multiple' => true,
+        'disabled' => true,
+        'choices'  => [
+            'Sunshine' => 'sun',
+            'Moonlight' => 'moon',
+            'Good times' => 'good',
+            'Boogie' => 'boogie'
+        ]
+    ]
+);
     " }) }}
 
     {{ docs.heading('h2', 'Input types') }}
 
-    <p>If there are more than five options, the choice helper will automatically switch to using a select input, this prevents long lists of radio/checkboxes. This behaviour can be overridden with the <code>optimize</code> option</p>
+    <p>If there are more than five options, the Twig choice helper will automatically switch to using a select2 input, this prevents long lists of radio/checkboxes.</p>
+    
+    <p>For Twig helpers, this can be forced with the <code>optimize</code> option.</p>
+
+    <p>For Symfony helpers, omit the <code>expanded</code> option (or set it to <code>false</code>).</p>
 
         {{ docs.example({
         twig: "
@@ -203,6 +272,28 @@
         ]
     })
 }}               
+    ",             
+    symfony: "
+use Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType;
+
+$builder->add(
+    'highlight', 
+    ChoiceType::class, 
+    [
+        'label' => 'Highlight colour',
+        'required' => false,
+        'data' => 'red',
+        'choices'  => [
+            'Red' => 'red',
+            'Orange' => 'orange',
+            'Yellow' => 'yellow',
+            'Green' => 'green',
+            'Blue' => 'blue',
+            'Indigo' => 'indigo',
+            'Violet' => 'violet'
+        ]
+    ]
+);
     " }) }}
     
 
@@ -212,30 +303,51 @@
 
     {{ docs.heading('h3', 'Help for all choices') }}
 
-    <p>If you pass the <code>help</code> option as a direct child of the choice helper it will be displayed in the usual position underneath the whole component. Use this method if your help text describes the whole component and all the available options.</p>
+    <p>If you pass the help option as a direct child of the choice helper it will be displayed in the usual position underneath the whole component. Use this method if your help text describes the whole component and all the available options.</p>
 
     {{ docs.example({
         twig: "
 {{
     form.choice({
-        'label': 'Sharing Method',
+        'label': 'Sharing method',
         'id': 'sharedType',
         'help': 'Choose how this content will be shared',
         'options': [
             {
                 'label': 'Duplicate',
                 'name': 'choice-a4',
-                'value': '1'
+                'value': 'duplicate'
             },
             {
-                'label': 'Link Only',
+                'label': 'Link only',
                 'name': 'choice-a4',
-                'value': '2'
+                'value': 'link'
             }
         ]
     })
 }}    
-    " }) }}
+        ",
+        symfony: "
+use Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType;
+
+$builder->add(
+    'sharedType', 
+    ChoiceType::class, 
+    [
+        'label' => 'Sharing method',
+        'data' => 'duplicate',
+        'expanded' => true,
+        'required' => false,
+        'choices'  => [
+            'Duplicate' => 'duplicate',
+            'Link only' => 'link'
+        ],
+        'attr' => [
+            'data-help-text' => 'Choose how this content will be shared'
+        ]
+    ]
+)
+        " }) }}
 
     {{ docs.heading('h3', 'Help for individual choices') }}
 
@@ -299,6 +411,28 @@
         ]
     })
 }}
+    ",
+    symfony: "
+use Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType;
+
+$builder->add(
+    'choice-a6', 
+    ChoiceType::class, 
+    [
+        'label' => 'Assign blame to',
+        'required' => false,
+        'expanded' => true,
+        'choices'  => [
+            'Sunshine' => 'sun',
+            'Moonlight' => 'moon',
+            'Good times' => 'good',
+            'Boogie' => 'boogie'
+        ],
+        'attr' => [
+            'data-group-class' => 'choice--block'
+        ]
+    ]
+);
     " }) }}
 
     <p>Add <code>choice--block choice--block-inline</code> to lay the options out horizontally.</p>
@@ -323,6 +457,26 @@
         ]
     })
 }}
+    ",
+    symfony: "
+use Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType;
+
+$builder->add(
+    'age-gate', 
+    ChoiceType::class, 
+    [
+        'label' => 'Are you over 18?',
+        'required' => false,
+        'expanded' => true,
+        'choices'  => [
+            'Yes' => 'true',
+            'No' => 'false'
+        ],
+        'attr' => [
+            'data-group-class' => 'choice--block choice--block-inline form__group--small'
+        ]
+    ]
+);
     " }) }}
 
 </div>

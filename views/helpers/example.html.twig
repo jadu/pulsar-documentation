@@ -5,12 +5,16 @@
 {% import '@pulsar/pulsar/v2/helpers/nav.html.twig' as nav %}
 
 {% set code = false %}
+{% set symfony = false %}
 {% set js = false %}
 {% set sr = false %}
 {% set style = false %}
 {% set preview = true %}
 {% if options.code is not defined or options.code != 0 %}
     {% set code = true %}
+{% endif %}
+{% if options.symfony is defined and options.symfony is not empty %}
+    {% set symfony = true %}
 {% endif %}
 {% if options.js is defined and options.js is not empty %}
     {% set js = true %}
@@ -38,6 +42,9 @@
         {% if code == true %}
             <nav class="d-example-nav">
                 <button class="d-example-nav__link is-active" data-toggle="twig">Twig</button>
+                {% if symfony %}
+                <button class="d-example-nav__link" data-toggle="symfony">Symfony {{ html.label({'label': '3.4'}) }}</button>
+                {% endif %}
                 <button class="d-example-nav__link" data-toggle="html">HTML</button>
                 {% if js %}
                 <button class="d-example-nav__link" data-toggle="js">JS</button>
@@ -48,6 +55,9 @@
             </nav>
             
             <pre class="d-example__code js-twig"><code lang="twig">{{ options.twig|trim }}</code></pre>
+            {% if symfony %}
+            <pre class="d-example__code js-symfony" style="display: none"><code lang="js">{{ options.symfony|trim }}</code></pre>
+            {% endif %}
             {% if js %}
             <pre class="d-example__code js-js" style="display: none"><code lang="js">{{ options.js|trim }}</code></pre>
             {% endif %}
@@ -56,7 +66,7 @@
                 <div class="d-example__code d-example__code--screenreader js-sr" style="display: none">{{ include(template_from_string(options.screenreader))|trim|raw }}</div>
             {% endif %}
         {% endif %}
-        
+
     {% elseif options.html is defined and options.html is not empty %}
 
         <div class="d-example__live">{{ options.html|trim|raw }}</div>

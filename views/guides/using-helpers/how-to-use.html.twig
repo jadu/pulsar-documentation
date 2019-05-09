@@ -28,7 +28,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th class="u-no-wrap">Option</th>
+                <th class="u-no-wrap">Helper Option</th>
                 <th class="u-no-wrap">Type <small>(default)</small></th>
                 <th class="u-no-wrap">Applies to</th>
                 <th>Description</th>
@@ -147,6 +147,49 @@
                 <td>string</td>
                 <td class="u-no-wrap">Form helpers</td>
                 <td>Defines a default value which will be displayed in the element on page load</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'Common Symfony options') }}
+
+    <p>The names of Symfony options differ to the Twig helpers however their functionality is very similar. To avoid clashes with Symfony's own options all Pulsar specific functionality is added via <code>data-*</code> attributes.</p>
+
+    <p>You can refer to the <a href="https://symfony.com/doc/current/reference/forms/ types.html">Symfony form types reference</a> for more information about the default options for each field type.</p>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="u-no-wrap">Option</th>
+                <th class="u-no-wrap">Type <small>(default)</small></th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="u-no-wrap"><code>attr.data-group-class</code></td>
+                <td>string</td>
+                <td>A space-separated list of additional class names, these will be added to whatever classes the component requires for its own styling and applied to the top-level <code>form__group</code> element</td>
+            </tr>
+            <tr>
+                <td class="u-no-wrap"><code>attr.data-guidance-text</code></td>
+                <td>string</td>
+                <td>Additional information to be displayed alongside a form input, presented as a {{ html.icon('question-sign') }} icon which shows the guidance text in a popover when activated</td>
+            </tr>
+            <tr>
+                <td class="u-no-wrap"><code>attr.data-guidance-html</code></td>
+                <td>string</td>
+                <td>The same as <code>data-guidance-text</code> but can include HTML</td>
+            </tr>
+            <tr>
+                <td class="u-no-wrap"><code>attr.data-help-text</code></td>
+                <td>string</td>
+                <td>Additional guidance information to be displayed next to a form component, used to help the user understand what information they’re expected to provide and in what format</td>
+            </tr>
+            <tr>
+                <td class="u-no-wrap"><code>attr.data-help-html</code></td>
+                <td>string</td>
+                <td>The same as <code>data-help-text</code> but can include HTML</td>
             </tr>
         </tbody>
     </table>
