@@ -1,0 +1,204 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">A multi-purpose field to allow the user to "choose" one or more options. It can be rendered as a <code>select</code> element, radio buttons or checkboxes.<br /><br />For a complete reference you should refer to the <a href="https://symfony.com/doc/3.4/reference/forms/types/choice.html">Symfony ChoiceType documentation</a>.</p>
+
+    {{ docs.heading('h2', 'Dependencies') }}
+
+    <p>Your form builder will need to include the <a href="https://symfony.com/doc/3.4/reference/forms/types/choice.html">ChoiceType</a>.</p>
+
+<pre><code lang="php">use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+</code></pre>
+
+    {{ docs.heading('h2', 'Basic usage') }}
+
+<pre><code lang="php">$builder->add('basic', ChoiceType::class, [
+    'label' => 'Choice field',
+    'choices'  => [
+        'One' => '1',
+        'Two' => '2',
+        'Three' => '3',
+    ]
+]);</code></pre>
+
+    <table class="table table--full">
+        <tbody>
+            <tr>
+                <td>Options</td>
+                <td>
+                    <ul>
+                        <li>choices</li>
+                        <li>expanded</li>
+                        <li>multiple</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Inherited options</td>
+                <td>
+                    <ul>
+                        <li>data</li>
+                        <li>disabled</li>
+                        <li>label</li>
+                        <li>required</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Pulsar attributes</td>
+                <td>
+                    <ul>
+                        <li>attr.data-group-class</li>
+                        <li>attr.data-guidance-html</li>
+                        <li>attr.data-guidance-text</li>
+                        <li>attr.data-help-html</li>
+                        <li>attr.data-help-text</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'Options') }}
+    {{ docs.heading('h3', 'Choices') }}
+
+    <dl>
+        <dt>Type:</dt>
+        <dd><code>array</code></dd>
+        <dt>Default:</dt>
+        <dd><code>[]</code></dd>
+    </dl>
+
+    <p>Simple choices can be defined in the <code>choices</code> array formatted as <code>'label' => 'value'</code>
+
+    <pre><code lang="php">$builder->add('basic', ChoiceType::class, [
+    'label' => 'Choice field',
+    'choices'  => [
+        'One' => '1',
+        'Two' => '2',
+        'Three' => '3',
+    ]
+]);</code></pre>
+
+    {{ docs.heading('h4', 'Choice input types') }}
+
+    <p>The choices can be rendered as a single <code>select</code> element, radio buttons (for single-choice) or checkboxes (for multiple-choice). This requires a combination of values in the <code>expanded</code> and <code>multiple</code> options.</p>
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+                <th>Element Type</th>
+                <th>Expanded</th>
+                <th>Multiple</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>select element</td>
+                <td><code>false</code></td>
+                <td><code>false</code></td>
+            </tr>
+            <tr>
+                <td>select element (with <code>multiple</code> attribute)</td>
+                <td><code>false</code></td>
+                <td><code>true</code></td>
+            </tr>
+            <tr>
+                <td>radio buttons</td>
+                <td><code>true</code></td>
+                <td><code>false</code></td>
+            </tr>
+            <tr>
+                <td>checkboxes</td>
+                <td><code>true</code></td>
+                <td><code>true</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h4', 'Grouping choices') }}
+
+    <p>You can group the <code>option</code> elements of a <code>select</code> into <code>optgroup</code> by passing a multi-dimensional choices array.</p>
+
+<pre><code lang="php">$builder->add('basic', ChoiceType::class, [
+    'label' => 'Choice field',
+    'choices'  => [
+        'Main Statuses' => [
+            'Yes' => 'stock_yes',
+            'No' => 'stock_no',
+        ],
+        'Out of Stock Statuses' => [
+            'Backordered' => 'stock_backordered',
+            'Discontinued' => 'stock_discontinued',
+        ],
+    ]
+]);</code></pre>
+
+    {{ docs.heading('h3', 'Expanded') }}
+
+    <dl>
+        <dt>Type:</dt>
+        <dd><code>boolean</code></dd>
+        <dt>Default:</dt>
+        <dd><code>false</code></dd>
+    </dl>
+
+    <p>If set to <code>true</code>, radio buttons or checkboxes will be rendered (depending on the <code>multiple</code> value). If <code>false</code>, a select element will be rendered.</p>
+
+    {{ docs.heading('h3', 'Multiple') }}
+
+    <dl>
+        <dt>Type:</dt>
+        <dd><code>boolean</code></dd>
+        <dt>Default:</dt>
+        <dd><code>false</code></dd>
+    </dl>
+
+    <p>If <code>true</code>, the user will be able to select multiple options (as opposed to choosing just one option). Depending on the value of the expanded option, this will render either a select tag or checkboxes if <code>true</code> and a select tag or radio buttons if <code>false</code>. The returned value will be an array.</p>
+    
+    {{ docs.heading('h3', 'Placeholder') }}
+
+    <dl>
+        <dt>Type:</dt>
+        <dd><code>string</code> or <code>boolean</code></dd>
+    </dl>
+
+    <p>This option determines whether or not a special "empty" option (e.g. "Choose an option") will appear at the top of a select widget. This option only applies if the <code>multiple</code> option is set to <code>false</code>.</p>
+
+    <p>A. Add an empty value with "Choose an option" as the text:</p>
+
+<pre><code lang="php">$builder->add('states', ChoiceType::class, [
+    'placeholder' => 'Choose an option',
+]);</code></pre>
+
+    <p>B. Guarantee that no "empty" value option is displayed:</p>
+
+<pre><code lang="php">$builder->add('states', ChoiceType::class, [
+    'placeholder' => false,
+]);</code></pre>
+
+    <p>C. If you leave the placeholder option unset, then a blank (with no text) option will automatically be added if and only if the required option is <code>false</code>.</p>
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#dependencies">Dependencies</a></li>
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#options">Options</a>
+            <ul>
+                <li><a href="#choices">Choices</a>
+                    <ul>
+                        <li><a href="#choice-input-types">Choice input types</a></li>
+                        <li><a href="#grouping-choices">Grouping choices</a></li>
+                </li>
+            </ul>
+            <li><a href="#expanded">Expanded</a></li>
+            <li><a href="#multiple">Multiple</a></li>
+            <li><a href="#placeholder">Placeholder</a></li>
+        </li>
+    </ul>
+{% endblock tab_sidebar %}

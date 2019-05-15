@@ -228,7 +228,17 @@ blockquote {
     padding-left: 20px;
 }
 
+dl {
+    display: flex;
+}
 
+dt {
+    font-family: $font-family-base;
+}
+
+dd {
+    margin: 0 20px 0 10px;
+}
 
 .landing-blocks {
     margin-bottom: $line-height-base;

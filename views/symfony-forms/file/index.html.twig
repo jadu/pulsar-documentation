@@ -1,0 +1,27 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'File' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Home', 'href': '/'},
+        {'label': 'Symfony Forms', 'data-toggle-nav': '#forms'},
+        {'label': 'File', 'href': '#'}
+    ]
+%}
+
+{% set tab_code %}
+    {% include 'symfony-forms/file/code.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "code",
+          "class" : "ui-report",
+          "label" : "Code",
+          "src"   : tab_code,
+          "active": true 
+        }
+    ]
+%}

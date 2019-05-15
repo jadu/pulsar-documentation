@@ -1,0 +1,27 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Percent' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Home', 'href': '/'},
+        {'label': 'Symfony Forms', 'data-toggle-nav': '#forms'},
+        {'label': 'Percent', 'href': '#'}
+    ]
+%}
+
+{% set tab_code %}
+    {% include 'symfony-forms/percent/code.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "code",
+          "class" : "ui-report",
+          "label" : "Code",
+          "src"   : tab_code,
+          "active": true 
+        }
+    ]
+%}

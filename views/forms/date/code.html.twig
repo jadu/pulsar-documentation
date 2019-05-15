@@ -14,12 +14,26 @@
     form.date({
         'label': 'Start date',
         'id': 'date-1',
-        'name': 'date-1'
+        'name': 'date-1',
+        'append': html.icon('calendar')
     })
 }}
-    " }) }}
+      ",
+      symfony: "
+use Symfony\\Component\\Form\\Extension\\Core\\Type\\DateType;
+
+$builder->add(
+    'date-1',
+    DateType::class,
+    [
+        'label' => 'Start date',
+        'widget' => 'single_text'
+    ]
+)
+      " }) }}
     
-    {{ docs.heading('h2', 'Helper options') }}
+    {{ docs.heading('h2', 'Twig helper') }}
+    {{ docs.heading('h3', 'Helper options') }}
 
     <p>You can configure this helper using the <a href="../guides/using-helpers#common-options">common helper options</a>, the following options are specific to this helper.</p>
 
@@ -53,7 +67,7 @@
         </tbody>
     </table>
 
-    {{ docs.heading('h2', 'Date format') }}
+    {{ docs.heading('h3', 'Date format') }}
 
     <p>Use the <code>format</code> attribute to change between <code>default</code> (UK), <code>US</code> and <code>reverse</code> (reverse UK) date formats.</p>
 
@@ -70,7 +84,7 @@
 }}
     " }) }}
 
-    {{ docs.heading('h2', 'Disabled input') }}
+    {{ docs.heading('h3', 'Disabled input') }}
 
     <p>Add the <code>'disabled': true</code> option to disable the field on load. See the <a href="../guides/disabling-elements">disabling elements guide</a> for more information about how to disable elements via javascript. Provide help text or information within the UI where possible to explain why elements are disabled.</p>
 
@@ -93,7 +107,11 @@
     <h4>On this page</h4>
     <ul class="page-nav">
         <li><a href="#basic-usage">Basic usage</a></li>
-        <li><a href="#helper-options">Helper options</a></li>
-        <li><a href="#disabled-input">Disabled input</a></li>
+        <li><a href="#twig-helper">Twig helper</a>
+            <ul>
+                <li><a href="#helper-options">Helper options</a></li>
+                <li><a href="#disabled-input">Disabled input</a></li>
+            </ul>
+        </li>
     </ul>
 {% endblock tab_sidebar %}

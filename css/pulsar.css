@@ -18582,6 +18582,15 @@ blockquote {
   border-left: 4px solid #bebebe;
   padding-left: 20px; }
 
+dl {
+  display: flex; }
+
+dt {
+  font-family: "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+
+dd {
+  margin: 0 20px 0 10px; }
+
 .landing-blocks {
   margin-bottom: 24px; }
   @media screen and (min-width: 767px) {

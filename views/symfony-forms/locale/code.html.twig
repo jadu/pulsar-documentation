@@ -1,0 +1,106 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">The Locale type is a subset of the Choice type that allows the user to select from a large list of locales (language+country). As an added bonus, the locale names are displayed in the language of the user.<br /><br />For a complete reference you should refer to the <a href="https://symfony.com/doc/3.4/reference/forms/types/locale.html">Symfony LocaleType documentation</a>.</p>
+    
+    <p>The "value" for each locale is either the two letter <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO 639-1</a> language code (e.g. <code>fr</code>), or the language code followed by an underscore (<code>_</code>), then the <a href="https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes">ISO 3166-1 alpha-2</a> country code (e.g. <code>fr_FR</code> for French/France).</p>
+
+    <p>Unlike the Choice type, you don't need to specify a choices option as the field type automatically uses a large list of locales. You can specify these options manually, but then you should just use the Choice type directly.</p>
+
+    {{ docs.heading('h2', 'Dependencies') }}
+
+    <p>Your form builder will need to include the <a href="https://symfony.com/doc/3.4/reference/forms/types/locale.html">LocaleType</a>.</p>
+
+<pre><code lang="php">use Symfony\Component\Form\Extension\Core\Type\LocaleType;
+</code></pre>
+
+    {{ docs.heading('h2', 'Basic usage') }}
+
+<pre><code lang="php">$builder->add('basic', LocaleType::class, [
+    'label' => 'My label',
+    'required' => false
+]);</code></pre>
+
+    {{ docs.heading('h2', 'Options') }}
+
+    <table class="table table--full">
+        <tbody>
+            <tr>
+                <td>Inherited options</td>
+                <td>
+                    <ul>
+                        <li>data</li>
+                        <li>disabled</li>
+                        <li>label</li>
+                        <li>required</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Pulsar attributes</td>
+                <td>
+                    <ul>
+                        <li>attr.data-group-class</li>
+                        <li>attr.data-guidance-html</li>
+                        <li>attr.data-guidance-text</li>
+                        <li>attr.data-help-html</li>
+                        <li>attr.data-help-text</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'Inherited options') }}
+    {{ docs.heading('h3', 'Disabled') }}
+
+<dl>
+    <dt>Type:</dt>
+    <dd><code>boolean</code></dd>
+    <dt>Default:</dt>
+    <dd><code>false</code></dd>
+</dl>
+
+<p>If you don't want a user to modify the value of a field, you can set the disabled option to true. Any submitted value will be ignored.</p>
+
+<pre><code lang="php">$builder->add('myDisabledExample', LocaleType::class, [
+    'label' => 'Text field',
+    'required' => false,
+    'disabled' => true
+]);</code></pre>
+
+    {{ docs.heading('h3', 'Label') }}
+
+<dl>
+    <dt>Type:</dt>
+    <dd><code>string</code></dd>
+    <dt>Default:</dt>
+    <dd>The label is "guessed" from the field name</dd>
+</dl>
+
+<p>Sets the label that will be used when rendering the field. Setting to false will suppress the label.</p>
+
+<pre><code lang="php">$builder->add('myLabelExample', LocaleType::class, [
+    'label' => 'My Label',
+    'required' => false
+]);</code></pre>
+
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#dependencies">Dependencies</a></li>
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#options">Options</a></li>
+        <li><a href="#inherited-options">Inherited options</a>
+            <ul>
+                <li><a href="#disabled">Disabled</a></li>
+                <li><a href="#label">Label</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock tab_sidebar %}

@@ -1,0 +1,102 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">The email field is a text field that is rendered using the HTML5 <code>&lt;input type="email" /&gt;</code> tag.<br /><br />For a complete reference you should refer to the <a href="https://symfony.com/doc/3.4/reference/forms/types/text.html">Symfony TextType documentation</a>.</p>
+
+    {{ docs.heading('h2', 'Dependencies') }}
+
+    <p>Your form builder will need to include the <a href="https://symfony.com/doc/3.4/reference/forms/types/email.html">EmailType</a>.</p>
+
+<pre><code lang="php">use Symfony\Component\Form\Extension\Core\Type\EmailType;
+</code></pre>
+
+    {{ docs.heading('h2', 'Basic usage') }}
+
+<pre><code lang="php">$builder->add('basic', TextType::class, [
+    'label' => 'My label',
+    'required' => false
+]);</code></pre>
+
+    {{ docs.heading('h2', 'Options') }}
+
+    <table class="table table--full">
+        <tbody>
+            <tr>
+                <td>Inherited options</td>
+                <td>
+                    <ul>
+                        <li>data</li>
+                        <li>disabled</li>
+                        <li>label</li>
+                        <li>required</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Pulsar attributes</td>
+                <td>
+                    <ul>
+                        <li>attr.data-group-class</li>
+                        <li>attr.data-guidance-html</li>
+                        <li>attr.data-guidance-text</li>
+                        <li>attr.data-help-html</li>
+                        <li>attr.data-help-text</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'Inherited options') }}
+    {{ docs.heading('h3', 'Disabled') }}
+
+<dl>
+    <dt>Type:</dt>
+    <dd><code>boolean</code></dd>
+    <dt>Default:</dt>
+    <dd><code>false</code></dd>
+</dl>
+
+<p>If you don't want a user to modify the value of a field, you can set the disabled option to true. Any submitted value will be ignored.</p>
+
+<pre><code lang="php">$builder->add('myDisabledExample', TextType::class, [
+    'label' => 'Text field',
+    'required' => false,
+    'disabled' => true
+]);</code></pre>
+
+    {{ docs.heading('h3', 'Label') }}
+
+<dl>
+    <dt>Type:</dt>
+    <dd><code>string</code></dd>
+    <dt>Default:</dt>
+    <dd>The label is "guessed" from the field name</dd>
+</dl>
+
+<p>Sets the label that will be used when rendering the field. Setting to false will suppress the label.</p>
+
+<pre><code lang="php">$builder->add('myLabelExample', TextType::class, [
+    'label' => 'My Label',
+    'required' => false
+]);</code></pre>
+
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#dependencies">Dependencies</a></li>
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#options">Options</a></li>
+        <li><a href="#inherited-options">Inherited options</a>
+            <ul>
+                <li><a href="#disabled">Disabled</a></li>
+                <li><a href="#label">Label</a></li>
+            </ul>
+        </li>
+    </ul>
+{% endblock tab_sidebar %}
