@@ -17,18 +17,6 @@
         'name': 'checkbox-1'
     })
 }}
-        ",
-        symfony: "
-use Symfony\\Component\\Form\\Extension\\Core\\Type\\CheckboxType;
-
-$builder->add(
-    'checkbox-1', 
-    CheckboxType::class, 
-    [
-        'label' => 'My label',
-        'required' => false,
-    ]
-);
         "
          }) }}
 
@@ -68,19 +56,6 @@ $builder->add(
         'disabled': true
     })
 }}
-        ",
-        symfony: "
-use Symfony\\Component\\Form\\Extension\\Core\\Type\\CheckboxType;
-
-$builder->add(
-    'checkbox-1', 
-    CheckboxType::class, 
-    [
-        'label' => 'My label',
-        'disabled' => true,
-        'required' => false,
-    ]
-);
         "
     }) }}
 

@@ -37,25 +37,6 @@
         ]
     })
 }}
-        ",
-        symfony: "
-use Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType;
-
-$builder->add(
-    'choice-a1', 
-    ChoiceType::class, 
-    [
-        'label' => 'Assign blame to',
-        'required' => false,
-        'expanded' => true,
-        'choices'  => [
-            'Sunshine' => 'sun',
-            'Moonlight' => 'moon',
-            'Good times' => 'good',
-            'Boogie' => 'boogie'
-        ]
-    ]
-);
         " }) }}
 
     {{ docs.heading('h2', 'Helper options') }}
@@ -133,26 +114,6 @@ $builder->add(
         ]
     })
 }}               
-    ",
-    symfony: "
-use Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType;
-
-$builder->add(
-    'choice-a2', 
-    ChoiceType::class, 
-    [
-        'label' => 'Assign blame to',
-        'required' => false,
-        'expanded' => true,
-        'multiple' => true,
-        'choices'  => [
-            'Sunshine' => 'sun',
-            'Moonlight' => 'moon',
-            'Good times' => 'good',
-            'Boogie' => 'boogie'
-        ]
-    ]
-);
     " }) }}
 
     {{ docs.heading('h2', 'Disabled choices') }}
@@ -196,27 +157,6 @@ $builder->add(
         ]
     })
 }}  
-    ",
-    symfony: "
-use Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType;
-
-$builder->add(
-    'choice-a3', 
-    ChoiceType::class, 
-    [
-        'label' => 'Assign blame to',
-        'required' => false,
-        'expanded' => true,
-        'multiple' => true,
-        'disabled' => true,
-        'choices'  => [
-            'Sunshine' => 'sun',
-            'Moonlight' => 'moon',
-            'Good times' => 'good',
-            'Boogie' => 'boogie'
-        ]
-    ]
-);
     " }) }}
 
     {{ docs.heading('h2', 'Input types') }}
@@ -272,28 +212,6 @@ $builder->add(
         ]
     })
 }}               
-    ",             
-    symfony: "
-use Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType;
-
-$builder->add(
-    'highlight', 
-    ChoiceType::class, 
-    [
-        'label' => 'Highlight colour',
-        'required' => false,
-        'data' => 'red',
-        'choices'  => [
-            'Red' => 'red',
-            'Orange' => 'orange',
-            'Yellow' => 'yellow',
-            'Green' => 'green',
-            'Blue' => 'blue',
-            'Indigo' => 'indigo',
-            'Violet' => 'violet'
-        ]
-    ]
-);
     " }) }}
     
 
@@ -326,27 +244,6 @@ $builder->add(
         ]
     })
 }}    
-        ",
-        symfony: "
-use Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType;
-
-$builder->add(
-    'sharedType', 
-    ChoiceType::class, 
-    [
-        'label' => 'Sharing method',
-        'data' => 'duplicate',
-        'expanded' => true,
-        'required' => false,
-        'choices'  => [
-            'Duplicate' => 'duplicate',
-            'Link only' => 'link'
-        ],
-        'attr' => [
-            'data-help-text' => 'Choose how this content will be shared'
-        ]
-    ]
-)
         " }) }}
 
     {{ docs.heading('h3', 'Help for individual choices') }}
@@ -411,28 +308,6 @@ $builder->add(
         ]
     })
 }}
-    ",
-    symfony: "
-use Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType;
-
-$builder->add(
-    'choice-a6', 
-    ChoiceType::class, 
-    [
-        'label' => 'Assign blame to',
-        'required' => false,
-        'expanded' => true,
-        'choices'  => [
-            'Sunshine' => 'sun',
-            'Moonlight' => 'moon',
-            'Good times' => 'good',
-            'Boogie' => 'boogie'
-        ],
-        'attr' => [
-            'data-group-class' => 'choice--block'
-        ]
-    ]
-);
     " }) }}
 
     <p>Add <code>choice--block choice--block-inline</code> to lay the options out horizontally.</p>
@@ -457,26 +332,6 @@ $builder->add(
         ]
     })
 }}
-    ",
-    symfony: "
-use Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType;
-
-$builder->add(
-    'age-gate', 
-    ChoiceType::class, 
-    [
-        'label' => 'Are you over 18?',
-        'required' => false,
-        'expanded' => true,
-        'choices'  => [
-            'Yes' => 'true',
-            'No' => 'false'
-        ],
-        'attr' => [
-            'data-group-class' => 'choice--block choice--block-inline form__group--small'
-        ]
-    ]
-);
     " }) }}
 
 </div>

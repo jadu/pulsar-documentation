@@ -18,18 +18,6 @@
         'append': html.icon('calendar')
     })
 }}
-      ",
-      symfony: "
-use Symfony\\Component\\Form\\Extension\\Core\\Type\\DateType;
-
-$builder->add(
-    'date-1',
-    DateType::class,
-    [
-        'label' => 'Start date',
-        'widget' => 'single_text'
-    ]
-)
       " }) }}
     
     {{ docs.heading('h2', 'Twig helper') }}
