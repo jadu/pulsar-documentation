@@ -188,7 +188,7 @@
 }}
     " }) }}
 
-    {{ docs.heading('h2', 'Set initial column sort') }}
+    {{ docs.heading('h2', 'Set initial column order') }}
 
     <p>You can specify how the data should be sorted on initial load by supplying the <code>data-order</code> attribute, if you’re using the responsive columns remember that these will affect which column index you supply.</p>
 
@@ -265,13 +265,13 @@
 }}
     " }) }}
 
-    {{ docs.heading('h2', 'Disable column sorting') }}
+    {{ docs.heading('h2', 'Disable column ordering') }}
 
-    <p>Some columns don’t need to allow sorting, such as an actions column where the data is the same for each row.</p>
+    <p>Some columns don’t need to allow ordering, such as an actions column where the data is the same for each row.</p>
 
     <p>Add the <code>data-orderable="false"</code> to any <code>thead > th</code> or <code>thead > td</code> that you do not wish to be sorted. If you're using the helper you need to pass this through the <code>columns.attrs</code> attribute for the column.</p>
 
-    <p>This example disables column sorting on the 'Live' and 'Visible' columns.</p>
+    <p>This example disables column ordering on the 'Live' and 'Visible' columns.</p>
 
     {{ docs.example({ 
         twig: "
@@ -344,9 +344,9 @@
 }}
     " }) }}
 
-    {{ docs.heading('h2', 'Sorting date/time columns') }}
+    {{ docs.heading('h2', 'Ordering date/time columns') }}
 
-    <p>To allow proper sorting of dates, use the <code>data-order</code> attribute to supply a <code>yyyy-mm-dd hh:mm</code> formatted string, this will be used when sorting the column.</p>
+    <p>To allow proper ordering of dates, use the <code>data-order</code> attribute to supply a <code>yyyy-mm-dd hh:mm</code> formatted string, this will be used when ordering the column.</p>
 
     <p>{{ html.icon('exclamation-triangle', {'label': 'Important'} ) }} It's currently not possible to do this using the <code>html.datatable()</code> helper.</p>
 
@@ -451,9 +451,9 @@
             <li><a href="#configuration">Configuration</a></li>
             <li><a href="#example-usage">Example usage</a></li>
             <li><a href="#disable-row-selection">Disable row selection</a></li>
-            <li><a href="#set-initial-column-sort">Set initial column sort</a></li>
-            <li><a href="#disable-column-sorting">Disable column sorting</a></li>
-            <li><a href="#sorting-date/time-columns">Sorting date/time columns</a></li>
+            <li><a href="#set-initial-column-order">Set initial column order</a></li>
+            <li><a href="#disable-column-ordering">Disable column ordering</a></li>
+            <li><a href="#ordering-date/time-columns">Ordering date/time columns</a></li>
             <li><a href="#no-results">No results</a>
                 <ul>
                     <li><a href="#default-message">Default message</a></li>
