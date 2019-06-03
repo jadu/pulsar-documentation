@@ -11,7 +11,7 @@
 
     <p>Browsers not listed may still work well, and it should be noted that this is not a list that intends to suggest that these are the only browsers the service will work on – this is simply a benchmark for testing against to ensure that the Continuum platform will likely work for as many users as possible alongside appropriate cost-effectiveness and development overhead.</p>
 
-    <p>‘Compliant’ means that the visual presentation of a given UI should be broadly similar to thge other compliant browsers (though some differences are to be expected).</p>
+    <p>‘Compliant’ means that the visual presentation of a given UI should be broadly similar to the other compliant browsers (though some differences are to be expected).</p>
 
     <table class="table table--full">
       <thead>
@@ -22,6 +22,7 @@
         </tr>
       </thead>
       <tbody>
+      <tr>
         <tr>
           <td rowspan="6">Windows</td>
           <td>Internet Explorer 9</td>
@@ -84,31 +85,41 @@
 
     {{ docs.heading('h2', 'Testing with assistive technologies') }}
 
-    <p>User interfaces and components should be tested with a selection of assistive device to check they are appropriately interactive. When using desktop software you should use the keyboard as the primary input method.</p>
+    <p>User interfaces and components should be tested with a selection of assistive device to check they are appropriately interactive. When using screen reader software you should use the keyboard as the primary input method.</p>
 
     <table class="table table--full">
       <thead>
         <tr>
           <th scope="col">Software</th>
           <th scope="col">Version</th>
+          <th scope="col">Type</th>
           <th scope="col">Browser</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>JAWS</td>
+          <td>Dragon NaturallySpeaking</td>
           <td>15 or later</td>
+          <td>Speech recognition</td>
           <td>Internet Explorer 11</td>
         </tr>
         <tr>
           <td>NVDA</td>
           <td>2016 or later</td>
+          <td>Screen reader</td>
           <td>Mozilla Firefox (latest versions</td>
         </tr>
         <tr>
           <td>VoiceOver</td>
           <td>7.0 or later</td>
+          <td>Screen reader</td>
           <td>Safari on OSX and iOS 10</td>
+        </tr>
+        <tr>
+          <td>JAWS</td>
+          <td>15 or later</td>
+          <td>Screen reader</td>
+          <td>Internet Explorer 11</td>
         </tr>
       </tbody>
     </table>
