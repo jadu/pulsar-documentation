@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "382bfcbd6908819520cdff6a8294549f",
+    "content-hash": "31c377e5af93dd276a2ae7f3b813b288",
     "packages": [
         {
             "name": "jadu/pulsar",
-            "version": "dev-develop",
+            "version": "dev-988_rules",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jadu/pulsar.git",
-                "reference": "1dfbe2dba0fad36d24575ad6b591b9db9a7b5615"
+                "reference": "aa5b818300a4eeaa24875728dc140b51e932b65f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jadu/pulsar/zipball/1dfbe2dba0fad36d24575ad6b591b9db9a7b5615",
-                "reference": "1dfbe2dba0fad36d24575ad6b591b9db9a7b5615",
+                "url": "https://api.github.com/repos/jadu/pulsar/zipball/aa5b818300a4eeaa24875728dc140b51e932b65f",
+                "reference": "aa5b818300a4eeaa24875728dc140b51e932b65f",
                 "shasum": ""
             },
             "require": {
@@ -38,7 +38,7 @@
                 "MIT"
             ],
             "description": "The User Experience and Interface framework for the Jadu Continuum Platform",
-            "time": "2019-04-04T09:57:54+00:00"
+            "time": "2019-06-04T09:33:38+00:00"
         },
         {
             "name": "phpoption/phpoption",
