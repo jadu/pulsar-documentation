@@ -30,7 +30,7 @@
 
     {{ docs.heading('h3', 'Actions bar') }}
 
-    <p>The actions bar appears below the tabbed navigation and consists of the actions menu, and one or more action buttons</p>
+    <p>The actions bar appears below the tabbed navigation and consists of the actions menu, and one or more action buttons. The specific markup required for the actions bar is documented in the <a href="/patterns/actions-bar">actions bar pattern</a>.</p>
 
     {{ docs.heading('h4', 'Actions menu') }}
 
@@ -209,7 +209,9 @@
 
     {{ docs.heading('h2', 'The DataTable') }}
 
-    <p>The common list pattern's main UI element is a datatable which presents the user with a list of Things, usually organised in date order (newest first) with up to 20 items per page. The table will show extra critical information which is requried depending on the context of the content. This may include dates, statuses or a collection of actions that can be performed on the items.</p>
+    <p>The common list pattern's main UI element is a datatable which presents the user with a list of Things, usually organised in date order (newest first) with up to 25 items per page as the default view. The table will show extra critical information which is requried depending on the context of the content. This may include dates, statuses or a collection of actions that can be performed on the items.</p>
+
+    <p>The number of entries on each page of the table can be controlled by the dropdown option in the DataTable footer, the value of this should be stored by the Jadu product as a persistent user preference.</p>
 
     {{ docs.example({ 
         code: false,
@@ -358,7 +360,13 @@
 
     <p>It is strongly recommended that the user is able to perform actions on more than one row item at once, the most basic use of this would be to delete multiple items at once however you may want to allow other bulk actions such as publishing content, applying categories or changing the status of an item.
 
-    <p>If no bulk actions are provided by the user interface, the row selection column can be hidden by supplying the <code>data-select="false"</code> option to the DataTable.</p> 
+    <p>If no bulk actions are provided by the user interface, the row selection column can be hidden by supplying the <code>data-select="false"</code> option to the DataTable.</p>
+
+    {{ docs.heading('h3', 'Status icons') }}
+
+    <p>If a column needs to display the status of a boolean value, such as the whether an item is live/offline, or visible/invisible, you can use status icons to display this information.</p>
+
+    <p>Status icons must contain appropriate accessible labels so their meaning can be discerned when viewed without the context of the table header.</p>
 
     {{ docs.heading('h3', 'Actions column') }}
 
