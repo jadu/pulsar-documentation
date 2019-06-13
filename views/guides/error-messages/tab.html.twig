@@ -56,42 +56,6 @@
 
     <p>A combination of techniques should be used when dealing with form errors, a <a href="#flash-summary">flash summary</a> should be provided at the top of the page, and each invalid field should be marked as an <a href="#invalid-fields">invalid field</a>.</p>
 
-    {{ docs.heading('h3', 'Flash summary') }}
-
-    <p>When a form contains errors the flash message should be used to provide a summary or all errors that need to be resolved before the user can successfully submit their form.</p>
-
-    <figure class="wireframe wireframe--small">
-        <img src="/views/guides/error-messages/img/flash-summary.png" alt="Screenshot showing the position of flash error messages" />
-        <figcaption>The flash summary lists all errors at the top of the user interface</figcaption>
-    </figure>
-
-    <p>The flash summary should:</p>
-
-    <ul>
-        <li>Use the title ’There is a problem'</li>
-        <li>Capture keyboard focus on page load</li>
-        <li>Link to each invalid field</li>
-        <li>Show the same error message used on the field</li>
-    </ul>
-
-    {{ docs.example({
-        twig: "
-{{
-    flash.summary({
-        items: [
-            {  
-                'label': 'Enter a first name',
-                'href': '#firstName'
-            },
-            {  
-                'label': 'Enter an email address in the correct format, like name@example.com',
-                'href': '#email'
-            }
-        ]
-    })
-}}
-    " }) }}
-
     {{ docs.heading('h3', 'Invalid fields') }}
 
     <p>Form fields should be individually given descriptive error text which explains in clear, concise language, what the person filling in this form needs to do to resolve the error for this specific field.</p>
