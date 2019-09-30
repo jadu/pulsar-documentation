@@ -12,6 +12,7 @@
 
     pulsar.pulsarUI = new pulsar.PulsarUIComponent($html, window.History);
     pulsar.disableUI = new pulsar.DisableUiComponent($html);
+    pulsar.dropdownButton = new pulsar.DropdownButtonComponent($html);
     pulsar.filterBar = new pulsar.FilterBarComponent($html);
     pulsar.pulsarForm = new pulsar.PulsarFormComponent($html);
     pulsar.masterSwitch = new pulsar.MasterSwitchComponent($html, pulsar.disableUI);
@@ -25,6 +26,7 @@
 
     $(function () {
         pulsar.pulsarUI.init();
+        pulsar.dropdownButton.init();
         pulsar.filterBar.init();
         pulsar.pulsarForm.init();
         pulsar.masterSwitch.init();
