@@ -10,7 +10,7 @@
     <p>The error summary helper accepts an array of objects. Each object contains the error text and  ID of an input with errors. Refer to the <a href="/guides/error-messages#form-errors">Error Summary guide</a> for more information on usage.</p>
 
     {{ docs.example({
-        screenreader: "",
+        screenreader: "There is a problem",
         twig: "
     {{
         form.create()
@@ -76,7 +76,7 @@
     <p>Example code based on common Pulsar/import methods, may need to be modified to suit your needs</p>
 
     {{ docs.heading('h3', 'index.js') }}
-<pre><code lang="javascript">var ErrorSummaryComponent = require('/path/to/Repeater/ErrorSummaryComponent');
+<pre><code lang="javascript">var ErrorSummaryComponent = require('/path/to/ErrorSummary/ErrorSummaryComponent');
 
 module.exports = {
     ErrorSummaryComponent
