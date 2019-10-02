@@ -13,7 +13,6 @@ require('babel-polyfill');
 
 // Global UI components
 var $                     = require('jquery'),
-    dropdown              = require('../vendor/jadu/pulsar/js/libs/dropdown'),
     modal                 = require('../vendor/jadu/pulsar/js/libs/modal'),
     tab                   = require('../vendor/jadu/pulsar/js/libs/tab'),
     popover               = require('../vendor/jadu/pulsar/js/libs/popover'),
@@ -30,6 +29,7 @@ var $                     = require('jquery'),
     
     NavMainComponent      = require('../vendor/jadu/pulsar/js/NavMainComponent'),
     DisableUiComponent    = require('../vendor/jadu/pulsar/js/DisableUiComponent'),
+    DropdownButtonComponent = require('../vendor/jadu/pulsar/js/DropdownButtonComponent'),
     DropZoneComponentFactory = require('../vendor/jadu/pulsar/js/DropZone/DropZoneComponentFactory'),
     FilterBarComponent    = require('../vendor/jadu/pulsar/js/FilterBarComponent'),
     MasterSwitchComponent = require('../vendor/jadu/pulsar/js/MasterSwitchComponent'),
@@ -42,6 +42,7 @@ var $                     = require('jquery'),
 module.exports = {
     NavMainComponent,
     DisableUiComponent,
+    DropdownButtonComponent,
     DropZoneComponentFactory,
     FilterBarComponent,
     MasterSwitchComponent,
