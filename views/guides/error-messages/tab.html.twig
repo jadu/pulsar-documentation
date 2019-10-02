@@ -52,9 +52,100 @@
 
     {{ docs.heading('h2', 'Form errors') }}
 
-    <p>Forms can be long and complicated, it is therefore important that all errors are clearly listed and highlighted so that the user understands what went wrong and how to fix it.</p>
+    <p>When a form contains errors, you should:</p>
 
-    <p>A combination of techniques should be used when dealing with form errors, a <a href="#flash-summary">flash summary</a> should be provided at the top of the page, and each invalid field should be marked as an <a href="#invalid-fields">invalid field</a>.</p>
+    <ul>
+        <li>Add 'Error:' to the beginning of the page title, so screen readers read it out as soon as possible</li>
+        <li>Show an <a href="#error-summary">error summary</a> at the top of the form</li>
+        <li>Move keyboard focus to the error summary</li>
+        <li>Use the heading, 'There is a problem' within the error summary</li>
+        <li>Show the same error messages under the inputs as is used in the error summary</li>
+        <li>Link error summary errors to the respective inputs</li>
+        <li>Ensure error messages are descriptive, clearly worded and inform the user how to correct the issue</li>
+        <li>Mark fields with errors as <a href="#invalid-fields">invalid</a></li>
+    </ul>
+
+    {{ docs.heading('h3', 'Error summary') }}
+
+    <p>When a form contains errors, you must show both the error summary at the top of the form and an error message below each input that contains an error. The error summary should be shown when there are form errors, even if there is only one.</p>
+
+    {{ docs.example({
+        screenreader: "",
+        code: false,
+        twig: "
+    {{
+        form.create()
+    }}
+
+    {{
+        form.error_summary({
+            'heading': 'There is a problem',
+            'errors': [
+                {
+                    'label': 'Enter your first name',
+                    'href': 'first-name'
+                },
+                {
+                    'label': 'Enter your last name',
+                    'href': 'last-name'
+                }
+            ]
+        })
+    }}
+
+    {{ form.fieldset_start({'legend': 'Example form with errors'}) }}
+
+        {{
+            form.text({
+                'label': 'First name',
+                'id': 'first-name',
+                'required': true,
+                'error': 'Enter your first name'
+            })
+        }}
+
+        {{
+            form.text({
+                'label': 'Last name',
+                'id': 'last-name',
+                'required': true,
+                'error': 'Enter your last name'
+            })
+        }}
+        
+    {{ form.fieldset_end() }}
+
+    {{
+        form.end({
+            'actions': [
+                html.button({
+                    'label': 'Save',
+                    'class': 'btn--primary'
+                }),
+                html.button({
+                    'label': 'Cancel',
+                    'class': 'btn--naked'
+                })
+            ]
+        })
+    }}
+    " }) }}
+
+    <p>Refer to the <a href="/forms/error-summary">error summary documentation</a> to learn how to create error summaries.</p>
+
+    <p>{{ html.icon('info-sign') }} Note, by using the error-summary helper, errors will be automatically linked to the inputs and keyboard focus will be moved to the summary on page load.</p>
+
+    {{ docs.heading('h4', 'Linking from the error summary to each input') }}
+
+    <p>Each error in the error summary must link to the input it relates to. When an error relates to a single input, it should link to that input.</p>
+
+    <p>When an error relates to multiple fields, such as day, month, year inputs which make up a date of birth, then link to the first input with an error. If you do not know which input contains an error, link to the first input in the group that has an error.</p>
+
+    <p>For inputs that require a user to select one or more options from a list using radios or checkboxes, link to the first radio or checkbox.</p>
+
+    {{ docs.heading('h4', 'Where to put the error summary') }}
+
+    <p>Put the error summary at the top of the `form`, typically above the first <code>fieldset</code>.</p>
 
     {{ docs.heading('h3', 'Invalid fields') }}
 
@@ -153,9 +244,16 @@
                 <li><a href="#flash-message">Flash message</a></li>
             </ul>
         </li>
-        <li><a href="#error-message-types">Form errors</a>
+        <li><a href="#form-errors">Form errors</a>
             <ul>
-                <li><a href="#flash-summary">Flash summary</a></li>
+                <li>
+                    <a href="#error-summary">Error summary</a>
+                    <ul>
+                        <li><a href="#linking-from-the-error-summary-to-each-input">Linking to each input</a></li>
+                        <li><a href="#where-to-put-the-error-summary">Where to put the error summary</a></li>
+                    </ul>
+                </li>
+
                 <li><a href="#invalid-fields">Invalid fields</a>
                     <ul>
                         <li><a href="#accessibility-considerations">Accessibility considerations</a></li>
