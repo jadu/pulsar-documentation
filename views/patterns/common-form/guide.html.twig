@@ -1,0 +1,90 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">The common form user interface pattern is the most frequent pattern used to display a form which can be used to create a new Thing or edit an existing Thing.</p>
+
+    <figure class="screenshot"><img src="/views/patterns/common-form/common-form.png" alt="Screenshot showing the common form pattern" /></figure>
+
+    {{ docs.heading('h2', 'Titles') }}
+    {{ docs.heading('h3', 'HTML title') }}
+
+    <p>The title attribute is a an essential piece of information, especially for assisitive technology users and should be short, relevant to the data being listed, descriptive and make use of variables where necessary.</p>
+
+    <p>Use the pipe character <code>|</code> to separate the heirarchy of information. The account or organisation name should be included to help the user discern between multi-tenanted systems like CXM, or Galaxies Sites.</p>
+    
+    <strong>Examples:</strong>
+
+    <pre><code>&lt;title&gt;Publishing | News | Create News Item | &#123;&#123; account_name &#125;&#125;&lt;/title&gt;</code></pre>
+
+    <pre><code>&lt;title&gt;Publishing | News | Edit My Awesome Article | &#123;&#123; account_name &#125;&#125;&lt;/title&gt;</code></pre>
+
+    {{ docs.heading('h3', 'Page title') }}
+
+    <p>The page title should describe the Thing being created or edited by the UI. For example. New Document, New Case etc. If you’re editing an existing Thing, there are two cases to consider:</p>
+
+    <ul>
+        <li>When the form contains a field to the name/title of the Thing, the page title should be Edit Thing.</li>
+        <li>For any situations where it is not appropriate to have the name/title of the Thing, either in a regular field or a disabled field, then you should include it in the page title, e.g. Edit Acme Organisation</li>
+    </li>
+
+    {{ docs.heading('h3', 'Actions bar') }}
+
+    <p>Usually, the primary action in the actions bar will be a save button for the form, which will be mirrored in the form actions. While in edit mode there's usually not a need to provide an actions menu.</p>
+
+    {{ docs.heading('h4', 'Primary action button') }}
+
+    <p>The primary action is located towards the top right of the user interface and is typically a <code>html.button</code> element with the <code>.btn--primary</code> class which, when pressed, will perform a form submit or a save action, allowing people to save their changes.</p>
+
+    {{ docs.example({
+        code: false,
+        twig: "
+<div class=\"actionsbar\">
+    <div class=\"u-float-left\">
+        
+    </div>
+    <div class=\"u-float-right\">
+        {{
+            html.button({
+                'label': 'Save',
+                'class': 'btn--primary '
+            })
+        }}
+    </div>
+</div>
+    " }) }}
+
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#titles">Titles</a>
+            <ul>
+                <li><a href="#html-title">HTML title</a></li>
+                <li><a href="#page-title">Page title</a></li>
+            </ul>
+        </li>
+        <li><a href="#actions-bar">Actions bar</a>
+            <ul>
+                <li><a href="#actions-menu">Actions menu</a></li>
+                <li><a href="#primary-action-button">Primary action button</a></li>
+                <li><a href="#disabled-action-buttons">Disabled action buttons</a></li>
+                <li><a href="#multiple-action-buttons">Multiple action buttons</a></li>
+            </ul>
+        </li>
+        <li><a href="#the-datatable">The DataTable</a>
+            <ul>
+                <li><a href="#columns">Columns</a></li>
+                <li><a href="#initial-column-order">Initial column order</a>
+                <li><a href="#row-selection-checkboxes">Row selection checkboxes</a></li>
+                <li><a href="#actions-column">Actions column</a>
+                <li><a href="#pagination">Pagination</a>
+            </ul>
+        </li>
+        
+        
+    </ul>
+{% endblock tab_sidebar %}
