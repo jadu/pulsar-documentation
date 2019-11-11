@@ -1,0 +1,27 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Developer Guide' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Home', 'href': '/'},
+        {'label': 'Guides', 'data-toggle-nav': '#guides'},
+        {'label': 'Developer guide', 'href': '#'}
+    ]
+%}
+
+{% set tab_scratch %}
+    {% include 'guides/developer-guide/scratch-files.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "scratch-files",
+          "class" : "ui-report",
+          "label" : "Scratch files",
+          "src"   : tab_scratch,
+          "active": true
+        }
+    ]
+%}
