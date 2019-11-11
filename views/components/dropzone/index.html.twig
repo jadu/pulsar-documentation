@@ -1,0 +1,27 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Dropzone' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Home', 'href': '/'},
+        {'label': 'Components', 'data-toggle-nav': '#components'},
+        {'label': 'Dropzone', 'href': '#'}
+    ]
+%}
+
+{% set tab_code %}
+    {% include 'components/dropzone/code.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "code",
+          "class" : "ui-report",
+          "label" : "Code",
+          "src"   : tab_code,
+          "active": true
+        }
+    ]
+%}

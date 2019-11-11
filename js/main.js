@@ -11,7 +11,9 @@
     $html.removeClass('no-js');
 
     pulsar.pulsarUI = new pulsar.PulsarUIComponent($html, window.History);
+    pulsar.dropdownButton = new pulsar.DropdownButtonComponent($html);
     pulsar.disableUI = new pulsar.DisableUiComponent($html);
+    pulsar.dropdownButton = new pulsar.DropdownButtonComponent($html);
     pulsar.filterBar = new pulsar.FilterBarComponent($html);
     pulsar.pulsarForm = new pulsar.PulsarFormComponent($html);
     pulsar.masterSwitch = new pulsar.MasterSwitchComponent($html, pulsar.disableUI);
@@ -25,6 +27,7 @@
 
     $(function () {
         pulsar.pulsarUI.init();
+        pulsar.dropdownButton.init();
         pulsar.filterBar.init();
         pulsar.pulsarForm.init();
         pulsar.masterSwitch.init();
@@ -32,6 +35,8 @@
         pulsar.repeaterManager.init();
         pulsar.tableDetail.init();
         pulsar.disableUI.init();
+        pulsar.dropdownButton.init();
+        pulsar.dropZoneComponent = pulsar.DropZoneComponentFactory.create($('body')[0], '.dropzone');
 
         $('.d-example-nav__link').on('click', function() {
             var $this = $(this),
@@ -46,7 +51,7 @@
         });
 
         // Use clickover enhancements for popovers
-        $('[rel="clickover"]').clickover({ 'global_close': true });
+        // $('[rel="clickover"]').clickover({ 'global_close': true });
         
         $('[data-toggle-nav]').on('click', function (e) {
             let $target = $html.find('[aria-controls="aria-secondary-nav"][data-target="' + $(this).data('toggle-nav') + '"]');
@@ -56,6 +61,11 @@
             e.preventDefault();
         });
 
+        // DropZone
+        pulsar.dropZoneComponent.init({
+            supported: !lt10,
+            showInputNode: lt10
+        });
         
     });
 
