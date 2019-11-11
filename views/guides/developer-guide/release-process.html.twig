@@ -1,0 +1,45 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">In order to get Pulsar changes into the hands of users, new releases need to be properly tagged and published for Jadu products to consume.</p>
+
+    {{ docs.heading('h2', 'Release checklist') }}
+
+    <p>
+        <i class="icon-check" /></i> All required pull requests merged into <code>develop</code><br />
+        <i class="icon-check" /></i> Pull <code>develop</code> (make sure your local branch is up to date)<br />
+        <i class="icon-check" /></i> Push <code>develop</code> (watch Travis for any build failures)<br />
+        <i class="icon-check" /></i> Checkout <code>master</code><br />
+        <i class="icon-check" /></i> Merge <code>develop</code> into <code>master</code><br />
+        <i class="icon-check" /></i> Run <code>phpunit</code> and make sure tests pass<br />
+        <i class="icon-check" /></i> Run <code>npm test</code> and make sure tests pass<br />
+        <i class="icon-check" /></i> Use the <code>grunt bump</code> command to increment the version number (see below)<br />
+        <i class="icon-check" /></i> Travis will build, test, and create a <a href="https://github.com/jadu/pulsar/releases">release package on GitHub</a><br />
+        <i class="icon-check" /></i> Update the release notes on GitHub<br />
+        <i class="icon-check" /></i> Attach all related GitHub issues and pull requests to a new milestone named after the release number<br />
+        <i class="icon-check" /></i> Post on the #engineering slack channel to notify the team about the new release
+    </p>
+
+    {{ docs.heading('h2', 'Version numbering') }}
+
+    <p>Pulsar uses <a href="https://semver.org">semantic versioning</a> for release naming and numbering according to the <code>major.minor.patch</code> pattern, All pull requests should have been labelled with their expected SemVer type, if not you may ask the related developers to label their PRs or ask the team on the #pulsar Slack channel.</p>
+
+    <p>When it's time to tag a new version of pulsar there are a number of files which need to be updating which is semi-automated by using the <code>grunt bump</code> command</p>
+
+    <ul>
+        <li><code>grunt bump:major</code> — <strong>MAJOR</strong> version when you make incompatible API changes</li>
+        <li><code>grunt bump:minor</code> — <strong>MINOR</strong> version when you add functionality in a backwards compatible manner</li>
+        <li><code>grunt bump:patch</code> — <strong>PATCH</strong> version when you make backwards compatible bug fixes</li>
+    </ul>
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#release-checklist">Release checklist</a></li>
+        <li><a href="#version-numbering">Version numbering</a></li>
+    </ul>
+{% endblock tab_sidebar %}
