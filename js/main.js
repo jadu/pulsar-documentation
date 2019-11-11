@@ -11,6 +11,7 @@
     $html.removeClass('no-js');
 
     pulsar.pulsarUI = new pulsar.PulsarUIComponent($html, window.History);
+    pulsar.dropdownButton = new pulsar.DropdownButtonComponent($html);
     pulsar.disableUI = new pulsar.DisableUiComponent($html);
     pulsar.dropdownButton = new pulsar.DropdownButtonComponent($html);
     pulsar.filterBar = new pulsar.FilterBarComponent($html);
@@ -34,6 +35,7 @@
         pulsar.repeaterManager.init();
         pulsar.tableDetail.init();
         pulsar.disableUI.init();
+        pulsar.dropdownButton.init();
         pulsar.dropZoneComponent = pulsar.DropZoneComponentFactory.create($('body')[0], '.dropzone');
 
         $('.d-example-nav__link').on('click', function() {
