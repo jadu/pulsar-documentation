@@ -112,6 +112,170 @@
 }}
     " }) }}
 
+    {{ docs.heading('h2', 'Responsive options') }}
+
+    <p>DataTables, being a technique to list large amounts of data, are designed to be as responsive as possible, their cells will generally change widhts to fit as much information as possible on-screen, but there are limits depending on the horizontal viewport available. There are two main techniques for dealing with narrow viewports, one where columns are collapsed (visually hidden but shown by clicking an expand icon) or the preferred method of horizontal scrolling.</p>
+    
+    {{ docs.heading('h3', 'Collapsing columns') }}
+
+    <p><i class="icon icon-info-sign"></i> This method should be considered deprecated, horizontal scrolling (below) is the preferred method</p>
+
+    <p>Columns can be visually hidden at narrow viewport widths, and be visible by pressing the plus symbol in the first column. This teqhnique is no longer recommended now that horizontal scrolling (below) has been added, but there are still examples in the wild so documentation will remain here.</p>
+
+    <p>It is possible to define which columns should take priority and which should be collapsed first which can be useful to prioritise the most important information in a table, check the <a href="https://datatables.net/extensions/responsive/">responsive extension documentation</a> for details.</p>
+
+    <p>For the datatables helper, add the <code>'overflow': 'collapse'</code> option, for raw markup you can add the <code>data-overflow="collapse"</code> attribute.</p>
+
+    {{ docs.example({ 
+        twig: "
+{% 
+    set data = {
+        'columns': [
+            { 'title': 'Title' },
+            { 'title': 'Owner' },
+            { 'title': 'Modified' },
+            {
+                'title': 'Live',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            },
+            {
+                'title': 'Visible',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            }
+        ],
+        'data': [
+            {
+                'Title': 'The Terminator',
+                'Owner': 'James Cameron',
+                'Modified': '1991-07-01 12:34',
+                'Live': true,
+                'Visible': false 
+            },
+            {
+                'Title': 'Conan the Barbarian',
+                'Owner': 'John Millius',
+                'Modified': '1982-04-02 12:34',
+                'Live': false,
+                'Visible': true 
+            },
+            {
+                'Title': 'Predator',
+                'Owner': 'John McTiernan',
+                'Modified': '1988-01-01 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Commando',
+                'Owner': 'Mark L. Lester',
+                'Modified': '1986-02-21 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Terminator Genisys',
+                'Owner': 'Alan Taylor',
+                'Modified': '2015-06-25 12:34',
+                'Live': true,
+                'Visible': true
+            }
+        ]
+    }
+%}
+{{ 
+    html.datatable({
+        'class': 'table--full',
+        'data-order': '[[ 3, \"desc\" ]]',
+        'overflow': 'collapse',
+        'data': data
+    }) 
+}}
+    " }) }}
+
+{{ docs.heading('h2', 'Horizontal scroll') }}
+    
+    <p>By adding the <code>table--horizontal</code> class, when the table is unable to shrink any futher, as the viewport continues to shrink it will overflow horizontally and be viewable by scrolling, or manipulating the horizontal scrollbar.</p>
+
+    <p>The below example has been constrained in width to demonstrate the behaviour.</p>
+
+    {{ docs.example({ 
+        style: "#DataTables_Table_2_wrapper.dataTables_wrapper{ width: 60% }",
+        twig: "
+{% 
+    set data = {
+        'columns': [
+            { 'title': 'Title' },
+            { 'title': 'Owner' },
+            { 'title': 'Modified' },
+            {
+                'title': 'Live',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            },
+            {
+                'title': 'Visible',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            }
+        ],
+        'data': [
+            {
+                'Title': 'The Terminator',
+                'Owner': 'James Cameron',
+                'Modified': '1991-07-01 12:34',
+                'Live': true,
+                'Visible': false 
+            },
+            {
+                'Title': 'Conan the Barbarian',
+                'Owner': 'John Millius',
+                'Modified': '1982-04-02 12:34',
+                'Live': false,
+                'Visible': true 
+            },
+            {
+                'Title': 'Predator',
+                'Owner': 'John McTiernan',
+                'Modified': '1988-01-01 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Commando',
+                'Owner': 'Mark L. Lester',
+                'Modified': '1986-02-21 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Terminator Genisys',
+                'Owner': 'Alan Taylor',
+                'Modified': '2015-06-25 12:34',
+                'Live': true,
+                'Visible': true
+            }
+        ]
+    }
+%}
+{{ 
+    html.datatable({
+        'class': 'table--full table--horizontal',
+        'data-order': '[[ 3, \"desc\" ]]',
+        'data': data
+    }) 
+}}
+    " }) }}
+
     {{ docs.heading('h2', 'Disable row selection') }}
 
     <p>Datatables allow selection of rows by default, this behaviour can be disabled through the <code>data-selection</code> attribute. This will hide the related elements in the UI.</p>
@@ -778,6 +942,12 @@
             </li>
             <li><a href="#configuration">Configuration</a></li>
             <li><a href="#example-usage">Example usage</a></li>
+            <li><a href="#responsive-options">Responsive options</a>
+            <ul>
+                <li><a href="#collapsing-columns">Collapsing columns</a></li>
+                <li><a href="#horizontal-scroll">Horizontal scroll</a></li>
+            </ul>
+        </li>
             <li><a href="#disable-row-selection">Disable row selection</a></li>
             <li><a href="#set-initial-column-order">Set initial column order</a></li>
             <li><a href="#disable-column-ordering">Disable column ordering</a></li>

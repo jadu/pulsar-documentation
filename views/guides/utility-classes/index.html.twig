@@ -1,0 +1,27 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Utility classes' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Home', 'href': '/'},
+        {'label': 'Guides', 'data-toggle-nav': '#guides'},
+        {'label': 'Utility classes', 'href': '#'}
+    ]
+%}
+
+{% set tab_one %}
+    {% include 'guides/utility-classes/tab.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "utility-classes",
+          "class" : "ui-report",
+          "label" : "Info",
+          "src"   : tab_one,
+          "active": true
+        }
+    ]
+%}
