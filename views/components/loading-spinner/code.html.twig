@@ -10,6 +10,8 @@
     {{ docs.heading('h2', 'Basic usage') }}
 
     {{ docs.example({ 
+        style: '.loading {
+            display: block }',
         twig: "
 {{ html.loading() }}
     " }) }}
@@ -18,6 +20,46 @@
 
     <p>You can configure this helper using the <a href="../guides/using-helpers#common-options">common helper options</a>, the following options are specific to this helper.</p>
 
+    {{ docs.heading('h2', 'Centering within a container') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    html.loading({
+        'type': 'block'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Large spinner') }}
+
+    <p>When a spinner is used to indicate a large section of an interface is still loading it may be more you can use the large spinner to be more obvious</p>
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.loading({
+        'class': 'loading--large',
+        'type': 'block'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Custom message') }}
+
+    <p>A line of text can be included to tell the user what’s happening.</p>
+
+    {{ docs.example({ 
+        twig: "
+{{
+    html.loading({
+        'class': 'loading--large',
+        'message': 'Loading your cases...',
+        'type': 'block'
+    })
+}}
+    " }) }}
+
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
@@ -25,5 +67,8 @@
     <ul class="page-nav">
         <li><a href="#basic-usage">Basic usage</a></li>
         <li><a href="#helper-options">Helper options</a></li>
+        <li><a href="#centering-within-a-container">Centering within a container</a></li>
+        <li><a href="#large-spinner">Large spinner</a></li>
+        <li><a href="#custom-message">Custom message</a></li>
     </ul>
 {% endblock tab_sidebar %}

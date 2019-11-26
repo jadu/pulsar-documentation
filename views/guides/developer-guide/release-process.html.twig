@@ -29,10 +29,36 @@
     <p>When it's time to tag a new version of pulsar there are a number of files which need to be updating which is semi-automated by using the <code>grunt bump</code> command</p>
 
     <ul>
-        <li><code>grunt bump:major</code> — <strong>MAJOR</strong> version when you make incompatible API changes</li>
+        <li><code>grunt bump:major</code> — <strong>MAJOR</strong> version when you make incompatible (breaking) changes that require</li>
         <li><code>grunt bump:minor</code> — <strong>MINOR</strong> version when you add functionality in a backwards compatible manner</li>
         <li><code>grunt bump:patch</code> — <strong>PATCH</strong> version when you make backwards compatible bug fixes</li>
     </ul>
+
+    {{ docs.heading('h3', 'Breaking changes') }}
+
+    <p>There are a number of reasons where a change to Pulsar may be considered a breaking change, for our purposes we consider the following:</p>
+
+    <ul>
+        <li>Are changes required to maintain functionality of Pulsar?</li>
+        <li>Are changes required in a product before it can successfully build or use the new Pulsar version?</li>
+    </ul>
+
+    <blockquote>If a version of Pulsar is likely to cause errors in the UI, break tests or continuous integration scripts, or require any form of manual intervention before it can be successfully used, we would consider that a breaking change.</blockquote>
+
+    <p>The following checklist is a non-exhaustive benchmark we use to help decide whether a change is breaking or not.</p>
+
+    <strong>Does the change:</strong>
+    <ol>
+        <li>require changes to <code>main.js</code>?</li>
+        <li>require changes to <code>index.js</code>?</li>
+        <li>require changes to <code>pulsar.scss</code>?</li>
+        <li>require changes to <code>gruntfile.js</code>?</li>
+        <li>require changes to <code>package.json</code> (not including dev dependencies)?</li>
+        <li>require changes to <code>base.html.twig</code> (or other core views like header/footer)?</li>
+        <li>require new arguments to be passed to a js component?</li>
+        <li>require markup changes to maintain functionality?</li>
+        <li>require changes to existing unit tests?</li>
+    </ol>
 
 </div>
 {% endblock tab_content %}
