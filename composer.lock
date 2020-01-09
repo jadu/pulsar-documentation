@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a4714327422f07923c6a73a2a0ca7a1",
+    "content-hash": "1d20473230087ddb811bb82bb2f33469",
     "packages": [
         {
             "name": "jadu/pulsar",
-            "version": "dev-1023_datatable-scroll",
+            "version": "dev-1060_loading-block",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jadu/pulsar.git",
-                "reference": "4312b793e7df4fdc5ed8b943dd2ef9d9267a2372"
+                "reference": "8404d5e86313fe306be8c7ca42a46ff703581fe6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jadu/pulsar/zipball/4312b793e7df4fdc5ed8b943dd2ef9d9267a2372",
-                "reference": "4312b793e7df4fdc5ed8b943dd2ef9d9267a2372",
+                "url": "https://api.github.com/repos/jadu/pulsar/zipball/8404d5e86313fe306be8c7ca42a46ff703581fe6",
+                "reference": "8404d5e86313fe306be8c7ca42a46ff703581fe6",
                 "shasum": ""
             },
             "require": {
@@ -38,7 +38,7 @@
                 "MIT"
             ],
             "description": "The User Experience and Interface framework for the Jadu Continuum Platform",
-            "time": "2019-09-26T14:01:36+00:00"
+            "time": "2019-11-25T11:13:50+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -150,16 +150,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.42.3",
+            "version": "v1.42.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "201baee843e0ffe8b0b956f336dd42b2a92fae4e"
+                "reference": "e587180584c3d2d6cb864a0454e777bb6dcb6152"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/201baee843e0ffe8b0b956f336dd42b2a92fae4e",
-                "reference": "201baee843e0ffe8b0b956f336dd42b2a92fae4e",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/e587180584c3d2d6cb864a0454e777bb6dcb6152",
+                "reference": "e587180584c3d2d6cb864a0454e777bb6dcb6152",
                 "shasum": ""
             },
             "require": {
@@ -212,7 +212,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2019-08-24T12:51:03+00:00"
+            "time": "2019-11-11T16:49:32+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
