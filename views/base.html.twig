@@ -13,7 +13,7 @@
 <!--[if IE 9]>         <html lang="en" class="no-js ie9 lt-ie10"><![endif]-->
 <!--[if gt IE 9]><!--> <html lang="en" class="no-js"><!--<![endif]-->
 <head>
-    <title>{% block title %}Pulsar Lexicon{% endblock %}</title>
+    <title>{% block title %}Pulsar Documentation{% endblock %}</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
@@ -62,36 +62,35 @@
 
 </head>
 <body class="language-html">
+    {% include '@pulsar/pulsar/components/flash.html.twig' %}
+
+    <a class="skip-link" href="#skip-target" tabindex="1">Skip to main content</a>
 
 {% block body %}
-    <div role="main" class="container" id="top">
+    <div class="container" id="top">
         <div class="inner-wrapper">
             {{ nav.primary({ 'brand_link': '/', 'data': nav_data|default() }) }}
 
-            {% include '@pulsar/pulsar/components/flash.html.twig' %}
-
-            <div class="toolbar">
-
+            <header class="toolbar">
                 <button class="mobile-menu-button t-mobile-menu-button" aria-expanded="false" aria-controls="aria-main-nav" aria-label="Toggle main menu">Menu</button>
 
-            </div>
+                {% block search %}
+                {% endblock %}
 
-            {% block search %}
-            {% endblock %}
+                {{ nav.breadcrumbs(breadcrumbs|default) }}
+
+                {% if heading is defined and heading is not empty %}
+                    <h1 class="main-title">{{ heading }}</h1>
+                {% endif %}
+                {% if subheading is defined and subheading is not empty %}
+                    <h2 class="subheading">{{ subheading }}</h2>
+                {% endif %}
+            </header>
 
             <div class="content-main">
                 <div class="tabs__content">
-                    {{ nav.breadcrumbs(breadcrumbs|default) }}
-
-                    {% if heading is defined and heading is not empty %}
-                        <h1 class="main-title">{{ heading }}</h1>
-                    {% endif %}
-                    {% if subheading is defined and subheading is not empty %}
-                        <h2 class="subheading">{{ subheading }}</h2>
-                    {% endif %}
-
                     {% if heading is defined and heading != 'Home' %}
-                    {% block tabs_list %}{% endblock %}
+                        {% block tabs_list %}{% endblock %}
                     {% endif %}
                     {% block tabs_content %}{% endblock %}
                 </div>

@@ -63,20 +63,22 @@
 
     {{ docs.heading('h2', 'Tooltips on disabled elements') }}
 
-    <p>The <code>disabled</code> parameter prevents mouse events from firing and stops tooltips from working entirely. The only way around this which works for all our supported browsers is to wrap the button in a containing div, and attach the tooltip to that element.</p>
+    <p>If an element is <code>disabled</code>, you will need to use a wrapper element (<code>&lt;span&gt;</code> or <code>&lt;div&gt;</code>) made focuseable with <code>tabindex="0"</code>, and attach the tooltip to that element. Elements with the disabled attribute aren't interactive, meaning users cannot focus, hover, or click them to trigger a Tooltip.</p>
+
+    <p>{{ html.icon('universal-access', {'class': 'icon--primary'}) }} The tooltip will not be read by screenreaders and therefore this pattern should be avoided.</p>
 
     {{ docs.example({
-        screenreader: "",
-        twig: "
-<div rel=\"tooltip\" data-toggle=\"tooltips\" title=\"This tooltip explains why the action is disabled\">
-{{
-    html.button({ 
-        'label': 'Button',
-        'disabled': true
+        screenreader: 'Disabled button, group, you are currently on a button, this item is dimmed',
+        twig: '
+<div data-tippy-content="Can’t touch this" tabindex="0" class="u-display-inline-block">
+  {{ 
+    html.button({
+      "label": "Disabled Button",
+      "disabled": true
     })
-}}
+  }}
 </div>
-    " }) }}
+    ' }) }}
 
 </div>
 
