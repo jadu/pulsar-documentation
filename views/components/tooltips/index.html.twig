@@ -13,15 +13,24 @@
 {% set tab_code %}
     {% include 'components/tooltips/code.html.twig' %}
 {% endset %}
+{% set tab_deprecated %}
+    {% include 'components/tooltips/deprecated.html.twig' %}
+{% endset %}
 
 {%
     set tabs_content = [
         {
-          "id"    : "code",
+          "id"    : "new",
           "class" : "ui-report",
-          "label" : "Code",
+          "label" : "New",
           "src"   : tab_code,
           "active": true
+        },
+        {
+          "id"    : "deprecated",
+          "class" : "ui-report",
+          "label" : "Deprecated",
+          "src"   : tab_deprecated
         }
     ]
 %}

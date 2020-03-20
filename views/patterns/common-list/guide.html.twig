@@ -42,7 +42,7 @@
     
     <p>Actions menu items should be sentence case.</p>
 
-    <p>If an action cannot be performed unless one or more items are selected, the link should be disabled and a tooltip added to explain why. <span class="label label--warning">The exact details of this pattern are currently being discussed</span></p>
+    <p>If an action cannot be performed unless one or more items are selected, the link should be disabled. <span class="label label--warning">The exact details of this pattern are currently being discussed</span></p>
 
     {{ docs.example({ 
         code: false,
@@ -63,7 +63,10 @@
             }),
             html.link({ 
                 'label': html.icon('print') ~ ' Print', 
-                'href': '#print' 
+                'href': '#print',
+                'disabled': true,
+                'role': 'button',
+                'aria-disabled': 'true'
             }),
             html.divider(),
             html.link({ 
@@ -104,27 +107,7 @@
 
     {{ docs.heading('h4', 'Disabled action buttons') }}
 
-    <p>If the user does not have the necessary permissions to perform the primary action, the button should be displayed in a disabled state and display a tooltip explaining the reason why.</p>
-
-    {{ docs.example({
-        code: false,
-        twig: "
-<div class=\"actionsbar\">
-    <div class=\"u-float-left\">
-        
-    </div>
-    <div class=\"u-float-right\">
-        <div data-toggle=\"tooltips\" title=\"You do not have permission to create Things\">
-        {{
-            html.button({
-                'label': 'New Thing',
-                'class': 'btn--primary is-disabled'
-            })
-        }}
-        </div>
-    </div>
-</div>
-    " }) }}
+    <p>If the user does not have the necessary permissions to perform the primary action, the button should be displayed in a disabled state. <span class="label label--warning">The exact details of this pattern are currently being discussed</span></p>
 
     {{ docs.heading('h4', 'Multiple action buttons') }}
 
@@ -220,7 +203,7 @@
     <thead>
         <tr>
             <th class="table-selection" data-orderable="false">
-                <input type="checkbox" class="form__control checkbox js-select-all" aria-label="Select all rows" data-toggle="tooltips" title="select all rows" data-placement="right" data-container="body" />
+                <input type="checkbox" class="form__control checkbox js-select-all" data-tippy-content="Select all rows" data-tippy-placement="right"/>
             </th>
             <th>Title</th>
             <th>Owner</th>
@@ -239,10 +222,10 @@
             <td>James Cameron</td>
             <td data-order="1991-07-01 12:34">01/07/1991 12:34</td>
             <td data-order="Live" class="u-text-align-center">
-                <i title="Live" data-placement="top" data-toggle="tooltips" aria-hidden="true"  class="icon-check-circle status--icon is-online"></i>
+                <i aria-label="Yes" class="icon-check-circle status--icon is-online"></i>
             </td>
             <td data-order="Visible" class="u-text-align-center">
-                <i title="Not visible" data-placement="top" data-toggle="tooltips" aria-hidden="true"  class="icon-times-rectangle status--icon is-offline"></i>
+                <i aria-label="No" class="icon-times-rectangle status--icon is-offline"></i>
             </td>
             <td>
                 <a href="#queue">Queue</a> <a href="#play">Play</a>
@@ -256,10 +239,10 @@
             <td>John Millius</td>
             <td data-order="1982-04-02 12:34">02/04/1982 12:34</td>
             <td data-order="Live" class="u-text-align-center">
-                <i title="Not live" data-placement="top" data-toggle="tooltips" aria-hidden="true"  class="icon-times-rectangle status--icon is-offline"></i>
+                <i aria-label="No" class="icon-times-rectangle status--icon is-offline"></i>
             </td>
             <td data-order="Visible" class="u-text-align-center">
-                <i title="Visible" data-placement="top" data-toggle="tooltips" aria-hidden="true"  class="icon-check-circle status--icon is-online"></i>
+                <i aria-label="Yes" class="icon-check-circle status--icon is-online"></i>
             </td>
             <td>
                 <a href="#queue">Queue</a> <a href="#play">Play</a>
@@ -273,10 +256,10 @@
             <td>John McTiernan</td>
             <td data-order="1988-01-01 12:34">01/01/1988 12:34</td>
             <td data-order="Live" class="u-text-align-center">
-                <i title="Live" data-placement="top" data-toggle="tooltips" aria-hidden="true"  class="icon-check-circle status--icon is-online"></i>
+                <i aria-label="Yes" class="icon-check-circle status--icon is-online"></i>
             </td>
             <td data-order="Visible" class="u-text-align-center">
-                <i title="Visible" data-placement="top" data-toggle="tooltips" aria-hidden="true"  class="icon-check-circle status--icon is-online"></i>
+                <i aria-label="Yes" class="icon-check-circle status--icon is-online"></i>
             </td>
             <td>
                 <a href="#queue">Queue</a> <a href="#play">Play</a>
@@ -290,10 +273,10 @@
             <td>Mark L. Lester</td>
             <td data-order="1986-02-21 12:34">21/02/1986 12:34</td>
             <td data-order="Live" class="u-text-align-center">
-                <i title="Live" data-placement="top" data-toggle="tooltips" aria-hidden="true"  class="icon-check-circle status--icon is-online"></i>
+                <i aria-label="Yes" class="icon-check-circle status--icon is-online"></i>
             </td>
             <td data-order="Visible" class="u-text-align-center">
-                <i title="Visible" data-placement="top" data-toggle="tooltips" aria-hidden="true"  class="icon-check-circle status--icon is-online"></i>
+                <i aria-label="Yes" class="icon-check-circle status--icon is-online"></i>
             </td>
             <td>
                 <a href="#queue">Queue</a> <a href="#play">Play</a>
@@ -307,10 +290,10 @@
             <td>Alan Taylor</td>
             <td data-order="2015-06-25 12:34">25/06/2015 12:34</td>
             <td data-order="Live" class="u-text-align-center">
-                <i title="Live" data-placement="top" data-toggle="tooltips" aria-hidden="true"  class="icon-check-circle status--icon is-online"></i>
+                <i aria-label="Yes" class="icon-check-circle status--icon is-online"></i>
             </td>
             <td data-order="Visible" class="u-text-align-center">
-                <i title="Visible" data-placement="top" data-toggle="tooltips" aria-hidden="true"  class="icon-check-circle status--icon is-online"></i>
+                <i aria-label="Yes" class="icon-check-circle status--icon is-online"></i>
             </td>
             <td>
                 <a href="#queue">Queue</a> <a href="#play">Play</a>
