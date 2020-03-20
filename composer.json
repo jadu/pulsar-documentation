@@ -10,7 +10,7 @@
     },
     "require": {
         "twig/twig": "^1.21",
-        "jadu/pulsar": "dev-1060_loading-block",
+        "jadu/pulsar": "dev-CMS/flatcap",
         "vlucas/phpdotenv": "^3.3"
     }
 }

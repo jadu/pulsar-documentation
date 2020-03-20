@@ -1,0 +1,91 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">The base template is the main structure used within all patterns, it provides the core layout that all user interfaces use.</p>
+
+    <p>This example illustrates the heirarchy of elements that make up a given Pulsar UI. Other patterns will include additional elements which will add extra elements in various places.</p>
+
+    <p>This example is for reference only, if you're working on a Jadu product there's a good chance you <strong>should not</strong> be implementing an entire layout by yourself and you should be following your product's documentation for how to implement a Pulsar user interface.</p>
+
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en" class="no-js"&gt;
+    &lt;head&gt;
+        &lt;!-- head --&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;a class="skip-link" href="#skip-target">Skip to main content&lt;/a&gt;
+
+        &lt;div class="container"&gt;
+            &lt;div class="inner-wrapper"&gt;
+
+                &lt;!-- primary navigation --&gt;
+
+                &lt;header class="toolbar"&gt;
+                    &lt;!-- mobile menu close button --&gt;
+                    &lt;!-- search --&gt;
+                    &lt;!-- site switcher (optional) -->
+                    &lt;!-- user menu --&gt;
+                    &lt;!-- user guides (optional) --&gt;
+                    &lt;!-- notifications (optional) --&gt;
+                    &lt;!-- flash messages (optional) --&gt;
+                    &lt;!-- breadcrumbs (optional) --&gt;
+                    
+                    &lt;h1 class="main-title">Main Title&lt;/h1&gt;
+                &lt;/header&gt;
+
+                &lt;div class="content-main"&gt;
+                    &lt;div class="tabs__content"&gt;
+                        &lt;!-- ribbon (optional) --&gt;
+                        &lt;nav class="nav-inline" aria-label="secondary"&gt;
+                            &lt;!-- tabs list (optional) --&gt;
+                        &lt;/nav&gt;
+
+                        &lt;div class="tab__pane is-active"&gt;
+                            &lt;div class="tab__container"&gt;
+
+                                &lt;section class="actionsbar" aria-label="page actions"&gt;
+                                    &lt;div class="float--left"&gt;
+                                        &lt;!-- left actions (optional) --&gt;
+                                    &lt;/div&gt;
+
+                                    &lt;div class="float--right"&gt;
+                                        &lt;!-- right actions (optional) --&gt;
+                                    &lt;/div&gt;
+                                &lt;/section&gt;
+
+                                &lt;main class="tab__content" id="skip-target"&gt;
+                                    &lt;!-- tab content --&gt;
+                                &lt;/main&gt;
+
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- empty help container which will be populated at responsive modes --&gt;
+                &lt;aside class="tab-help-container" aria-label="additional help"&gt;
+                    &lt;div class="tab-help"&gt;
+                    &lt;/div&gt;
+                &lt;/aside&gt;
+
+                &lt;!-- empty modal which can be populated by javascript --&gt;
+                &lt;div class="modal" role="dialog" aria-modal="true" aria-hidden="true"&gt;
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;footer class="footer"&gt;
+            &lt;!-- footer links --&gt;
+        &lt;/footer&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;</pre></code>
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+
+{% endblock tab_sidebar %}

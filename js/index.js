@@ -20,8 +20,6 @@ var $                     = require('jquery'),
     matchMedia            = require('../vendor/jadu/pulsar/js/polyfills/matchMedia'),
     matchMediaAddListener = require('../vendor/jadu/pulsar/js/polyfills/matchMedia.addListener'),
 
-    pikaday               = require('../vendor/jadu/pulsar/libs/pikaday/plugins/pikaday.jquery'),
-
     dt            = require('datatables.net')(window, $),
     dt_buttons    = require('datatables.net-buttons')(window, $),
     dt_responsive = require('datatables.net-responsive')(window, $),
