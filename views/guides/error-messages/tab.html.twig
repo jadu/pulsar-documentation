@@ -42,6 +42,8 @@
     {{ docs.heading('h3', 'Flash message') }}
 
     <p>Flash messages are displayed at the top of the user interface and will often be the first indication that a page contains an error. A flash message should not be the only method used to communicate an error.</p>
+
+    <p>{{ html.icon('warning-sign') }} Flash messages should not be used to communicate form validation errors, You should not use a flash message and an error summary in the same UI.</p>
     
     <figure class="wireframe wireframe--small">
         <img src="/views/guides/error-messages/img/flash-message.png" alt="Screenshot showing the position of flash error messages" />
@@ -145,7 +147,7 @@
 
     {{ docs.heading('h4', 'Where to put the error summary') }}
 
-    <p>Put the error summary at the top of the `form`, typically above the first <code>fieldset</code>.</p>
+    <p>Put the error summary at the top of the <code>form</code>, typically above the first <code>fieldset</code>.</p>
 
     {{ docs.heading('h3', 'Invalid fields') }}
 
