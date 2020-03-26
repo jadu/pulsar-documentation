@@ -3387,8 +3387,9 @@ abbr[title] {
     width: 100%; }
   .tab__settings > *:last-child {
     margin-bottom: 0; }
-  .tab__settings [href] {
+  .tab__settings a {
     color: #256e93; }
+  .tab__settings a:focus,
   .tab__settings .help-block {
     color: #3e3e3e; }
 
@@ -3520,11 +3521,8 @@ abbr[title] {
 /**
  * Form toggle switches
  */
-.tab__settings .form__group--toggle > .control__label {
-  width: 100%; }
-  @media screen and (min-width: 767px) {
-    .tab__settings .form__group--toggle > .control__label {
-      padding-right: calc(4em + 20px); } }
+.tab__settings .form__group--toggle span.control__label {
+  width: calc(100% - 4em); }
 
 .tab__settings .form__group--toggle > .control__label {
   width: 100%; }
@@ -3828,8 +3826,9 @@ body,
 
 .main-title {
   font-size: 1.75em;
-  line-height: 24px;
-  margin-bottom: 13px; }
+  line-height: 32px;
+  margin-bottom: 13px;
+  width: 100%; }
 
 .sub-title {
   display: inline-block;
@@ -4921,57 +4920,99 @@ a.list-group-item.active > .badge,
 
 .badge--primary,
 .dropdown__menu > li > a:hover > .badge,
-.dropdown__menu > li > a.link--primary > .badge {
+.dropdown__menu > li > .btn:hover > .badge,
+.form__button-group
+.dropdown__menu > li.controls > .control__label:hover > .badge,
+.dropdown__menu > li > a.link--primary > .badge,
+.dropdown__menu > li > .btn.link--primary > .badge,
+.form__button-group
+.dropdown__menu > li.controls > .link--primary.control__label > .badge {
   background-color: #2575b0;
   color: #fff !important; }
   .badge--primary.badge--outline,
   .dropdown__menu > li > a:hover > .badge--outline.badge,
-  .dropdown__menu > li > a.link--primary > .badge--outline.badge {
+  .dropdown__menu > li > .btn:hover > .badge--outline.badge,
+  .form__button-group
+  .dropdown__menu > li.controls > .control__label:hover > .badge--outline.badge,
+  .dropdown__menu > li > a.link--primary > .badge--outline.badge,
+  .dropdown__menu > li > .btn.link--primary > .badge--outline.badge,
+  .form__button-group
+  .dropdown__menu > li.controls > .link--primary.control__label > .badge--outline.badge {
     border-color: #2575b0;
     color: #2575b0 !important; }
 
 .badge--success,
-.dropdown__menu > li > a.link--success > .badge {
+.dropdown__menu > li > a.link--success > .badge,
+.dropdown__menu > li > .btn.link--success > .badge,
+.form__button-group
+.dropdown__menu > li.controls > .link--success.control__label > .badge {
   background-color: #297c46;
   color: #fff !important; }
   .badge--success.badge--outline,
-  .dropdown__menu > li > a.link--success > .badge--outline.badge {
+  .dropdown__menu > li > a.link--success > .badge--outline.badge,
+  .dropdown__menu > li > .btn.link--success > .badge--outline.badge,
+  .form__button-group
+  .dropdown__menu > li.controls > .link--success.control__label > .badge--outline.badge {
     border-color: #297c46;
     color: #297c46 !important; }
 
 .badge--warning,
-.dropdown__menu > li > a.link--warning > .badge {
+.dropdown__menu > li > a.link--warning > .badge,
+.dropdown__menu > li > .btn.link--warning > .badge,
+.form__button-group
+.dropdown__menu > li.controls > .link--warning.control__label > .badge {
   background-color: #eaa96a;
   color: #3e3e3e !important; }
   .badge--warning.badge--outline,
-  .dropdown__menu > li > a.link--warning > .badge--outline.badge {
+  .dropdown__menu > li > a.link--warning > .badge--outline.badge,
+  .dropdown__menu > li > .btn.link--warning > .badge--outline.badge,
+  .form__button-group
+  .dropdown__menu > li.controls > .link--warning.control__label > .badge--outline.badge {
     border-color: #eaa96a;
     color: #eaa96a !important; }
 
 .badge--danger,
-.dropdown__menu > li > a.link--danger > .badge {
+.dropdown__menu > li > a.link--danger > .badge,
+.dropdown__menu > li > .btn.link--danger > .badge,
+.form__button-group
+.dropdown__menu > li.controls > .link--danger.control__label > .badge {
   background-color: #c84d40;
   color: #fff !important; }
   .badge--danger.badge--outline,
-  .dropdown__menu > li > a.link--danger > .badge--outline.badge {
+  .dropdown__menu > li > a.link--danger > .badge--outline.badge,
+  .dropdown__menu > li > .btn.link--danger > .badge--outline.badge,
+  .form__button-group
+  .dropdown__menu > li.controls > .link--danger.control__label > .badge--outline.badge {
     border-color: #c84d40;
     color: #c84d40 !important; }
 
 .badge--info,
-.dropdown__menu > li > a.link--info > .badge {
+.dropdown__menu > li > a.link--info > .badge,
+.dropdown__menu > li > .btn.link--info > .badge,
+.form__button-group
+.dropdown__menu > li.controls > .link--info.control__label > .badge {
   background-color: #a4d2df;
   color: #3e3e3e !important; }
   .badge--info.badge--outline,
-  .dropdown__menu > li > a.link--info > .badge--outline.badge {
+  .dropdown__menu > li > a.link--info > .badge--outline.badge,
+  .dropdown__menu > li > .btn.link--info > .badge--outline.badge,
+  .form__button-group
+  .dropdown__menu > li.controls > .link--info.control__label > .badge--outline.badge {
     border-color: #a4d2df;
     color: #a4d2df !important; }
 
 .badge--inverse,
-.dropdown__menu > li > a.link--inverse > .badge {
+.dropdown__menu > li > a.link--inverse > .badge,
+.dropdown__menu > li > .btn.link--inverse > .badge,
+.form__button-group
+.dropdown__menu > li.controls > .link--inverse.control__label > .badge {
   background-color: #3e3e3e;
   color: #fff !important; }
   .badge--inverse.badge--outline,
-  .dropdown__menu > li > a.link--inverse > .badge--outline.badge {
+  .dropdown__menu > li > a.link--inverse > .badge--outline.badge,
+  .dropdown__menu > li > .btn.link--inverse > .badge--outline.badge,
+  .form__button-group
+  .dropdown__menu > li.controls > .link--inverse.control__label > .badge--outline.badge {
     border-color: #3e3e3e;
     color: #3e3e3e !important; }
 
@@ -5166,11 +5207,10 @@ a.block-list__item:hover {
   padding: 24px; }
 
 .breadcrumb {
+  clear: both;
   color: #5f5f5f;
-  margin-bottom: 11px; }
-  @media screen and (min-width: 992px) {
-    .breadcrumb {
-      margin-top: 11px; } }
+  margin: 0 0 12px;
+  width: 100%; }
   .breadcrumb a {
     color: #5f5f5f; }
     .breadcrumb a:focus {
@@ -6394,6 +6434,7 @@ a.block-list__item:hover {
   font-family: "proxima_nova_rgregular", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
 .card__body {
+  display: block;
   padding: .75em; }
   .card__body li:last-child {
     border-bottom: 0; }
@@ -7127,42 +7168,77 @@ button.close {
     background-color: #9d9d9d; }
   .dropdown__menu > li {
     min-width: 160px; }
-  .dropdown__menu > li > a {
-    display: block;
-    padding: 3px 15px 3px 10px;
+  .dropdown__menu > li > a,
+  .dropdown__menu > li > .btn, .form__button-group
+  .dropdown__menu > li.controls > .control__label {
+    background: none !important;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
     clear: both;
+    color: #5f5f5f !important;
+    display: block;
     font-weight: normal;
     line-height: 24px;
-    color: #5f5f5f;
+    padding: 3px 15px 3px 10px;
+    text-align: left;
+    text-decoration: none;
     white-space: nowrap;
-    text-decoration: none; }
+    width: 100%; }
     .dropdown__menu > li > a [class^="icon-"],
-    .dropdown__menu > li > a [class*=" icon-"] {
+    .dropdown__menu > li > a [class*=" icon-"],
+    .dropdown__menu > li > .btn [class^="icon-"], .form__button-group
+    .dropdown__menu > li.controls > .control__label [class^="icon-"],
+    .dropdown__menu > li > .btn [class*=" icon-"], .form__button-group
+    .dropdown__menu > li.controls > .control__label [class*=" icon-"] {
       display: inline-block;
       margin: 0 5px 0 2px;
       text-align: center;
       width: 23px; }
 
-.dropdown__menu > li > a:not(.is-disabled):hover, .dropdown__menu > li > a:not(.is-disabled).active {
+.dropdown__menu > li > a:not(.is-disabled):hover, .dropdown__menu > li > a:not(.is-disabled).active,
+.dropdown__menu > li > .btn:not(.is-disabled):hover, .form__button-group
+.dropdown__menu > li.controls > .control__label:not(.is-disabled):hover,
+.dropdown__menu > li > .btn:not(.is-disabled).active, .form__button-group
+.dropdown__menu > li.controls > .control__label:not(.is-disabled).active {
+  background-color: #2575b0 !important;
+  box-shadow: 0;
+  color: #fff !important;
   text-decoration: none;
-  background-color: #2575b0;
-  color: #fff; }
+  -ms-transform: none;
+      transform: none; }
 
-.dropdown__menu > li > a:not(.is-disabled):focus {
+.dropdown__menu > li > a:not(.is-disabled):focus,
+.dropdown__menu > li > .btn:not(.is-disabled):focus, .form__button-group
+.dropdown__menu > li.controls > .control__label:not(.is-disabled):focus {
   background-color: #ffbf47;
   box-shadow: inset 0 -4px #1e1e1e;
   color: #1e1e1e; }
 
-.dropdown__menu > .active > a, .dropdown__menu > .active > a:hover {
+.dropdown__menu > .active > a, .dropdown__menu > .active > a:hover,
+.dropdown__menu > .active > .btn, .form__button-group
+.dropdown__menu > .controls.active > .control__label,
+.dropdown__menu > .active > .btn:hover, .form__button-group
+.dropdown__menu > .controls.active > .control__label:hover {
   background-color: #2575b0;
   color: #fff;
   text-decoration: none;
   outline: 0; }
 
-.dropdown__menu > .disabled > a, .dropdown__menu > .disabled > a:hover, .dropdown__menu > .disabled > a:focus {
+.dropdown__menu > .disabled > a, .dropdown__menu > .disabled > a:hover, .dropdown__menu > .disabled > a:focus,
+.dropdown__menu > .disabled > .btn, .form__button-group
+.dropdown__menu > .controls.disabled > .control__label,
+.dropdown__menu > .disabled > .btn:hover, .form__button-group
+.dropdown__menu > .controls.disabled > .control__label:hover,
+.dropdown__menu > .disabled > .btn:focus, .form__button-group
+.dropdown__menu > .controls.disabled > .control__label:focus {
   color: #9d9d9d; }
 
-.dropdown__menu > .disabled > a:hover, .dropdown__menu > .disabled > a:focus {
+.dropdown__menu > .disabled > a:hover, .dropdown__menu > .disabled > a:focus,
+.dropdown__menu > .disabled > .btn:hover, .form__button-group
+.dropdown__menu > .controls.disabled > .control__label:hover,
+.dropdown__menu > .disabled > .btn:focus, .form__button-group
+.dropdown__menu > .controls.disabled > .control__label:focus {
   text-decoration: none;
   background-color: transparent;
   background-image: none;
@@ -7171,7 +7247,9 @@ button.close {
 .open > .dropdown__menu {
   display: block; }
 
-.open > a {
+.open > a,
+.open > .btn, .form__button-group
+.controls.open > .control__label {
   outline: 0; }
 
 .dropdown-header {
@@ -7207,88 +7285,142 @@ button.close {
   bottom: 100%;
   margin-bottom: 1px; }
 
-.dropdown__menu > li > a:hover > .badge {
+.dropdown__menu > li > a:hover > .badge,
+.dropdown__menu > li > .btn:hover > .badge, .form__button-group
+.dropdown__menu > li.controls > .control__label:hover > .badge {
   background-color: #133d5c; }
 
-.dropdown__menu > li > a.link--primary {
+.dropdown__menu > li > a.link--primary,
+.dropdown__menu > li > .btn.link--primary, .form__button-group
+.dropdown__menu > li.controls > .link--primary.control__label {
   background-color: #2575b0;
   color: #fff; }
-  .dropdown__menu > li > a.link--primary:hover {
+  .dropdown__menu > li > a.link--primary:hover,
+  .dropdown__menu > li > .btn.link--primary:hover, .form__button-group
+  .dropdown__menu > li.controls > .link--primary.control__label:hover {
     background-color: #21679b; }
-  .dropdown__menu > li > a.link--primary:focus {
+  .dropdown__menu > li > a.link--primary:focus,
+  .dropdown__menu > li > .btn.link--primary:focus, .form__button-group
+  .dropdown__menu > li.controls > .link--primary.control__label:focus {
     background-color: #ffbf47;
     box-shadow: inset 0 -4px #1e1e1e;
     color: #1e1e1e; }
-  .dropdown__menu > li > a.link--primary > .badge {
+  .dropdown__menu > li > a.link--primary > .badge,
+  .dropdown__menu > li > .btn.link--primary > .badge, .form__button-group
+  .dropdown__menu > li.controls > .link--primary.control__label > .badge {
     background-color: #133d5c; }
 
-.dropdown__menu > li > a.link--success {
+.dropdown__menu > li > a.link--success,
+.dropdown__menu > li > .btn.link--success, .form__button-group
+.dropdown__menu > li.controls > .link--success.control__label {
   background-color: #297c46;
   color: #fff; }
-  .dropdown__menu > li > a.link--success:hover {
+  .dropdown__menu > li > a.link--success:hover,
+  .dropdown__menu > li > .btn.link--success:hover, .form__button-group
+  .dropdown__menu > li.controls > .link--success.control__label:hover {
     background-color: #23693b; }
-  .dropdown__menu > li > a.link--success:focus {
+  .dropdown__menu > li > a.link--success:focus,
+  .dropdown__menu > li > .btn.link--success:focus, .form__button-group
+  .dropdown__menu > li.controls > .link--success.control__label:focus {
     background-color: #ffbf47;
     box-shadow: inset 0 -4px #1e1e1e;
     color: #1e1e1e; }
-  .dropdown__menu > li > a.link--success > .badge {
+  .dropdown__menu > li > a.link--success > .badge,
+  .dropdown__menu > li > .btn.link--success > .badge, .form__button-group
+  .dropdown__menu > li.controls > .link--success.control__label > .badge {
     background-color: #102f1b; }
 
-.dropdown__menu > li > a.link--warning {
+.dropdown__menu > li > a.link--warning,
+.dropdown__menu > li > .btn.link--warning, .form__button-group
+.dropdown__menu > li.controls > .link--warning.control__label {
   background-color: #eaa96a;
   color: #fff; }
-  .dropdown__menu > li > a.link--warning:hover {
+  .dropdown__menu > li > a.link--warning:hover,
+  .dropdown__menu > li > .btn.link--warning:hover, .form__button-group
+  .dropdown__menu > li.controls > .link--warning.control__label:hover {
     background-color: #e79c54; }
-  .dropdown__menu > li > a.link--warning:focus {
+  .dropdown__menu > li > a.link--warning:focus,
+  .dropdown__menu > li > .btn.link--warning:focus, .form__button-group
+  .dropdown__menu > li.controls > .link--warning.control__label:focus {
     background-color: #ffbf47;
     box-shadow: inset 0 -4px #1e1e1e;
     color: #1e1e1e; }
-  .dropdown__menu > li > a.link--warning > .badge {
+  .dropdown__menu > li > a.link--warning > .badge,
+  .dropdown__menu > li > .btn.link--warning > .badge, .form__button-group
+  .dropdown__menu > li.controls > .link--warning.control__label > .badge {
     background-color: #d1761d; }
 
-.dropdown__menu > li > a.link--info {
+.dropdown__menu > li > a.link--info,
+.dropdown__menu > li > .btn.link--info, .form__button-group
+.dropdown__menu > li.controls > .link--info.control__label {
   background-color: #a4d2df;
   color: #fff; }
-  .dropdown__menu > li > a.link--info:hover {
+  .dropdown__menu > li > a.link--info:hover,
+  .dropdown__menu > li > .btn.link--info:hover, .form__button-group
+  .dropdown__menu > li.controls > .link--info.control__label:hover {
     background-color: #91c9d8; }
-  .dropdown__menu > li > a.link--info:focus {
+  .dropdown__menu > li > a.link--info:focus,
+  .dropdown__menu > li > .btn.link--info:focus, .form__button-group
+  .dropdown__menu > li.controls > .link--info.control__label:focus {
     background-color: #ffbf47;
     box-shadow: inset 0 -4px #1e1e1e;
     color: #1e1e1e; }
-  .dropdown__menu > li > a.link--info > .badge {
+  .dropdown__menu > li > a.link--info > .badge,
+  .dropdown__menu > li > .btn.link--info > .badge, .form__button-group
+  .dropdown__menu > li.controls > .link--info.control__label > .badge {
     background-color: #59adc4; }
 
-.dropdown__menu > li > a.link--danger {
+.dropdown__menu > li > a.link--danger,
+.dropdown__menu > li > .btn.link--danger, .form__button-group
+.dropdown__menu > li.controls > .link--danger.control__label {
   background-color: #c84d40;
   color: #fff; }
-  .dropdown__menu > li > a.link--danger:hover {
+  .dropdown__menu > li > a.link--danger:hover,
+  .dropdown__menu > li > .btn.link--danger:hover, .form__button-group
+  .dropdown__menu > li.controls > .link--danger.control__label:hover {
     background-color: #b94235; }
-  .dropdown__menu > li > a.link--danger:focus {
+  .dropdown__menu > li > a.link--danger:focus,
+  .dropdown__menu > li > .btn.link--danger:focus, .form__button-group
+  .dropdown__menu > li.controls > .link--danger.control__label:focus {
     background-color: #ffbf47;
     box-shadow: inset 0 -4px #1e1e1e;
     color: #1e1e1e; }
-  .dropdown__menu > li > a.link--danger > .badge {
+  .dropdown__menu > li > a.link--danger > .badge,
+  .dropdown__menu > li > .btn.link--danger > .badge, .form__button-group
+  .dropdown__menu > li.controls > .link--danger.control__label > .badge {
     background-color: #7e2d24; }
 
-.dropdown__menu > li > a.link--inverse {
+.dropdown__menu > li > a.link--inverse,
+.dropdown__menu > li > .btn.link--inverse, .form__button-group
+.dropdown__menu > li.controls > .link--inverse.control__label {
   background-color: #3e3e3e;
   color: #fff; }
-  .dropdown__menu > li > a.link--inverse:hover {
+  .dropdown__menu > li > a.link--inverse:hover,
+  .dropdown__menu > li > .btn.link--inverse:hover, .form__button-group
+  .dropdown__menu > li.controls > .link--inverse.control__label:hover {
     background-color: #313131; }
-  .dropdown__menu > li > a.link--inverse:focus {
+  .dropdown__menu > li > a.link--inverse:focus,
+  .dropdown__menu > li > .btn.link--inverse:focus, .form__button-group
+  .dropdown__menu > li.controls > .link--inverse.control__label:focus {
     background-color: #ffbf47;
     box-shadow: inset 0 -4px #1e1e1e;
     color: #1e1e1e; }
-  .dropdown__menu > li > a.link--inverse > .badge {
+  .dropdown__menu > li > a.link--inverse > .badge,
+  .dropdown__menu > li > .btn.link--inverse > .badge, .form__button-group
+  .dropdown__menu > li.controls > .link--inverse.control__label > .badge {
     background-color: #0b0b0b; }
 
 .dropdown__menu .popover, .dropdown__menu .daterangepicker {
   min-width: 300px; }
 
-.dropdown__menu > li > a > .progress {
+.dropdown__menu > li > a > .progress,
+.dropdown__menu > li > .btn > .progress, .form__button-group
+.dropdown__menu > li.controls > .control__label > .progress {
   height: 3px;
   margin-bottom: 0; }
-  .dropdown__menu > li > a > .progress .progress-bar {
+  .dropdown__menu > li > a > .progress .progress-bar,
+  .dropdown__menu > li > .btn > .progress .progress-bar, .form__button-group
+  .dropdown__menu > li.controls > .control__label > .progress .progress-bar {
     background-color: #184b71; }
 
 .dropdown--medium ~ .dropdown__menu {
@@ -7625,10 +7757,12 @@ button.close {
     padding: 0 10px; }
 
 .flash-container {
-  left: 85px;
-  position: fixed;
-  right: 0;
-  z-index: 1085; }
+  clear: both;
+  margin: 0 -20px 12px -19px;
+  z-index: 1085;
+  width: calc(100% + 40px); }
+  .flash-container:empty {
+    display: none; }
 
 .footer {
   -ms-transform: none;
@@ -7800,6 +7934,7 @@ fieldset {
   .form__control[disabled], .form__control[readonly],
   fieldset[disabled] .form__control {
     cursor: not-allowed;
+    color: #3e3e3e;
     background-color: #dedede; }
   .form__control:focus {
     border-color: #1e1e1e;
@@ -8482,6 +8617,11 @@ fieldset {
 .form__control.checkbox:checked::before {
   color: #3e3e3e;
   content: '\f00c'; }
+
+.form__control.checkbox:indeterminate::before {
+  color: #3e3e3e;
+  content: '\f068';
+  left: 3.5px; }
 
 .form__control.radio {
   border-radius: 20px; }
@@ -9258,8 +9398,7 @@ fieldset.form-choice {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px; }
 
-.label,
-.toolbar-help-link {
+.label {
   display: inline-block;
   vertical-align: baseline;
   box-sizing: content-box;
@@ -9289,15 +9428,11 @@ fieldset.form-choice {
   .label .controls > .remove-button.control__label [class*=" icon-"],
   .label .btn.remove-button [class*=" icon-"]:hover,
   .label .form__button-group .controls > .remove-button.control__label [class*=" icon-"]:hover, .form__button-group
-  .label .controls > .remove-button.control__label [class*=" icon-"]:hover, .toolbar-help-link .btn.remove-button, .toolbar-help-link .form__button-group .controls > .remove-button.control__label, .form__button-group .toolbar-help-link .controls > .remove-button.control__label, .toolbar-help-link .btn.remove-button:hover, .toolbar-help-link .form__button-group .controls > .remove-button.control__label:hover, .form__button-group .toolbar-help-link .controls > .remove-button.control__label:hover, .toolbar-help-link .btn.remove-button [class^="icon-"], .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class^="icon-"], .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class^="icon-"], .toolbar-help-link .btn.remove-button [class^="icon-"]:hover, .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class^="icon-"]:hover, .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class^="icon-"]:hover, .toolbar-help-link .btn.remove-button [class*=" icon-"], .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class*=" icon-"], .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class*=" icon-"], .toolbar-help-link .btn.remove-button [class*=" icon-"]:hover, .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class*=" icon-"]:hover, .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class*=" icon-"]:hover {
+  .label .controls > .remove-button.control__label [class*=" icon-"]:hover {
     color: #000; }
-  .label[href]:hover, .label[href]:focus,
-  [href].toolbar-help-link:hover,
-  [href].toolbar-help-link:focus {
+  .label[href]:hover, .label[href]:focus {
     background-color: #c5c5c5; }
-  .label[href]:hover, .label[href]:focus,
-  [href].toolbar-help-link:hover,
-  [href].toolbar-help-link:focus {
+  .label[href]:hover, .label[href]:focus {
     text-decoration: none;
     cursor: pointer;
     background-color: #bebebe; }
@@ -9313,7 +9448,7 @@ fieldset.form-choice {
   .label .controls > .remove-button.control__label [class*=" icon-"],
   .label .btn.remove-button [class*=" icon-"]:hover,
   .label .form__button-group .controls > .remove-button.control__label [class*=" icon-"]:hover, .form__button-group
-  .label .controls > .remove-button.control__label [class*=" icon-"]:hover, .toolbar-help-link .btn.remove-button, .toolbar-help-link .form__button-group .controls > .remove-button.control__label, .form__button-group .toolbar-help-link .controls > .remove-button.control__label, .toolbar-help-link .btn.remove-button:hover, .toolbar-help-link .form__button-group .controls > .remove-button.control__label:hover, .form__button-group .toolbar-help-link .controls > .remove-button.control__label:hover, .toolbar-help-link .btn.remove-button [class^="icon-"], .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class^="icon-"], .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class^="icon-"], .toolbar-help-link .btn.remove-button [class^="icon-"]:hover, .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class^="icon-"]:hover, .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class^="icon-"]:hover, .toolbar-help-link .btn.remove-button [class*=" icon-"], .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class*=" icon-"], .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class*=" icon-"], .toolbar-help-link .btn.remove-button [class*=" icon-"]:hover, .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class*=" icon-"]:hover, .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class*=" icon-"]:hover {
+  .label .controls > .remove-button.control__label [class*=" icon-"]:hover {
     box-shadow: none;
     color: inherit;
     font-size: 1em;
@@ -9321,7 +9456,7 @@ fieldset.form-choice {
     margin-left: 2px;
     text-decoration: none;
     top: 0; }
-  .label .btn.remove-button:active, .label .form__button-group .controls > .remove-button.control__label:active, .form__button-group .label .controls > .remove-button.control__label:active, .toolbar-help-link .btn.remove-button:active, .toolbar-help-link .form__button-group .controls > .remove-button.control__label:active, .form__button-group .toolbar-help-link .controls > .remove-button.control__label:active {
+  .label .btn.remove-button:active, .label .form__button-group .controls > .remove-button.control__label:active, .form__button-group .label .controls > .remove-button.control__label:active {
     background-color: inherit !important; }
 
 .label--base {
@@ -9548,6 +9683,8 @@ fieldset.form-choice {
   .list--naked li.is-active > a {
     color: #fff;
     text-decoration: none; }
+  .list--naked li.is-active > a:focus {
+    color: #3e3e3e; }
 
 .list--inline li {
   display: inline-block; }
@@ -10095,9 +10232,11 @@ fieldset.form-choice {
   border-radius: 4px;
   color: #333c79;
   display: inline-block;
+  height: 32px;
   line-height: normal;
-  margin-top: 5px;
-  padding: 8px 14px 6px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  padding: 6px 14px;
   text-decoration: none; }
   @media screen and (min-width: 992px) {
     .mobile-menu-button {
@@ -10449,8 +10588,7 @@ fieldset.form-choice {
     .navbar a:hover {
       color: #e6e6e6; }
 
-.label,
-.toolbar-help-link {
+.label {
   display: inline-block;
   vertical-align: baseline;
   box-sizing: content-box;
@@ -10480,15 +10618,11 @@ fieldset.form-choice {
   .label .controls > .remove-button.control__label [class*=" icon-"],
   .label .btn.remove-button [class*=" icon-"]:hover,
   .label .form__button-group .controls > .remove-button.control__label [class*=" icon-"]:hover, .form__button-group
-  .label .controls > .remove-button.control__label [class*=" icon-"]:hover, .toolbar-help-link .btn.remove-button, .toolbar-help-link .form__button-group .controls > .remove-button.control__label, .form__button-group .toolbar-help-link .controls > .remove-button.control__label, .toolbar-help-link .btn.remove-button:hover, .toolbar-help-link .form__button-group .controls > .remove-button.control__label:hover, .form__button-group .toolbar-help-link .controls > .remove-button.control__label:hover, .toolbar-help-link .btn.remove-button [class^="icon-"], .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class^="icon-"], .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class^="icon-"], .toolbar-help-link .btn.remove-button [class^="icon-"]:hover, .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class^="icon-"]:hover, .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class^="icon-"]:hover, .toolbar-help-link .btn.remove-button [class*=" icon-"], .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class*=" icon-"], .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class*=" icon-"], .toolbar-help-link .btn.remove-button [class*=" icon-"]:hover, .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class*=" icon-"]:hover, .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class*=" icon-"]:hover {
+  .label .controls > .remove-button.control__label [class*=" icon-"]:hover {
     color: #000; }
-  .label[href]:hover, .label[href]:focus,
-  [href].toolbar-help-link:hover,
-  [href].toolbar-help-link:focus {
+  .label[href]:hover, .label[href]:focus {
     background-color: #c5c5c5; }
-  .label[href]:hover, .label[href]:focus,
-  [href].toolbar-help-link:hover,
-  [href].toolbar-help-link:focus {
+  .label[href]:hover, .label[href]:focus {
     text-decoration: none;
     cursor: pointer;
     background-color: #bebebe; }
@@ -10504,7 +10638,7 @@ fieldset.form-choice {
   .label .controls > .remove-button.control__label [class*=" icon-"],
   .label .btn.remove-button [class*=" icon-"]:hover,
   .label .form__button-group .controls > .remove-button.control__label [class*=" icon-"]:hover, .form__button-group
-  .label .controls > .remove-button.control__label [class*=" icon-"]:hover, .toolbar-help-link .btn.remove-button, .toolbar-help-link .form__button-group .controls > .remove-button.control__label, .form__button-group .toolbar-help-link .controls > .remove-button.control__label, .toolbar-help-link .btn.remove-button:hover, .toolbar-help-link .form__button-group .controls > .remove-button.control__label:hover, .form__button-group .toolbar-help-link .controls > .remove-button.control__label:hover, .toolbar-help-link .btn.remove-button [class^="icon-"], .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class^="icon-"], .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class^="icon-"], .toolbar-help-link .btn.remove-button [class^="icon-"]:hover, .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class^="icon-"]:hover, .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class^="icon-"]:hover, .toolbar-help-link .btn.remove-button [class*=" icon-"], .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class*=" icon-"], .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class*=" icon-"], .toolbar-help-link .btn.remove-button [class*=" icon-"]:hover, .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class*=" icon-"]:hover, .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class*=" icon-"]:hover {
+  .label .controls > .remove-button.control__label [class*=" icon-"]:hover {
     box-shadow: none;
     color: inherit;
     font-size: 1em;
@@ -10512,7 +10646,7 @@ fieldset.form-choice {
     margin-left: 2px;
     text-decoration: none;
     top: 0; }
-  .label .btn.remove-button:active, .label .form__button-group .controls > .remove-button.control__label:active, .form__button-group .label .controls > .remove-button.control__label:active, .toolbar-help-link .btn.remove-button:active, .toolbar-help-link .form__button-group .controls > .remove-button.control__label:active, .form__button-group .toolbar-help-link .controls > .remove-button.control__label:active {
+  .label .btn.remove-button:active, .label .form__button-group .controls > .remove-button.control__label:active, .form__button-group .label .controls > .remove-button.control__label:active {
     background-color: inherit !important; }
 
 .label--base {
@@ -10728,123 +10862,94 @@ fieldset.form-choice {
     line-height: inherit; }
 
 .toolbar {
-  display: block;
-  float: left;
-  margin-bottom: 18px;
-  padding: 12px 20px 0;
-  width: 100%; }
-  @media screen and (min-width: 992px) {
-    .toolbar {
-      background-color: #fff;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  padding: 12px 20px 0; }
+
+.toolbar-actions {
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
+  margin-bottom: 10px; }
+
+.toolbar-actions .dropdown {
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  margin-left: 5px; }
+  @media screen and (min-width: 767px) {
+    .toolbar-actions .dropdown {
+      -ms-flex-positive: 0;
+          flex-grow: 0; } }
+  .toolbar-actions .dropdown:first-of-type {
+    margin-left: 0; }
+  .toolbar-actions .dropdown .btn:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type, .toolbar-actions .dropdown .form__button-group .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type, .form__button-group .toolbar-actions .dropdown .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type {
+    border: 1px solid #bebebe;
+    border-width: 1px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    width: 100%; }
+    @media screen and (min-width: 992px) {
+      .toolbar-actions .dropdown .btn:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type, .toolbar-actions .dropdown .form__button-group .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type, .form__button-group .toolbar-actions .dropdown .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type {
+        padding-bottom: 7px;
+        padding-top: 7px; } }
+    .toolbar-actions .dropdown .btn:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type:hover, .toolbar-actions .dropdown .form__button-group .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type:hover, .form__button-group .toolbar-actions .dropdown .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type:hover {
+      background-color: #f4f4f4 !important;
       margin-bottom: 0;
-      padding: 14px 20px 0; } }
-  .toolbar .dropdown {
-    position: static; }
-    @media screen and (min-width: 480px) {
-      .toolbar .dropdown {
-        position: relative; } }
-  .toolbar .dropdown__menu {
-    clear: both;
-    left: 10px;
-    position: absolute;
-    right: 10px;
-    top: 60px; }
-    @media screen and (min-width: 480px) {
-      .toolbar .dropdown__menu {
-        left: auto;
-        right: 0;
-        top: 35px; } }
+      -ms-transform: none;
+          transform: none; }
+    .toolbar-actions .dropdown .btn:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type i, .toolbar-actions .dropdown .form__button-group .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type i, .form__button-group .toolbar-actions .dropdown .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type i {
+      font-size: 18px;
+      vertical-align: middle; }
+      @media screen and (min-width: 992px) {
+        .toolbar-actions .dropdown .btn:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type i, .toolbar-actions .dropdown .form__button-group .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type i, .form__button-group .toolbar-actions .dropdown .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type i {
+          font-size: 14px;
+          vertical-align: baseline; } }
+    .toolbar-actions .dropdown .btn:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type > .toolbar-action__text, .toolbar-actions .dropdown .form__button-group .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type > .toolbar-action__text, .form__button-group .toolbar-actions .dropdown .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type > .toolbar-action__text {
+      display: none;
+      margin-left: 0; }
+      @media screen and (min-width: 992px) {
+        .toolbar-actions .dropdown .btn:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type > .toolbar-action__text, .toolbar-actions .dropdown .form__button-group .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type > .toolbar-action__text, .form__button-group .toolbar-actions .dropdown .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type > .toolbar-action__text {
+          display: inline;
+          margin-left: 5px; } }
+    .toolbar-actions .dropdown .btn:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type > .caret, .toolbar-actions .dropdown .form__button-group .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type > .caret, .form__button-group .toolbar-actions .dropdown .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type > .caret {
+      border-top-color: #3e3e3e; }
+  .toolbar-actions .dropdown .caret {
+    margin-left: 3px; }
+  .toolbar-actions .dropdown .dropdown__menu {
+    border-top: 2px solid #bebebe;
+    top: 40px; }
+    .toolbar-actions .dropdown .dropdown__menu .media {
+      line-height: 24px;
+      padding: 10px; }
+      .toolbar-actions .dropdown .dropdown__menu .media:hover {
+        background-color: #f4f4f4; }
+  .toolbar-actions .dropdown:nth-child(-n+2) .dropdown__menu {
+    left: 0;
+    right: auto; }
+  .toolbar-actions .dropdown:nth-child(n+3) .dropdown__menu {
+    left: auto;
+    right: 0; }
 
-.user-menu > .btn, .form__button-group .controls.user-menu > .control__label {
-  padding: 0; }
-  .user-menu > .btn:hover, .form__button-group .controls.user-menu > .control__label:hover {
-    top: 0; }
-
-.nav-user {
-  float: right;
-  font-size: 16px; }
-  .nav-user .btn, .nav-user .form__button-group .controls > .control__label, .form__button-group .nav-user .controls > .control__label {
-    font-size: 16px; }
-  .nav-user .dropdown {
-    float: left;
-    margin-left: 20px;
-    min-width: 60px;
-    z-index: 1060; }
-  .nav-user .dropdown__header {
-    border-bottom: 1px solid #bebebe;
-    font-family: "proxima_nova_rgregular", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    padding: 3px 15px 3px 10px; }
-  .nav-user .dropdown__menu .is-active {
-    background-color: #a4d2df; }
-
-.site-switcher__label {
-  color: #3e3e3e;
-  display: inline-block;
-  text-decoration: none; }
-
-.nav-user > .dropdown > .btn, .form__button-group .nav-user > .controls.dropdown > .control__label,
-.nav-user > .dropdown > .dropdown-toggle,
-.site-switcher__label {
-  height: 42px;
-  line-height: 42px;
-  padding: 0 10px;
-  top: 0;
-  vertical-align: top; }
+.toolbar-actions .toolbar-action--icon .btn:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type, .toolbar-actions .toolbar-action--icon .form__button-group .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type, .form__button-group .toolbar-actions .toolbar-action--icon .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type {
+  line-height: 16px;
+  padding-bottom: 6px;
+  padding-top: 6px; }
+  .toolbar-actions .toolbar-action--icon .btn:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type i, .toolbar-actions .toolbar-action--icon .form__button-group .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type i, .form__button-group .toolbar-actions .toolbar-action--icon .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type i {
+    font-size: 18px;
+    vertical-align: middle; }
 
 .toolbar-icon,
 .notifications-toggle {
-  float: right;
-  font-size: 24px;
-  line-height: 42px;
-  margin-left: 20px;
-  padding: 0 4px;
-  position: relative;
-  text-decoration: none; }
-  @media screen and (min-width: 480px) {
-    .toolbar-icon,
-    .notifications-toggle {
-      padding: 0 5px; } }
-  .toolbar-icon, .toolbar-icon:link, .toolbar-icon:visited,
-  .notifications-toggle,
-  .notifications-toggle:link,
-  .notifications-toggle:visited {
-    color: #bebebe; }
-  .toolbar-icon:hover,
-  .toolbar-icon a:hover,
-  .notifications-toggle:hover, .notifications-toggle a:hover {
-    color: #3e3e3e; }
-  .toolbar-icon.is-active,
-  .is-active.notifications-toggle {
-    color: #1e1e1e; }
-
-.toolbar-help-link {
-  border-radius: 15px;
-  color: #3e3e3e;
-  font-size: 14px;
-  font-weight: normal;
-  padding: 5px 8px;
-  position: relative;
-  top: -4px;
-  text-decoration: none; }
-  .toolbar-help-link:hover {
-    top: -4px; }
-
-.toolbar-help {
-  display: none; }
-  @media screen and (min-width: 767px) {
-    .toolbar-help {
-      display: block; } }
-  .toolbar-help .dropdown__menu {
-    min-width: 180px;
-    padding: 0; }
-    .toolbar-help .dropdown__menu .media {
-      line-height: 24px;
-      padding: 10px; }
-      .toolbar-help .dropdown__menu .media:hover {
-        background-color: #f4f4f4; }
+  position: relative; }
 
 .notifications {
-  float: right;
   position: static;
   z-index: 1060; }
   @media screen and (min-width: 480px) {
@@ -10858,6 +10963,7 @@ fieldset.form-choice {
 
 .notifications-container {
   clear: both;
+  float: right;
   left: 10px;
   padding: 0;
   position: absolute;
@@ -10878,10 +10984,13 @@ fieldset.form-choice {
   content: '';
   display: block;
   position: absolute;
-  right: -2px;
+  right: 44%;
   top: 3px;
   height: 10px;
   width: 10px; }
+  @media screen and (min-width: 767px) {
+    .notifications-toggle.has-new::before {
+      right: 35%; } }
 
 .notifications-list {
   float: left;
@@ -12920,10 +13029,7 @@ a + .remove-button {
   margin-left: 0; }
 
 .ribbon-wrapper {
-  margin: 22px -20px; }
-  @media screen and (min-width: 992px) {
-    .ribbon-wrapper {
-      margin: 0 -20px 22px; } }
+  margin: 0 -20px 22px; }
   .has-timeline .ribbon-wrapper {
     padding: 0 20px; }
     @media screen and (min-width: 767px) {
@@ -13143,10 +13249,6 @@ a + .remove-button {
   color: #2455c3;
   font-size: .9em;
   text-decoration: none; }
-
-@media screen and (min-width: 992px) {
-  .flash-container.has-flash:not(:empty) ~ .content-main .ribbon-wrapper {
-    margin-top: -20px; } }
 
 .ribbon .metadata__key {
   width: 30%;
@@ -13408,6 +13510,19 @@ td.table__form .rules + .form__group:last-of-type {
   .rules-container--v2::after {
     border-top: 4px solid #dedede;
     bottom: 0; }
+  .rules-container--v2.rules-container--linear {
+    border-left: 0;
+    padding-left: 0; }
+    .rules-container--v2.rules-container--linear::before {
+      background-color: #dedede;
+      height: calc(100% - 10px);
+      left: 45px;
+      top: 5px;
+      width: 4px; }
+    .rules-container--v2.rules-container--linear::after {
+      display: none; }
+    .rules-container--v2.rules-container--linear .rule-link--and {
+      margin-left: 45px; }
   .rules-container--v2 .rule-link {
     position: relative;
     padding-top: 10px;
@@ -13426,7 +13541,7 @@ td.table__form .rules + .form__group:last-of-type {
       display: inline-block;
       margin-left: 25px;
       min-width: 50px;
-      padding: 8px 0;
+      padding: 8px;
       text-align: center; }
       .rules-container--v2 .rule-link .btn:hover, .rules-container--v2 .rule-link .form__button-group .controls > .control__label:hover, .form__button-group .rules-container--v2 .rule-link .controls > .control__label:hover {
         background-color: #f4f4f4; }
@@ -13609,21 +13724,36 @@ td.table__form .rules + .form__group:last-of-type {
     @media screen and (min-width: 767px) {
       .rules-container--v2 .remove__control {
         color: #3e3e3e; } }
+  .rules-container--v2 .select2-container {
+    vertical-align: top; }
+    .rules-container--v2 .select2-container .select2-search__field {
+      min-height: auto;
+      height: 33px; }
+    .rules-container--v2 .select2-container .select2-selection--multiple {
+      min-height: 48px; }
+
+.rules-container--spaced .rule-block__controls {
+  margin-left: 10px; }
+
+.rules-container--spaced .rule-block + .rule-block {
+  margin-top: 24px; }
+  .rules-container--spaced .rule-block + .rule-block .rule-block__header {
+    border-top: 0; }
 
 .main-search {
   border: 1px solid #bebebe;
   border-radius: 4px;
-  clear: both;
   display: block;
-  margin: 20px 0;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  height: 32px;
+  margin-bottom: 10px;
+  margin-right: 5px;
   position: relative; }
   @media screen and (min-width: 767px) {
     .main-search {
-      display: table; } }
-  @media screen and (min-width: 992px) {
-    .main-search {
-      margin: 0;
-      clear: none; } }
+      -ms-flex-positive: 0;
+          flex-grow: 0; } }
 
 .main-search .loading {
   height: 15px;
@@ -13682,7 +13812,7 @@ input.main-search__field::-ms-clear {
   padding: 1px 8px 0;
   position: absolute;
   right: 0;
-  top: 3px;
+  top: 5px;
   z-index: 3; }
   @media screen and (min-width: 767px) {
     .main-search__submit {
@@ -15091,6 +15221,10 @@ body {
     border-bottom: 0; }
   .table tbody > tr:hover, .table--datagrid tbody > tr:hover {
     background-color: #f4f4f4; }
+    .table tbody > tr:hover [href], .table--datagrid tbody > tr:hover [href],
+    .continuum-cms .table tbody > tr:hover [href]:link,
+    .continuum-cms .table--datagrid tbody > tr:hover [href]:link {
+      color: #256e93; }
   .table tr, .table--datagrid tr {
     vertical-align: top; }
   .table tr.selected td, .table--datagrid tr.selected td,
@@ -15723,14 +15857,42 @@ th.sorting_disabled:hover {
   padding: 11.5px 0 12px; }
 
 .table-child-toggle {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: transparent;
+  border: 0;
+  box-sizing: border-box;
   color: #3399cc;
+  cursor: pointer;
   display: none;
-  font-size: 14px; }
+  font-size: 16px;
+  font-weight: normal;
+  line-height: normal;
+  margin: 0;
+  padding: 4px 7px 0;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  vertical-align: top;
+  white-space: nowrap; }
+  .table-child-toggle:focus {
+    background-color: #ffbf47;
+    box-shadow: 0 2px 0 #1e1e1e;
+    color: #1e1e1e !important;
+    outline: none; }
+  .table-child-toggle:hover {
+    color: #1e1e1e; }
   .collapsed .table-child-toggle {
     display: inline-block; }
-  .parent .table-child-toggle::before {
-    color: #c01c1d;
-    content: ""; }
+
+.parent .table-child-toggle i::before {
+  color: #c01c1d;
+  content: ""; }
 
 .datatable .child ul {
   margin: 0 0 0 65px; }
@@ -15941,8 +16103,7 @@ th.sorting_disabled:hover {
     padding-top: 11px;
     padding-right: 10px; }
 
-.label,
-.toolbar-help-link {
+.label {
   display: inline-block;
   vertical-align: baseline;
   box-sizing: content-box;
@@ -15972,15 +16133,11 @@ th.sorting_disabled:hover {
   .label .controls > .remove-button.control__label [class*=" icon-"],
   .label .btn.remove-button [class*=" icon-"]:hover,
   .label .form__button-group .controls > .remove-button.control__label [class*=" icon-"]:hover, .form__button-group
-  .label .controls > .remove-button.control__label [class*=" icon-"]:hover, .toolbar-help-link .btn.remove-button, .toolbar-help-link .form__button-group .controls > .remove-button.control__label, .form__button-group .toolbar-help-link .controls > .remove-button.control__label, .toolbar-help-link .btn.remove-button:hover, .toolbar-help-link .form__button-group .controls > .remove-button.control__label:hover, .form__button-group .toolbar-help-link .controls > .remove-button.control__label:hover, .toolbar-help-link .btn.remove-button [class^="icon-"], .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class^="icon-"], .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class^="icon-"], .toolbar-help-link .btn.remove-button [class^="icon-"]:hover, .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class^="icon-"]:hover, .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class^="icon-"]:hover, .toolbar-help-link .btn.remove-button [class*=" icon-"], .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class*=" icon-"], .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class*=" icon-"], .toolbar-help-link .btn.remove-button [class*=" icon-"]:hover, .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class*=" icon-"]:hover, .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class*=" icon-"]:hover {
+  .label .controls > .remove-button.control__label [class*=" icon-"]:hover {
     color: #000; }
-  .label[href]:hover, .label[href]:focus,
-  [href].toolbar-help-link:hover,
-  [href].toolbar-help-link:focus {
+  .label[href]:hover, .label[href]:focus {
     background-color: #c5c5c5; }
-  .label[href]:hover, .label[href]:focus,
-  [href].toolbar-help-link:hover,
-  [href].toolbar-help-link:focus {
+  .label[href]:hover, .label[href]:focus {
     text-decoration: none;
     cursor: pointer;
     background-color: #bebebe; }
@@ -15996,7 +16153,7 @@ th.sorting_disabled:hover {
   .label .controls > .remove-button.control__label [class*=" icon-"],
   .label .btn.remove-button [class*=" icon-"]:hover,
   .label .form__button-group .controls > .remove-button.control__label [class*=" icon-"]:hover, .form__button-group
-  .label .controls > .remove-button.control__label [class*=" icon-"]:hover, .toolbar-help-link .btn.remove-button, .toolbar-help-link .form__button-group .controls > .remove-button.control__label, .form__button-group .toolbar-help-link .controls > .remove-button.control__label, .toolbar-help-link .btn.remove-button:hover, .toolbar-help-link .form__button-group .controls > .remove-button.control__label:hover, .form__button-group .toolbar-help-link .controls > .remove-button.control__label:hover, .toolbar-help-link .btn.remove-button [class^="icon-"], .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class^="icon-"], .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class^="icon-"], .toolbar-help-link .btn.remove-button [class^="icon-"]:hover, .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class^="icon-"]:hover, .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class^="icon-"]:hover, .toolbar-help-link .btn.remove-button [class*=" icon-"], .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class*=" icon-"], .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class*=" icon-"], .toolbar-help-link .btn.remove-button [class*=" icon-"]:hover, .toolbar-help-link .form__button-group .controls > .remove-button.control__label [class*=" icon-"]:hover, .form__button-group .toolbar-help-link .controls > .remove-button.control__label [class*=" icon-"]:hover {
+  .label .controls > .remove-button.control__label [class*=" icon-"]:hover {
     box-shadow: none;
     color: inherit;
     font-size: 1em;
@@ -16004,7 +16161,7 @@ th.sorting_disabled:hover {
     margin-left: 2px;
     text-decoration: none;
     top: 0; }
-  .label .btn.remove-button:active, .label .form__button-group .controls > .remove-button.control__label:active, .form__button-group .label .controls > .remove-button.control__label:active, .toolbar-help-link .btn.remove-button:active, .toolbar-help-link .form__button-group .controls > .remove-button.control__label:active, .form__button-group .toolbar-help-link .controls > .remove-button.control__label:active {
+  .label .btn.remove-button:active, .label .form__button-group .controls > .remove-button.control__label:active, .form__button-group .label .controls > .remove-button.control__label:active {
     background-color: inherit !important; }
 
 .label--base {
@@ -16220,120 +16377,92 @@ th.sorting_disabled:hover {
     line-height: inherit; }
 
 .toolbar {
-  display: block;
-  float: left;
-  margin-bottom: 18px;
-  padding: 12px 20px 0;
-  width: 100%; }
-  @media screen and (min-width: 992px) {
-    .toolbar {
-      background-color: #fff;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  padding: 12px 20px 0; }
+
+.toolbar-actions {
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
+  margin-bottom: 10px; }
+
+.toolbar-actions .dropdown {
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  margin-left: 5px; }
+  @media screen and (min-width: 767px) {
+    .toolbar-actions .dropdown {
+      -ms-flex-positive: 0;
+          flex-grow: 0; } }
+  .toolbar-actions .dropdown:first-of-type {
+    margin-left: 0; }
+  .toolbar-actions .dropdown .btn:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type, .toolbar-actions .dropdown .form__button-group .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type, .form__button-group .toolbar-actions .dropdown .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type {
+    border: 1px solid #bebebe;
+    border-width: 1px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    width: 100%; }
+    @media screen and (min-width: 992px) {
+      .toolbar-actions .dropdown .btn:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type, .toolbar-actions .dropdown .form__button-group .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type, .form__button-group .toolbar-actions .dropdown .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type {
+        padding-bottom: 7px;
+        padding-top: 7px; } }
+    .toolbar-actions .dropdown .btn:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type:hover, .toolbar-actions .dropdown .form__button-group .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type:hover, .form__button-group .toolbar-actions .dropdown .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type:hover {
+      background-color: #f4f4f4 !important;
       margin-bottom: 0;
-      padding: 14px 20px 0; } }
-  .toolbar .dropdown {
-    position: static; }
-    @media screen and (min-width: 480px) {
-      .toolbar .dropdown {
-        position: relative; } }
-  .toolbar .dropdown__menu {
-    clear: both;
-    left: 10px;
-    position: absolute;
-    right: 10px;
-    top: 60px; }
-    @media screen and (min-width: 480px) {
-      .toolbar .dropdown__menu {
-        left: auto;
-        right: 0;
-        top: 35px; } }
+      -ms-transform: none;
+          transform: none; }
+    .toolbar-actions .dropdown .btn:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type i, .toolbar-actions .dropdown .form__button-group .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type i, .form__button-group .toolbar-actions .dropdown .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type i {
+      font-size: 18px;
+      vertical-align: middle; }
+      @media screen and (min-width: 992px) {
+        .toolbar-actions .dropdown .btn:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type i, .toolbar-actions .dropdown .form__button-group .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type i, .form__button-group .toolbar-actions .dropdown .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type i {
+          font-size: 14px;
+          vertical-align: baseline; } }
+    .toolbar-actions .dropdown .btn:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type > .toolbar-action__text, .toolbar-actions .dropdown .form__button-group .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type > .toolbar-action__text, .form__button-group .toolbar-actions .dropdown .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type > .toolbar-action__text {
+      display: none;
+      margin-left: 0; }
+      @media screen and (min-width: 992px) {
+        .toolbar-actions .dropdown .btn:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type > .toolbar-action__text, .toolbar-actions .dropdown .form__button-group .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type > .toolbar-action__text, .form__button-group .toolbar-actions .dropdown .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type > .toolbar-action__text {
+          display: inline;
+          margin-left: 5px; } }
+    .toolbar-actions .dropdown .btn:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type > .caret, .toolbar-actions .dropdown .form__button-group .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type > .caret, .form__button-group .toolbar-actions .dropdown .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type > .caret {
+      border-top-color: #3e3e3e; }
+  .toolbar-actions .dropdown .caret {
+    margin-left: 3px; }
+  .toolbar-actions .dropdown .dropdown__menu {
+    border-top: 2px solid #bebebe;
+    top: 40px; }
+    .toolbar-actions .dropdown .dropdown__menu .media {
+      line-height: 24px;
+      padding: 10px; }
+      .toolbar-actions .dropdown .dropdown__menu .media:hover {
+        background-color: #f4f4f4; }
+  .toolbar-actions .dropdown:nth-child(-n+2) .dropdown__menu {
+    left: 0;
+    right: auto; }
+  .toolbar-actions .dropdown:nth-child(n+3) .dropdown__menu {
+    left: auto;
+    right: 0; }
 
-.user-menu > .btn, .form__button-group .controls.user-menu > .control__label {
-  padding: 0; }
-  .user-menu > .btn:hover, .form__button-group .controls.user-menu > .control__label:hover {
-    top: 0; }
-
-.nav-user {
-  float: right;
-  font-size: 16px; }
-  .nav-user .btn, .nav-user .form__button-group .controls > .control__label, .form__button-group .nav-user .controls > .control__label {
-    font-size: 16px; }
-  .nav-user .dropdown {
-    float: left;
-    margin-left: 20px;
-    min-width: 60px;
-    z-index: 1060; }
-  .nav-user .dropdown__header {
-    border-bottom: 1px solid #bebebe;
-    font-family: "proxima_nova_rgregular", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    padding: 3px 15px 3px 10px; }
-  .nav-user .dropdown__menu .is-active {
-    background-color: #a4d2df; }
-
-.site-switcher__label {
-  color: #3e3e3e;
-  display: inline-block;
-  text-decoration: none; }
-
-.nav-user > .dropdown > .btn, .form__button-group .nav-user > .controls.dropdown > .control__label,
-.nav-user > .dropdown > .dropdown-toggle,
-.site-switcher__label {
-  height: 42px;
-  line-height: 42px;
-  padding: 0 10px;
-  top: 0;
-  vertical-align: top; }
+.toolbar-actions .toolbar-action--icon .btn:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type, .toolbar-actions .toolbar-action--icon .form__button-group .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type, .form__button-group .toolbar-actions .toolbar-action--icon .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type {
+  line-height: 16px;
+  padding-bottom: 6px;
+  padding-top: 6px; }
+  .toolbar-actions .toolbar-action--icon .btn:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type i, .toolbar-actions .toolbar-action--icon .form__button-group .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type i, .form__button-group .toolbar-actions .toolbar-action--icon .controls > .control__label:not(.btn--naked):not(.remove-button):not(.remove-button):not(.edit-button):not(.remove-button):last-of-type i {
+    font-size: 18px;
+    vertical-align: middle; }
 
 .toolbar-icon,
 .notifications-toggle {
-  float: right;
-  font-size: 24px;
-  line-height: 42px;
-  margin-left: 20px;
-  padding: 0 4px;
-  position: relative;
-  text-decoration: none; }
-  @media screen and (min-width: 480px) {
-    .toolbar-icon,
-    .notifications-toggle {
-      padding: 0 5px; } }
-  .toolbar-icon, .toolbar-icon:link, .toolbar-icon:visited,
-  .notifications-toggle,
-  .notifications-toggle:link,
-  .notifications-toggle:visited {
-    color: #bebebe; }
-  .toolbar-icon:hover,
-  .toolbar-icon a:hover,
-  .notifications-toggle:hover, .notifications-toggle a:hover {
-    color: #3e3e3e; }
-  .toolbar-icon.is-active,
-  .is-active.notifications-toggle {
-    color: #1e1e1e; }
-
-.toolbar-help-link {
-  border-radius: 15px;
-  color: #3e3e3e;
-  font-size: 14px;
-  font-weight: normal;
-  padding: 5px 8px;
-  position: relative;
-  top: -4px;
-  text-decoration: none; }
-  .toolbar-help-link:hover {
-    top: -4px; }
-
-.toolbar-help {
-  display: none; }
-  @media screen and (min-width: 767px) {
-    .toolbar-help {
-      display: block; } }
-  .toolbar-help .dropdown__menu {
-    min-width: 180px;
-    padding: 0; }
-    .toolbar-help .dropdown__menu .media {
-      line-height: 24px;
-      padding: 10px; }
-      .toolbar-help .dropdown__menu .media:hover {
-        background-color: #f4f4f4; }
+  position: relative; }
 
 .tooltip {
   opacity: 0;
@@ -18341,6 +18470,14 @@ div.is-sorting {
 
 .u-margin-bottom-none {
   margin-bottom: 0 !important; }
+
+
+.u-padding-top-none {
+  padding-top: 0 !important; }
+
+
+.u-padding-bottom-none {
+  padding-bottom: 0 !important; }
 
 /**
  * -----------------------------------------------------------------------------
