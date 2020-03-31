@@ -329,40 +329,6 @@
 }}
     " }) }}
 
-    {{ docs.heading('h3', 'Guidance') }}
-
-    {{ docs.example({
-        twig: "
-{{
-    form.choice({
-        'label': 'Assign blame to',
-        'guidance': 'Guidance text to give more information about expected input',
-        'options': [
-            {
-                'label': 'Sunshine',
-                'name': 'choice-b10',
-                'value': 'sun'
-            },
-            {
-                'label': 'Moonlight',
-                'name': 'choice-b10',
-                'value': 'moon'
-            },
-            {
-                'label': 'Good times',
-                'name': 'choice-b10',
-                'value': 'good'
-            },
-            {
-                'label': 'Boogie',
-                'name': 'choice-b10',
-                'value': 'boogie'
-            }
-        ]
-    })
-}}
-    " }) }}
-
     {{ docs.heading('h2', 'Alignment') }}
     {{ docs.heading('h2', 'Hide Label') }}
     
@@ -566,7 +532,6 @@
             <ul>
                 <li><a href="#help">Help</a></li>
                 <li><a href="#required">Required</a></li>
-                <li><a href="#guidance">Guidance</a></li>
             </ul>
         </li>
         <li><a href="#alignment">Alignment</a>

@@ -158,21 +158,6 @@
 }}
     " }) }}
 
-    {{ docs.heading('h3', 'Guidance') }}
-
-    {{ docs.example({
-        screenreader: 'selected, radio button, 1 of 3',
-        twig: "
-{{
-    form.checkbox({
-        'label': 'My label',
-        'id': 'checkbox-b10', 
-        'name': 'checkbox-b10',
-        'guidance': 'Guidance text to give more information about expected input'
-    })
-}}
-    " }) }}
-
     {{ docs.heading('h2', 'Alignment') }}
     {{ docs.heading('h2', 'Hide Label') }}
     
@@ -281,7 +266,6 @@
             <ul>
                 <li><a href="#help">Help</a></li>
                 <li><a href="#required">Required</a></li>
-                <li><a href="#guidance">Guidance</a></li>
             </ul>
         </li>
         <li><a href="#alignment">Alignment</a>
