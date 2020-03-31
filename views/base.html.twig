@@ -62,8 +62,6 @@
 
 </head>
 <body class="language-html">
-    {% include '@pulsar/pulsar/components/flash.html.twig' %}
-
     <a class="skip-link" href="#skip-target" tabindex="1">Skip to main content</a>
 
 {% block body %}
@@ -77,6 +75,7 @@
                 {% block search %}
                 {% endblock %}
 
+                {% include '@pulsar/pulsar/components/flash.html.twig' %}
                 {{ nav.breadcrumbs(breadcrumbs|default) }}
 
                 {% if heading is defined and heading is not empty %}
@@ -96,7 +95,7 @@
                 </div>
             </div>
 
-            <div class="tab-help-container t-tab-help-container"><div class="tab-help"></div></div>
+            <aside class="tab-help-container t-tab-help-container"><div class="tab-help"></div></aside>
         </div>
     </div>
 
