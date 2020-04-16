@@ -19001,13 +19001,19 @@ h6.docs-heading {
   .page-nav ul {
     list-style-position: outside; }
   .page-nav > li {
-    font-family: 'code_pro_bold_lcregular';
+    font-weight: bold;
     margin-top: 1em; }
   .page-nav li > ul {
-    font-family: "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    list-style-type: initial;
-    margin-left: 20px;
-    padding-left: 10px; }
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 5px;
+    padding-left: 10px;
+    position: relative; }
+    .page-nav li > ul > li::before {
+      content: '-';
+      position: absolute;
+      left: -5px;
+      width: 10px; }
   .page-nav a {
     color: #3e4994;
     text-decoration: none; }
@@ -19016,14 +19022,8 @@ h6.docs-heading {
       text-decoration: underline; }
 
 .lede {
-  border-bottom: 3px double #efefef;
   font-size: 1.2em;
-  font-family: bookmania, serif;
-  font-style: italic;
-  font-weight: 300;
-  margin-top: 5px;
-  margin-bottom: 0;
-  padding-bottom: 24px; }
+  font-family: 'code_pro_lcregular'; }
   .lede + p {
     margin-top: 24px; }
 
