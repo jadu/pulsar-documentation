@@ -46,5 +46,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <ul class="page-nav" data-toc="main" data-toc-headings="h2,h3,h4,h5,h6"></ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}
