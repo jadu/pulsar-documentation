@@ -110,11 +110,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#basic-usage">Basic usage</a></li>
-        <li><a href="#helper-options">Helper options</a></li>
-        <li><a href="#updating-progress-with-javascript">Updating progress with JavaScript</a></li>
-        <li><a href="#stepped-progress-bar">Stepped progress bar</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

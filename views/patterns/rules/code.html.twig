@@ -509,21 +509,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#anatomy-of-a-rule">Anatomy of a rule</a></li>
-        <li><a href="#rule-blocks">Rule blocks</a>
-            <ul>
-                <li><a href="#removeable-blocks">Removeable blocks</a></li>
-                <li><a href="#indented-blocks">Indented blocks</a></li>
-            </ul>
-        </li>
-        <li><a href="#setting-initial-state">Ruleset examples</a>
-            <ul>
-                <li><a href="#basic">Basic</a></li>
-                <li><a href="#full">Full</a></li>
-            </ul>
-        </li>
-        <li><a href="#interactions">Interactions</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

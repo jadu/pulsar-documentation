@@ -59,21 +59,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#the-basics">The basics</a>
-            <ul>
-                <li><a href="#the-pulsar-team">The Pulsar team</a></li>
-                <li><a href="#getting-help">Getting help</a></li>
-                <li><a href="#bug-reports-and-feature-requests">Bug reports and feature requests</a></li>
-            </ul>
-        </li>
-        <li><a href="#developing-with-pulsar">Developing with Pulsar</a>
-            <ul>
-                <li><a href="#not-all-interfaces-use-pulsar">Not all interfaces use Pulsar</a></li>
-                <li><a href="#how-to-update-the-pulsar-version-used-in-a-jadu-product">How to update the Pulsar version</a></li>
-            </ul>
-        </li>
-
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

@@ -1,0 +1,50 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">The Pulsar Design System provides accessible components, layouts and recommended patterns which serve as a foundation for your application development.</p>
+
+    <p>This statement does not cover how a feature in a Jadu may combine Pulsar components into a full user interface, it is not possible to predict how accessible a user interface is based on the individual elements alone. Using Pulsar does not mean your user interfaces automatically meet accessibility requirements.<p>
+
+    {{ docs.heading('h2', 'Technical information') }}
+
+    <p>This document refers to 'Pulsar', the open-source design system which provides documented user interface components, form components, web layouts and user interface patterns which are used in Jadu products. When we refer to ‘Pulsar’, or ‘Pulsar components’ in this document we may be referring to any individual part of the design system.</p>
+
+    <p>It is intended that Pulsar is compliant with the Web Content Accessibility Guidelines version 2.1 AA standard.</p>
+
+    {{ docs.heading('h2', 'Reporting accessibility problems with Pulsar') }}
+
+    <p>The Pulsar team are always looking to improve the accessibility of the design system. If you find any problems that are not listed on this page or think any part of Pulsar is not meeting accessiblity requirements, email the project lead at <a mailto="paul.stanton@jadu.net">paul.stanton@jadu.net</a>.</p>
+
+    {{ docs.heading('h2', 'Non-accessible content') }}
+
+    <p>The components listed below fail to meet the required guidelines at the current moment in time, for the following reasons.</p>
+
+    {{ docs.heading('h3', 'Non-compliance with the accessibility regulations') }}
+
+    {{ docs.heading('h4', 'Filter bar') }}
+
+    <p>The filter bar component contains a number of identified accessibility issues, solutions for each are currently in early stage discussions.</p>
+
+    <ul>
+        <li>It is not possible to remove a filter label using the keyboard</li>
+        <li>When a filter contains invalid information this is not sufficiently communicated</li>
+    </ul>
+
+    {{ docs.heading('h4', 'Form color picker') }}
+
+    <p>The <a href="/forms/color">color</a> form component provides an interactive colour palette which is displayed when a person clicks on the colour preview. It is not possible to use this interactive picker using a keyboard or other common assistive technologies such as speech recognition software.</p>
+
+    <p>The colour picker does provide a fully accessible method of inputting a hexadecimal colour value through a regular text input, providing the person knows a suitable value to place in this field. For this reason we will not consider improving the experience of the interactive picker due to the difficulty of providing a fully accessible method of choosing from 65 million available colours.</p>
+
+    {{ docs.heading('h3', 'Disproportionate burden') }}
+
+    {{ docs.heading('h4', 'Piano list pattern') }}
+
+    <p>The ‘piano list’ pattern which was been used in the integrations user interface as well as some other CXM UIs presents a number of accessibility challenges which we feel are best solved by a different user interface pattern. We will 
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <ul class="page-nav" data-toc="main" data-toc-headings="h2,h3,h4,h5,h6"></ul>
+{% endblock tab_sidebar %}

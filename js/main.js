@@ -60,9 +60,6 @@
                 $parent.find('.d-example__code:not(.js-' + lang + ')').hide();
         });
 
-        // Use clickover enhancements for popovers
-        // $('[rel="clickover"]').clickover({ 'global_close': true });
-        
         $('[data-toggle-nav]').on('click', function (e) {
             let $target = $html.find('[aria-controls="aria-secondary-nav"][data-target="' + $(this).data('toggle-nav') + '"]');
             
@@ -71,12 +68,17 @@
             e.preventDefault();
         });
 
+        $('[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            $(".page-nav").empty().toc({content: ".tab__pane.is-active", headings: "h2.docs-heading,h3.docs-heading,h4.docs-heading,h5.docs-heading,h6.docs-heading"});
+        });
+
         // DropZone
         pulsar.dropZoneComponent.init({
             supported: !lt10,
             showInputNode: lt10
         });
-        
+
+        console.log($('.docs-heading'));
     });
 
 }(jQuery));

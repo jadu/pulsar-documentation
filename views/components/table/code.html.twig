@@ -146,25 +146,6 @@
     
 </div>
 {% endblock tab_content %}
-
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#basic-usage">Basic usage</a></li>
-        <li><a href="#width-options">Width options</a>
-            <ul>
-                <li><a href="#full-width">Full width</a></li>
-                <li><a href="#fixed-width">Fixed width</a></li>
-            </ul>
-        </li>
-        <li><a href="#horizontal-scroll">Horizontal scroll</a></li>
-        <li><a href="#centered-columns">Centered columns</a></li>
-        <li><a href="#increased-contrast">Increased contrast</a></li>
-    </ul>
-
-    <h4>Related components</h4>
-    <ul class="page-nav">
-        <li><a href="datatable">Datatable</a></li>
-        <li><a href="pagination">Pagination</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

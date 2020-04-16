@@ -59,32 +59,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#titles">Titles</a>
-            <ul>
-                <li><a href="#html-title">HTML title</a></li>
-                <li><a href="#page-title">Page title</a></li>
-            </ul>
-        </li>
-        <li><a href="#actions-bar">Actions bar</a>
-            <ul>
-                <li><a href="#actions-menu">Actions menu</a></li>
-                <li><a href="#primary-action-button">Primary action button</a></li>
-                <li><a href="#disabled-action-buttons">Disabled action buttons</a></li>
-                <li><a href="#multiple-action-buttons">Multiple action buttons</a></li>
-            </ul>
-        </li>
-        <li><a href="#the-datatable">The DataTable</a>
-            <ul>
-                <li><a href="#columns">Columns</a></li>
-                <li><a href="#initial-column-order">Initial column order</a>
-                <li><a href="#row-selection-checkboxes">Row selection checkboxes</a></li>
-                <li><a href="#actions-column">Actions column</a>
-                <li><a href="#pagination">Pagination</a>
-            </ul>
-        </li>
-        
-        
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

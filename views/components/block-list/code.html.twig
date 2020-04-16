@@ -124,19 +124,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <div class="page-nav-wrapper">
-        <h4>On this page</h4>
-        <ul class="page-nav">
-            <li><a href="#basic-usage">Basic usage</a></li>
-            <li><a href="#helper-options">Helper options</a></li>
-            <li><a href="#markup-types">Markup types</a>
-                <ul>
-                    <li><a href="#link">Link</a></li>
-                    <li><a href="#div">Div</a></li>
-                    <li><a href="#ul">Unordered list</a></li>
-                    <li><a href="#ol">Ordered list</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

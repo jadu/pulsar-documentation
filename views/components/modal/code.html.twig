@@ -218,25 +218,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#when-to-consider-using-a-modal">When to consider using a modal</a></li>
-        <li><a href="#when-not-to-use-a-modal">When not to use a modal</a></li>
-        <li><a href="#basic-usage">Basic usage</a></li>
-        <li><a href="#accessibility">Accessibility</a></li>
-        <li><a href="#opening-modals">Opening modals</a>
-            <ul>
-                <li><a href="#opening-a-modal-from-an-existing-modal">Opening a modal from an existing modal</a></li>
-            </ul>
-        </li>
-        <li><a href="#closing-modals">Closing modals</a></li>
-        <li><a href="#methods">Methods</a>
-            <ul>
-                <li><a href="#toggle">Toggle</a></li>
-                <li><a href="#show">Show</a></li>
-                <li><a href="#hide">Hide</a></li>
-            </ul>
-        </li>
-        <li><a href="#events">Events</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

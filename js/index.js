@@ -19,7 +19,8 @@ var $                     = require('jquery'),
     tooltip               = require('../vendor/jadu/pulsar/js/libs/tooltip'),
     matchMedia            = require('../vendor/jadu/pulsar/js/polyfills/matchMedia'),
     matchMediaAddListener = require('../vendor/jadu/pulsar/js/polyfills/matchMedia.addListener'),
-
+    
+    toc           = require('jquery.toc'),
     dt            = require('datatables.net')(window, $),
     dt_buttons    = require('datatables.net-buttons')(window, $),
     dt_responsive = require('datatables.net-responsive')(window, $),
