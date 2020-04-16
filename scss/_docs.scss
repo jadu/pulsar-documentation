@@ -105,7 +105,6 @@ h6.docs-heading {
 .tab__content {
     code {
         background-color: #efefef;
-        // clear: both;
         color: #000;
         padding: 3px 5px;
         border-radius: 4px;
@@ -132,24 +131,43 @@ h6.docs-heading {
     }
 }
 
+.tab__container .tab__sidebar {
+    padding: 0;
+
+    h4 {
+        font-family: 'code_pro_bold_lcregular';
+        line-height: 2em;
+    }
+}
+
 .page-nav {
+    list-style-type: none;
+    padding-left: 0;
+
+    &,
     ul {
-        margin-bottom: 0;
+        list-style-position: outside;
     }
 
-    li {
-        list-style-type: none;
+    > li {
+        font-family: 'code_pro_bold_lcregular';
+        margin-top: 1em;
     }
-
-    li ul {
+    
+    li > ul {
+        font-family: "proxima-nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        list-style-type: initial;
         margin-left: 20px;
+        padding-left: 10px;
     }
 
     a {
-        color: color(link);
+        color: #3e4994;
+        text-decoration: none;
 
         &:hover {
             color: color(text);
+            text-decoration: underline;
         }
     }
 }
