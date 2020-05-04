@@ -46,7 +46,7 @@ $twig->addExtension(new TabsExtension());
 $twig->addExtension(new Twig_Extension_StringLoader());
 $twig->addExtension(new Twig_Extension_Debug());
 
-if (strstr($_SERVER['PATH_INFO'], '.html.twig')) {
+if (isset($_SERVER['PATH_INFO']) && strpos($_SERVER['PATH_INFO'], '.html.twig') !== false) {
     $template = $twig->loadTemplate($_SERVER['PATH_INFO']);
 } else {
     $template = $twig->loadTemplate($_SERVER['REQUEST_URI'] . '/index.html.twig');
