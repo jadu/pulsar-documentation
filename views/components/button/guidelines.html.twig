@@ -281,41 +281,21 @@
 
     <p>The disabled attribute prevents mouse events from firing and stops tooltips from working entirely. The only way around this which works for all our supported browsers is to wrap the button in a containing <code>div</code>, and attach the tooltip to that element.</p>
 
-    {{ docs.example({ 
-        screenreader: "{{ html.icon('exclamation-triangle') }} Will not be announced",
-        twig: "
-<div rel=\"tooltip\" data-toggle=\"tooltips\" title=\"A nice descriptive reason why this button is disabled\">
-    {{
-        html.button({
-            'label': 'Button Action',
-            'disabled': true
-        })
-    }}
+    {{ docs.example({
+        screenreader: 'Disabled button, group, you are currently on a button, this item is dimmed',
+        twig: '
+<div data-tippy-content="Can’t touch this" tabindex="0" class="u-display-inline-block">
+  {{ 
+    html.button({
+      "label": "Disabled Button",
+      "disabled": true
+    })
+  }}
 </div>
-    " }) }}
+    ' }) }}
 
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#basic-usage">Labelling your button</a>
-            <ul>
-                <li><a href="#using-icons">Using icons</a></li>
-            </ul>
-        </li>
-        <li><a href="#button-vs.-link">Button vs. Link</a>
-            <ul>
-                <li><a href="#example-link-type">Example link type</a></li>
-                <li><a href="#example-button-type">Example button type</a></li>
-                <li><a href="#example-input-type">Example input type</a></li>
-                <li><a href="#example-submit-type">Example submit type</a></li>
-            </ul>
-        </li>
-        <li><a href="#button-vs.-link">Disabled</a>
-            <ul>
-                <li><a href="#adding-tooltips-to-disabled-buttons">Adding tooltips to disabled buttons</a></li>
-            </ul>
-        </li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

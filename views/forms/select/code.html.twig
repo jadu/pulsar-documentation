@@ -96,6 +96,34 @@
 }}
     " }) }}
 
+    <p>For multiple selects, pass the selected values as an array. If you want this to look much nicer consider using the select2 helper instead.</p>
+
+    {{ docs.example({
+        twig: "
+{{
+    form.select({
+        'label': 'Pick colours',
+        'id': 'select-2-multi',
+        'multiple': true,
+        'selected': ['colour_red', 'colour_blue'],
+        'options': [
+            {
+                'label': 'Choose',
+                'value': ''
+            },
+            {
+                'label': 'Red',
+                'value': 'colour_red'
+            },
+            {
+                'label': 'Blue',
+                'value': 'colour_blue'
+            }
+        ]
+    })
+}}
+    " }) }}
+
     {{ docs.heading('h2', 'Disabled input') }}
 
     <p>Add the <code>'disabled': true</code> option to disable the field on load. See the <a href="../guides/disabling-elements">disabling elements guide</a> for more information about how to disable elements via javascript. Provide help text or information within the UI where possible to explain why elements are disabled.</p>
@@ -201,13 +229,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#basic-usage">Basic usage</a></li>
-        <li><a href="#helper-options">Helper options</a></li>
-        <li><a href="#selected-option">Selected option</a></li>
-        <li><a href="#disabled-input">Disabled input</a></li>
-        <li><a href="#disabled-option">Disabled option</a></li>
-        <li><a href="#using-optgroups">Using optgroups</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

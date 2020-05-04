@@ -1,0 +1,385 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">The common list user interface pattern is the most frequent pattern used to display a paginated collection of <em>Things</em>, with related actions which can manipulate that collection.</p>
+
+    <figure class="screenshot"><img src="/views/patterns/common-list/common-list-2x.png" alt="Screenshot showing the common list component" /></figure>
+
+    {{ docs.heading('h2', 'Titles') }}
+    {{ docs.heading('h3', 'HTML title') }}
+
+    <p>The title attribute is a an essential piece of information, especially for assisitive technology users and should be short, relevant to the data being listed, descriptive and make use of variables where necessary.</p>
+
+    <p>Use the pipe character <code>|</code> to separate the heirarchy of information. The account or organisation name should be included to help the user discern between multi-tenanted systems like CXM, or Galaxies Sites.</p>
+    
+    <strong>Examples:</strong>
+
+    <pre><code>&lt;title&gt;My Documents | &#123;&#123; account_name &#125;&#125;&lt;/title&gt;</code></pre>
+    
+    <pre><code>&lt;title&gt;&#123;&#123; person_name &#125;&#125; cases | &#123;&#123; account_name &#125;&#125;&lt;/title&gt;</code></pre>
+    
+    <pre><code>&lt;title&gt;Search results for &#123;&#123; search_term &#125;&#125; | &#123;&#123; account_name &#125;&#125;&lt;/title&gt;</code></pre>
+    
+    <pre><code>&lt;title&gt;No results found for &#123;&#123; search_term &#125;&#125; | &#123;&#123; account_name &#125;&#125;&lt;/title&gt;</code></pre>
+
+    {{ docs.heading('h3', 'Page title') }}
+
+    <p>The page title should describe the Things being listed by the UI. For example. Documents, Cases, Forms. This can be contextual depending on what is being displayed, such as All Cases, My Cases, Closed Cases etc...</p>
+
+    {{ docs.heading('h3', 'Actions bar') }}
+
+    <p>The actions bar appears below the tabbed navigation and consists of the actions menu, and one or more action buttons. The specific markup required for the actions bar is documented in the <a href="/patterns/actions-bar">actions bar pattern</a>.</p>
+
+    {{ docs.heading('h4', 'Actions menu') }}
+
+    <p>The actions menu is a dropdown button which contains a list of actions which can be performed on the Things  listed in this user interface. Usually it will contain the primary action, as well those actions which may be performed on items in the list which have been selected using the row selection checkboxes.</p>
+
+    <p>If an action is dangerous or destructive, such as Delete, you should use the <code>link--danger</code> class to illustrate this.</p>
+
+    <p>The primary action should always appear at the top of the menu, and the delete action at the bottom separated with a divider.</p>
+    
+    <p>Actions menu items should be sentence case.</p>
+
+    <p>If an action cannot be performed unless one or more items are selected, the link should be disabled. <span class="label label--warning">The exact details of this pattern are currently being discussed</span></p>
+
+    {{ docs.example({ 
+        code: false,
+        twig: "
+{{
+    html.button_dropdown({
+        'label': 'Actions',
+        'items': [
+            html.link({ 'label': html.icon('plus') ~ ' New thing', 'href': '#new' }),
+            html.divider(),
+            html.link({ 
+                'label': html.icon('file-excel-o') ~ ' Export as CSV', 
+                'href': '#csv'
+            }),
+            html.link({ 
+                'label': html.icon('file-pdf-o') ~ ' Export as PDF', 
+                'href': '#pdf'
+            }),
+            html.link({ 
+                'label': html.icon('print') ~ ' Print', 
+                'href': '#print',
+                'disabled': true,
+                'role': 'button',
+                'aria-disabled': 'true'
+            }),
+            html.divider(),
+            html.link({ 
+                'label': html.icon('times') ~ ' Delete', 
+                'href': '#delete', 
+                'class': 'link--danger' })
+        ]
+    })
+}}
+    " }) }}
+
+
+    {{ docs.heading('h4', 'Primary action button') }}
+
+    <p>The primary action is located towards the top right of the user interface and is typically a <code>html.button</code> element with the <code>.btn--primary</code> class which, when pressed, will allow the user to create a new Thing to be added to the list. For example, New Document, New Event, New Case.</p>
+
+    {{ docs.example({
+        code: false,
+        twig: "
+<div class=\"actionsbar\">
+    <div class=\"u-float-left\">
+        
+    </div>
+    <div class=\"u-float-right\">
+        {{
+            html.button({
+                'label': 'New Thing',
+                'class': 'btn--primary '
+            })
+        }}
+    </div>
+</div>
+    " }) }}
+
+    <p>The actual interaction which will occur when this action is triggered may vary depending on the needs and complexity of the user interface. For example, it may present the user with a full 'common form' or a modal.</p>
+
+    <p>There are some situations where it is not appropriate to place a primary action in the UI, such as when the common list is used to display Things which are not possible to be explicitly created by the user (like a history log or audit trail). This is the only time where the button can be completely absent.</p>
+
+    {{ docs.heading('h4', 'Disabled action buttons') }}
+
+    <p>If the user does not have the necessary permissions to perform the primary action, the button should be displayed in a disabled state. <span class="label label--warning">The exact details of this pattern are currently being discussed</span></p>
+
+    {{ docs.heading('h4', 'Multiple action buttons') }}
+
+    <p>Ideally a user interface should focus on the singular main task you want that user to perform, however there may be times where more than one action needs to be presented to the user, you should use your own judgement about how to present these and try not to overload the user with choices.</p>
+
+    <p>Example of a primary action, and a less important secondary action:</p>
+
+    {{ docs.example({
+        code: false,
+        twig: "
+<div class=\"actionsbar\">
+    <div class=\"u-float-left\">
+        
+    </div>
+    <div class=\"u-float-right\">
+        {{
+            html.button({
+                'label': 'Secondary Action'
+            })
+        }}
+        {{
+            html.button({
+                'label': 'Primary Action',
+                'class': 'btn--primary'
+            })
+        }}
+    </div>
+</div>
+    " }) }}
+
+    <p>Example of a choice:</p>
+
+    {{ docs.example({
+        code: false,
+        twig: "
+<div class=\"actionsbar\">
+    <div class=\"u-float-left\">
+        
+    </div>
+    <div class=\"u-float-right\">
+        {{
+            html.button({
+                'label': 'Reject',
+                'class': 'btn--danger'
+            })
+        }}
+        {{
+            html.button({
+                'label': 'Approve',
+                'class': 'btn--success'
+            })
+        }}
+    </div>
+</div>
+    " }) }}
+
+    <p>Example of more than one equally important actions:</p>
+
+    {{ docs.example({
+        code: false,
+        twig: "
+<div class=\"actionsbar\">
+    <div class=\"u-float-left\">
+        
+    </div>
+    <div class=\"u-float-right\">
+        {{
+            html.button({
+                'label': 'Action Two',
+                'class': 'btn--primary'
+            })
+        }}
+        {{
+            html.button({
+                'label': 'Action One',
+                'class': 'btn--primary'
+            })
+        }}
+    </div>
+</div>
+    " }) }}
+
+    {{ docs.heading('h2', 'The DataTable') }}
+
+    <p>The common list pattern's main UI element is a datatable which presents the user with a list of Things, usually organised in date order (newest first) with up to 25 items per page as the default view. The table will show extra critical information which is requried depending on the context of the content. This may include dates, statuses or a collection of actions that can be performed on the items.</p>
+
+    <p>The number of entries on each page of the table can be controlled by the dropdown option in the DataTable footer, the value of this should be stored by the Jadu product as a persistent user preference.</p>
+
+    {{ docs.example({ 
+        code: false,
+        html: '
+<table data-order="[[ 3, &quot;desc&quot; ]]"  class="table datatable table--full table--horizontal">
+    <thead>
+        <tr>
+            <th class="table-selection" data-orderable="false">
+                <input type="checkbox" class="form__control checkbox js-select-all" data-tippy-content="Select all rows" data-tippy-placement="right"/>
+            </th>
+            <th>Title</th>
+            <th>Owner</th>
+            <th>Modified</th>
+            <th data-orderable="false" class="u-text-align-center u-shrink-to-fit">Live</th>
+            <th data-orderable="false" class="u-text-align-center u-shrink-to-fit">Visible</th>
+            <th data-orderable="false">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="table-selection">
+                <input type="checkbox" class="form__control checkbox js-select" aria-label="Select row" />
+            </td>
+            <td><a href="#terminator">The Terminator</a></td>
+            <td>James Cameron</td>
+            <td data-order="1991-07-01 12:34">01/07/1991 12:34</td>
+            <td data-order="Live" class="u-text-align-center">
+                <i aria-label="Yes" class="icon-check-circle status--icon is-online"></i>
+            </td>
+            <td data-order="Visible" class="u-text-align-center">
+                <i aria-label="No" class="icon-times-rectangle status--icon is-offline"></i>
+            </td>
+            <td>
+                <a href="#queue">Queue</a> <a href="#play">Play</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="table-selection">
+                <input type="checkbox" class="form__control checkbox js-select" aria-label="Select row" />
+            </td>
+            <td><a href="#conan">Conan the Barbarian</a></td>
+            <td>John Millius</td>
+            <td data-order="1982-04-02 12:34">02/04/1982 12:34</td>
+            <td data-order="Live" class="u-text-align-center">
+                <i aria-label="No" class="icon-times-rectangle status--icon is-offline"></i>
+            </td>
+            <td data-order="Visible" class="u-text-align-center">
+                <i aria-label="Yes" class="icon-check-circle status--icon is-online"></i>
+            </td>
+            <td>
+                <a href="#queue">Queue</a> <a href="#play">Play</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="table-selection">
+                <input type="checkbox" class="form__control checkbox js-select" aria-label="Select row" />
+            </td>
+            <td><a href="#predator">Predator</a></td>
+            <td>John McTiernan</td>
+            <td data-order="1988-01-01 12:34">01/01/1988 12:34</td>
+            <td data-order="Live" class="u-text-align-center">
+                <i aria-label="Yes" class="icon-check-circle status--icon is-online"></i>
+            </td>
+            <td data-order="Visible" class="u-text-align-center">
+                <i aria-label="Yes" class="icon-check-circle status--icon is-online"></i>
+            </td>
+            <td>
+                <a href="#queue">Queue</a> <a href="#play">Play</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="table-selection">
+                <input type="checkbox" class="form__control checkbox js-select" aria-label="Select row" />
+            </td>
+            <td><a href="#commando">Commando</a></td>
+            <td>Mark L. Lester</td>
+            <td data-order="1986-02-21 12:34">21/02/1986 12:34</td>
+            <td data-order="Live" class="u-text-align-center">
+                <i aria-label="Yes" class="icon-check-circle status--icon is-online"></i>
+            </td>
+            <td data-order="Visible" class="u-text-align-center">
+                <i aria-label="Yes" class="icon-check-circle status--icon is-online"></i>
+            </td>
+            <td>
+                <a href="#queue">Queue</a> <a href="#play">Play</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="table-selection">
+                <input type="checkbox" class="form__control checkbox js-select" aria-label="Select row" />
+            </td>
+            <td><a href="#genisys">Terminator Genisys</a></td>
+            <td>Alan Taylor</td>
+            <td data-order="2015-06-25 12:34">25/06/2015 12:34</td>
+            <td data-order="Live" class="u-text-align-center">
+                <i aria-label="Yes" class="icon-check-circle status--icon is-online"></i>
+            </td>
+            <td data-order="Visible" class="u-text-align-center">
+                <i aria-label="Yes" class="icon-check-circle status--icon is-online"></i>
+            </td>
+            <td>
+                <a href="#queue">Queue</a> <a href="#play">Play</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+    ' }) }}
+
+    {{ docs.heading('h3', 'Columns') }}
+
+    <p>Column headers should be short yet descriptive, and use as few words as possible to describe what is contained in their respective columns. For example, it’s not required to use 'Date Created' when simply 'Created', and the fact that the column contains date information is enough information.</p>
+
+    <p>The first column, containing the primary 'Thing' reference, should link to the UI which controls that specific Thing. Usually an edit view, but may be some other form of detailed display.</p>
+    
+    <p>Table column header labels should be consistent with others within the same product. Avoid mixing terms or contractions like Case Ref, Case Reference and Case ID.</p>
+
+    <p>Column headers should be sentence case.</a>
+
+    <p>Columns should be orderable, unless there's no need to order a column to organise data (such as the 'actions' column).</p>
+
+    <p>DataTables will automatically make columns orderable however that behaviour can be disabled, some additional information is required to make date/time columns orderable. You can refer to the <a href="https://pulsar.docs.jadu.net/components/datatable#disable-column-ordering">DataTable documentation</a> for more information.</p>
+    
+    <strong>Examples:</strong>
+
+    <ul>
+        <li>Primary 'Thing' reference (e.g. Name, Title, Case Reference or Form)</li>
+        <li>Created</li>
+        <li>Modified</li>
+        <li>Status</li>
+        <li>Owner</li>
+        <li>Actions</li>
+    </ul>
+
+    <p>When deciding between 'Name' or 'Title' for the main column, if the Thing has a title field (like a Document) you would use 'Title', however if the Thing has a name (like a Location), then you may wish to use Name.</p>
+
+    <p>If you have different pieces of data that refer to the same Thing, you don't have to redeclare what the Thing is in each column, especially if the page title describes the Things. Instead of using <code>Form Name | Form ID | Form Status</code> you should simply use <code>Name | ID | Status</code> if the page title is "Forms" or similar.
+
+
+    {{ docs.heading('h3', 'Initial column order') }}
+
+    <p>It is possible to define which column is used to order the table on the initial page load. Typically it is most appropriate to sort by the date created/added in descending order so that the content is ordered by newest first.</p>
+    
+    <p>Refer to the DataTable <a href="https://pulsar.docs.jadu.net/components/datatable#set-initial-column-order">initial column sort documentation</a> for specific information on how to define the column sort.</p>
+
+    {{ docs.heading('h3', 'Row selection checkboxes') }}
+
+    <p>It is strongly recommended that the user is able to perform actions on more than one row item at once, the most basic use of this would be to delete multiple items at once however you may want to allow other bulk actions such as publishing content, applying categories or changing the status of an item.
+
+    <p>If no bulk actions are provided by the user interface, the row selection column can be hidden by supplying the <code>data-select="false"</code> option to the DataTable.</p>
+
+    {{ docs.heading('h3', 'Status icons') }}
+
+    <p>If a column needs to display the status of a boolean value, such as whether an item is live/offline, or visible/invisible, you can use status icons to display this information.</p>
+
+    <p>Status icons must contain appropriate accessible labels so their meaning can be discerned when viewed without the context of the table header.</p>
+
+    {{ docs.heading('h3', 'Actions column') }}
+
+    <p>Depending on the needs of your user interface, it may be useful to surface some actions to the top level list view so that they can be quickly triggered without the user having to navigate into a specific list item to perform the action.</p>
+    
+    <p>The actions column is not a replacement for the actions menu and you should be aware of the difference in context. The actions menu is a multi-step process to affect one or more Things in the table (select the rows, open the actions menu, choose the action) where as the actions column allows the user to trigger an action on a single Thing with one click.</p>
+
+    <p>The actions column will contain multiple links with the same label (e.g. "Archive") which will trigger warnings in accessibility testing tools. To improve the context of these actions you should add a more detailed <code>aria-label</code> which is specific to the Thing being acted upon. e.g. "Archive my awesome report".</p>
+    
+    <strong>Do:</strong>
+    <ul>
+        <li>always use the 'Actions' heading label for this column</li>
+        <li>only surface the most important actions that a user may need to perform quickly and often</li>
+        <li>use a link if the action navigates away from the page</li>
+        <li>Use a button if the action stays on the page (like trigger a task or open a modal)</li>
+    </ul>
+
+    <strong>Do not:</strong>
+    <ul>
+        <li>include a delete action (either in the actions column or as a <i class="icon-times-circle"></i>), items should be delete-able through the actions menu.</li>
+        <li>include this column if there are no actions to display</li>
+        <li>Make this column orderable</li>
+    </ul>
+
+    {{ docs.heading('h3', 'Pagination') }}
+
+    <p>To prevent the common list view from being too large it is necessary to limit the number of results that appear on a given 'page'. The DataTable component will automatically limit the table to 20 rows and paginate the rest, and there are multiple methods of populating the table with data that developers may use. You can refer to the DataTable documentation 
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    {{ docs.toc() }}
+{% endblock tab_sidebar %}

@@ -59,31 +59,8 @@
     })
 }}
     " }) }}
-
-    {{ docs.heading('h2', 'Labels with tooltips') }}
-
-    <p>You should keep labels short and concise, tooltips can be used to provide further meaning if required.</p>
-
-    {{ docs.example({ 
-        twig: "
-{{
-    html.label({
-        'label': '3 days ago',
-        'class': 'label--primary',
-        'data-toggle': 'tooltips',
-        'data-placement': 'right',
-        'title': '4th July 2015 12:34pm'
-    })
-}}
-    " }) }}
-
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#accessibility">Accessibility</a></li>
-        <li><a href="#linked-labels">Linked labels</a></li>
-        <li><a href="#labels-with-tooltips">Labels with tooltips</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

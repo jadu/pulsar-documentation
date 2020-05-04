@@ -1,0 +1,27 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Common List' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Home', 'href': '/'},
+        {'label': 'Patterns', 'data-toggle-nav': '#patterns'},
+        {'label': 'Common list', 'href': '#'}
+    ]
+%}
+
+{% set tab_guide %}
+    {% include 'patterns/common-list/guide.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "guide",
+          "class" : "ui-report",
+          "label" : "Guide",
+          "src"   : tab_guide,
+          "active": true
+        }
+    ]
+%}

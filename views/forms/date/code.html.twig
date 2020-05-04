@@ -19,7 +19,7 @@
     })
 }}
       " }) }}
-    
+
     {{ docs.heading('h2', 'Twig helper') }}
     {{ docs.heading('h3', 'Helper options') }}
 
@@ -92,14 +92,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#basic-usage">Basic usage</a></li>
-        <li><a href="#twig-helper">Twig helper</a>
-            <ul>
-                <li><a href="#helper-options">Helper options</a></li>
-                <li><a href="#disabled-input">Disabled input</a></li>
-            </ul>
-        </li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

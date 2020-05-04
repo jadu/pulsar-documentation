@@ -11,11 +11,14 @@
 
     {{ docs.example({
         twig: "
-<p>I am online {{ html.status('online') }}</p>
-<p>I am offline {{ html.status('offline') }}</p>
-<p>I am active {{ html.status('active') }}</p>
-<p>I am inactive {{ html.status('inactive') }}</p>
+<p>{{ html.status('online') }} Online</p>
+<p>{{ html.status('online', { icon: true }) }} Online with icon</p>
+<p>{{ html.status('offline') }} Offline</p>
+<p>{{ html.status('offline', { icon: true }) }} Offline with icon</p>
+<p>{{ html.status('inactive') }} I am inactive</p>
     " }) }}
+
+    <p>If you're using status indicators in a table, such as the <a href="/patterns/common-list">common list</a>, and the status you're attempting to illustrate is a simple yes/no then you should use the icon variant of status labels where possible. The addition of the icons adds extra visual information and relies less on colour alone to communicate the information.</p>
 
 {{ docs.heading('h2', 'States') }}
 
@@ -62,10 +65,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#basic-usage">Basic usage</a></li>
-        <li><a href="#helper-options">Helper options</a></li>
-        <li><a href="#accessibility">Accessibility</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

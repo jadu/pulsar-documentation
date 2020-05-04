@@ -1,0 +1,27 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Settings panel' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Home', 'href': '/'},
+        {'label': 'Patterns', 'data-toggle-nav': '#patterns'},
+        {'label': 'Settings panel', 'href': '#'}
+    ]
+%}
+
+{% set tab_code %}
+    {% include 'patterns/settings-panel/code.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "code",
+          "class" : "ui-report",
+          "label" : "Code",
+          "src"   : tab_code,
+          "active": true
+        }
+    ]
+%}

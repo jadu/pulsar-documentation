@@ -283,15 +283,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#colour">Colour</a></li>
-        <li><a href="#fonts">Fonts</a></li>
-        <li><a href="#spacing">Spacing</a></li>
-        <li><a href="#margins">Margins</a></li>
-        <li><a href="#padding">Padding</a></li>
-        <li><a href="#responsive-breakpoints">Responsive breakpoints</a></li>
-        <li><a href="#borders">Borders</a></li>
-        <li><a href="#z-index">Z-index</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

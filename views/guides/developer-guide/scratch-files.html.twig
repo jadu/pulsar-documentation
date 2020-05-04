@@ -1,0 +1,82 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Sometimes it’s necessary to temporarily override or fix Pulsar components before an official Pulsar release. These changes are placed in ‘scratch’ files within Continuum products. This document outlines how these changes are reviewed and implemented into Pulsar.</p>
+
+    {{ docs.heading('h2', 'Product scratch files') }}
+
+    <table class="table table--full table--fixed">
+        <thead>
+            <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Scratch location</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CMS</td>
+                <td><code>/public_html/jadu/pulsar/_override.scratch.scss</code></td>
+            </tr>
+            <tr>
+                <td>XFP</td>
+                <td><code>/public_html/jadu/xforms2/scss/_scratch.scss</code></td>
+            </tr>
+            <tr>
+                <td>CXM (control-centre)</td>
+                <td><code>/web/stylesheets/extras/_scratch.scss</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'When to use a scratch rule') }}
+
+    <p>Scratch rules are only to be used when a fix is needed urgently and before a Pulsar release can be created to address issue at hand. Ideally, both a product-team member and a Pulsar-team member will have been involved in the decision to create a scratch rule after discussing a specific issue that needs to be addressed.</p>
+
+    {{ docs.heading('h2', 'Example rule') }}
+
+    <p>Scratch rules should be documented with enough information so that the rule can be reviewed at a later date in order to understand why the rule was necessary, what components or UIs it affects, and who was involved at the time it was created. Git history may provide some information but detailed information should be left as a comment within the scratch file. Individual lines should be commented to explain the effect of their change and the reason behind them. Try and give as much information as possible to help the person reviewing the change.</p>
+
+    <p>Every scratch rule, in theory, is created to address an issue or bug with the design system and as such, should have a ticket created. This ticket reference, whether it's in Jira or GitHub should be added in the scratch description.</p>
+
+    <pre><code lang="css">
+    /**
+     * 04/07/2019 - Paul Stanton
+     *
+     * Description:
+     * Fixes checkbox styling based on updated Pulsar styles which aren’t properly applying the new styles due to
+     * high specificity.
+     *
+     * Affected UIs:
+     * https://example.com/path/to/affected-ui
+     * https://example.com/path/to/affected-ui
+     *
+     * Ticket:
+     * https://path/to/related/ticket/XFP-1111
+     */
+    .form__control.checkbox.checkbox,
+    .form__control.radio.radio {
+        height: 20px;
+        overflow: visible; // stop border from disappearing under left edge of container
+        position: relative; // stop radios being misaligned when used in choice groups
+        width: 20px;
+    }
+    </code></pre>
+
+    {{ docs.heading('h2', 'Review process') }}
+
+    <p>When a scratch rule is required, there is a structured process for how these should be reviewed so that they’re regularly reviewed and fixed within the core products so that these overrides don’t accumulate over time.</p>
+
+    <p>This diagram illustrates which teams are usually responsible for each step in the process, though there are times where a single developer may be involved in the entire process from end-to-end.</p>
+
+    <figure class="u-text-align-center wireframe--small">
+        <img src="/views/guides/developer-guide/img/process.png" alt="Flowchart illustrating the flow between product and pulsar teams when reviewing scratch tickets" />
+        <figcaption>The flow between product and Pulsar teams when reviewing scratch rules</figcaption>
+    </figure>
+    
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    {{ docs.toc() }}
+{% endblock tab_sidebar %}

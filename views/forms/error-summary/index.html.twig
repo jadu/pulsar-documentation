@@ -1,0 +1,27 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Error summary' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Home', 'href': '/'},
+        {'label': 'Forms', 'data-toggle-nav': '#forms'},
+        {'label': 'Error summary', 'href': '#'}
+    ]
+%}
+
+{% set tab_code %}
+    {% include 'forms/error-summary/code.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "code",
+          "class" : "ui-report",
+          "label" : "Code",
+          "src"   : tab_code,
+          "active": true
+        }
+    ]
+%}

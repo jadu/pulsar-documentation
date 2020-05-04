@@ -1,0 +1,45 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Developer Guide' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Home', 'href': '/'},
+        {'label': 'Guides', 'data-toggle-nav': '#guides'},
+        {'label': 'Developer guide', 'href': '#'}
+    ]
+%}
+
+{% set tab_getting_started %}
+    {% include 'guides/developer-guide/getting-started.html.twig' %}
+{% endset %}
+{% set tab_scratch %}
+    {% include 'guides/developer-guide/scratch-files.html.twig' %}
+{% endset %}
+{% set tab_release %}
+    {% include 'guides/developer-guide/release-process.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "getting-started",
+          "class" : "ui-report",
+          "label" : "Getting started",
+          "src"   : tab_getting_started,
+          "active": true
+        },
+        {
+          "id"    : "scratch-files",
+          "class" : "ui-report",
+          "label" : "Scratch files",
+          "src"   : tab_scratch
+        },
+        {
+          "id"    : "release-process",
+          "class" : "ui-report",
+          "label" : "Release process",
+          "src"   : tab_release
+        }
+    ]
+%}

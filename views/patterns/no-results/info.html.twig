@@ -59,9 +59,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#basic-message">Basic message</a></li>
-        <li><a href="#empty-tables">Empty tables</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

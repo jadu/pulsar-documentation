@@ -337,19 +337,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#basic-usage">Basic usage</a></li>
-        <li><a href="#helper-options">Helper options</a></li>
-        <li><a href="#multiple-choice">Multiple choice</a></li>
-        <li><a href="#disabled-choices">Disabled choices</a></li>
-        <li><a href="#input-types">Input types</a></li>
-        <li><a href="#help-text">Help text</a>
-            <ul>
-                <li><a href="#help-for-all-choices">Help for all choices</a></li>
-                <li><a href="#help-for-individual-choices">Help for individual choices</a></li>
-            </ul>
-        </li>
-        <li><a href="#choice-block">Choice block</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

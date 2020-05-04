@@ -9,28 +9,66 @@
 
     <p>This component can be used where developers have implemented their own pagination controllers, if you're using datatables, this component will be used to paginate the table if there are an appropriate number of rows.</p>
 
-    <p>{{ html.icon('info-sign') }} The previous and next links should always be visible, but disabled if they’re not applicable (if the user is on the first/last page).</p>
+    <p>{{ html.icon('info-sign') }} Pagination should not be displayed if there aren't enough records to require the table to be paginated.</p>
+
+    {{ docs.heading('h3', 'Example first page') }}
+    <p>The previous, next, first and last links should only be shown when a previous or next page exist. For example, the previous and first link should not be shown when the user is on the first page. Similarly, the next and last link should not be shown when the user is on the last page.</p>
 
     {{ docs.example({ 
         html: '
-<div class="pagination">
-    <ul class="pull-left"><!--
-        --><li class="is-disabled"><a href="#"><i class="icon-double-angle-left"></i> Previous</a></li><!--
-        --><li><a href="#">1</a></li><!--
-        --><li class="selected"><a href="#">2</a></li><!--
-        --><li><a href="#">3</a></li><!--
-        --><li><a href="#">4</a></li><!--
-        --><li><a href="#">5</a></li><!--
-        --><li><a href="#">Next <i class="icon-double-angle-right"></i></a></li><!--
-    --></ul>
-</div>
+<nav aria-label="Table pagination" class="pagination">
+    <ul class="pull-left">
+        <li class="selected"><a href="#1" aria-current="true" aria-label="Current page, page 1">1</a></li>
+        <li><a href="#" aria-label="page 2">2</a></li>
+        <li><a href="#" aria-label="page 3">3</a></li>
+        <li><a href="#" aria-label="page 4">4</a></li>
+        <li><a href="#" aria-label="page 5">5</a></li>
+        <li><a href="#" aria-label="next page">Next</a></li>
+        <li><a href="#" aria-label="last page">Last</a></li>
+    </ul>
+</nav>
+    ' }) }}
+
+    {{ docs.heading('h3', 'Example middle page') }}
+    <p>Note the first, previous, next and last links are visible.</p>
+
+    {{ docs.example({ 
+        html: '
+<nav aria-label="Table pagination" class="pagination">
+    <ul class="pull-left">
+        <li><a href="#" aria-label="first page">First</a></li>
+        <li><a href="#" aria-label="previous page">Previous</a></li>
+        <li><a href="#" aria-label="page 1">1</a></li>
+        <li class="selected"><a href="#" aria-current="true" aria-label="Current page, page 2">2</a></li>
+        <li><a href="#" aria-label="page 3">3</a></li>
+        <li><a href="#" aria-label="page 4">4</a></li>
+        <li><a href="#" aria-label="page 5">5</a></li>
+        <li><a href="#" aria-label="next page">Next</a></li>
+        <li><a href="#" aria-label="last page">Last</a></li>
+    </ul>
+</nav>
+    ' }) }}
+
+    {{ docs.heading('h3', 'Example last page') }}
+    <p>The next and last link should not be shown when the user is on the last page.</p>
+
+    {{ docs.example({ 
+        html: '
+<nav aria-label="Table pagination" class="pagination">
+    <ul class="pull-left">
+        <li><a href="#" aria-label="first page">First</a></li>
+        <li><a href="#" aria-label="previous page">Previous</a></li>
+        <li><a href="#" aria-label="page 1">1</a></li>
+        <li><a href="#" aria-label="page 2">2</a></li>
+        <li><a href="#" aria-label="page 3">3</a></li>
+        <li><a href="#" aria-label="page 4">4</a></li>
+        <li class="selected"><a href="#" aria-current="true" aria-label="Current page, page 5">5</a></li>
+    </ul>
+</nav>
     ' }) }}
 
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#basic-usage">Basic usage</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

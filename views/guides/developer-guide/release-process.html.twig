@@ -1,0 +1,67 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">In order to get Pulsar changes into the hands of users, new releases need to be properly tagged and published for Jadu products to consume.</p>
+
+    {{ docs.heading('h2', 'Release checklist') }}
+
+    <p>
+        <i class="icon-check" /></i> All required pull requests merged into <code>develop</code><br />
+        <i class="icon-check" /></i> Pull <code>develop</code> (make sure your local branch is up to date)<br />
+        <i class="icon-check" /></i> Push <code>develop</code> (watch Travis for any build failures)<br />
+        <i class="icon-check" /></i> Checkout <code>master</code><br />
+        <i class="icon-check" /></i> Merge <code>develop</code> into <code>master</code><br />
+        <i class="icon-check" /></i> Run <code>phpunit</code> and make sure tests pass<br />
+        <i class="icon-check" /></i> Run <code>npm test</code> and make sure tests pass<br />
+        <i class="icon-check" /></i> Use the <code>grunt bump</code> command to increment the version number (see below)<br />
+        <i class="icon-check" /></i> Travis will build, test, and create a <a href="https://github.com/jadu/pulsar/releases">release package on GitHub</a><br />
+        <i class="icon-check" /></i> Update the release notes on GitHub<br />
+        <i class="icon-check" /></i> Attach all related GitHub issues and pull requests to a new milestone named after the release number<br />
+        <i class="icon-check" /></i> Post on the #engineering slack channel to notify the team about the new release
+    </p>
+
+    {{ docs.heading('h2', 'Version numbering') }}
+
+    <p>Pulsar uses <a href="https://semver.org">semantic versioning</a> for release naming and numbering according to the <code>major.minor.patch</code> pattern, All pull requests should have been labelled with their expected SemVer type, if not you may ask the related developers to label their PRs or ask the team on the #pulsar Slack channel.</p>
+
+    <p>When it's time to tag a new version of pulsar there are a number of files which need to be updating which is semi-automated by using the <code>grunt bump</code> command</p>
+
+    <ul>
+        <li><code>grunt bump:major</code> — <strong>MAJOR</strong> version when you make incompatible (breaking) changes that require</li>
+        <li><code>grunt bump:minor</code> — <strong>MINOR</strong> version when you add functionality in a backwards compatible manner</li>
+        <li><code>grunt bump:patch</code> — <strong>PATCH</strong> version when you make backwards compatible bug fixes</li>
+    </ul>
+
+    {{ docs.heading('h3', 'Breaking changes') }}
+
+    <p>There are a number of reasons where a change to Pulsar may be considered a breaking change, for our purposes we consider the following:</p>
+
+    <ul>
+        <li>Are changes required to maintain functionality of Pulsar?</li>
+        <li>Are changes required in a product before it can successfully build or use the new Pulsar version?</li>
+    </ul>
+
+    <blockquote>If a version of Pulsar is likely to cause errors in the UI, break tests or continuous integration scripts, or require any form of manual intervention before it can be successfully used, we would consider that a breaking change.</blockquote>
+
+    <p>The following checklist is a non-exhaustive benchmark we use to help decide whether a change is breaking or not.</p>
+
+    <strong>Does the change:</strong>
+    <ol>
+        <li>require changes to <code>main.js</code>?</li>
+        <li>require changes to <code>index.js</code>?</li>
+        <li>require changes to <code>pulsar.scss</code>?</li>
+        <li>require changes to <code>gruntfile.js</code>?</li>
+        <li>require changes to <code>package.json</code> (not including dev dependencies)?</li>
+        <li>require changes to <code>base.html.twig</code> (or other core views like header/footer)?</li>
+        <li>require new arguments to be passed to a js component?</li>
+        <li>require markup changes to maintain functionality?</li>
+        <li>require changes to existing unit tests?</li>
+    </ol>
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    {{ docs.toc() }}
+{% endblock tab_sidebar %}

@@ -545,38 +545,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#states">Validation</a>
-            <ul>
-                <li><a href="#error">Error</a></li>
-                <li><a href="#multiple-errors">Multiple errors</a></li>
-                <li><a href="#error-and-help">Error and Help</a></li>
-            </ul>
-        </li>
-        <li><a href="#states">States</a>
-            <ul>
-                <li><a href="#success">Success</a></li>
-                <li><a href="#warning">Warning</a></li>
-                <li><a href="#error">Error</a></li>
-                <li><a href="#changed">Changed</a></li>
-            </ul>
-        </li>
-        <li><a href="#variations">Variations</a>
-            <ul>
-                <li><a href="#help">Help</a></li>
-                <li><a href="#required">Required</a></li>
-                <li><a href="#guidance">Guidance</a></li>
-            </ul>
-        </li>
-        <li><a href="#alignment">Alignment</a>
-            <ul>
-                <li><a href="#hide-label">Hide label</a></li>
-                <li><a href="#long-label-behaviour">Long label behaviour</a></li>
-                <li><a href="#top-labels">Top labels</a></li>
-                <li><a href="#flush-inputs">Flush inputs</a></li>
-                <li><a href="#flush-inputs-&-top-label">Flush inputs &amp; top label</a></li>
-            </ul>
-        </li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

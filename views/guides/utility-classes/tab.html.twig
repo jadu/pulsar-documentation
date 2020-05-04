@@ -1,0 +1,330 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">Utility classes can be applied to components at the point of use to modify their behaviour without affecting the core style of a component.</p>
+
+    <p>Utility classes are intended to be applied directly to the markup of a component and are usually immutable (<code>!important</code>) to guarantee they will override existing styles regardless of how specific their rules. The only exception to this may be inline important styles, which would be all but impossible to override.</p>
+
+    {{ docs.heading('h2', 'Hiding elements') }}
+    {{ docs.heading('h3', 'Hide visually and from screen readers') }}
+
+    <p>Control the visibility of components at specific <a href="/guides/design-tokens#responsive-breakpoints">responsive breakpoints</a>.</p>
+
+    <p>These classes will also hide the content from screenreaders when active.</p>
+
+    <table class="table table--full table--fixed">
+        <thead>
+            <tr>
+                <th scope="col">Class</th>
+                <th scope="col" class="u-text-align-center">Visible on Desktop</th>
+                <th scope="col" class="u-text-align-center">Visible on Tablet</th>
+                <th scope="col" class="u-text-align-center">Visible on Mobile</th>
+                <th scope="col" class="u-text-align-center">Visible on Print</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>.hide</code></td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-danger">❌</td>
+            </tr>
+            <tr>
+                <td><code>.u-display-none</code></td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-danger">❌</td>
+            </tr>
+            <tr>
+                <td><code>.u-visible-on-desktop</code></td>
+                <td class="u-text-align-center has-success">✅</td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-danger">❌</td>
+            </tr>
+            <tr>
+                <td><code>.u-visible-on-mobile</code></td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-success">✅</td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-danger">❌</td>
+            </tr>
+            <tr>
+                <td><code>.u-visible-on-tablet</code></td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-success">✅</td>
+                <td class="u-text-align-center has-danger">❌</td>
+            </tr>
+            <tr>
+                <td><code>.u-hidden-on-desktop</code></td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-success">✅</td>
+                <td class="u-text-align-center has-success">✅</td>
+                <td class="u-text-align-center has-success">✅</td>
+            </tr>
+            <tr>
+                <td><code>.u-hidden-on-tablet</code></td>
+                <td class="u-text-align-center has-success">✅</td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-success">✅</td>
+                <td class="u-text-align-center has-success">✅</td>
+            </tr>
+            <tr>
+                <td><code>.u-hidden-on-mobile</code></td>
+                <td class="u-text-align-center has-success">✅</td>
+                <td class="u-text-align-center has-success">✅</td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-success">✅</td>
+            </tr>
+            <tr>
+                <td><code>.u-hidden-print</code></td>
+                <td class="u-text-align-center has-success">✅</td>
+                <td class="u-text-align-center has-success">✅</td>
+                <td class="u-text-align-center has-success">✅</td>
+                <td class="u-text-align-center has-danger">❌</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h3', 'Screen reader friendly hiding') }}
+
+    <p>The following classes will visually hide content but still allow it to be accessed/announced by screen readers when that element is encountered.</p>
+
+    <table class="table table--full table--fixed">
+        <thead>
+            <tr>
+                <th scope="col">Class</th>
+                <th scope="col" class="u-text-align-center">Visible on Desktop</th>
+                <th scope="col" class="u-text-align-center">Visible on Tablet</th>
+                <th scope="col" class="u-text-align-center">Visible on Mobile</th>
+                <th scope="col" class="u-text-align-center">Visible on Print</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>.visually-hidden</code></td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-danger">❌</td>
+            </tr>
+            <tr>
+                <td><code>.u-sr-visible-on-desktop</code></td>
+                <td class="u-text-align-center has-success">✅</td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-danger">❌</td>
+            </tr>
+            <tr>
+                <td><code>.u-sr-visible-on-mobile</code></td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-success">✅</td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-danger">❌</td>
+            </tr>
+            <tr>
+                <td><code>.u-sr-visible-on-tablet</code></td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-success">✅</td>
+                <td class="u-text-align-center has-danger">❌</td>
+            </tr>
+            <tr>
+                <td><code>.u-sr-hidden-on-desktop</code></td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-success">✅</td>
+                <td class="u-text-align-center has-success">✅</td>
+                <td class="u-text-align-center has-success">✅</td>
+            </tr>
+            <tr>
+                <td><code>.u-sr-hidden-on-tablet</code></td>
+                <td class="u-text-align-center has-success">✅</td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-success">✅</td>
+                <td class="u-text-align-center has-success">✅</td>
+            </tr>
+            <tr>
+                <td><code>.u-sr-hidden-on-tablet</code></td>
+                <td class="u-text-align-center has-success">✅</td>
+                <td class="u-text-align-center has-success">✅</td>
+                <td class="u-text-align-center has-danger">❌</td>
+                <td class="u-text-align-center has-success">✅</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'Size and position') }}
+
+    <table class="table table--full table--fixed">
+        <thead>
+            <tr>
+                <th scope="col">Class</th>
+                <th scope="col">Style</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>.u-float-left</code></td>
+                <td><code>float: left !important</code></td>
+            </tr>
+            <tr>
+                <td><code>.u-float-right</code></td>
+                <td><code>float: right !important</code></td>
+            </tr>
+            <tr>
+                <td><code>.u-float-none</code></td>
+                <td><code>float: none !important</code></td>
+            </tr>
+            <tr>
+                <td><code>.u-clear-left</code></td>
+                <td><code>clear: left !important</code></td>
+            </tr>
+            <tr>
+                <td><code>.u-clear-right</code></td>
+                <td><code>clear: right !important</code></td>
+            </tr>
+            <tr>
+                <td><code>.u-clear-both</code></td>
+                <td><code>clear: both !important</code></td>
+            </tr>
+            <tr>
+                <td><code>.u-clear-none</code></td>
+                <td><code>clear: none !important</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'Margin and padding') }}
+
+    <table class="table table--full table--fixed">
+        <thead>
+            <tr>
+                <th scope="col">Class</th>
+                <th scope="col">Style</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>.u-margin-top</code></td>
+                <td><code>margin-top: $margin-base !important</code></td>
+            </tr>
+            <tr>
+                <td><code>.u-margin-top--large</code></td>
+                <td><code>margin-top: $margin-base * 2 !important</code></td>
+            </tr>
+            <tr>
+                <td><code>.u-margin-top-none</code></td>
+                <td><code>margin-top: 0 !important</code></td>
+            </tr>
+            <tr>
+                <td><code>.u-margin-bottom</code></td>
+                <td><code>margin-bottom: $margin-base !important</code></td>
+            </tr>
+            <tr>
+                <td><code>.u-margin-bottom--large</code></td>
+                <td><code>margin-bottom: $margin-base * 2 !important</code></td>
+            </tr>
+            <tr>
+                <td><code>.u-margin-bottom-none</code></td>
+                <td><code>margin-bottom: 0 !important</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'Text and links') }}
+
+    <table class="table table--full table--fixed">
+        <thead>
+            <tr>
+                <th scope="col">Class</th>
+                <th scope="col">Style</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>.u-no-wrap</code></td>
+                <td><code>white-space: nowrap !important</code></td>
+            </tr>
+            <tr>
+                <td><code>.u-word-break</code></td>
+                <td><code>word-break: break-all !important</code></td>
+            </tr>
+            <tr>
+                <td><code>.u-vertical-align-top</code></td>
+                <td><code>vertical-align: top !important</code></td>
+            </tr>
+            <tr>
+                <td><code>.u-vertical-align-middle</code></td>
+                <td><code>vertical-align: middle !important</code></td>
+            </tr>
+            <tr>
+                <td><code>.u-vertical-align-bottom</code></td>
+                <td><code>vertical-align: bottom !important</code></td>
+            </tr>
+            <tr>
+                <td><code>.u-vertical-align-baseline</code></td>
+                <td><code>vertical-align: baseline !important</code></td>
+            </tr>
+            <tr>
+                <td><code>.u-text-align-left</code></td>
+                <td><code>text-align: left !important</code></td>
+            </tr>
+            <tr>
+                <td><code>.u-text-align-right</code></td>
+                <td><code>text-align: right !important</code></td>
+            </tr>
+            <tr>
+                <td><code>.u-text-align-justify</code></td>
+                <td><code>text-align: justify !important</code></td>
+            </tr>
+            <tr>
+                <td><code>.u-font-size-small</code></td>
+                <td><code>font-size: $font-size-small !important</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'Miscellaneous') }}
+
+    <table class="table table--full table--fixed">
+        <thead>
+            <tr>
+                <th scope="col">Class</th>
+                <th scope="col">Behaviour or Style</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>.u-cursor-not-allowed</code></td>
+                <td><code>cursor: not-allowed !important</td>
+            </tr>
+            <tr>
+                <td><code>.u-ui-disabled</code></td>
+                <td><code>opacity: .25 !important</td>
+            </tr>
+            <tr>
+                <td><code>.u-no-hover</code></td>
+                <td><code>Switch off any background effects on hover</td>
+            </tr>
+            <tr>
+                <td><code>.u-no-border</code></td>
+                <td><code>border: 0 !important</td>
+            </tr>
+            <tr>
+                <td><code>.u-width-auto</code></td>
+                <td><code>width: auto !important</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    {{ docs.toc() }}
+{% endblock tab_sidebar %}

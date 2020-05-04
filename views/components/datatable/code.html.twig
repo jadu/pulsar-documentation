@@ -112,6 +112,170 @@
 }}
     " }) }}
 
+    {{ docs.heading('h2', 'Responsive options') }}
+
+    <p>DataTables, being a technique to list large amounts of data, are designed to be as responsive as possible, their cells will generally change widhts to fit as much information as possible on-screen, but there are limits depending on the horizontal viewport available. There are two main techniques for dealing with narrow viewports, one where columns are collapsed (visually hidden but shown by clicking an expand icon) or the preferred method of horizontal scrolling.</p>
+    
+    {{ docs.heading('h3', 'Collapsing columns') }}
+
+    <p><i class="icon icon-info-sign"></i> This method should be considered deprecated, horizontal scrolling (below) is the preferred method</p>
+
+    <p>Columns can be visually hidden at narrow viewport widths, and be visible by pressing the plus symbol in the first column. This teqhnique is no longer recommended now that horizontal scrolling (below) has been added, but there are still examples in the wild so documentation will remain here.</p>
+
+    <p>It is possible to define which columns should take priority and which should be collapsed first which can be useful to prioritise the most important information in a table, check the <a href="https://datatables.net/extensions/responsive/">responsive extension documentation</a> for details.</p>
+
+    <p>For the datatables helper, add the <code>'overflow': 'collapse'</code> option, for raw markup you can add the <code>data-overflow="collapse"</code> attribute.</p>
+
+    {{ docs.example({ 
+        twig: "
+{% 
+    set data = {
+        'columns': [
+            { 'title': 'Title' },
+            { 'title': 'Owner' },
+            { 'title': 'Modified' },
+            {
+                'title': 'Live',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            },
+            {
+                'title': 'Visible',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            }
+        ],
+        'data': [
+            {
+                'Title': 'The Terminator',
+                'Owner': 'James Cameron',
+                'Modified': '1991-07-01 12:34',
+                'Live': true,
+                'Visible': false 
+            },
+            {
+                'Title': 'Conan the Barbarian',
+                'Owner': 'John Millius',
+                'Modified': '1982-04-02 12:34',
+                'Live': false,
+                'Visible': true 
+            },
+            {
+                'Title': 'Predator',
+                'Owner': 'John McTiernan',
+                'Modified': '1988-01-01 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Commando',
+                'Owner': 'Mark L. Lester',
+                'Modified': '1986-02-21 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Terminator Genisys',
+                'Owner': 'Alan Taylor',
+                'Modified': '2015-06-25 12:34',
+                'Live': true,
+                'Visible': true
+            }
+        ]
+    }
+%}
+{{ 
+    html.datatable({
+        'class': 'table--full',
+        'data-order': '[[ 3, \"desc\" ]]',
+        'overflow': 'collapse',
+        'data': data
+    }) 
+}}
+    " }) }}
+
+{{ docs.heading('h2', 'Horizontal scroll') }}
+    
+    <p>By adding the <code>table--horizontal</code> class, when the table is unable to shrink any futher, as the viewport continues to shrink it will overflow horizontally and be viewable by scrolling, or manipulating the horizontal scrollbar.</p>
+
+    <p>The below example has been constrained in width to demonstrate the behaviour.</p>
+
+    {{ docs.example({ 
+        style: "#DataTables_Table_2_wrapper.dataTables_wrapper{ width: 60% }",
+        twig: "
+{% 
+    set data = {
+        'columns': [
+            { 'title': 'Title' },
+            { 'title': 'Owner' },
+            { 'title': 'Modified' },
+            {
+                'title': 'Live',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            },
+            {
+                'title': 'Visible',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            }
+        ],
+        'data': [
+            {
+                'Title': 'The Terminator',
+                'Owner': 'James Cameron',
+                'Modified': '1991-07-01 12:34',
+                'Live': true,
+                'Visible': false 
+            },
+            {
+                'Title': 'Conan the Barbarian',
+                'Owner': 'John Millius',
+                'Modified': '1982-04-02 12:34',
+                'Live': false,
+                'Visible': true 
+            },
+            {
+                'Title': 'Predator',
+                'Owner': 'John McTiernan',
+                'Modified': '1988-01-01 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Commando',
+                'Owner': 'Mark L. Lester',
+                'Modified': '1986-02-21 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Terminator Genisys',
+                'Owner': 'Alan Taylor',
+                'Modified': '2015-06-25 12:34',
+                'Live': true,
+                'Visible': true
+            }
+        ]
+    }
+%}
+{{ 
+    html.datatable({
+        'class': 'table--full table--horizontal',
+        'data-order': '[[ 3, \"desc\" ]]',
+        'data': data
+    }) 
+}}
+    " }) }}
+
     {{ docs.heading('h2', 'Disable row selection') }}
 
     <p>Datatables allow selection of rows by default, this behaviour can be disabled through the <code>data-selection</code> attribute. This will hide the related elements in the UI.</p>
@@ -188,7 +352,7 @@
 }}
     " }) }}
 
-    {{ docs.heading('h2', 'Set initial column sort') }}
+    {{ docs.heading('h2', 'Set initial column order') }}
 
     <p>You can specify how the data should be sorted on initial load by supplying the <code>data-order</code> attribute, if you’re using the responsive columns remember that these will affect which column index you supply.</p>
 
@@ -265,13 +429,13 @@
 }}
     " }) }}
 
-    {{ docs.heading('h2', 'Disable column sorting') }}
+    {{ docs.heading('h2', 'Disable column ordering') }}
 
-    <p>Some columns don’t need to allow sorting, such as an actions column where the data is the same for each row.</p>
+    <p>Some columns don’t need to allow ordering, such as an actions column where the data is the same for each row.</p>
 
     <p>Add the <code>data-orderable="false"</code> to any <code>thead > th</code> or <code>thead > td</code> that you do not wish to be sorted. If you're using the helper you need to pass this through the <code>columns.attrs</code> attribute for the column.</p>
 
-    <p>This example disables column sorting on the 'Live' and 'Visible' columns.</p>
+    <p>This example disables column ordering on the 'Live' and 'Visible' columns.</p>
 
     {{ docs.example({ 
         twig: "
@@ -344,9 +508,9 @@
 }}
     " }) }}
 
-    {{ docs.heading('h2', 'Sorting date/time columns') }}
+    {{ docs.heading('h2', 'Ordering date/time columns') }}
 
-    <p>To allow proper sorting of dates, use the <code>data-order</code> attribute to supply a <code>yyyy-mm-dd hh:mm</code> formatted string, this will be used when sorting the column.</p>
+    <p>To allow proper ordering of dates, use the <code>data-order</code> attribute to supply a <code>yyyy-mm-dd hh:mm</code> formatted string, this will be used when ordering the column.</p>
 
     <p>{{ html.icon('exclamation-triangle', {'label': 'Important'} ) }} It's currently not possible to do this using the <code>html.datatable()</code> helper.</p>
 
@@ -435,36 +599,336 @@
     }) 
 }}
     " }) }}
+
+    {{ docs.heading('h2', 'Pagination') }}
+    {{ docs.heading('h3', 'Number of rows per page') }}
+
+    <p>By default, datatables display 25 rows per page. You can override this by supplying the page-length attribute, for example <code>data-page-length="10"</code>.</p>
+
+    <p>Pagination links are only shown when the number of table rows is greater than the page-length option.</p>
+
+    {{ docs.heading('h3', 'Page length menu') }}
+
+    <p>Add <code>data-length-change="true"</code> to the table to allow users to change the number of rows shown on each page. This is shown at the bottom right of the table when enabled.</p>
+
+    {{ docs.example({ 
+        twig: "
+{% 
+    set data = {
+        'columns': [
+            { 'title': 'Title' },
+            { 'title': 'Owner' },
+            { 'title': 'Modified' },
+            {
+                'title': 'Live',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            },
+            {
+                'title': 'Visible',
+                'attrs': {
+                    'data-orderable': 'false',
+                    'class': 'u-text-align-center u-shrink-to-fit'
+                }
+            }
+        ],
+        'data': [
+            {
+                'Title': 'The Terminator',
+                'Owner': 'James Cameron',
+                'Modified': '1991-07-01 12:34',
+                'Live': true,
+                'Visible': false
+            },
+            {
+                'Title': 'Conan the Barbarian',
+                'Owner': 'John Millius',
+                'Modified': '1982-04-02 12:34',
+                'Live': false,
+                'Visible': true
+            },
+            {
+                'Title': 'Predator',
+                'Owner': 'John McTiernan',
+                'Modified': '1988-01-01 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Commando',
+                'Owner': 'Mark L. Lester',
+                'Modified': '1986-02-21 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Terminator Genisys',
+                'Owner': 'Alan Taylor',
+                'Modified': '2015-06-25 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Conan the Destroyer',
+                'Owner': 'Richard Fleischer',
+                'Modified': '1984-06-29 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Terminator 2: Judgement Day',
+                'Owner': 'James Cameron',
+                'Modified': '1991-08-16 12:34:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Twins',
+                'Owner': 'Ivan Reitman',
+                'Modified': '1988-12-08 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Escape Plan',
+                'Owner': 'Mikael Håfström',
+                'Modified': '2013-10-18 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'The Last Stand',
+                'Owner': 'Kim Je-woon',
+                'Modified': '2013-01-18 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'True Lies',
+                'Owner': 'James Cameron',
+                'Modified': '1994-07-15 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Aftermath',
+                'Owner': 'Elliott Lester',
+                'Modified': '2017-04-07 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Sabotage',
+                'Owner': 'David Ayer',
+                'Modified': '2014-05-09',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Total Recall',
+                'Owner': 'Paul Verhoven',
+                'Modified': '2012-08-29 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Maggie',
+                'Owner': 'Henry Hobson',
+                'Modified': '2015-05-06 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Red Sonja',
+                'Owner': 'Richard Fleischer',
+                'Modified': '1985-07-03 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Kindergarten Cop',
+                'Owner': 'Ivan Reitman',
+                'Modified': '1991-02-01 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'The Running Man',
+                'Owner': 'Paul Michael Glaser',
+                'Modified': '1987-11-13 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Junior',
+                'Owner': 'Ivan Reitman',
+                'Modified': '1994-11-23 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Last Action Hero',
+                'Owner': 'John McTiernan',
+                'Modified': '1993-07-30 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Red Heat',
+                'Owner': 'Walter Hill',
+                'Modified': '1998-06-17 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Raw Deal',
+                'Owner': 'John Irvin',
+                'Modified': '1986-06-06 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Eraser',
+                'Owner': 'Chuck Russell',
+                'Modified': '1996-06-21 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Jingle All the Way',
+                'Owner': 'Brian Levant',
+                'Modified': '1996-11-16 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'The 6th Day',
+                'Owner': 'Roger Spottiswoode',
+                'Modified': '2000-11-13 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Collateral Damage',
+                'Owner': 'Andrew Davis',
+                'Modified': '2002-02-08 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Commando',
+                'Owner': 'Mark L. Lester',
+                'Modified': '1986-02-21 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Terminator Genisys',
+                'Owner': 'Alan Taylor',
+                'Modified': '2015-06-25 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Conan the Destroyer',
+                'Owner': 'Richard Fleischer',
+                'Modified': '1984-06-29 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Terminator 2: Judgement Day',
+                'Owner': 'James Cameron',
+                'Modified': '1991-08-16 12:34:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Twins',
+                'Owner': 'Ivan Reitman',
+                'Modified': '1988-12-08 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Escape Plan',
+                'Owner': 'Mikael Håfström',
+                'Modified': '2013-10-18 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'The Last Stand',
+                'Owner': 'Kim Je-woon',
+                'Modified': '2013-01-18 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'True Lies',
+                'Owner': 'James Cameron',
+                'Modified': '1994-07-15 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Aftermath',
+                'Owner': 'Elliott Lester',
+                'Modified': '2017-04-07 12:34',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Sabotage',
+                'Owner': 'David Ayer',
+                'Modified': '2014-05-09',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Total Recall',
+                'Owner': 'Paul Verhoven',
+                'Modified': '2012-08-29 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Maggie',
+                'Owner': 'Henry Hobson',
+                'Modified': '2015-05-06 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Red Sonja',
+                'Owner': 'Richard Fleischer',
+                'Modified': '1985-07-03 12:00',
+                'Live': true,
+                'Visible': true
+            },
+            {
+                'Title': 'Kindergarten Cop',
+                'Owner': 'Ivan Reitman',
+                'Modified': '1991-02-01 12:00',
+                'Live': true,
+                'Visible': true
+            }
+        ]
+    }
+%}
+{{ 
+    html.datatable({
+        'class': 'table--full table--horizontal',
+        'data-length-change': 'true',
+        'data-order': '[[ 3, \"desc\" ]]',
+        'data': data
+    }) 
+}}
+    " }) }}
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <div class="page-nav-wrapper">
-        <h4>On this page</h4>
-        <ul class="page-nav">
-            <li><a href="#basic-styling">Basic styling</a></li>
-            <li><a href="#dependencies">Dependencies</a>
-                <ul>
-                    <li><a href="#javascript">Javascript</a></li>
-                    <li><a href="#sass">Sass</a></li>
-                </ul>
-            </li>
-            <li><a href="#configuration">Configuration</a></li>
-            <li><a href="#example-usage">Example usage</a></li>
-            <li><a href="#disable-row-selection">Disable row selection</a></li>
-            <li><a href="#set-initial-column-sort">Set initial column sort</a></li>
-            <li><a href="#disable-column-sorting">Disable column sorting</a></li>
-            <li><a href="#sorting-date/time-columns">Sorting date/time columns</a></li>
-            <li><a href="#no-results">No results</a>
-                <ul>
-                    <li><a href="#default-message">Default message</a></li>
-                    <li><a href="#custom-message">Custom message</a></li>
-                </ul>
-            </li>
-        </ul>
-
-        <h4>Related components</h4>
-        <ul class="page-nav">
-            <li><a href="table">Table</a></li>
-        </ul>
-    </div>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}
