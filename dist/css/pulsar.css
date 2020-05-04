@@ -18935,19 +18935,19 @@ td.no-results, td.dataTables_empty {
 
 @font-face {
   font-family: 'code_pro_blackregular';
-  src: url("../fonts/Code_Pro_Black-webfont.woff2") format("woff2"), url("../fonts/Code_Pro_Black-webfont.woff") format("woff");
+  src: url("../fonts/code-pro/Code_Pro_Black-webfont.woff2") format("woff2"), url("../fonts/code-pro/Code_Pro_Black-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'code_pro_lcregular';
-  src: url("../fonts/Code_Pro_LC-webfont.woff2") format("woff2"), url("../fonts/Code_Pro_LC-webfont.woff") format("woff");
+  src: url("../fonts/code-pro/Code_Pro_LC-webfont.woff2") format("woff2"), url("../fonts/code-pro/Code_Pro_LC-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'code_pro_bold_lcregular';
-  src: url("../fonts/Code_Pro_Bold_LC-webfont.woff2") format("woff2"), url("../fonts/Code_Pro_Bold_LC-webfont.woff") format("woff");
+  src: url("../fonts/code-pro/Code_Pro_Bold_LC-webfont.woff2") format("woff2"), url("../fonts/code-pro/Code_Pro_Bold_LC-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
