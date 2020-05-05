@@ -19,13 +19,13 @@ var $                     = require('jquery'),
     tooltip               = require('../vendor/jadu/pulsar/js/libs/tooltip'),
     matchMedia            = require('../vendor/jadu/pulsar/js/polyfills/matchMedia'),
     matchMediaAddListener = require('../vendor/jadu/pulsar/js/polyfills/matchMedia.addListener'),
-    
+
     toc           = require('jquery.toc'),
     dt            = require('datatables.net')(window, $),
     dt_buttons    = require('datatables.net-buttons')(window, $),
     dt_responsive = require('datatables.net-responsive')(window, $),
     dt_select     = require('datatables.net-select')(window, $),
-    
+
     ButtonComponent = require('../vendor/jadu/pulsar/js/ButtonComponent'),
     DisableUiComponent    = require('../vendor/jadu/pulsar/js/DisableUiComponent'),
     DropdownButtonComponent = require('../vendor/jadu/pulsar/js/DropdownButtonComponent'),
@@ -43,7 +43,81 @@ var $                     = require('jquery'),
     repeaterComponentFactory = require('../vendor/jadu/pulsar/js/Repeater/repeaterComponentFactory'),
     TableDetailComponent = require('../vendor/jadu/pulsar/js/TableDetailComponent'),
     tooltipFactory = require('../vendor/jadu/pulsar/js/Tooltips/tooltipsFactory');
-    
+
+(function () {
+
+    var $html = $('html');
+    $html.removeClass('no-js');
+
+    var errorSummary = new ErrorSummaryComponent(),
+        button = new ButtonComponent($html),
+        dropdownButton = new DropdownButtonComponent($html),
+        disableUI = new DisableUiComponent($html),
+        flash = new FlashMessageComponent($html),
+        helpText = new HelpTextComponent($html, window, document),
+        pulsarForm = new PulsarFormComponent($html),
+        pulsarUI = new PulsarUIComponent($html, window.History),
+        pulsarSortable = new PulsarSortableComponent($html, window),
+        masterSwitch = new MasterSwitchComponent($html, disableUI),
+        navMain = new NavMainComponent($html, window),
+        filterBar = new FilterBarComponent($html),
+        tableDetail = new TableDetailComponent($html),
+        repeaterManager = new RepeaterManagerComponent(
+            pulsarForm,
+            repeaterComponentFactory,
+            $html
+        );
+
+    $(function () {
+        button.init();
+        dropdownButton.init();
+        errorSummary.init($html);
+        flash.init();
+        helpText.init();
+        pulsarForm.init();
+        pulsarSortable.init();
+        pulsarUI.init();
+        masterSwitch.init();
+        navMain.init();
+        filterBar.init();
+        disableUI.init();
+        tableDetail.init();
+        repeaterManager.init();
+
+        var dropZoneComponent = DropZoneComponentFactory.create($('body')[0], '.dropzone'),
+            tooltipListener = tooltipFactory($html);
+
+        dropZoneComponent.init();
+        tooltipListener.init();
+
+        $('.d-example-nav__link').on('click', function() {
+            var $this = $(this),
+                $parent = $(this).closest('.d-example'),
+                lang = $this.data('toggle');
+
+            $parent.find('.d-example-nav__link').removeClass('is-active');
+            $this.addClass('is-active');
+
+            $parent.find('.js-' + lang).show();
+            $parent.find('.d-example__code:not(.js-' + lang + ')').hide();
+        });
+
+        $('[data-toggle-nav]').on('click', function (e) {
+            let $target = $html.find('[aria-controls="aria-secondary-nav"][data-target="' + $(this).data('toggle-nav') + '"]');
+
+            $target.trigger('click');
+
+            e.preventDefault();
+        });
+
+        $('[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            $(".page-nav").empty().toc({content: ".tab__pane.is-active", headings: "h2.docs-heading,h3.docs-heading,h4.docs-heading,h5.docs-heading,h6.docs-heading"});
+        });
+
+        console.log($('.docs-heading'));
+    });
+
+}());
 
 module.exports = {
     ButtonComponent,

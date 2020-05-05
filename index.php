@@ -5,19 +5,14 @@ if (strstr($_SERVER['REQUEST_URI'], '.png')) {
 	$handle = fopen($filename, "rb");
 	$contents = fread($handle, filesize($filename));
 	fclose($handle);
- 
+
 	header("content-type: image/png");
- 
+
 	echo $contents;
 	exit;
 }
 
 require_once 'vendor/autoload.php';
-
-$dotenv = Dotenv\Dotenv::create(__DIR__);
-$dotenv->load();
-
-$webroot = getenv('WEBROOT');
 
 use Jadu\Pulsar\Twig\Extension\ArrayExtension;
 use Jadu\Pulsar\Twig\Extension\AttributeParserExtension;
@@ -29,19 +24,19 @@ use Jadu\Pulsar\Twig\Extension\RelativeTimeExtension;
 use Jadu\Pulsar\Twig\Extension\UrlParamsExtension;
 use Jadu\Pulsar\Twig\Extension\TabsExtension;
 
-$loader = new Twig_Loader_Filesystem($webroot . '/views');
-$loader->addPath($webroot . '/vendor/jadu/pulsar/views', 'pulsar');
+$loader = new Twig_Loader_Filesystem(__DIR__ . '/views');
+$loader->addPath(__DIR__ . '/vendor/jadu/pulsar/views', 'pulsar');
 
-$twig = new Twig_Environment($loader,
-	array(
-		'debug' => true,
+$twig = new Twig_Environment(
+    $loader,
+	[
 		'strict_variables' => true
-	)
+    ]
 );
 
 $twig->addExtension(new ArrayExtension());
 $twig->addExtension(new AttributeParserExtension());
-$twig->addExtension(new ConfigExtension($webroot . 'pulsar.json'));
+$twig->addExtension(new ConfigExtension(__DIR__ . 'pulsar.json'));
 $twig->addExtension(new ConstantDefinedExtension());
 $twig->addExtension(new HelperOptionsModifierExtension());
 $twig->addExtension(new GetConstantExtension());
@@ -51,7 +46,7 @@ $twig->addExtension(new TabsExtension());
 $twig->addExtension(new Twig_Extension_StringLoader());
 $twig->addExtension(new Twig_Extension_Debug());
 
-if (strstr($_SERVER['PATH_INFO'], '.html.twig')) {
+if (isset($_SERVER['PATH_INFO']) && strpos($_SERVER['PATH_INFO'], '.html.twig') !== false) {
     $template = $twig->loadTemplate($_SERVER['PATH_INFO']);
 } else {
     $template = $twig->loadTemplate($_SERVER['REQUEST_URI'] . '/index.html.twig');
