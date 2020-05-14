@@ -63,12 +63,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#basic-usage">Basic usage</a></li>
-        <li><a href="#helper-options">Helper options</a></li>
-        <li><a href="#centering-within-a-container">Centering within a container</a></li>
-        <li><a href="#large-spinner">Large spinner</a></li>
-        <li><a href="#custom-message">Custom message</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

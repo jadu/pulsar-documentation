@@ -78,11 +78,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#product-scratch-files">Product scratch files</a></li>
-        <li><a href="#when-to-use-a-scratch-rule">When to use a scratch rule</a></li>
-        <li><a href="#example-rule">Example rule</a></li>
-        <li><a href="#review-process">Review process</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

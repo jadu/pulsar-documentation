@@ -84,13 +84,5 @@
 
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#the-disabled-attribute">The disabled attribute</a></li>
-        <li><a href="#the-aria-disabled-attribute">The aria-disabled attribute</a></li>
-        <li><a href="#disabled-visual-style">Disabled visual style</a></li>
-        <li><a href="#disabling-on-load">Disabling on load</a></li>
-        <li><a href="#disabling-with-javascript">Disabling with JavaScript</a></li>
-        <li><a href="#Tooltops on disabled elements">Tooltips on disabled elements</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

@@ -76,15 +76,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#basic-usage">Basic usage</a></li>
-        <li><a href="#helper-options">Helper options</a></li>
-        <li><a href="#icons">Icons</a>
-            <ul>
-                <li><a href="#before-the-label">Before the label</a></li>
-                <li><a href="#after-the-label">After the label</a></li>
-            </ul>
-        </li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

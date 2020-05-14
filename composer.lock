@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "382bfcbd6908819520cdff6a8294549f",
+    "content-hash": "5d437755f45acaabe58d122c17a25232",
     "packages": [
         {
             "name": "jadu/pulsar",
@@ -12,19 +12,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jadu/pulsar.git",
-                "reference": "834e911e6b99093007619558c7a1e49d56c79ef0"
+                "reference": "c43efd06c9dee1403c36f983146ddfa28f5c589c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jadu/pulsar/zipball/834e911e6b99093007619558c7a1e49d56c79ef0",
-                "reference": "834e911e6b99093007619558c7a1e49d56c79ef0",
+                "url": "https://api.github.com/repos/jadu/pulsar/zipball/c43efd06c9dee1403c36f983146ddfa28f5c589c",
+                "reference": "c43efd06c9dee1403c36f983146ddfa28f5c589c",
                 "shasum": ""
             },
             "require": {
                 "twig/twig": "^1.21"
             },
             "require-dev": {
-                "phpunit/phpunit": "*",
+                "phpunit/phpunit": "^7",
                 "symfony/yaml": "*"
             },
             "type": "library",
@@ -38,62 +38,7 @@
                 "MIT"
             ],
             "description": "The User Experience and Interface framework for the Jadu Continuum Platform",
-            "time": "2020-03-30T13:15:20+00:00"
-        },
-        {
-            "name": "phpoption/phpoption",
-            "version": "1.7.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/schmittjoh/php-option.git",
-                "reference": "4acfd6a4b33a509d8c88f50e5222f734b6aeebae"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/4acfd6a4b33a509d8c88f50e5222f734b6aeebae",
-                "reference": "4acfd6a4b33a509d8c88f50e5222f734b6aeebae",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.5.9 || ^7.0 || ^8.0"
-            },
-            "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.3",
-                "phpunit/phpunit": "^4.8.35 || ^5.0 || ^6.0 || ^7.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "PhpOption\\": "src/PhpOption/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Johannes M. Schmitt",
-                    "email": "schmittjoh@gmail.com"
-                },
-                {
-                    "name": "Graham Campbell",
-                    "email": "graham@alt-three.com"
-                }
-            ],
-            "description": "Option Type for PHP",
-            "keywords": [
-                "language",
-                "option",
-                "php",
-                "type"
-            ],
-            "time": "2020-03-21T18:07:53+00:00"
+            "time": "2020-04-16T14:50:10+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -216,69 +161,6 @@
                 "templating"
             ],
             "time": "2020-02-11T05:59:23+00:00"
-        },
-        {
-            "name": "vlucas/phpdotenv",
-            "version": "v3.6.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "786a947e57086cf236cefdee80784634224b99fa"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/786a947e57086cf236cefdee80784634224b99fa",
-                "reference": "786a947e57086cf236cefdee80784634224b99fa",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.4 || ^7.0",
-                "phpoption/phpoption": "^1.5",
-                "symfony/polyfill-ctype": "^1.9"
-            },
-            "require-dev": {
-                "ext-filter": "*",
-                "ext-pcre": "*",
-                "phpunit/phpunit": "^4.8.35 || ^5.0 || ^6.0 || ^7.0"
-            },
-            "suggest": {
-                "ext-filter": "Required to use the boolean validator.",
-                "ext-pcre": "Required to use most of the library."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.6-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Dotenv\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Graham Campbell",
-                    "email": "graham@alt-three.com",
-                    "homepage": "https://gjcampbell.co.uk/"
-                },
-                {
-                    "name": "Vance Lucas",
-                    "email": "vance@vancelucas.com",
-                    "homepage": "https://vancelucas.com/"
-                }
-            ],
-            "description": "Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically.",
-            "keywords": [
-                "dotenv",
-                "env",
-                "environment"
-            ],
-            "time": "2020-03-27T23:36:02+00:00"
         }
     ],
     "packages-dev": [],
@@ -289,6 +171,8 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=7.1"
+    },
     "platform-dev": []
 }

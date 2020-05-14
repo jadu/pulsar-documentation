@@ -75,9 +75,5 @@ $(function () {
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#dependencies">Dependencies</a></li>
-        <li><a href="#basic-usage">Basic usage</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

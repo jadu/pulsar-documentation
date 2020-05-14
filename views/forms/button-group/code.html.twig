@@ -165,12 +165,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#basic-usage">Basic usage</a></li>
-        <li><a href="#helper-options">Helper options</a></li>
-        <li><a href="#single-choice-(radio)">Single choice (radio)</a></li>
-        <li><a href="#single-choice-(checkbox)">Multiple choice (checkbox)</a></li>
-        <li><a href="#using-icons">Using icons</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

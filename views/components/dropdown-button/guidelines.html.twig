@@ -51,10 +51,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#general-guidance">General guidance</a></li>
-        <li><a href="#separating-items-with-dividers">Separating items with dividers</a></li>
-        <li><a href="#tooltips-on-dropdown-items">Tooltips on dropdown items</a></li>        
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

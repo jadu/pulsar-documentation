@@ -165,15 +165,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#defining-inputs">Defining inputs</a></li>
-        <li><a href="#example-patterns">Example patterns</a>
-            <ul>
-                <li><a href="#date-of-birth">Date of birth</a></li>
-                <li><a href="#date-of-birth-with-one-invalid-field">Date of birth with one invalid field</a></li>
-                <li><a href="#timeout">Timeout</a></li>
-            </ul>
-        </li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

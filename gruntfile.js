@@ -19,7 +19,7 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     cwd:    'scss/',
-                    dest:   'css/',
+                    dest:   'dist/css/',
                     expand: true,
                     ext:    '.css',
                     extDot: 'first',
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
         browserify: {
             dev: {
                 files: {
-                    'js/bundle.js': ['js/index.js']
+                    'dist/js/bundle.js': ['js/index.js']
                 },
                 options: {
                     browserifyOptions: {
@@ -52,7 +52,7 @@ module.exports = function(grunt) {
                     browsers: ['last 2 version', 'ie 7', 'ie 8', 'ie 9']
                 },
                 expand: true,
-                src:    'css/*.css'
+                src:    'dist/css/*.css'
             }
         },
 
@@ -67,13 +67,32 @@ module.exports = function(grunt) {
             }
         },
 
+        copy: {
+            main: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'node_modules/font-awesome/fonts/',
+                        src: ['**'],
+                        dest: 'dist/fonts/font-awesome/'
+                    },
+                ]
+            }
+
+        }
+
     });
 
-    grunt.registerTask('default', [
+    grunt.registerTask('build', [
         'sass',
         'autoprefixer',
         'browserify',
-        'watch'
+        'copy',
+    ])
+
+    grunt.registerTask('default', [
+        'build',
+        'watch',
     ]);
 
     // load all grunt tasks

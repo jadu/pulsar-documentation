@@ -1,5 +1,7 @@
-vendor/
+/vendor/
 /.vscode
 /.env
 /.htaccess
 .DS_Store
+/.idea
+/node_modules

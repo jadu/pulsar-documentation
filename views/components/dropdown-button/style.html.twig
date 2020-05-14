@@ -139,28 +139,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#variants">Variants</a>
-            <ul>
-                <li><a href="#base">Base</a></li>
-                <li><a href="#small">Small</a></li>
-                <li><a href="#outline">Outline</a></li>
-                <li><a href="#small-outline">Small outline</a></li>
-            </ul>
-        </li>
-        <li><a href="#button-states">States</a>
-            <ul>
-                <li><a href="#states-base">Base</a></li>
-                <li><a href="#states-primary">Primary</a></li>
-                <li><a href="#states-success">Success</a></li>
-                <li><a href="#states-danger">Danger</a></li>
-                <li><a href="#states-warning">Warning</a></li>
-                <li><a href="#states-info">Info</a></li>
-                <li><a href="#states-inverse">Inverse</a></li>
-                <li><a href="#states-white">White</a></li>
-                <li><a href="#states-disabled">Disabled</a></li>
-            </ul>
-        </li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}
