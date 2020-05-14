@@ -42,7 +42,8 @@ var $                     = require('jquery'),
     RepeaterManagerComponent = require('../vendor/jadu/pulsar/js/Repeater/RepeaterManagerComponent'),
     repeaterComponentFactory = require('../vendor/jadu/pulsar/js/Repeater/repeaterComponentFactory'),
     TableDetailComponent = require('../vendor/jadu/pulsar/js/TableDetailComponent'),
-    tooltipFactory = require('../vendor/jadu/pulsar/js/Tooltips/tooltipsFactory');
+    tooltipFactory = require('../vendor/jadu/pulsar/js/Tooltips/tooltipsFactory'),
+    datePicker = require('pulsar-date-picker');
 
 (function () {
 
@@ -69,6 +70,9 @@ var $                     = require('jquery'),
         );
 
     $(function () {
+
+        var $newHtml = $('html');
+
         button.init();
         dropdownButton.init();
         errorSummary.init($html);
@@ -83,6 +87,7 @@ var $                     = require('jquery'),
         disableUI.init();
         tableDetail.init();
         repeaterManager.init();
+        datePicker.init($newHtml);
 
         var dropZoneComponent = DropZoneComponentFactory.create($('body')[0], '.dropzone'),
             tooltipListener = tooltipFactory($html);
@@ -113,8 +118,6 @@ var $                     = require('jquery'),
         $('[data-toggle="tab"]').on('shown.bs.tab', function (e) {
             $(".page-nav").empty().toc({content: ".tab__pane.is-active", headings: "h2.docs-heading,h3.docs-heading,h4.docs-heading,h5.docs-heading,h6.docs-heading"});
         });
-
-        console.log($('.docs-heading'));
     });
 
 }());

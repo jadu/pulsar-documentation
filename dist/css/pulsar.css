@@ -386,6 +386,189 @@ template {
 .tippy-content {
   padding: 5px 9px; }
 
+.pulsar-datepicker.ui-datepicker {
+  background: #ffffff;
+  border: 1px solid #bebebe;
+  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  color: #000000;
+  display: block;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 8px;
+  position: relative;
+  width: 240px;
+  z-index: 9999 !important; }
+  .pulsar-datepicker.ui-datepicker * {
+    box-sizing: border-box; }
+  .pulsar-datepicker.ui-datepicker th {
+    background-color: #ffffff;
+    color: #757575;
+    font-family: "proxima_nova_rgregular", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 25px;
+    text-align: center; }
+  .pulsar-datepicker.ui-datepicker th,
+  .pulsar-datepicker.ui-datepicker td {
+    padding: 0;
+    width: 14.285714285714286%; }
+  .pulsar-datepicker.ui-datepicker td {
+    background-clip: padding-box;
+    background-color: #ffffff;
+    border: 1px solid #e4e7e7;
+    cursor: pointer;
+    text-align: left; }
+    .pulsar-datepicker.ui-datepicker td a {
+      background: none;
+      border: 0;
+      color: #000000;
+      display: block;
+      font-size: 12px;
+      line-height: 15px;
+      margin: 0;
+      outline: none;
+      padding: 5px;
+      text-align: right;
+      text-decoration: none;
+      width: 100%; }
+      .pulsar-datepicker.ui-datepicker td a:hover {
+        background-color: #efefef;
+        color: #000000; }
+      .pulsar-datepicker.ui-datepicker td a:focus {
+        background-color: #fd0;
+        box-shadow: inset 0 -2px 0 0 #000000;
+        color: #000000;
+        outline: none;
+        text-decoration: none; }
+    .pulsar-datepicker.ui-datepicker td.ui-datepicker-other-month {
+      background-color: #ffffff;
+      border: 0; }
+  .pulsar-datepicker.ui-datepicker .ui-datepicker-header {
+    height: auto;
+    margin-top: 0;
+    text-align: center;
+    width: 100%; }
+    .pulsar-datepicker.ui-datepicker .ui-datepicker-header .ui-icon {
+      background-image: none; }
+  .pulsar-datepicker.ui-datepicker .ui-datepicker-prev,
+  .pulsar-datepicker.ui-datepicker .ui-datepicker-next {
+    color: #000000;
+    text-decoration: none; }
+    .pulsar-datepicker.ui-datepicker .ui-datepicker-prev:focus,
+    .pulsar-datepicker.ui-datepicker .ui-datepicker-next:focus {
+      background-color: #fd0;
+      box-shadow: 0 -2px #fd0, 0 4px #000000;
+      color: #000000;
+      outline: none;
+      text-decoration: none; }
+  .pulsar-datepicker.ui-datepicker .ui-datepicker-prev {
+    float: left; }
+    .pulsar-datepicker.ui-datepicker .ui-datepicker-prev::before {
+      content: '\2190';
+      font-family: Arial;
+      font-size: 20px;
+      padding: 0 5px 5px 5px; }
+  .pulsar-datepicker.ui-datepicker .ui-datepicker-next {
+    float: right; }
+    .pulsar-datepicker.ui-datepicker .ui-datepicker-next::after {
+      content: '\2192';
+      font-family: Arial;
+      font-size: 20px;
+      padding: 0 5px 5px 5px; }
+  .pulsar-datepicker.ui-datepicker .ui-datepicker-title {
+    font-size: 14px; }
+  .pulsar-datepicker.ui-datepicker .ui-datepicker-calendar {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 0;
+    width: 100%; }
+  .pulsar-datepicker.ui-datepicker td.ui-datepicker-today::after {
+    content: none; }
+  .pulsar-datepicker.ui-datepicker .ui-datepicker-buttonpane {
+    margin-top: 10px;
+    text-align: right; }
+  .pulsar-datepicker.ui-datepicker .ui-state-active {
+    background-color: #3e3e3e;
+    color: #ffffff; }
+  .pulsar-datepicker.ui-datepicker .ui-state-highlight {
+    background-color: #efefef;
+    color: #000000; }
+  .pulsar-datepicker.ui-datepicker .ui-datepicker-close {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    background: transparent;
+    background-color: #dedede;
+    border: 0;
+    border-bottom-style: solid;
+    border-radius: 4px;
+    box-shadow: 0 2px 0 #c5c5c5;
+    box-sizing: border-box;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: normal;
+    margin: 0;
+    overflow: visible;
+    padding: 4px 5.6px 2.8px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    vertical-align: top;
+    white-space: nowrap; }
+    .pulsar-datepicker.ui-datepicker .ui-datepicker-close::-moz-focus-inner {
+      border: 0;
+      padding: 0; }
+    .pulsar-datepicker.ui-datepicker .ui-datepicker-close:hover {
+      box-shadow: 0 1px 0 #c5c5c5;
+      -ms-transform: translateY(1px);
+          transform: translateY(1px); }
+      .pulsar-datepicker.ui-datepicker .ui-datepicker-close:hover::after {
+        bottom: 0;
+        content: '';
+        height: calc(100% + 5px);
+        left: -.05%;
+        position: absolute;
+        top: -3px;
+        width: 101%;
+        z-index: -1; }
+      .pulsar-datepicker.ui-datepicker .ui-datepicker-close:hover:focus {
+        box-shadow: 0 1px 0 #000000; }
+      .pulsar-datepicker.ui-datepicker .ui-datepicker-close:hover:focus:active {
+        box-shadow: none; }
+    .pulsar-datepicker.ui-datepicker .ui-datepicker-close:focus {
+      background-color: #fd0;
+      box-shadow: 0 2px 0 #000000;
+      color: #000000;
+      outline: none; }
+    .pulsar-datepicker.ui-datepicker .ui-datepicker-close:active {
+      background-color: #d1d1d1;
+      box-shadow: 0 0 0 #c5c5c5;
+      color: #000000;
+      top: 2px; }
+  .pulsar-datepicker.ui-datepicker .hide {
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important; }
+  .pulsar-datepicker.ui-datepicker .u-display-none {
+    display: none; }
+
+.ui-datepicker-trigger {
+  display: none; }
+
 body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
