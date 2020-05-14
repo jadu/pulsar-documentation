@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jadu/pulsar.git",
-                "reference": "c43efd06c9dee1403c36f983146ddfa28f5c589c"
+                "reference": "697b6dccb3c1800c281762c368150a2b824d2f8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jadu/pulsar/zipball/c43efd06c9dee1403c36f983146ddfa28f5c589c",
-                "reference": "c43efd06c9dee1403c36f983146ddfa28f5c589c",
+                "url": "https://api.github.com/repos/jadu/pulsar/zipball/697b6dccb3c1800c281762c368150a2b824d2f8d",
+                "reference": "697b6dccb3c1800c281762c368150a2b824d2f8d",
                 "shasum": ""
             },
             "require": {
@@ -38,20 +38,20 @@
                 "MIT"
             ],
             "description": "The User Experience and Interface framework for the Jadu Continuum Platform",
-            "time": "2020-04-16T14:50:10+00:00"
+            "time": "2020-05-13T08:27:44+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.15.0",
+            "version": "v1.17.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "4719fa9c18b0464d399f1a63bf624b42b6fa8d14"
+                "reference": "e94c8b1bbe2bc77507a1056cdb06451c75b427f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/4719fa9c18b0464d399f1a63bf624b42b6fa8d14",
-                "reference": "4719fa9c18b0464d399f1a63bf624b42b6fa8d14",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/e94c8b1bbe2bc77507a1056cdb06451c75b427f9",
+                "reference": "e94c8b1bbe2bc77507a1056cdb06451c75b427f9",
                 "shasum": ""
             },
             "require": {
@@ -63,7 +63,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.15-dev"
+                    "dev-master": "1.17-dev"
                 }
             },
             "autoload": {
@@ -96,7 +96,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2020-02-27T09:26:54+00:00"
+            "time": "2020-05-12T16:14:59+00:00"
         },
         {
             "name": "twig/twig",
