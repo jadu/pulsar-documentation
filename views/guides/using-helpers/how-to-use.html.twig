@@ -78,18 +78,6 @@
                 <td>The form element that the input element is associated with (its form owner). The value of the attribute must be an id of a <code>&lt;form&gt;</code> element in the same document. If this attribute isn't used, the <code>&lt;input&gt;</code> element is associated with its nearest ancestor <code>&lt;form&gt;</code> element, if any. This attribute lets you to place <code>&lt;input&gt;</code> elements anywhere within a document, not just as descendants of form elements. An input can be associated with at most one form</td>
             </tr>
             <tr>
-                <td class="u-no-wrap"><code>guidance</code></td>
-                <td>string</td>
-                <td class="u-no-wrap">Form helpers</td>
-                <td>Additional information to be displayed alongside a form input, presented as a {{ html.icon('question-sign') }} icon which shows the guidance text in a popover when activated</td>
-            </tr>
-            <tr>
-                <td class="u-no-wrap"><code>guidance-container</code></td>
-                <td>string</td>
-                <td class="u-no-wrap">Form helpers</td>
-                <td>Element to bind guidance popover scroll behaviour to (default <code>body</code>)</td>
-            </tr>
-            <tr>
                 <td class="u-no-wrap"><code>help</code></td>
                 <td>string</td>
                 <td class="u-no-wrap">Form helpers</td>
@@ -153,9 +141,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#how-to-use">How to use</a></li>
-        <li><a href="#common-options">Common options</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

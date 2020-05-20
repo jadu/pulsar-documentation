@@ -98,10 +98,15 @@
 
 {% endmacro %}
 
-{% macro heading(level, title, prefix, nav_list) %}
+{% macro heading(level, title, prefix) %}
     {% if prefix is defined and prefix is not empty %}
         {% set prefix = prefix ~ '-' %}
     {% endif %}
     {% set id = prefix|default ~ title|lower|replace({ ' ': '-' }) %}
-    <{{ level }} id="{{ id }}" class="docs-heading">{{ title }} <a aria-label="Jump to section" href="#{{ id }}">#</a></{{level}}>
+    <{{ level }} id="{{ id }}" class="docs-heading">{{ title }}</{{level}}>
+{% endmacro %}
+
+{% macro toc() %}
+    <h4>Page contents:</h4>
+    <ul class="page-nav" data-toc=".tab__pane.is-active" data-toc-headings="h2.docs-heading,h3.docs-heading,h4.docs-heading,h5.docs-heading,h6.docs-heading"></ul>
 {% endmacro %}

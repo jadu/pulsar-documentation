@@ -124,17 +124,5 @@ $(function () {
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#dependencies">Dependencies</a></li>
-        <li><a href="#basic-usage">Basic usage</a></li>
-        <li><a href="#setting-initial-state">Setting initial state</a>
-            <ul>
-                <li><a href="#load-with-the-masterswitch-enabled">Load enabled</a></li>
-                <li><a href="#load-with-the-masterswitch-disabled">Load disabled</a></li>
-            </ul>
-        </li>
-        <li><a href="#switching-on">Switching on</a></li>
-        <li><a href="#switching-off">Switching off</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

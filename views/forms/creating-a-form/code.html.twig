@@ -254,28 +254,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#opening-a-form">Opening a form</a>
-            <ul>
-                <li><a href="#helper-options">Helper options</a></li>
-                <li><a href="#enctype">Enctype</a></li>
-                <li><a href="#using-put">Using PUT</a></li>
-                <li><a href="#csrf-protection">CSRF protection</a></li>
-            </ul>
-        </li>
-        <li><a href="#closing-a-form">Closing a form</a>
-            <ul>
-                <li><a href="#closing-helper-options">Helper options</a></li>
-                <li><a href="#button-placement">Button placement</a></li>
-                <li><a href="#variations">Variations</a>
-                    <ul>
-                        <li><a href="#form-aligned-actions">Form-aligned actions</a></li>
-                        <li><a href="#flush-aligned-actions">Flush-aligned actions</a></li>
-                    </ul>
-                </li>
-                <li><a href="#tooltips-on-disabled-actions">Tooltips on disabled actions</a></li>
-            </ul>
-        </li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

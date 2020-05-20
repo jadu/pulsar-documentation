@@ -930,39 +930,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <div class="page-nav-wrapper">
-        <h4>On this page</h4>
-        <ul class="page-nav">
-            <li><a href="#basic-styling">Basic styling</a></li>
-            <li><a href="#dependencies">Dependencies</a>
-                <ul>
-                    <li><a href="#javascript">Javascript</a></li>
-                    <li><a href="#sass">Sass</a></li>
-                </ul>
-            </li>
-            <li><a href="#configuration">Configuration</a></li>
-            <li><a href="#example-usage">Example usage</a></li>
-            <li><a href="#responsive-options">Responsive options</a>
-            <ul>
-                <li><a href="#collapsing-columns">Collapsing columns</a></li>
-                <li><a href="#horizontal-scroll">Horizontal scroll</a></li>
-            </ul>
-        </li>
-            <li><a href="#disable-row-selection">Disable row selection</a></li>
-            <li><a href="#set-initial-column-order">Set initial column order</a></li>
-            <li><a href="#disable-column-ordering">Disable column ordering</a></li>
-            <li><a href="#ordering-date/time-columns">Ordering date/time columns</a></li>
-            <li><a href="#no-results">No results</a>
-                <ul>
-                    <li><a href="#default-message">Default message</a></li>
-                    <li><a href="#custom-message">Custom message</a></li>
-                </ul>
-            </li>
-        </ul>
-
-        <h4>Related components</h4>
-        <ul class="page-nav">
-            <li><a href="table">Table</a></li>
-        </ul>
-    </div>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

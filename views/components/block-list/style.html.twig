@@ -130,13 +130,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">   
-        <li><a href="#headers-and-footers">Headers and footers</a></li>
-        <li><a href="#underlined">Underlined</a></li>
-        <li><a href="#bordered">Bordered</a></li>
-        <li><a href="#full-width">Full width</a></li>
-        <li><a href="#horizontal">Horizontal</a></li>
-        <li><a href="#headers-and-footers">Headers and footers</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

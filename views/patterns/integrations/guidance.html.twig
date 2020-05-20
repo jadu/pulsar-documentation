@@ -390,22 +390,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#integrations-hub">Integrations hub</a></li>
-        <li><a href="#integration-tab">Integration tab</a>
-            <ul>
-                <li><a href="#tab-icon">Tab icon</a></li>
-                <li><a href="#tab-title">Tab title</a></li>
-                <li><a href="#tab-description">Tab description</a></li>
-            </ul>
-        </li>
-        <li><a href="#main-integration-user-interface">Main integration user interface</a>
-            <ul>
-                <li><a href="#masterswitch-control">Masterswitch control</a></li>
-                <li><a href="#form-fields">Form fields</a></li>
-                <li><a href="#tabbed-integrations">Tabbed integrations</a></li>
-            </ul>
-        </li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

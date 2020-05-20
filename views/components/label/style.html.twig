@@ -157,19 +157,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#states">States</a>
-            <ul>
-                <li><a href="#primary">Primary</a></li>
-                <li><a href="#success">Success</a></li>
-                <li><a href="#warning">Warning</a></li>
-                <li><a href="#danger">Danger</a></li>
-                <li><a href="#info">Info</a></li>
-                <li><a href="#inverse">Inverse</a></li>
-            </ul>
-        </li>
-        <li><a href="#large-labels">Large labels</a></li>
-        <li><a href="#removable-labels">Removable labels</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

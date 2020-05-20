@@ -151,17 +151,5 @@ module.exports = {
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#example-usage">Example usage</a></li>
-        <li><a href="#dependencies">Dependencies</a>
-            <ul>
-                <li><a href="#index.js">index.js</a></li>
-                <li><a href="#main.js">main.js</a></li>
-            </ul>
-        </li>
-        <li><a href="#options">Options</a></li>
-        <li><a href="#headings">Headings</a></li>
-        <li><a href="#nested-fields">Nested fields</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

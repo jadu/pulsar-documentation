@@ -116,12 +116,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#basic-usage">Basic usage</a></li>
-        <li><a href="#options">Options</a></li>
-        <li><a href="#placement">Placement</a></li>
-        <li><a href="#tooltips-on-disabled-elements">Tooltips on disabled elements</a></li>
-        <li><a href="#accessibility">Accessibility</a></li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

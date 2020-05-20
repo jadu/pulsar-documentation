@@ -7257,32 +7257,5 @@
 </style>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#button-groups">Button groups</a></li>
-        <li><a href="#button-type-variants">Button type variants</a>
-            <ul>
-                <li><a href="#button-base">Base</a></li>
-                <li><a href="#button-ouline">Outline</a></li>
-                <li><a href="#button-disabled">Disabled</a></li>
-                <li><a href="#button-disabled-outline">Disabled outline</a></li>
-                <li><a href="#button-small">Small</a></li>
-                <li><a href="#button-small-outline">Small outline</a></li>
-                <li><a href="#button-disabled-small">Disabled small</a></li>
-                <li><a href="#button-disabled-small-outline">Disabled small outline</a></li>
-            </ul>
-        </li>
-        <li><a href="#link-type-variants">Link type variants</a>
-            <ul>
-                <li><a href="#link-base">Base</a></li>
-                <li><a href="#link-ouline">Outline</a></li>
-                <li><a href="#link-disabled">Disabled</a></li>
-                <li><a href="#link-disabled-outline">Disabled outline</a></li>
-                <li><a href="#link-small">Small</a></li>
-                <li><a href="#link-small-outline">Small outline</a></li>
-                <li><a href="#link-disabled-small">Disabled small</a></li>
-                <li><a href="#link-disabled-small-outline">Disabled small outline</a></li>
-            </ul>
-        </li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

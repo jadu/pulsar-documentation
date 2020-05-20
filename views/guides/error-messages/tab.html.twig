@@ -235,33 +235,5 @@
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#general-guidance">General guidance</a></li>
-        <li><a href="#general-errors">General errors</a>
-            <ul>
-                <li><a href="#page-title">Page title</a></li>
-                <li><a href="#flash-message">Flash message</a></li>
-            </ul>
-        </li>
-        <li><a href="#form-errors">Form errors</a>
-            <ul>
-                <li>
-                    <a href="#error-summary">Error summary</a>
-                    <ul>
-                        <li><a href="#linking-from-the-error-summary-to-each-input">Linking to each input</a></li>
-                        <li><a href="#where-to-put-the-error-summary">Where to put the error summary</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="#invalid-fields">Invalid fields</a>
-                    <ul>
-                        <li><a href="#accessibility-considerations">Accessibility considerations</a></li>
-                        <li><a href="#colour">Colour</a></li>
-                        <li><a href="#visual-indicator">Visual indicator</a></li>
-                    </li>
-                </li>
-            </li>
-        </li>
-    </ul>
+    {{ docs.toc() }}
 {% endblock tab_sidebar %}

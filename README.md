@@ -9,6 +9,7 @@ Documentation can run locally within a Docker container, all documentation autho
 You will need:
 * A local checkout of the pulsar-documentation GitHub project
 * [Docker Desktop](https://www.docker.com/products/docker-desktop) installed
+* To run `composer install` if this is your first time
 
 From your local checkout, run the following command:
 

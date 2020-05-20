@@ -21,7 +21,7 @@ $ie-version: 12 !default;
 // scss-lint:enable all
 
 // Proxima Nova (requires license)
-$font-path: '../fonts/';
+$font-path: '../fonts';
 $font-family-light: 'proxima-nova', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 
 body {
@@ -31,7 +31,7 @@ body {
 }
 
 // Font awesome
-$fa-font-path: '../node_modules/font-awesome/fonts';
+$fa-font-path: $font-path + '/font-awesome/';
 $fa-css-prefix: 'icon';
 @import 'deprecated.icons';
 @import '../node_modules/font-awesome/scss/font-awesome';
@@ -51,7 +51,7 @@ $fa-css-prefix: 'icon';
 
 // Config
 @import 'config.variables';
-$image-path: '../vendor/jadu/pulsar/images/';
+$image-path: '../../vendor/jadu/pulsar/images/';
 @import 'config.branding';
 
 $branding-navigation: '/img/pulsar-brand.svg';

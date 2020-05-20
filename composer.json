@@ -9,8 +9,8 @@
         }
     },
     "require": {
+        "php": ">=7.1",
         "twig/twig": "^1.21",
-        "jadu/pulsar": "dev-develop",
-        "vlucas/phpdotenv": "^3.3"
+        "jadu/pulsar": "dev-develop"
     }
 }

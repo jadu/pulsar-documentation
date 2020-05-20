@@ -2,11 +2,8 @@
 {% import '@pulsar/pulsar/v2/helpers/form.html.twig' as form %}
 {% import '@pulsar/pulsar/v2/helpers/flash.html.twig' as flash %}
 {% import '@pulsar/pulsar/v2/helpers/nav.html.twig' as nav %}
-{% set cssPath  = '../../css/' %}
-{% set imgPath  = 'vendor/jadu/pulsar/images/' %}
-{% set jsPath   = 'vendor/jadu/pulsar/js/' %}
-{% set libsPath = 'vendor/jadu/pulsar/libs/' %}
-{% set themeFile = '' %}
+{% set imgPath  = '/vendor/jadu/pulsar/images/' %}
+{% set libsPath = '/vendor/jadu/pulsar/libs/' %}
 <!DOCTYPE html>
 <!--[if IE 7]>         <html lang="en" class="no-js ie7 lt-ie10 lt-ie8"><![endif]-->
 <!--[if IE 8]>         <html lang="en" class="no-js ie8 lt-ie10 lt-ie9"><![endif]-->
@@ -19,7 +16,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" type="text/css" href="{{ cssPath ~ 'pulsar.css' }}" />
+    <link rel="stylesheet" type="text/css" href="/dist/css/pulsar.css" />
 
     <link rel="icon" type="image/png" href="{{ imgPath }}favicons/cms/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="{{ imgPath }}favicons/cms/favicon-194x194.png" sizes="194x194">
@@ -56,17 +53,11 @@
     <script>hljs.initHighlightingOnLoad();</script>
 
     <link rel="stylesheet" href="https://use.typekit.net/xhd6hjj.css">
-
-    <script src="../../js/bundle.js"></script>
-    <script src="../../js/main.js"></script>
-
 </head>
 <body class="language-html">
-    {% include '@pulsar/pulsar/components/flash.html.twig' %}
-
     <a class="skip-link" href="#skip-target" tabindex="1">Skip to main content</a>
 
-{% block body %}
+    {% block body %}
     <div class="container" id="top">
         <div class="inner-wrapper">
             {{ nav.primary({ 'brand_link': '/', 'data': nav_data|default() }) }}
@@ -77,6 +68,7 @@
                 {% block search %}
                 {% endblock %}
 
+                {% include '@pulsar/pulsar/components/flash.html.twig' %}
                 {{ nav.breadcrumbs(breadcrumbs|default) }}
 
                 {% if heading is defined and heading is not empty %}
@@ -96,7 +88,7 @@
                 </div>
             </div>
 
-            <div class="tab-help-container t-tab-help-container"><div class="tab-help"></div></div>
+            <aside class="tab-help-container t-tab-help-container"><div class="tab-help"></div></aside>
         </div>
     </div>
 
@@ -121,17 +113,20 @@
         <!-- empty modal for ajax requests -->
     </div>
 
-{% endblock body %}
+    {% endblock body %}
 
-{% block modals %}{% endblock %}
+    {% block modals %}{% endblock %}
 
-{% block javascript %}{% endblock %}
-{% block tab_javascript %}{% endblock %}
-<script>
-  window.intercomSettings = {
-    app_id: "otm9lykd"
-  };
-</script>
-<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/otm9lykd';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>
+    {% block javascript %}{% endblock %}
+    {% block tab_javascript %}{% endblock %}
+
+    <script src="/dist/js/bundle.js"></script>
+
+    <script>
+      window.intercomSettings = {
+        app_id: "otm9lykd"
+      };
+    </script>
+    <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/otm9lykd';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>
 </body>
 </html>
