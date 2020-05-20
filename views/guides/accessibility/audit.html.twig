@@ -1,0 +1,447 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    {{ docs.heading('h2', 'List of components and patterns with their current compliance status') }}
+
+    <p>tested in isolation, on white background etc...</p>
+
+    {{ docs.heading('h3', 'HTML Components') }}
+    <table class="table table--full">
+        <caption class="hide">HTML Components</caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Helper</th>
+                <th>Status</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Badge</td>
+                <td><code>html.badge</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Block List</td>
+                <td><code>html.block_list</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Breadcrumbs</td>
+                <td><code>nav.breadcrumbs</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>TICKET - May need a hover style...</td>
+            </tr>
+            <tr>
+                <td>Button</td>
+                <td><code>html.button</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Button Group</td>
+                <td><code>html.button_group</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Dropdown Button</td>
+                <td><code>html.button_dropdown</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Dropzone</td>
+                <td><code>html.dropzone</code></td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>Browse file is a link, should be a input button, remove X is a link, should be a button.</td>
+            </tr>
+            <tr>
+                <td>Card</td>
+                <td></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Datatable</td>
+                <td><code>html.datatable</code></td>
+                <td><span class="label">unknow</span></td>
+                <td>NEED TO TEST</td>
+            </tr>
+            <tr>
+                <td>Flash</td>
+                <td><code>flash.message</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Icon</td>
+                <td><code>html.icon</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Label</td>
+                <td><code>html.label</code></td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>TICKET - LINKED LABELS NEED FOCUS STYLES, removable labels are not KB accessible (link with no href).</td>
+            </tr>
+            <tr>
+                <td>Link</td>
+                <td><code>html.link</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>TICKET - When disabled swap to aria-disabled role button?</td>
+            </tr>
+            <tr>
+                <td>Link List</td>
+                <td><code>html.link_list</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>List</td>
+                <td><code>html.list</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Loading Spinner</td>
+                <td><code>html.loading</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Media</td>
+                <td><code>html.media</code></td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>TICKET - alt attribute should always be present</td>
+            </tr>
+            <tr>
+                <td>Metadata</td>
+                <td><code>html.metadata</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Modal</td>
+                <td></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Navigation</td>
+                <td><code>nav.primary</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>Potential issue with tab stop order when secondary nav expanded</td>
+            </tr>
+            <tr>
+                <td>Notifications</td>
+                <td></td>
+                <td><span class="label">UNKNOWN</span></td>
+                <td>Needs auditing</td>
+            </tr>
+            <tr>
+                <td>Pagination</td>
+                <td></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Panel</td>
+                <td><code>html.panel</code></td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>TICKET: success, danger panel call to action button colour fail contrast (css override issue). Also timeline avatar and view history link.</td>
+            </tr>
+            <tr>
+                <td>Popover</td>
+                <td></td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>TICKET: investigate</td>
+            </tr>
+            <tr>
+                <td>Progress Bar</td>
+                <td><code>html.progress</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Progress List</td>
+                <td></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Remove Button</td>
+                <td><code>html.remove_button</code></td>
+                <td><span class="label label--error">failure</span></td>
+                <td>TICKET: colour is too light, focus styles broken </td>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td><code>html.status</code></td>
+                <td><span class="label">unknown</span></td>
+                <td>TICKET: I'm sure this was fixed but docs show old tooltips... check</td>
+            </tr>
+            <tr>
+                <td>Tooltips</td>
+                <td></td>
+                <td><span class="label">unknown</span></td>
+                <td>TICKET: I'm sure this was fixed but docs show old tooltips... check</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h3', 'Form Components') }}
+    <table class="table table--full">
+        <caption class="hide">Form Components</caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Helper</th>
+                <th>Status</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Button Group</td>
+                <td><code>form.button_group</code></td>
+                <td><span class="label label--danger">Failure</span></td>
+                <td>Main label isn't connected - needs to be fieldset and legend (form elements are not grouped)</td>
+            </tr>
+            <tr>
+                <td>Checkbox</td>
+                <td><code>form.checkbox</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>SI complains if no fieldset used even if one checkbox...</td>
+            </tr>
+            <tr>
+                <td>Choice</td>
+                <td><code>form.choice</code></td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>Disabled radio labels don't meet AA (just disable the radio/checkbox?)<br/>
+                    Lexicon examples all have same names so KB behaviour is strange.<br/>
+                    Select2 SI/AXE errors
+                </td>
+            </tr>
+            <tr>
+                <td>Colour</td>
+                <td><code>form.colour</code></td>
+                <td><span class="label">unknown</span></td>
+                <td>Cannot access colour picker via KB and SR. Is this a failure? We provide alt input in the text input...</td>
+            </tr>
+            <tr>
+                <td>Compound</td>
+                <td><code>form.compound</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Content</td>
+                <td><code>form.content</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Date</td>
+                <td><code>form.date</code></td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>aria errors on date picker</td>
+            </tr>
+            <tr>
+                <td>File</td>
+                <td><code>form.file</code></td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>validation failure due to use of aria-required - html5 validator doesn't show issues?</td>
+            </tr>
+            <tr>
+                <td>Hidden</td>
+                <td><code>form.hidden</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>JSTree</td>
+                <td></td>
+                <td><span class="label">unknown</span></td>
+                <td>still in use?</td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><code>form.password</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Radio</td>
+                <td><code>form.radio</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Range</td>
+                <td><code>form.range</code></td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>SI error - element not highlighted on focus. Thumb has focus styles but not input... need to fix?</td>
+            </tr>
+            <tr>
+                <td>Repeater</td>
+                <td></td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>SI errors related to "saved data" input missing labels</td>
+            </tr>
+            <tr>
+                <td>Select</td>
+                <td><code>form.select</code></td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>aria-required seems to trigger validation errors futher requiring a role and aria-expanded</td>
+            </tr>
+            <tr>
+                <td>Select2</td>
+                <td><code>form.select2</code></td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>Various SI/AZE aria related errors</td>
+            </tr>
+            <tr>
+                <td>Text</td>
+                <td><code>form.text</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Textarea</td>
+                <td><code>form.textarea</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Time</td>
+                <td><code>form.time</code></td>
+                <td><span class="label">unknown</span></td>
+                <td>Dropdown time picker is not read by SRs</td>
+            </tr>
+            <tr>
+                <td>Toggle Switch</td>
+                <td><code>form.toggle_switch</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h3', 'Patterns') }}
+    <table class="table table--full">
+        <caption class="hide">Patterns</caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Actions bar</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>Note: docs need updating with new section and label mark up</td>
+            </tr>
+            <tr>
+                <td>Common list</td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>
+                    AXE error relating to datatable: All th elements and elements with role=columnheader/rowheader must have data cells they describe<br/>
+                    Table reads poorly in SR as DT has split the table into 2 tables so cells are not assosiated with the headers as they are in a spearate table.
+                </td>
+            </tr>
+            <tr>
+                <td>Disabled UI</td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>
+                    Colour contrast failures due to disabled section of the UI. Should we disable the fieldset also (which is valid).
+                </td>
+            </tr>
+            <tr>
+                <td>Error Summary</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>DOCs: does it need moving to the patterns section?</td>
+            </tr>
+            <tr>
+                <td>Filter bar</td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>Validation failures. Lexicon example broken so can't audit.</td>
+            </tr>
+            <tr>
+                <td>Piano</td>
+                <td><span class="label">unknown</span></td>
+                <td>No lexicon example</td>
+            </tr>
+            <tr>
+                <td>Masterswitch</td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>
+                    Colour contrast failures due to disabled section of the UI. Should we disable the fieldset also (which is valid).<br/>
+                    Links can still be focussed under the disabled ui.
+
+                </td>
+            </tr>
+            <tr>
+                <td>No results</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Reports</td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>No in docs, remove from lexicon? or move to playground? various failures</td>
+            </tr>
+            <tr>
+                <td>Rules</td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>AXE: Heading need to be decending (jumps to h5 for rule headings). Unable to navigate the tfoot form in Mac VO (other SR untested).</td>
+            </tr>
+            <tr>
+                <td>Settings panel</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Tabbed layout</td>
+                <td><span class="label">unknown</span></td>
+                <td>To discuss, do they need aria tabs? research</td>
+            </tr>
+            <tr>
+                <td>Table detail</td>
+                <td><span class="label label--success">success</span></td>
+                <td></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <h4>Misc</h4>
+    <ul>
+        <li>form guidance - not read by SRs</li>
+        <li>IDs have to be manually added, we should look at auto adding guids for labels</li>
+        <li>Error states on load - should aria-invalid only be added via JS?</li>
+        <li>Landmars should be unique - mobile and desktop help aria label</li>
+        <li>docs - fieldsets should always be used? see https://www.w3.org/TR/WCAG20-TECHS/H71</li>
+        <li>JS tabs</li>
+        <li>Do we need to use aria-required when require is present?</li>
+        <li>NEED TO ADDRESS - focus management on mobile help, when closed return to open button?</li>
+    </ul>
+
+
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#always-supply-an-id-attribute">Always supply an ID attribute</a></li>
+    </ul>
+{% endblock tab_sidebar %}
