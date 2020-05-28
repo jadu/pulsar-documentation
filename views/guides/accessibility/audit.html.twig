@@ -35,7 +35,7 @@
                 <td>Breadcrumbs</td>
                 <td><code>nav.breadcrumbs</code></td>
                 <td><span class="label label--success">compliant</span></td>
-                <td>TICKET - May need a hover style...</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Button</td>
@@ -58,8 +58,8 @@
             <tr>
                 <td>Dropzone</td>
                 <td><code>html.dropzone</code></td>
-                <td><span class="label label--danger">failure</span></td>
-                <td>Browse file is a link, should be a input button, remove X is a link, should be a button.</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>Note: popover isn't accessible (certain file types allowed)</td>
             </tr>
             <tr>
                 <td>Card</td>
@@ -88,8 +88,8 @@
             <tr>
                 <td>Label</td>
                 <td><code>html.label</code></td>
-                <td><span class="label label--danger">failure</span></td>
-                <td>TICKET - LINKED LABELS NEED FOCUS STYLES, removable labels are not KB accessible (link with no href).</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>Linked labels and removeable label focus styles fixed in https://github.com/jadu/pulsar/pull/1235</td>
             </tr>
             <tr>
                 <td>Link</td>
@@ -118,8 +118,8 @@
             <tr>
                 <td>Media</td>
                 <td><code>html.media</code></td>
-                <td><span class="label label--danger">failure</span></td>
-                <td>TICKET - alt attribute should always be present</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>Missing alt fixed in https://github.com/jadu/pulsar/pull/1188</td>
             </tr>
             <tr>
                 <td>Metadata</td>
@@ -154,8 +154,8 @@
             <tr>
                 <td>Panel</td>
                 <td><code>html.panel</code></td>
-                <td><span class="label label--danger">failure</span></td>
-                <td>TICKET: success, danger panel call to action button colour fail contrast (css override issue). Also timeline avatar and view history link.</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>Contrast issues fixed in https://github.com/jadu/pulsar/pull/1193</td>
             </tr>
             <tr>
                 <td>Popover</td>
@@ -184,14 +184,14 @@
             <tr>
                 <td>Status</td>
                 <td><code>html.status</code></td>
-                <td><span class="label">unknown</span></td>
-                <td>TICKET: I'm sure this was fixed but docs show old tooltips... check</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Tooltips</td>
                 <td></td>
-                <td><span class="label">unknown</span></td>
-                <td>TICKET: I'm sure this was fixed but docs show old tooltips... check</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>Note: should only be used on interactive element or with elements that have the equivelent in SR accessible text</td>
             </tr>
         </tbody>
     </table>
@@ -211,8 +211,8 @@
             <tr>
                 <td>Button Group</td>
                 <td><code>form.button_group</code></td>
-                <td><span class="label label--danger">Failure</span></td>
-                <td>Main label isn't connected - needs to be fieldset and legend (form elements are not grouped)</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>Swap to legend/fieldset fixed in https://github.com/jadu/pulsar/pull/1198</td>
             </tr>
             <tr>
                 <td>Checkbox</td>
@@ -223,17 +223,14 @@
             <tr>
                 <td>Choice</td>
                 <td><code>form.choice</code></td>
-                <td><span class="label label--danger">failure</span></td>
-                <td>Disabled radio labels don't meet AA (just disable the radio/checkbox?)<br/>
-                    Lexicon examples all have same names so KB behaviour is strange.<br/>
-                    Select2 SI/AXE errors
-                </td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Colour</td>
                 <td><code>form.colour</code></td>
-                <td><span class="label">unknown</span></td>
-                <td>Cannot access colour picker via KB and SR. Is this a failure? We provide alt input in the text input...</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>Note: Cannot access colour picker via KB and SR</td>
             </tr>
             <tr>
                 <td>Compound</td>
@@ -250,14 +247,14 @@
             <tr>
                 <td>Date</td>
                 <td><code>form.date</code></td>
-                <td><span class="label label--danger">failure</span></td>
-                <td>aria errors on date picker</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>New date picker introduced: https://github.com/jadu/pulsar/issues/1171. Existing Pikaday (deprecated) not compliant</td>
             </tr>
             <tr>
                 <td>File</td>
                 <td><code>form.file</code></td>
-                <td><span class="label label--danger">failure</span></td>
-                <td>validation failure due to use of aria-required - html5 validator doesn't show issues?</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Hidden</td>
@@ -286,26 +283,26 @@
             <tr>
                 <td>Range</td>
                 <td><code>form.range</code></td>
-                <td><span class="label label--danger">failure</span></td>
-                <td>SI error - element not highlighted on focus. Thumb has focus styles but not input... need to fix?</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Repeater</td>
                 <td></td>
-                <td><span class="label label--danger">failure</span></td>
-                <td>SI errors related to "saved data" input missing labels</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Select</td>
                 <td><code>form.select</code></td>
-                <td><span class="label label--danger">failure</span></td>
+                <td><span class="label label--success">compliant</span></td>
                 <td>aria-required seems to trigger validation errors futher requiring a role and aria-expanded</td>
             </tr>
             <tr>
                 <td>Select2</td>
                 <td><code>form.select2</code></td>
                 <td><span class="label label--danger">failure</span></td>
-                <td>Various SI/AZE aria related errors</td>
+                <td>Various SI/AXE aria related errors</td>
             </tr>
             <tr>
                 <td>Text</td>
@@ -322,8 +319,8 @@
             <tr>
                 <td>Time</td>
                 <td><code>form.time</code></td>
-                <td><span class="label">unknown</span></td>
-                <td>Dropdown time picker is not read by SRs</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>Note: Dropdown time picker is not read by SRs</td>
             </tr>
             <tr>
                 <td>Toggle Switch</td>
