@@ -1,0 +1,398 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    {{
+        html.panel({
+            'class': 'panel--info u-margin-top-none',
+            'title': 'New in Pulsar 11',
+            'body': 'The date helper now has the option to use a WCAG 2.1 compliant date datepicker. Where possible, this should be used over the default date picker (Pikaday). Details on the default version which did not meet WCAG 2.1 can be found on the deprecated tab.',
+            'icon': 'info-sign'
+        })
+    }}
+
+    <p class="lede">Generate a text input field and button that displays a date picker overlay when clicked.</p>
+
+    <p>This new Pulsar Date Picker is built on top of the jQuery UI datepicker. You can find more details in the <a href="https://github.com/jadu/pulsar-date-picker">Pulsar Date Picker GitHub repo</a></p>
+
+    {{ docs.heading('h2', 'Opt In') }}
+
+    <p>For backwards compatibility, the new date picker is "opt-in" and the existing (deprecated) date picker Pikaday is the default. To opt in to the new Pulsar Date Picker you'll need to install via npm <code>npm install pulsar-date-picker --save</code> and then initialise as below:</p>
+
+    <pre><code lang="javascript">
+    const datePicker = require('pulsar-date-picker');
+
+    $(function () {
+        datePicker.init($html);
+    });
+    </code></pre>
+
+    Then pass the <code>'data-pulsar-datepicker': 'true'</code> option to your date helper.
+
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({
+        screenreader: "",
+        twig: "
+{{
+    form.date({
+        'data-pulsar-datepicker': 'true',
+        'label': 'Start date',
+        'id': 'date-1',
+        'name': 'date-1'
+    })
+}}
+    " }) }}
+    
+    {{ docs.heading('h2', 'Helper options') }}
+
+    <p>You can configure this helper using the <a href="../guides/using-helpers#common-options">common helper options</a>, the following options are specific to this helper.</p>
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>data-pulsar-datepicker-trigger</td>
+                <td>bool</td>
+                <td>If <code>true</code> (default), initialises the Pulsar Date Picker and adds the trigger button</td>
+            </tr>
+            <tr>
+                <td>data-pulsar-datepicker-trigger-label</td>
+                <td>string</td>
+                <td>The hidden accessible label for the date picker trigger button. <code>Show calendar</code> (default)</td>
+            </tr>
+            <tr>
+                <td>format</td>
+                <td>string</td>
+                <td>
+                    <p>Specify the date format to use, can be:
+                    </p>
+                    <ul>
+                        <li><code>default</code> dd/mm/yyyy</li>
+                        <li><code>US</code> mm/dd/yyyy</li>
+                        <li><code>reverse</code> yyyy/mm/dd</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'Date format') }}
+
+    <p>Use the <code>format</code> attribute to change between <code>default</code> (UK), <code>US</code> and <code>reverse</code> (reverse UK) date formats.</p>
+
+    {{ docs.example({
+        screenreader: "",
+        twig: "
+{{
+    form.date({
+        'data-pulsar-datepicker': 'true',
+        'label': 'Start date',
+        'id': 'date-2',
+        'name': 'date-2',
+        'format': 'US'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Accessibility') }}
+
+    <p>The new date picker brings a range of accessibility improvements over the original (Pikaday).</p>
+
+    {{ docs.heading('h3', 'Keyboard accessibility') }}    
+    <ul>
+        <li><code>ESC</code> closes the date picker</li>
+        <li><code>ENTER</code> and <code>SPACE</code> can be used to select a date</li>
+        <li><code>TAB</code> and <code>SHIFT</code> + <code>TAB</code> can be used to cycle through the date picker controls</li>
+        <li><code>ARROW KEYS</code> can be used to navigate through the displaye dates or to navigate to a previous/future week or month</li>
+        <li><code>PAGE UP</code> goes to the previous month</li>
+        <li><code>PAGE DOWN</code> goes to the next month</li>
+        <li><code>HOME</code> goes to the first of the month</li>
+        <li><code>END</code> goes to the last date of the month</li>
+        <li>Previous/Next controls can be accessed and activated via Keyboard</li>
+    </ul>
+
+    {{ docs.heading('h3', 'Focus management') }}    
+    <ul>
+        <li>Focus is trapped within the date picker until closed. Preventing AT users from accidentally navigating out of the date picker</li>
+        <li>Todays date (if displayed) or the selected date is focussed on open</li>
+        <li>Focus returns to the date input on close</li>
+    </ul>
+
+    {{ docs.heading('h3', 'Screen reader experience') }}    
+    <ul>
+        <li>The date picker container has an accessible label: <code>Calendar view date picker</code></li>
+        <li>Individual dates have accessible labels, for example: <code>7 May 2020 Thursday</code></li>
+        <li>Previous/Next month controls have accessible labels, for example: <code>Next month, June 2020</code> <code>Previous month, April 2020</code></li>
+    </ul>
+
+    {{ docs.heading('h3', 'Misc') }}    
+    <ul>
+        <li>A <code>placeholder</code> matching the date format is added to the input</li>
+        <li><code>autocomplete</code> on the input is disabled to prevent it overlapping the date picker</li>
+    </ul>
+
+    {{ docs.heading('h2', 'Validation') }}
+    {{ docs.heading('h3', 'Error') }}
+
+    {{ docs.example({
+        screenreader: 'My label, unticked, tickbox. Something went wrong',
+        twig: "
+{{
+    form.date({
+        'data-pulsar-datepicker': 'true',
+        'label': 'My label',
+        'id': 'date-3', 
+        'name': 'date-3',
+        'error': 'Something went wrong'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Multiple Errors') }}
+
+    {{ docs.example({
+        screenreader: 'My label, unticked, tickbox. Something went wrong something else went wrong',
+        twig: "
+{{
+    form.date({
+        'data-pulsar-datepicker': 'true',
+        'label': 'My label',
+        'id': 'date-4', 
+        'name': 'date-4',
+        'error': [
+            'Something went wrong',
+            'Something else went wrong'
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Error and Help') }}
+
+    {{ docs.example({
+        screenreader: 'My label, unticked, tick box .Help text to give more information about expected input Something went wrong',
+        twig: "
+{{
+    form.date({
+        'data-pulsar-datepicker': 'true',
+        'label': 'My label',
+        'id': 'date-5', 
+        'name': 'date-5',
+        'error': 'Something went wrong',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'States') }}
+    {{ docs.heading('h3', 'Success') }}
+
+    <p>Highlight positive actions or indicate that something has successfully saved with the <code>has-success</code> class.</p>
+
+    {{ docs.example({
+        screenreader: 'Something went wrong, selected invalid data, radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'data-pulsar-datepicker': 'true',
+        'label': 'My label',
+        'class': 'has-success',
+        'id': 'date-6', 
+        'name': 'date-6',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Warning') }}
+
+    <p>Highlight states which may need extra attention from the user, but which aren’t quite errors, with the <code>has-warning</code> class.</p>
+
+    {{ docs.example({
+        screenreader: 'Help text to give more information about expected input, selected, radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'data-pulsar-datepicker': 'true',
+        'label': 'My label',
+        'class': 'has-success',
+        'id': 'date-7', 
+        'name': 'date-7',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Error') }}
+
+    <p>The <code>has--error</code> class is automatically added when using the <code>error</code> option.</p>
+
+    {{ docs.example({
+        screenreader: 'Help text to give more information about expected input, selected, radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'data-pulsar-datepicker': 'true',
+        'label': 'My label',
+        'class': 'has-error',
+        'id': 'date-8', 
+        'name': 'date-8',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Changed') }}
+
+    <p>Highlight actions which may have changed depending on other choices elsewhere in the user interface using the <code>has-changed</code> class.</p>
+
+    {{ docs.example({
+        screenreader: 'Something went wrong, selected invalid data, radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'data-pulsar-datepicker': 'true',
+        'label': 'My label',
+        'class': 'has-changed',
+        'id': 'date-9', 
+        'name': 'date-9',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+    
+    {{ docs.heading('h2', 'Variations') }}
+    {{ docs.heading('h3', 'Help') }}
+
+    {{ docs.example({
+        screenreader: 'Help text to give more information about selected input, selected, radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'data-pulsar-datepicker': 'true',
+        'label': 'My label',
+        'id': 'date-10', 
+        'name': 'date-10',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Required') }}
+
+    {{ docs.example({
+        screenreader: 'selected, radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'data-pulsar-datepicker': 'true',
+        'label': 'My label',
+        'id': 'date-11', 
+        'name': 'date-11',
+        'required': true,
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Alignment') }}
+    {{ docs.heading('h2', 'Hide Label') }}
+    
+    {{ docs.example({
+        screenreader: 'radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'data-pulsar-datepicker': 'true',
+        'label': 'My label',
+        'show-label': false,
+        'id': 'date-12', 
+        'name': 'date-12',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Long Label Behaviour') }}
+    
+    {{ docs.example({
+        screenreader: 'Example block level help text here, radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'data-pulsar-datepicker': 'true',
+        'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
+        'id': 'date-13', 
+        'name': 'date-13',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Top Labels') }}
+
+    <p>You should avoid using really long labels, but if you have to, it may be more appropriate to use the <code>form__group--top</code> class to give it more space.</p>
+    
+    {{ docs.example({
+        screenreader: 'Example block level help text here, radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'data-pulsar-datepicker': 'true',
+        'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
+        'class': 'form__group--top',
+        'id': 'date-14', 
+        'name': 'date-14',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Flush Inputs') }}
+
+    <p>Depending on the flow of your user interface you may want to position your inputs along the left edge of the UI</p>
+    
+    {{ docs.example({
+        screenreader: 'Example block level help text here, radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'data-pulsar-datepicker': 'true',
+        'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
+        'class': 'form__group--flush',
+        'id': 'date-15', 
+        'name': 'date-15',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Flush Inputs & Top Label') }}
+    
+    {{ docs.example({
+        screenreader: 'Example block level help text here, radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'data-pulsar-datepicker': 'true',
+        'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
+        'class': 'form__group--top form__group--flush',
+        'id': 'date-16', 
+        'name': 'date-16',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    {{ docs.toc() }}
+{% endblock tab_sidebar %}

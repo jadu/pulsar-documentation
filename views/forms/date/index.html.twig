@@ -10,27 +10,27 @@
     ]
 %}
 
-{% set tab_code %}
-    {% include 'forms/date/code.html.twig' %}
+{% set tab_new %}
+    {% include 'forms/date/new.html.twig' %}
 {% endset %}
-{% set tab_style %}
-    {% include 'forms/date/style.html.twig' %}
+{% set tab_deprecated %}
+    {% include 'forms/date/deprecated.html.twig' %}
 {% endset %}
 
 {%
     set tabs_content = [
         {
-          "id"    : "code",
+          "id"    : "new",
           "class" : "ui-report",
-          "label" : "Code",
-          "src"   : tab_code,
+          "label" : "New",
+          "src"   : tab_new,
           "active": true
         },
         {
-          "id"    : "style",
+          "id"    : "deprecated",
           "class" : "ui-report",
-          "label" : "Style",
-          "src"   : tab_style,
+          "label" : "Deprecated",
+          "src"   : tab_deprecated
         }
     ]
 %}
