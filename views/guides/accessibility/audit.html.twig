@@ -70,8 +70,8 @@
             <tr>
                 <td>Datatable</td>
                 <td><code>html.datatable</code></td>
-                <td><span class="label">unknow</span></td>
-                <td>NEED TO TEST</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>aXe incorrectly reports "All th elements and elements with role=columnheader/rowheader must have data cells they describe" on empty datatables. need to add caption option to docs.</td>
             </tr>
             <tr>
                 <td>Flash</td>
@@ -137,13 +137,13 @@
                 <td>Navigation</td>
                 <td><code>nav.primary</code></td>
                 <td><span class="label label--success">compliant</span></td>
-                <td>Potential issue with tab stop order when secondary nav expanded</td>
+                <td>Axe may incorrectly report an issue with elements with/within aria-hidden="true" not having tabindex="-1" when the mobile nav is open.</td>
             </tr>
             <tr>
                 <td>Notifications</td>
                 <td></td>
-                <td><span class="label">UNKNOWN</span></td>
-                <td>Needs auditing</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>Remaining issues fixed in #1260</td>
             </tr>
             <tr>
                 <td>Pagination</td>
@@ -178,8 +178,8 @@
             <tr>
                 <td>Remove Button</td>
                 <td><code>html.remove_button</code></td>
-                <td><span class="label label--error">failure</span></td>
-                <td>TICKET: colour is too light, focus styles broken </td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>Fixed in #1261</td>
             </tr>
             <tr>
                 <td>Status</td>
@@ -265,8 +265,9 @@
             <tr>
                 <td>JSTree</td>
                 <td></td>
-                <td><span class="label">unknown</span></td>
-                <td>still in use?</td>
+                <td><span class="label">Known issues</span></td>
+                <td>JStree follows the aria-tree pattern and includes the appropriate keyboard navigation support. 2 potential issues where found (reported by Site Improve): Element not highlighted on focus. This relates to the JS tree wrapper with tabindex="0". Adding focus styles does not resolve is issue as when focus shifts to the container, focus is immediately moved to the first element in the tree. Therefore, this seems to be a non-issue.
+WAI-ARIA group is missing a name. This relates to the plugin using aria-activedescendant in combination with role="group" and a missing group name. There doesn't seem to be a way to resolve this.</td>
             </tr>
             <tr>
                 <td>Password</td>
@@ -349,18 +350,13 @@
             </tr>
             <tr>
                 <td>Common list</td>
-                <td><span class="label label--danger">failure</span></td>
-                <td>
-                    AXE error relating to datatable: All th elements and elements with role=columnheader/rowheader must have data cells they describe<br/>
-                    Table reads poorly in SR as DT has split the table into 2 tables so cells are not assosiated with the headers as they are in a spearate table.
-                </td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Disabled UI</td>
-                <td><span class="label label--danger">failure</span></td>
-                <td>
-                    Colour contrast failures due to disabled section of the UI. Should we disable the fieldset also (which is valid).
-                </td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Error Summary</td>
@@ -373,18 +369,19 @@
                 <td>Validation failures. Lexicon example broken so can't audit.</td>
             </tr>
             <tr>
+                <td>Help sidebar</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>  
+            <tr>
                 <td>Piano</td>
-                <td><span class="label">unknown</span></td>
-                <td>No lexicon example</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Masterswitch</td>
-                <td><span class="label label--danger">failure</span></td>
-                <td>
-                    Colour contrast failures due to disabled section of the UI. Should we disable the fieldset also (which is valid).<br/>
-                    Links can still be focussed under the disabled ui.
-
-                </td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
             </tr>
             <tr>
                 <td>No results</td>
@@ -409,7 +406,7 @@
             <tr>
                 <td>Tabbed layout</td>
                 <td><span class="label">unknown</span></td>
-                <td>To discuss, do they need aria tabs? research</td>
+                <td>To discuss, do they need aria tabs? No, see https://dwp-design-examples.herokuapp.com/example/navigation-secondary and research</td>
             </tr>
             <tr>
                 <td>Table detail</td>
@@ -422,6 +419,7 @@
 
     <h4>Misc</h4>
     <ul>
+        <li>Tables? Do we need a table section above? captions etc</li>
         <li>form guidance - not read by SRs</li>
         <li>IDs have to be manually added, we should look at auto adding guids for labels</li>
         <li>Error states on load - should aria-invalid only be added via JS?</li>
