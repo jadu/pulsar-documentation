@@ -3,7 +3,7 @@
 
 {% block tab_content %}
 <div class="report">
-    <p class="lede">The paino pattern allows you to switch between different panels of content within the same UI. Commonly used in integration and messages UIs.</p>
+    <p class="lede">The piano pattern allows you to switch between different panels of content within the same UI. Commonly used in integration and messages UIs.</p>
 
     <figure>
         <img src="/views/patterns/piano/img/piano.png" alt="Screenshot showing the layout of an piano UI" />
@@ -14,7 +14,6 @@
     <p>You will need to import the <code>_component.piano.scss</code> sass partial in your main sass file.</p>
 
     <pre><code lang="sass">@import '/path/to/pulsar/stylesheets/component.piano';</code></pre>
-
 
     {{ docs.heading('h2', 'Example (integrations)') }}
 
@@ -225,7 +224,7 @@
                         </div>
                     </div>
 
-                    <form class=\"form piano__form\" method=\"pos\" action=\"/foo\">
+                    <form class=\"form piano__form\" method=\"post\" action=\"/foo\">
                         {{
                             form.textarea({
                                 'id': 'guid-' ~ random(),
