@@ -419,3 +419,8 @@ figcaption {
         z-index: 100;
     }
 }
+
+.tab__content > :not(.d-example) .media__body p:first-of-type, 
+.tab__content > :not(.d-example) .media__body p:last-of-type {
+    margin-bottom: 0;
+}

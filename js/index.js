@@ -36,9 +36,12 @@ var $                     = require('jquery'),
     HelpTextComponent = require('../vendor/jadu/pulsar/js/HelpTextComponent'),
     MasterSwitchComponent = require('../vendor/jadu/pulsar/js/MasterSwitchComponent'),
     NavMainComponent      = require('../vendor/jadu/pulsar/js/NavMainComponent'),
+    PulsarFocusManagementService = require('../vendor/jadu/pulsar/js/FocusManagementService'),
     PulsarFormComponent   = require('../vendor/jadu/pulsar/js/PulsarFormComponent'),
     PulsarSortableComponent = require('../vendor/jadu/pulsar/js/PulsarSortableComponent'),
     PulsarUIComponent     = require('../vendor/jadu/pulsar/js/PulsarUIComponent'),
+    ModalFocusService = require('../vendor/jadu/pulsar/js/Modals/ModalFocusService'),
+    ModalListener = require('../vendor/jadu/pulsar/js/Modals/ModalListener'),
     RepeaterManagerComponent = require('../vendor/jadu/pulsar/js/Repeater/RepeaterManagerComponent'),
     repeaterComponentFactory = require('../vendor/jadu/pulsar/js/Repeater/repeaterComponentFactory'),
     TableDetailComponent = require('../vendor/jadu/pulsar/js/TableDetailComponent'),
@@ -59,15 +62,18 @@ var $                     = require('jquery'),
         pulsarForm = new PulsarFormComponent($html),
         pulsarUI = new PulsarUIComponent($html, window.History),
         pulsarSortable = new PulsarSortableComponent($html, window),
+        pulsarFocusManagement = new PulsarFocusManagementService(),
         masterSwitch = new MasterSwitchComponent($html, disableUI),
-        navMain = new NavMainComponent($html, window),
+        navMain = new NavMainComponent($html, window, pulsarFocusManagement),
         filterBar = new FilterBarComponent($html),
         tableDetail = new TableDetailComponent($html),
         repeaterManager = new RepeaterManagerComponent(
             pulsarForm,
             repeaterComponentFactory,
             $html
-        );
+        ),
+        modalFocusService = new ModalFocusService(),
+        modalListener = new ModalListener(modalFocusService);
 
     $(function () {
 
@@ -88,6 +94,7 @@ var $                     = require('jquery'),
         tableDetail.init();
         repeaterManager.init();
         datePicker.init($newHtml);
+        modalListener.listen($newHtml)
 
         var dropZoneComponent = DropZoneComponentFactory.create($('body')[0], '.dropzone'),
             tooltipListener = tooltipFactory($html);
