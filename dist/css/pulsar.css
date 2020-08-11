@@ -4086,8 +4086,7 @@ body,
   position: relative;
   transform: none;
   transition: transform 500ms ease;
-  width: 100%;
-  will-change: transform; }
+  width: 100%; }
   @media screen and (min-width: 992px) {
     .inner-wrapper {
       display: table-row;
@@ -10250,13 +10249,12 @@ a:focus .label {
     white-space: nowrap; }
   .modal--full-screen .close,
   .modal--full-screen .download {
-    color: #7e7e7e;
+    color: #7e7e7e !important;
     font-size: 1.4em;
-    padding: 18px;
     transition: color .1s ease; }
     .modal--full-screen .close:hover,
     .modal--full-screen .download:hover {
-      color: #3399cc; }
+      color: #3399cc !important; }
     .modal--full-screen .close:focus,
     .modal--full-screen .download:focus {
       background-color: #ffbf47;
@@ -10264,11 +10262,22 @@ a:focus .label {
       color: #1e1e1e !important;
       outline: none; }
   .modal--full-screen .close {
+    border-radius: 0;
+    box-shadow: none;
     margin-right: 0;
-    margin-top: 0; }
+    margin-top: 0;
+    padding: 17px; }
+    .modal--full-screen .close:active {
+      background: none;
+      top: 0; }
+    .modal--full-screen .close:hover {
+      transform: none; }
+      .modal--full-screen .close:hover::after {
+        position: relative; }
   .modal--full-screen .download {
     border-right: 1px solid #efefef;
-    float: right; }
+    float: right;
+    padding: 18px; }
   .modal--full-screen .modal__header-detailed {
     flex: 1 1 50px;
     margin-left: 15px;
