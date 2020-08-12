@@ -7,8 +7,20 @@
 
     {{ docs.heading('h2', 'Dependencies') }}
 
-    <p>Select2 elements need the <code>PulsarFormComponent</code> to be included in your browserify configuration.</p>
+    <p>Pulsar uses its own <a href="https://github.com/jadu/selectWoo">fork of SelectWoo</a>, which contains additional accessibility enhancements over the <a href="https://github.com/woocommerce/selectWoo">original selectWoo</a> which in turn offers better accessibility support over the <a href="https://select2.org/">original select2</a>.</p>
 
+    <p>You can find more information about the Jadu branch of selectWoo, such as screen reader coverage and known bugs on the <a href="https://github.com/jadu/selectWoo">Jadu/selectWoo GitHub repo</a></p>
+
+    {{ docs.heading('h3', 'package.json') }}
+
+    <p>The following should be included in your product’s <code>package.json</code> file.</p>
+
+    <pre><code lang="javascript">"dependencies": {
+    ...
+    "select2": "github:jadu/selectWoo#jadu-1.1.3",
+}
+</code></pre>
+    
     {{ docs.heading('h3', 'index.js') }}
 
 <pre><code lang="javascript">var PulsarFormComponent = require('/path/to/pulsar/PulsarFormComponent');
@@ -31,11 +43,8 @@ $(function () {
     form.select2({
         'label': 'Pick a colour',
         'id': 'select-1',
+        'placeholder': 'Please choose',
         'options': [
-            {
-                'label': 'Choose',
-                'value': ''
-            },
             {
                 'label': 'Red',
                 'value': 'colour_red'
@@ -73,6 +82,11 @@ $(function () {
                 <td>An array of labels and values to use as <code>options</code></td>
             </tr>
             <tr>
+                <td>placeholder</td>
+                <td>string</td>
+                <td>The placeholder to show when no values are selected</td>
+            </tr>
+            <tr>
                 <td>selected</td>
                 <td>string</td>
                 <td>The <code>value</code> of the item in <code>options</code> that should be initially selected</td>
@@ -98,10 +112,6 @@ $(function () {
         'selected': 'colour_blue',
         'options': [
             {
-                'label': 'Choose',
-                'value': ''
-            },
-            {
                 'label': 'Red',
                 'value': 'colour_red'
             },
@@ -125,10 +135,6 @@ $(function () {
         'multiple': true,
         'selected': ['colour_red', 'colour_blue'],
         'options': [
-            {
-                'label': 'Choose',
-                'value': ''
-            },
             {
                 'label': 'Red',
                 'value': 'colour_red'
@@ -154,11 +160,8 @@ $(function () {
         'id': 'select-3',
         'disabled': true,
         'selected': 'color',
+        'placeholder': 'Please choose',
         'options': [
-            {
-                'label': 'Choose',
-                'value': ''
-            },
             {
                 'label': 'Red',
                 'value': 'colour_red'
@@ -182,15 +185,37 @@ $(function () {
     form.select2({
         'label': 'Pick a colour',
         'id': 'select-4',
+        'placeholder': 'Please choose',
         'options': [
-            {
-                'label': 'Choose',
-                'value': ''
-            },
             {
                 'label': 'Red',
                 'value': 'colour_red',
                 'disabled': true
+            },
+            {
+                'label': 'Blue',
+                'value': 'colour_blue'
+            }
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Placeholder') }}
+
+    <p>Placeholders can be set using the <code>placeholder</code> option. Note: for single select select2s, select2 requires an empty option for use with the placeholder. This will be added automatically if you are using the <code>form.select2</code> helper.</p>
+
+    {{ docs.example({
+        twig: "
+{{
+    form.select2({
+        'label': 'My label',
+        'id': 'select-5',
+        'placeholder': 'Please choose',
+        'options': [
+            {
+                'label': 'Red',
+                'value': 'colour_red'
             },
             {
                 'label': 'Blue',
@@ -210,7 +235,7 @@ $(function () {
 {{
     form.select2({
         'label': 'My label',
-        'id': 'select-5',
+        'id': 'select-6',
         'options':
         [
             {
