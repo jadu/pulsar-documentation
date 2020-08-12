@@ -46,7 +46,8 @@ var $                     = require('jquery'),
     repeaterComponentFactory = require('../vendor/jadu/pulsar/js/Repeater/repeaterComponentFactory'),
     TableDetailComponent = require('../vendor/jadu/pulsar/js/TableDetailComponent'),
     tooltipFactory = require('../vendor/jadu/pulsar/js/Tooltips/tooltipsFactory'),
-    datePicker = require('pulsar-date-picker');
+    datePicker = require('pulsar-date-picker'),
+    TabEnhancements = require('../vendor/jadu/pulsar/js/TabEnhancements/TabEnhancements');
 
 (function () {
 
@@ -73,7 +74,8 @@ var $                     = require('jquery'),
             $html
         ),
         modalFocusService = new ModalFocusService(),
-        modalListener = new ModalListener(modalFocusService);
+        modalListener = new ModalListener(modalFocusService),
+        tabEnhancements = new TabEnhancements();
 
     $(function () {
 
@@ -101,6 +103,7 @@ var $                     = require('jquery'),
 
         dropZoneComponent.init();
         tooltipListener.init();
+        tabEnhancements.init($newHtml);
 
         $('.d-example-nav__link').on('click', function() {
             var $this = $(this),
