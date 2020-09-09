@@ -73,10 +73,135 @@
 }}
     " }) }}
 
+    {{ docs.heading('h2', 'Prepended information') }}
+    {{ docs.heading('h3', 'String', 'pre') }}
 
+    {{ docs.example({
+        twig: "
+{{
+    form.textarea({
+        'label': 'Price',
+        'id': 'text-3',
+        'name': 'text-3',
+        'prepend': '£'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Button', 'pre') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.textarea({
+        'label': 'My label',
+        'id': 'text-4',
+        'name': 'text-4',
+        'prepend': html.button({ 
+            'label': 'Clear'
+        }),
+        'prepend_type': 'button'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Appended information') }}
+    {{ docs.heading('h3', 'String', 'app') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.textarea({
+        'label': 'Price',
+        'id': 'text-5',
+        'name': 'text-5',
+        'append': '.00'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Button', 'app') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.textarea({
+        'label': 'Postcode',
+        'id': 'text-6',
+        'name': 'text-6',
+        'append': html.button({ 
+            'label': 'Find Address'
+        }),
+        'append_type': 'button'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Prepended and Appended information') }}
+    {{ docs.heading('h3', 'Strings', 'pre-app') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.textarea({
+        'label': 'Price',
+        'id': 'text-7',
+        'name': 'text-7',
+        'prepend': '£',
+        'append': '.00'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Buttons', 'pre-app') }}
+
+    {{ docs.example({
+        twig: "
+{{
+    form.textarea({
+        'label': 'Value',
+        'id': 'text-8',
+        'name': 'text-8',
+        'prepend': html.button({ 
+            'label': html.icon('minus'),
+            'data-action': 'decrement'
+        }),
+        'prepend_type': 'button',
+        'append': html.button({ 
+            'label': html.icon('plus'),
+            'data-action': 'increment'
+        }),
+        'append_type': 'button'
+    })
+}}
+    " }) }}
 
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
-    {{ docs.toc() }}
+    <h4>On this page</h4>
+    <ul class="page-nav">
+        <li><a href="#basic-usage">Basic usage</a></li>
+        <li><a href="#helper-options">Helper options</a></li>
+        <li><a href="#disabled-input">Disabled input</a></li>
+        <li><a href="#rows">Rows</a></li>
+        <li><a href="#prepended-information">Prepended information</a>
+            <ul>
+                <li><a href="#pre-string">String</a></li>
+                <li><a href="#pre-button">Button</a></li>
+            </ul>
+        </li>
+        <li><a href="#appended-information">Appended information</a>
+            <ul>
+                <li><a href="#app-string">String</a></li>
+                <li><a href="#app-button">Button</a></li>
+            </ul>
+        </li>
+        <li><a href="#prepended-and-appended-information">Prepended and appended information</a>
+            <ul>
+                <li><a href="#pre-app-strings">Strings</a></li>
+                <li><a href="#pre-app-buttons">Buttons</a></li>
+            </ul>
+        </li>
+    </ul>
 {% endblock tab_sidebar %}
