@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jadu/pulsar.git",
-                "reference": "2b79e31e89acf7bfe65c4c12191cbb6cd30fd4a9"
+                "reference": "29d09b00541bcef9fdd217ad611131afebdf25c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jadu/pulsar/zipball/2b79e31e89acf7bfe65c4c12191cbb6cd30fd4a9",
-                "reference": "2b79e31e89acf7bfe65c4c12191cbb6cd30fd4a9",
+                "url": "https://api.github.com/repos/jadu/pulsar/zipball/29d09b00541bcef9fdd217ad611131afebdf25c6",
+                "reference": "29d09b00541bcef9fdd217ad611131afebdf25c6",
                 "shasum": ""
             },
             "require": {
@@ -38,7 +38,7 @@
                 "MIT"
             ],
             "description": "The User Experience and Interface framework for the Jadu Continuum Platform",
-            "time": "2020-07-02T09:05:24+00:00"
+            "time": "2020-08-11T08:14:51+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
