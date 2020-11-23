@@ -36,13 +36,18 @@ var $                     = require('jquery'),
     HelpTextComponent = require('../vendor/jadu/pulsar/js/HelpTextComponent'),
     MasterSwitchComponent = require('../vendor/jadu/pulsar/js/MasterSwitchComponent'),
     NavMainComponent      = require('../vendor/jadu/pulsar/js/NavMainComponent'),
+    PulsarFocusManagementService = require('../vendor/jadu/pulsar/js/FocusManagementService'),
     PulsarFormComponent   = require('../vendor/jadu/pulsar/js/PulsarFormComponent'),
     PulsarSortableComponent = require('../vendor/jadu/pulsar/js/PulsarSortableComponent'),
     PulsarUIComponent     = require('../vendor/jadu/pulsar/js/PulsarUIComponent'),
+    ModalFocusService = require('../vendor/jadu/pulsar/js/Modals/ModalFocusService'),
+    ModalListener = require('../vendor/jadu/pulsar/js/Modals/ModalListener'),
     RepeaterManagerComponent = require('../vendor/jadu/pulsar/js/Repeater/RepeaterManagerComponent'),
     repeaterComponentFactory = require('../vendor/jadu/pulsar/js/Repeater/repeaterComponentFactory'),
     TableDetailComponent = require('../vendor/jadu/pulsar/js/TableDetailComponent'),
-    tooltipFactory = require('../vendor/jadu/pulsar/js/Tooltips/tooltipsFactory');
+    tooltipFactory = require('../vendor/jadu/pulsar/js/Tooltips/tooltipsFactory'),
+    datePicker = require('pulsar-date-picker'),
+    TabEnhancements = require('../vendor/jadu/pulsar/js/TabEnhancements/TabEnhancements');
 
 (function () {
 
@@ -58,17 +63,24 @@ var $                     = require('jquery'),
         pulsarForm = new PulsarFormComponent($html),
         pulsarUI = new PulsarUIComponent($html, window.History),
         pulsarSortable = new PulsarSortableComponent($html, window),
+        pulsarFocusManagement = new PulsarFocusManagementService(),
         masterSwitch = new MasterSwitchComponent($html, disableUI),
-        navMain = new NavMainComponent($html, window),
+        navMain = new NavMainComponent($html, window, pulsarFocusManagement),
         filterBar = new FilterBarComponent($html),
         tableDetail = new TableDetailComponent($html),
         repeaterManager = new RepeaterManagerComponent(
             pulsarForm,
             repeaterComponentFactory,
             $html
-        );
+        ),
+        modalFocusService = new ModalFocusService(),
+        modalListener = new ModalListener(modalFocusService),
+        tabEnhancements = new TabEnhancements();
 
     $(function () {
+
+        var $newHtml = $('html');
+
         button.init();
         dropdownButton.init();
         errorSummary.init($html);
@@ -83,12 +95,15 @@ var $                     = require('jquery'),
         disableUI.init();
         tableDetail.init();
         repeaterManager.init();
+        datePicker.init($newHtml);
+        modalListener.listen($newHtml)
 
         var dropZoneComponent = DropZoneComponentFactory.create($('body')[0], '.dropzone'),
             tooltipListener = tooltipFactory($html);
 
         dropZoneComponent.init();
         tooltipListener.init();
+        tabEnhancements.init($newHtml);
 
         $('.d-example-nav__link').on('click', function() {
             var $this = $(this),
@@ -113,8 +128,6 @@ var $                     = require('jquery'),
         $('[data-toggle="tab"]').on('shown.bs.tab', function (e) {
             $(".page-nav").empty().toc({content: ".tab__pane.is-active", headings: "h2.docs-heading,h3.docs-heading,h4.docs-heading,h5.docs-heading,h6.docs-heading"});
         });
-
-        console.log($('.docs-heading'));
     });
 
 }());

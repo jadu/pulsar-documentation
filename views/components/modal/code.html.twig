@@ -50,11 +50,11 @@
             }
         ',
         html: '
-<div class="modal show" id="myModal" role="dialog" aria-modal="true" aria-labelledby="myModal-title" aria-describedby="myModal-description">
+<div class="modal show" id="myModal" role="dialog" aria-modal="true" aria-labelledby="myModal-title" aria-describedby="myModal-description" tabindex="-1">
     <div class="modal__dialog">
         <div class="modal__content">
             <div class="modal__header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close dialog">×</button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close modal dialog"><span aria-hidden="true">×</span></button>
                 <h1 class="modal__title" id="myModal-title">A simple example</h1>
             </div>
             <div class="modal__body">
@@ -72,14 +72,72 @@
 
     {{ docs.heading('h2', 'Accessibility') }}
 
-    <p>Be sure to add <code>role="dialog"</code> to your primary modal div. In the example above, <code>div#myModal</code>. Also, the <code>aria-labelledby</code> attribute references your modal title. In this example, <code>h4#myModalLabel</code>. Additionally, you may give a description of your modal dialog. Use the aria-describedby attribute in the modal’s primary <code>&lt;div&gt;</code> to point to this description (this is not shown in the above example).</p>
+    {{ docs.heading('h3', 'ARIA requirements') }}
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+                <th>Attribute</th>
+                <th>Applies to</th>
+                <th>Outcome</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>role="dialog"</code></td>
+                <td><code>.modal</code></td>
+                <td>Identifies the element that serves as the modal container. <span class="label label--primary">Required</span></td>
+            </tr>
+            <tr>
+                <td><code>aria-modal="true"</code></td>
+                <td><code>.modal</code></td>
+                <td>Tells assistive technologies that the content under the current modal is not available for interaction. <span class="label label--primary">Required</span></td>
+            </tr>
+            <tr>
+                <td><code>aria-labelledby="[id value of .modal__title]"</code></td>
+                <td><code>.modal</code></td>
+                <td>Gives the modal an accessible name by referring to the element that provides the dialog title. <span class="label label--primary">Required</span></td>
+            </tr>
+            <tr>
+                <td><code>aria-describedby="[id value of applicable content]"</code></td>
+                <td><code>.modal</code></td>
+                <td>Gives the modal an accessible description by referring to the modal content that describes the primary message or purpose of the dialog. Not used if there is no static text that describes the modal. <span class="label">optional</span></td>
+            </tr>
+            <tr>
+                <td><code>aria-label="Close modal dialog"</code></td>
+                <td><code>.close</code></td>
+                <td>Provides an accessible name for the close button as it uses an icon instead of text. <span class="label label--primary">Required</span></td>
+            </tr>
+            <tr>
+                <td><code>aria-hidden="true"</code></td>
+                <td><code>Close icon or added to a wrapping span where &times; is used</code></td>
+                <td>Hides the close icon or X from screen readers. <span class="label label--primary">Required</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h3', 'Focus management') }}
+
+    {{ docs.heading('h4', 'On open') }}
+
+    <p>Focus should move to the first interactive element, often the first form input or the close button.<p>
+
+    {{ docs.heading('h4', 'Trap focus') }}
+
+    <p>Focus should be trapped within the modal dialog. It should not be possible to navigate to any elements underneath the modal via the keyboard.</p>
+
+    <p>When <code>Tab</code> is pressed on the last tabbable element, it should loop back to the first (generally the close button). When <code>Tab + Shift</code> is pressed on the first tabbable element, focus should loop to the last tabbable element.</p>
+
+    {{ docs.heading('h4', 'On close') }}
+
+    <p>In addition to the standard X close button and cancel button, <code>Escape</code> should also close the modal dialog. Focus shoud return to the element that triggered the modal.</p>
+
+    <p>The above behaviour is included in Pulsar by default. If you are using an alternative UI framework other than the markup above, you will need to ensure you include this behaviour. See the <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal">WAI ARIA authoring practices on dialogs</a> for more details.</p>
+
 
     {{ docs.heading('h2', 'Opening modals') }}
 
     <p>Typically, a modal will be opened when the user interacts with an action within the user interface, usually a button rather than a link (as the user doesn't navigate to another page).</p>
-
-    <p>Modals can also be triggered by 
-    <p>Modals can also be triggered by 
 
     {{ docs.example({
         twig: "
@@ -91,11 +149,11 @@
     })
 }}
 
-<div class=\"modal\" id=\"modal-example\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"myModal-title\" aria-describedby=\"myModal-description\">
+<div class=\"modal\" id=\"modal-example\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"myModal-title\" aria-describedby=\"myModal-description\" tabindex=\"-1\">
     <div class=\"modal__dialog\">
         <div class=\"modal__content\">
             <div class=\"modal__header\">
-                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close dialog\">×</button>
+                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close modal dialog\"><span aria-hidden=\"true\">×</span></button>
                 <h1 class=\"modal__title\" id=\"myModal-title\">A simple example</h1>
             </div>
             <div class=\"modal__body\">
@@ -115,7 +173,7 @@
 
     <p>There will be times where a modal contains an action that requires a different modal to be presented to the user. This is possible, however there are a couple of important considerations to note.</p>
 
-    <p>When modal-1 opens modal-2, you should:</li>
+    <p>When modal-1 opens modal-2, you should:</p>
 
     <ul>
         <li>Close modal-1 (do not visually stack modals)</li>
@@ -123,7 +181,7 @@
         <li>Consider if the actions within modal-2 (such as cancel) should return the user to modal-1, or back to the main user interface</li>
     </ul>
 
-    <p>For a button to both close an existing modal, and open a new one, you should use both the <code>data-dismiss</code> and the <code>data-toggle</code> attributes.
+    <p>For a button to both close an existing modal, and open a new one, you should use both the <code>data-dismiss</code> and the <code>data-toggle</code> attributes.</p>
 
 <pre><code lang="twig">&#123;&#123;
     html.button(&#123;
@@ -136,7 +194,7 @@
 
     {{ docs.heading('h2', 'Closing modals') }}
 
-    <p>A button within a modal (or indeed anywhere within the UI) can close itself using the <code>data-dismiss="modal"</code> attribute.</p>
+    <p>A button within a modal (or indeed anywhere within the UI) can close itself using the <code>data-dismiss="modal"</code> attribute. <code>Escape</code> should also close the modal dialog.</p>
 
     <p>{{ html.icon('info-sign') }} Avoid using a link with an empty href attribute <code>&lt;a href="#"...</code> as this will throw accessibility warnings in some automated a11y testing tools. Remember, if an action goes somewhere, use a link, if it does something, use a button.</p>
 

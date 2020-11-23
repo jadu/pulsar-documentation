@@ -4,6 +4,15 @@
 {% block tab_content %}
 <div class="report">
     <p class="lede">Add small overlays of content for super concise functions, or toggleable options.</p>
+
+    {{
+        html.panel({
+            'class': 'panel--warning',
+            'title': 'Deprecated',
+            'body': 'Popovers have been deprecated. Existing popover content should be moved to a tooltip, modal or an alternative display method.',
+            'icon': 'warning-sign'
+        })
+    }}
     
     {{ docs.heading('h2', 'Basic usage') }}
 

@@ -44,44 +44,77 @@
     </ul>
 
     {{ docs.example({
-        html: "<div id=\"rule-form-container\" class=\"rules-container rules-container--v2\">
-    <div class=\"rule-block rule-block--if\">
+        twig: "<div id=\"rule-form-container\" class=\"rules-container rules-container--v2\">
+    <fieldset class=\"rule-block rule-block--if\">
+        <legend class=\"hide\">If rule condition</legend>
         <div class=\"rule-block__header\">
-            <span class=\"rule-block__heading\">if</span>
+            <h2 class=\"rule-block__heading\">if</h2>
         </div>
         <div class=\"rule-block__controls\">
             <div class=\"rule-block__control\">
-                <div class=\"form__group form__group--medium\">
-                    <label class=\"control__label hide\">Choose condition</label>
-                    <div class=\"controls\">
-                        <select placeholder=\"Choose condition\" class=\"form__control select js-select2 select2-hidden-accessible\" tabindex=\"-1\" aria-hidden=\"true\">
-                            <option value=\"foo\">Choose condition</option>
-                        </select>
-                    </div>
-                </div>
+                {{
+                    form.select2({
+                        'class': 'form__group--medium',
+                        'id': 'guid-' ~ random(),
+                        'label': 'Choose condition',
+                        'show-label': false,
+                        'placeholder': 'Choose condition',
+                        'options': [
+                            {
+                                'label': 'Value one',
+                                'value': 'value1'
+                            },
+                            {
+                                'label': 'Value two',
+                                'value': 'value2'
+                            }
+                        ]
+                    })
+                }}
             </div>
             <div class=\"rule-block__control\">
-                <div class=\"form__group form__group--small\"><label class=\"control__label hide\">Choose</label>
-                    <div class=\"controls\">
-                        <select placeholder=\"Choose\" class=\"form__control select\">
-                            <option value=\"foo\">is</option>
-                            <option value=\"foo\">is not</option>
-                        </select>
-                    </div>
-                </div>
+                {{
+                    form.select({
+                        'class': 'form__group--small',
+                        'id': 'guid-' ~ random(),
+                        'label': 'Choose logic',
+                        'show-label': false,
+                        'options': [
+                            {
+                                'label': 'is',
+                                'value': 'value1'
+                            },
+                            {
+                                'label': 'is not',
+                                'value': 'value2'
+                            }
+                        ]
+                    })
+                }}
             </div>
             <div class=\"rule-block__control\">
-                 <div class=\"form__group form__group--medium\">
-                    <label class=\"control__label hide\">Choose value</label>
-                    <div class=\"controls\">
-                        <select placeholder=\"Choose value\" class=\"form__control select js-select2 select2-hidden-accessible\" tabindex=\"-1\" aria-hidden=\"true\">
-                            <option value=\"foo\">Choose value</option>
-                        </select>
-                    </div>
-                </div>
+                {{
+                    form.select2({
+                        'class': 'form__group--medium',
+                        'id': 'guid-' ~ random(),
+                        'label': 'Choose value',
+                        'show-label': false,
+                        'placeholder': 'Choose value',
+                        'options': [
+                            {
+                                'label': 'Value one',
+                                'value': 'value1'
+                            },
+                            {
+                                'label': 'Value two',
+                                'value': 'value2'
+                            }
+                        ]
+                    })
+                }}
             </div>
         </div>
-    </div>
+    </fieldset>
 </div>
     " }) }}
 
@@ -92,26 +125,38 @@
     <p>The first IF block, as well as all RETURN and ELSE RETURN blocks should not be removeable.</p>
 
     {{ docs.example({
-        html: "<div id=\"rule-form-container\" class=\"rules-container rules-container--v2\">
-    <div class=\"rule-block rule-block--and\">
+        twig: "<div id=\"rule-form-container\" class=\"rules-container rules-container--v2\">
+    <fieldset class=\"rule-block rule-block--and\">
+        <legend class=\"hide\">And rule condition</legend>
         <div class=\"rule-block__header\">
-            <span class=\"rule-block__heading\">And</span>
+            <h2 class=\"rule-block__heading\">And</h2>
         </div>
         <div class=\"rule-block__controls\">
             <div class=\"rule-block__control\">
-                <div class=\"form__group form__group--medium\">
-                    <label class=\"control__label hide\">Choose condition</label>
-                    <div class=\"controls\">
-                        <select placeholder=\"Choose condition\" class=\"form__control select js-select2 select2-hidden-accessible\" tabindex=\"-1\" aria-hidden=\"true\">
-                            <option value=\"foo\">Choose condition</option>
-                        </select>
-                    </div>
-                </div>
+                {{
+                    form.select2({
+                        'class': 'form__group--medium',
+                        'id': 'guid-' ~ random(),
+                        'label': 'Choose condition',
+                        'placeholder': 'Choose condition',
+                        'show-label': false,
+                        'options': [
+                            {
+                                'label': 'Value one',
+                                'value': 'value1'
+                            },
+                            {
+                                'label': 'Value two',
+                                'value': 'value2'
+                            }
+                        ]
+                    })
+                }}
             </div>
         </div>
 
-        <button data-action=\"remove\" data-tippy-content=\"Remove this item\" data-tippy-placement=\"left\" class=\"remove__control js-remove-condition\"><i  class=\"icon-remove-sign\"><span class=\"hide\">Remove this item</span></i></button>
-    </div>
+        <button data-action=\"remove\" data-tippy-content=\"Remove this item\" data-tippy-placement=\"left\" class=\"btn remove-button js-remove-condition\"><i  class=\"icon-remove-sign\"><span class=\"hide\">Remove this item</span></i></button>
+    </fieldset>
 </div>
     " }) }}
 
@@ -124,64 +169,98 @@
     {{ docs.example({
         twig: "
 <div id=\"rule-form-container\" class=\"rules-container rules-container--v2\">
-
-    <div class=\"rule-block rule-block--if\">
+    <fieldset class=\"rule-block rule-block--if\">
+        <legend class=\"hide\">If rule condition</legend>
         <div class=\"rule-block__header\">
-            <span class=\"rule-block__heading\">if</span>
+            <h2 class=\"rule-block__heading\">if</h2>
         </div>
         <div class=\"rule-block__controls\">
             <div class=\"rule-block__control\">
-                <div class=\"form__group form__group--medium\">
-                    <label class=\"control__label hide\">Choose condition</label>
-                    <div class=\"controls\">
-                        <select placeholder=\"Choose condition\" class=\"form__control select js-select2 select2-hidden-accessible\" tabindex=\"-1\" aria-hidden=\"true\">
-                            <option value=\"foo\">Choose condition</option>
-                        </select>
-                    </div>
-                </div>
+                {{
+                    form.select2({
+                        'class': 'form__group--medium',
+                        'id': 'guid-' ~ random(),
+                        'label': 'Choose condition',
+                        'placeholder': 'Choose condition',
+                        'show-label': false,
+                        'options': [
+                            {
+                                'label': 'Value one',
+                                'value': 'value1'
+                            },
+                            {
+                                'label': 'Value two',
+                                'value': 'value2'
+                            }
+                        ]
+                    })
+                }}
             </div>
         </div>
-    </div>
+    </fieldset>
 
     <div class=\"rule-block--indent\">
-
-        <div class=\"rule-block rule-block--or\">
+        <fieldset class=\"rule-block rule-block--or\">
+            <legend class=\"hide\">Or rule condition</legend>
             <div class=\"rule-block__header\">
-                <span class=\"rule-block__heading\">or</span>
+                <h2 class=\"rule-block__heading\">or</h2>
             </div>
             <div class=\"rule-block__controls\">
                 <div class=\"rule-block__control\">
-                    <div class=\"form__group form__group--medium\">
-                        <label class=\"control__label hide\">Choose condition</label>
-                        <div class=\"controls\">
-                            <select placeholder=\"Choose condition\" class=\"form__control select js-select2 select2-hidden-accessible\" tabindex=\"-1\" aria-hidden=\"true\">
-                                <option value=\"foo\">Choose condition</option>
-                            </select>
-                        </div>
-                    </div>
+                    {{
+                        form.select2({
+                            'class': 'form__group--medium',
+                            'id': 'guid-' ~ random(),
+                            'label': 'Choose condition',
+                            'placeholder': 'Choose condition',
+                            'show-label': false,
+                            'options': [
+                                {
+                                    'label': 'Value one',
+                                    'value': 'value1'
+                                },
+                                {
+                                    'label': 'Value two',
+                                    'value': 'value2'
+                                }
+                            ]
+                        })
+                    }}
                 </div>
             </div>
-            <button data-action=\"remove\" data-tippy-content=\"Remove this item\" data-tippy-placement=\"left\" class=\"remove__control js-remove-condition\"><i  class=\"icon-remove-sign\"><span class=\"hide\">Remove this item</span></i></button>
-        </div>
+            <button data-action=\"remove\" data-tippy-content=\"Remove this item\" data-tippy-placement=\"left\" class=\"btn remove-button js-remove-trigger\"><i  class=\"icon-remove-sign\"><span class=\"hide\">Remove this item</span></i></button>
+        </fieldset>
 
-        <div class=\"rule-block rule-block--or\">
+        <fieldset class=\"rule-block rule-block--or\">
+            <legend class=\"hide\">Or rule condition</legend>
             <div class=\"rule-block__header\">
-                <span class=\"rule-block__heading\">or</span>
+                <h2 class=\"rule-block__heading\">or</h2>
             </div>
             <div class=\"rule-block__controls\">
                 <div class=\"rule-block__control\">
-                    <div class=\"form__group form__group--medium\">
-                        <label class=\"control__label hide\">Choose condition</label>
-                        <div class=\"controls\">
-                            <select placeholder=\"Choose condition\" class=\"form__control select js-select2 select2-hidden-accessible\" tabindex=\"-1\" aria-hidden=\"true\">
-                                <option value=\"foo\">Choose condition</option>
-                            </select>
-                        </div>
-                    </div>
+                    {{
+                        form.select2({
+                            'class': 'form__group--medium',
+                            'id': 'guid-' ~ random(),
+                            'label': 'Choose condition',
+                            'placeholder': 'Choose condition',
+                            'show-label': false,
+                            'options': [
+                                {
+                                    'label': 'Value one',
+                                    'value': 'value1'
+                                },
+                                {
+                                    'label': 'Value two',
+                                    'value': 'value2'
+                                }
+                            ]
+                        })
+                    }}
                 </div>
             </div>
-            <button data-action=\"remove\" data-tippy-content=\"Remove this item\" data-tippy-placement=\"left\" class=\"remove__control js-remove-condition\"><i  class=\"icon-remove-sign\"><span class=\"hide\">Remove this item</span></i></button>
-        </div>
+            <button data-action=\"remove\" data-tippy-content=\"Remove this item\" data-tippy-placement=\"left\" class=\"btn remove-button js-remove-condition\"><i  class=\"icon-remove-sign\"><span class=\"hide\">Remove this item</span></i></button>
+        </fieldset>
 
         <div class=\"rule-links\">
             <div class=\"rule-link rule-link--or\">
@@ -200,29 +279,38 @@
 
     {{ docs.heading('h3', 'Basic') }}
 
-    <p>The rule controls used here are intentionally left blank.</p>
-
     {{ docs.example({
-        html: "
+        twig: "
 <div id=\"rule-form-container\" class=\"rules-container rules-container--v2\">
-
-    <div class=\"rule-block rule-block--if\">
+    <fieldset class=\"rule-block rule-block--if\">
+        <legend class=\"hide\">If rule condition</legend>
         <div class=\"rule-block__header\">
-            <span class=\"rule-block__heading\">if</span>
+            <h2 class=\"rule-block__heading\">if</h2>
         </div>
         <div class=\"rule-block__controls\">
             <div class=\"rule-block__control\">
-                <div class=\"form__group form__group--medium\">
-                    <label class=\"control__label hide\">Choose condition</label>
-                    <div class=\"controls\">
-                        <select placeholder=\"Choose condition\" class=\"form__control select js-select2 select2-hidden-accessible\" tabindex=\"-1\" aria-hidden=\"true\">
-                            <option value=\"foo\">Choose condition</option>
-                        </select>
-                    </div>
-                </div>
+                {{
+                    form.select2({
+                        'class': 'form__group--medium',
+                        'id': 'guid-' ~ random(),
+                        'label': 'Choose condition',
+                        'show-label': false,
+                        'placeholder': 'Choose condition',
+                        'options': [
+                            {
+                                'label': 'Value one',
+                                'value': 'value1'
+                            },
+                            {
+                                'label': 'Value two',
+                                'value': 'value2'
+                            }
+                        ]
+                    })
+                }}
             </div>
         </div>
-    </div>
+    </fieldset>
 
     <div class=\"rule-links\">
         <div class=\"rule-link rule-link--or\">
@@ -233,23 +321,35 @@
         </div>
     </div>
 
-    <div class=\"rule-block rule-block--return\">
+    <fieldset class=\"rule-block rule-block--return\">
+        <legend class=\"hide\">Return</legend>
         <div class=\"rule-block__header\">
-            <span class=\"rule-block__heading\">return</span>
+            <h2 class=\"rule-block__heading\">return</h2>
         </div>
         <div class=\"rule-block__controls\">
             <div class=\"rule-block__control\">
-                <div class=\"form__group form__group--medium\">
-                    <label class=\"control__label hide\">Choose condition</label>
-                    <div class=\"controls\">
-                        <select placeholder=\"Choose condition\" class=\"form__control select js-select2 select2-hidden-accessible\" tabindex=\"-1\" aria-hidden=\"true\">
-                            <option value=\"foo\">Choose return value</option>
-                        </select>
-                    </div>
-                </div>
+                {{
+                    form.select2({
+                        'class': 'form__group--medium',
+                        'id': 'guid-' ~ random(),
+                        'label': 'Choose condition',
+                        'show-label': false,
+                        'placeholder': 'Choose condition',
+                        'options': [
+                            {
+                                'label': 'Value one',
+                                'value': 'value1'
+                            },
+                            {
+                                'label': 'Value two',
+                                'value': 'value2'
+                            }
+                        ]
+                    })
+                }}
             </div>
         </div>
-    </div>
+    </fieldset>
 
     <div class=\"rule-links\">
         <div class=\"rule-link rule-link--else-if\">
@@ -257,92 +357,137 @@
         </div>
     </div>
     
-    <div class=\"rule-block rule-block--else-return\">
+    <fieldset class=\"rule-block rule-block--else-return\">
+        <legend class=\"hide\">Else return</legend>
         <div class=\"rule-block__header\">
-            <span class=\"rule-block__heading\">else return</span>
+            <h2 class=\"rule-block__heading\">else return</h2>
         </div>
         <div class=\"rule-block__controls\">
             <div class=\"rule-block__control\">
-                <div class=\"form__group form__group--medium\">
-                    <label class=\"control__label hide\">Choose condition</label>
-                    <div class=\"controls\">
-                        <select placeholder=\"Choose condition\" class=\"form__control select js-select2 select2-hidden-accessible\" tabindex=\"-1\" aria-hidden=\"true\">
-                            <option value=\"foo\">Choose return value</option>
-                        </select>
-                    </div>
-                </div>
+                {{
+                    form.select2({
+                        'class': 'form__group--medium',
+                        'id': 'guid-' ~ random(),
+                        'label': 'Choose condition',
+                        'show-label': false,
+                        'placeholder': 'Choose condition',
+                        'options': [
+                            {
+                                'label': 'Value one',
+                                'value': 'value1'
+                            },
+                            {
+                                'label': 'Value two',
+                                'value': 'value2'
+                            }
+                        ]
+                    })
+                }}
             </div>
         </div>
-    </div>
+    </fieldset>
 
 </div><!-- /.rules-container -->
     " }) }}
 
     {{ docs.heading('h2', 'Full') }}
 
-    <p>The rule controls used here are intentionally left blank.</p>
-
     {{ docs.example({
         twig: "
 <div id=\"rule-form-container\" class=\"rules-container rules-container--v2\">
-
-    <div class=\"rule-block rule-block--if\">
+    <fieldset class=\"rule-block rule-block--if\">
+        <legend class=\"hide\">If rule condition</legend>
         <div class=\"rule-block__header\">
-            <span class=\"rule-block__heading\">if</span>
+            <h2 class=\"rule-block__heading\">if</h2>
         </div>
         <div class=\"rule-block__controls\">
             <div class=\"rule-block__control\">
-                <div class=\"form__group form__group--medium\">
-                    <label class=\"control__label hide\">Choose condition</label>
-                    <div class=\"controls\">
-                        <select placeholder=\"Choose condition\" class=\"form__control select js-select2 select2-hidden-accessible\" tabindex=\"-1\" aria-hidden=\"true\">
-                            <option value=\"foo\">Choose condition</option>
-                        </select>
-                    </div>
-                </div>
+                {{
+                    form.select2({
+                        'class': 'form__group--medium',
+                        'id': 'guid-' ~ random(),
+                        'label': 'Choose condition',
+                        'show-label': false,
+                        'placeholder': 'Choose condition',
+                        'options': [
+                            {
+                                'label': 'Value one',
+                                'value': 'value1'
+                            },
+                            {
+                                'label': 'Value two',
+                                'value': 'value2'
+                            }
+                        ]
+                    })
+                }}
             </div>
         </div>
-    </div>
+    </fieldset>
 
     <div class=\"rule-block--indent\">
 
-        <div class=\"rule-block rule-block--or\">
+        <fieldset class=\"rule-block rule-block--or\">
+            <legend class=\"hide\">Or rule condition</legend>
             <div class=\"rule-block__header\">
-                <span class=\"rule-block__heading\">or</span>
+                <h2 class=\"rule-block__heading\">or</h2>
             </div>
             <div class=\"rule-block__controls\">
                 <div class=\"rule-block__control\">
-                    <div class=\"form__group form__group--medium\">
-                        <label class=\"control__label hide\">Choose condition</label>
-                        <div class=\"controls\">
-                            <select placeholder=\"Choose condition\" class=\"form__control select js-select2 select2-hidden-accessible\" tabindex=\"-1\" aria-hidden=\"true\">
-                                <option value=\"foo\">Choose condition</option>
-                            </select>
-                        </div>
-                    </div>
+                    {{
+                        form.select2({
+                            'class': 'form__group--medium',
+                            'id': 'guid-' ~ random(),
+                            'label': 'Choose condition',
+                            'show-label': false,
+                            'placeholder': 'Choose condition',
+                            'options': [
+                                {
+                                    'label': 'Value one',
+                                    'value': 'value1'
+                                },
+                                {
+                                    'label': 'Value two',
+                                    'value': 'value2'
+                                }
+                            ]
+                        })
+                    }}
                 </div>
             </div>
-            <button data-action=\"remove\" data-tippy-content=\"Remove this item\" data-tippy-placement=\"left\"  class=\"remove__control js-remove-condition\"><i  class=\"icon-remove-sign\"><span class=\"hide\">Remove this item</span></i></button>
-        </div>
+            <button data-action=\"remove\" data-tippy-content=\"Remove this item\" data-tippy-placement=\"left\"  class=\"btn remove-button js-remove-condition\"><i  class=\"icon-remove-sign\"><span class=\"hide\">Remove this item</span></i></button>
+        </fieldset>
 
-        <div class=\"rule-block rule-block--or\">
+        <fieldset class=\"rule-block rule-block--or\">
+            <legend class=\"hide\">Or rule condition</legend>
             <div class=\"rule-block__header\">
-                <span class=\"rule-block__heading\">or</span>
+                <h2 class=\"rule-block__heading\">or</h2>
             </div>
             <div class=\"rule-block__controls\">
                 <div class=\"rule-block__control\">
-                    <div class=\"form__group form__group--medium\">
-                        <label class=\"control__label hide\">Choose condition</label>
-                        <div class=\"controls\">
-                            <select placeholder=\"Choose condition\" class=\"form__control select js-select2 select2-hidden-accessible\" tabindex=\"-1\" aria-hidden=\"true\">
-                                <option value=\"foo\">Choose condition</option>
-                            </select>
-                        </div>
-                    </div>
+                    {{
+                        form.select2({
+                            'class': 'form__group--medium',
+                            'id': 'guid-' ~ random(),
+                            'label': 'Choose condition',
+                            'show-label': false,
+                            'placeholder': 'Choose condition',
+                            'options': [
+                                {
+                                    'label': 'Value one',
+                                    'value': 'value1'
+                                },
+                                {
+                                    'label': 'Value two',
+                                    'value': 'value2'
+                                }
+                            ]
+                        })
+                    }}
                 </div>
             </div>
-            <button data-action=\"remove\" data-tippy-content=\"Remove this item\" data-tippy-placement=\"left\" class=\"remove__control js-remove-condition\"><i  class=\"icon-remove-sign\"><span class=\"hide\">Remove this item</span></i></button>
-        </div>
+            <button data-action=\"remove\" data-tippy-content=\"Remove this item\" data-tippy-placement=\"left\" class=\"btn remove-button js-remove-condition\"><i  class=\"icon-remove-sign\"><span class=\"hide\">Remove this item</span></i></button>
+        </fieldset>
 
         <div class=\"rule-links\">
             <div class=\"rule-link rule-link--or\">
@@ -352,44 +497,68 @@
 
     </div><!-- /.ruleblock--indent -->
 
-    <div class=\"rule-block rule-block--and\">
+    <fieldset class=\"rule-block rule-block--and\">
+        <legend class=\"hide\">And rule condition</legend>
         <div class=\"rule-block__header\">
-            <span class=\"rule-block__heading\">and</span>
+            <h2 class=\"rule-block__heading\">and</h2>
         </div>
         <div class=\"rule-block__controls\">
                 <div class=\"rule-block__control\">
-                    <div class=\"form__group form__group--medium\">
-                        <label class=\"control__label hide\">Choose condition</label>
-                        <div class=\"controls\">
-                            <select placeholder=\"Choose condition\" class=\"form__control select js-select2 select2-hidden-accessible\" tabindex=\"-1\" aria-hidden=\"true\">
-                                <option value=\"foo\">Choose condition</option>
-                            </select>
-                        </div>
-                    </div>
+                    {{
+                        form.select2({
+                            'class': 'form__group--medium',
+                            'id': 'guid-' ~ random(),
+                            'label': 'Choose condition',
+                            'show-label': false,
+                            'placeholder': 'Choose condition',
+                            'options': [
+                                {
+                                    'label': 'Value one',
+                                    'value': 'value1'
+                                },
+                                {
+                                    'label': 'Value two',
+                                    'value': 'value2'
+                                }
+                            ]
+                        })
+                    }}
                 </div>
         </div>
-        <button data-action=\"remove\" data-tippy-content=\"Remove this item\" data-tippy-placement=\"left\" class=\"remove__control js-remove-condition\"><i  class=\"icon-remove-sign\"><span class=\"hide\">Remove this item</span></i></button>
-    </div>
+        <button data-action=\"remove\" data-tippy-content=\"Remove this item\" data-tippy-placement=\"left\" class=\"btn remove-button js-remove-condition\"><i  class=\"icon-remove-sign\"><span class=\"hide\">Remove this item</span></i></button>
+    </fieldset>
 
     <div class=\"rule-block--indent\">
-        <div class=\"rule-block rule-block--or\">
+        <fieldset class=\"rule-block rule-block--or\">
+            <legend class=\"hide\">Or rule condition</legend>
             <div class=\"rule-block__header\">
-                <span class=\"rule-block__heading\">or</span>
+                <h2 class=\"rule-block__heading\">or</h2>
             </div>
             <div class=\"rule-block__controls\">
                 <div class=\"rule-block__control\">
-                    <div class=\"form__group form__group--medium\">
-                        <label class=\"control__label hide\">Choose condition</label>
-                        <div class=\"controls\">
-                            <select placeholder=\"Choose condition\" class=\"form__control select js-select2 select2-hidden-accessible\" tabindex=\"-1\" aria-hidden=\"true\">
-                                <option value=\"foo\">Choose condition</option>
-                            </select>
-                        </div>
-                    </div>
+                    {{
+                        form.select2({
+                            'class': 'form__group--medium',
+                            'id': 'guid-' ~ random(),
+                            'label': 'Choose condition',
+                            'show-label': false,
+                            'placeholder': 'Choose condition',
+                            'options': [
+                                {
+                                    'label': 'Value one',
+                                    'value': 'value1'
+                                },
+                                {
+                                    'label': 'Value two',
+                                    'value': 'value2'
+                                }
+                            ]
+                        })
+                    }}
                 </div>
             </div>
-            <button data-action=\"remove\" data-tippy-content=\"Remove this item\" data-tippy-placement=\"left\"  class=\"remove__control js-remove-condition\"><i  class=\"icon-remove-sign\"><span class=\"hide\">Remove this item</span></i></button>
-        </div>
+            <button data-action=\"remove\" data-tippy-content=\"Remove this item\" data-tippy-placement=\"left\"  class=\"btn remove-button js-remove-condition\"><i  class=\"icon-remove-sign\"><span class=\"hide\">Remove this item</span></i></button>
+        </fieldset>
 
         <div class=\"rule-links\">
             <div class=\"rule-link rule-link--or\">
@@ -404,23 +573,35 @@
         </div>
     </div>
 
-    <div class=\"rule-block rule-block--return\">
+    <fieldset class=\"rule-block rule-block--return\">
+        <legend class=\"hide\">Return</legend>
         <div class=\"rule-block__header\">
-            <span class=\"rule-block__heading\">return</span>
+            <h2 class=\"rule-block__heading\">return</h2>
         </div>
         <div class=\"rule-block__controls\">
             <div class=\"rule-block__control\">
-                <div class=\"form__group form__group--medium\">
-                    <label class=\"control__label hide\">Choose condition</label>
-                    <div class=\"controls\">
-                        <select placeholder=\"Choose condition\" class=\"form__control select js-select2 select2-hidden-accessible\" tabindex=\"-1\" aria-hidden=\"true\">
-                            <option value=\"foo\">Choose return value</option>
-                        </select>
-                    </div>
-                </div>
+                {{
+                    form.select2({
+                        'class': 'form__group--medium',
+                        'id': 'guid-' ~ random(),
+                        'label': 'Choose return value',
+                        'show-label': false,
+                        'placeholder': 'Choose return value',
+                        'options': [
+                            {
+                                'label': 'Value one',
+                                'value': 'value1'
+                            },
+                            {
+                                'label': 'Value two',
+                                'value': 'value2'
+                            }
+                        ]
+                    })
+                }}
             </div>
         </div>
-    </div>
+    </fieldset>
 
     <div class=\"rule-links\">
         <div class=\"rule-link rule-link--else-if\">
@@ -428,24 +609,36 @@
         </div>
     </div>
 
-    <div class=\"rule-block rule-block--else-if\">
+    <fieldset class=\"rule-block rule-block--else-if\">
+        <legend class=\"hide\">Else If rule condition</legend>
         <div class=\"rule-block__header\">
-            <span class=\"rule-block__heading\">else if</span>
+            <h2 class=\"rule-block__heading\">else if</h2>
         </div>
         <div class=\"rule-block__controls\">
-                <div class=\"rule-block__control\">
-                    <div class=\"form__group form__group--medium\">
-                        <label class=\"control__label hide\">Choose condition</label>
-                        <div class=\"controls\">
-                            <select placeholder=\"Choose condition\" class=\"form__control select js-select2 select2-hidden-accessible\" tabindex=\"-1\" aria-hidden=\"true\">
-                                <option value=\"foo\">Choose condition</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
+            <div class=\"rule-block__control\">
+                {{
+                    form.select2({
+                        'class': 'form__group--medium',
+                        'id': 'guid-' ~ random(),
+                        'label': 'Choose condition',
+                        'show-label': false,
+                        'placeholder': 'Choose condition',
+                        'options': [
+                            {
+                                'label': 'Value one',
+                                'value': 'value1'
+                            },
+                            {
+                                'label': 'Value two',
+                                'value': 'value2'
+                            }
+                        ]
+                    })
+                }}
+            </div>
         </div>
-        <button data-action=\"remove\" data-tippy-content=\"Remove this item\" data-tippy-placement=\"left\" class=\"remove__control js-remove-condition\"><i  class=\"icon-remove-sign\"><span class=\"hide\">Remove this item</span></i></button>
-    </div>    
+        <button data-action=\"remove\" data-tippy-content=\"Remove this item\" data-tippy-placement=\"left\" class=\"btn remove-button js-remove-condition\"><i  class=\"icon-remove-sign\"><span class=\"hide\">Remove this item</span></i></button>
+    </fieldset>    
 
     <div class=\"rule-links\">
         <div class=\"rule-link rule-link--or\">
@@ -456,23 +649,35 @@
         </div>
     </div>
 
-    <div class=\"rule-block rule-block--return\">
+    <fieldset class=\"rule-block rule-block--return\">
+        <legend class=\"hide\">Return</legend>
         <div class=\"rule-block__header\">
-            <span class=\"rule-block__heading\">return</span>
+            <h2 class=\"rule-block__heading\">return</h2>
         </div>
         <div class=\"rule-block__controls\">
             <div class=\"rule-block__control\">
-                <div class=\"form__group form__group--medium\">
-                    <label class=\"control__label hide\">Choose condition</label>
-                    <div class=\"controls\">
-                        <select placeholder=\"Choose condition\" class=\"form__control select js-select2 select2-hidden-accessible\" tabindex=\"-1\" aria-hidden=\"true\">
-                            <option value=\"foo\">Choose return value</option>
-                        </select>
-                    </div>
-                </div>
+                {{
+                    form.select2({
+                        'class': 'form__group--medium',
+                        'id': 'guid-' ~ random(),
+                        'label': 'Choose return value',
+                        'show-label': false,
+                        'placeholder': 'Choose return value',
+                        'options': [
+                            {
+                                'label': 'Value one',
+                                'value': 'value1'
+                            },
+                            {
+                                'label': 'Value two',
+                                'value': 'value2'
+                            }
+                        ]
+                    })
+                }}
             </div>
         </div>
-    </div>
+    </fieldset>
     
     <div class=\"rule-links\">
         <div class=\"rule-link rule-link--else-if\">
@@ -480,23 +685,35 @@
         </div>
     </div>
 
-    <div class=\"rule-block rule-block--else-return\">
+    <fieldset class=\"rule-block rule-block--else-return\">
+        <legend class=\"hide\">Else return</legend>
         <div class=\"rule-block__header\">
-            <span class=\"rule-block__heading\">else return</span>
+            <h2 class=\"rule-block__heading\">else return</h2>
         </div>
         <div class=\"rule-block__controls\">
             <div class=\"rule-block__control\">
-                <div class=\"form__group form__group--medium\">
-                    <label class=\"control__label hide\">Choose condition</label>
-                    <div class=\"controls\">
-                        <select placeholder=\"Choose condition\" class=\"form__control select js-select2 select2-hidden-accessible\" tabindex=\"-1\" aria-hidden=\"true\">
-                            <option value=\"foo\">Choose return value</option>
-                        </select>
-                    </div>
-                </div>
+                {{
+                    form.select2({
+                        'class': 'form__group--medium',
+                        'id': 'guid-' ~ random(),
+                        'label': 'Choose return value',
+                        'show-label': false,
+                        'placeholder': 'Choose return value',
+                        'options': [
+                            {
+                                'label': 'Value one',
+                                'value': 'value1'
+                            },
+                            {
+                                'label': 'Value two',
+                                'value': 'value2'
+                            }
+                        ]
+                    })
+                }}
             </div>
         </div>
-    </div>
+    </fieldset>
 
 </div><!-- /.rules-container -->
     " }) }}

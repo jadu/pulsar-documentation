@@ -18,6 +18,7 @@ $ie-version: 12 !default;
 // scss-lint:disable all
 @import '../node_modules/normalize.css/normalize';
 @import '../node_modules/tippy.js/dist/tippy';
+@import '../node_modules/pulsar-date-picker/src/scss/pulsar-date-picker';
 // scss-lint:enable all
 
 // Proxima Nova (requires license)
@@ -66,7 +67,7 @@ $nav-color-darker: darken(#3e4994, 10%);
 @import 'function.color';
 
 // Base colour palette
-@import 'palette.docs';
+@import 'palette.base';
 
 // Apply palette to components
 @import 'config.theme';

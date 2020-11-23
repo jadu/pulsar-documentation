@@ -1,0 +1,341 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    {{
+        html.panel({
+            'class': 'panel--warning u-margin-top-none',
+            'title': 'Deprecated',
+            'body': 'This older date picker (Pikaday) does not meet WCAG 2.1 and therefore should not be used. For backwards compatibility, this is currently the default date picker for the date helper. Existing date helpers should be updated to use the new Pulsar Date Picker. ',
+            'icon': 'warning-sign'
+        })
+    }}
+    <p class="lede">Generate a text input field which will show a date picker overlay when focused.</p>
+
+    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.example({
+        screenreader: "",
+        twig: "
+{{
+    form.date({
+        'label': 'Start date',
+        'id': 'date-deprecated-1',
+        'name': 'date-deprecated-1'
+    })
+}}
+    " }) }}
+    
+    {{ docs.heading('h2', 'Helper options') }}
+
+    <p>You can configure this helper using the <a href="../guides/using-helpers#common-options">common helper options</a>, the following options are specific to this helper.</p>
+
+    <table class="table table--full">
+        <thead>
+            <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>data-datepicker</td>
+                <td>bool</td>
+                <td>Initialises the date picker overlay if <code>true</code> (default)</td>
+            </tr>
+            <tr>
+                <td>format</td>
+                <td>string</td>
+                <td>
+                    <p>Specify the date format to use, can be:
+                    </p>
+                    <ul>
+                        <li><code>default</code> dd/mm/yyyy</li>
+                        <li><code>US</code> mm/dd/yyyy</li>
+                        <li><code>reverse</code> yyyy/mm/dd</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h2', 'Date format') }}
+
+    <p>Use the <code>format</code> attribute to change between <code>default</code> (UK), <code>US</code> and <code>reverse</code> (reverse UK) date formats.</p>
+
+    {{ docs.example({
+        screenreader: "",
+        twig: "
+{{
+    form.date({
+        'label': 'Start date',
+        'id': 'date-deprecated-2',
+        'name': 'date-deprecated-2',
+        'format': 'US'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Disabled input') }}
+
+    <p>Add the <code>'disabled': true</code> option to disable the field on load. See the <a href="../guides/disabling-elements">disabling elements guide</a> for more information about how to disable elements via javascript. Provide help text or information within the UI where possible to explain why elements are disabled.</p>
+
+    {{ docs.example({
+        screenreader: "",
+        twig: "
+{{
+    form.date({
+        'label': 'Start date',
+        'id': 'date-deprecated-3',
+        'name': 'date-deprecated-3',
+        'disabled': true
+    })
+}}
+    " }) }}
+
+{{ docs.heading('h2', 'Validation') }}
+    {{ docs.heading('h3', 'Error') }}
+
+    {{ docs.example({
+        screenreader: 'My label, unticked, tickbox. Something went wrong',
+        twig: "
+{{
+    form.date({
+        'label': 'My label',
+        'id': 'date-deprecated-4', 
+        'name': 'date-deprecated-4',
+        'error': 'Something went wrong'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Multiple Errors') }}
+
+    {{ docs.example({
+        screenreader: 'My label, unticked, tickbox. Something went wrong something else went wrong',
+        twig: "
+{{
+    form.date({
+        'label': 'My label',
+        'id': 'date-deprecated-5', 
+        'name': 'date-deprecated-5',
+        'error': [
+            'Something went wrong',
+            'Something else went wrong'
+        ]
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Error and Help') }}
+
+    {{ docs.example({
+        screenreader: 'My label, unticked, tick box .Help text to give more information about expected input Something went wrong',
+        twig: "
+{{
+    form.date({
+        'label': 'My label',
+        'id': 'date-deprecated-6', 
+        'name': 'date-deprecated-6',
+        'error': 'Something went wrong',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'States') }}
+    {{ docs.heading('h3', 'Success') }}
+
+    <p>Highlight positive actions or indicate that something has successfully saved with the <code>has-success</code> class.</p>
+
+    {{ docs.example({
+        screenreader: 'Something went wrong, selected invalid data, radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'label': 'My label',
+        'class': 'has-success',
+        'id': 'date-deprecated-7', 
+        'name': 'date-deprecated-7',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Warning') }}
+
+    <p>Highlight states which may need extra attention from the user, but which aren’t quite errors, with the <code>has-warning</code> class.</p>
+
+    {{ docs.example({
+        screenreader: 'Help text to give more information about expected input, selected, radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'label': 'My label',
+        'class': 'has-success',
+        'id': 'date-deprecated-8', 
+        'name': 'date-deprecated-8',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Error') }}
+
+    <p>The <code>has--error</code> class is automatically added when using the <code>error</code> option.</p>
+
+    {{ docs.example({
+        screenreader: 'Help text to give more information about expected input, selected, radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'label': 'My label',
+        'class': 'has-error',
+        'id': 'date-deprecated-9', 
+        'name': 'date-deprecated-9',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Changed') }}
+
+    <p>Highlight actions which may have changed depending on other choices elsewhere in the user interface using the <code>has-changed</code> class.</p>
+
+    {{ docs.example({
+        screenreader: 'Something went wrong, selected invalid data, radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'label': 'My label',
+        'class': 'has-changed',
+        'id': 'date-deprecated-10', 
+        'name': 'date-deprecated-10',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+    
+    {{ docs.heading('h2', 'Variations') }}
+    {{ docs.heading('h3', 'Help') }}
+
+    {{ docs.example({
+        screenreader: 'Help text to give more information about selected input, selected, radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'label': 'My label',
+        'id': 'date-deprecated-11', 
+        'name': 'date-deprecated-11',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h3', 'Required') }}
+
+    {{ docs.example({
+        screenreader: 'selected, radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'label': 'My label',
+        'id': 'date-deprecated-12', 
+        'name': 'date-deprecated-12',
+        'required': true,
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Alignment') }}
+    {{ docs.heading('h2', 'Hide Label') }}
+    
+    {{ docs.example({
+        screenreader: 'radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'label': 'My label',
+        'show-label': false,
+        'id': 'date-deprecated-13', 
+        'name': 'date-deprecated-13',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Long Label Behaviour') }}
+    
+    {{ docs.example({
+        screenreader: 'Example block level help text here, radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
+        'id': 'date-deprecated-14', 
+        'name': 'date-deprecated-14',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Top Labels') }}
+
+    <p>You should avoid using really long labels, but if you have to, it may be more appropriate to use the <code>form__group--top</code> class to give it more space.</p>
+    
+    {{ docs.example({
+        screenreader: 'Example block level help text here, radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
+        'class': 'form__group--top',
+        'id': 'date-deprecated-15', 
+        'name': 'date-deprecated-15',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Flush Inputs') }}
+
+    <p>Depending on the flow of your user interface you may want to position your inputs along the left edge of the UI</p>
+    
+    {{ docs.example({
+        screenreader: 'Example block level help text here, radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
+        'class': 'form__group--flush',
+        'id': 'date-deprecated-16', 
+        'name': 'date-deprecated-16',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+    {{ docs.heading('h2', 'Flush Inputs & Top Label') }}
+    
+    {{ docs.example({
+        screenreader: 'Example block level help text here, radio button, 1 of 3',
+        twig: "
+{{
+    form.date({
+        'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
+        'class': 'form__group--top form__group--flush',
+        'id': 'date-deprecated-17', 
+        'name': 'date-deprecated-17',
+        'help': 'Help text to give more information about expected input'
+    })
+}}
+    " }) }}
+
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    {{ docs.toc() }}
+{% endblock tab_sidebar %}
