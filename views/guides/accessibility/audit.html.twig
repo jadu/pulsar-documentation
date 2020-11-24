@@ -71,7 +71,7 @@
                 <td>Datatable</td>
                 <td><code>html.datatable</code></td>
                 <td><span class="label label--success">compliant</span></td>
-                <td>aXe incorrectly reports "All th elements and elements with role=columnheader/rowheader must have data cells they describe" on empty datatables. need to add caption option to docs.</td>
+                <td>aXe incorrectly reports "All th elements and elements with role=columnheader/rowheader must have data cells they describe" on empty datatables.</td>
             </tr>
             <tr>
                 <td>Flash</td>
@@ -89,13 +89,13 @@
                 <td>Label</td>
                 <td><code>html.label</code></td>
                 <td><span class="label label--success">compliant</span></td>
-                <td>Linked labels and removeable label focus styles fixed in https://github.com/jadu/pulsar/pull/1235</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Link</td>
                 <td><code>html.link</code></td>
                 <td><span class="label label--success">compliant</span></td>
-                <td>TICKET - When disabled swap to aria-disabled role button?</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Link List</td>
@@ -119,7 +119,7 @@
                 <td>Media</td>
                 <td><code>html.media</code></td>
                 <td><span class="label label--success">compliant</span></td>
-                <td>Missing alt fixed in https://github.com/jadu/pulsar/pull/1188</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Metadata</td>
@@ -137,13 +137,13 @@
                 <td>Navigation</td>
                 <td><code>nav.primary</code></td>
                 <td><span class="label label--success">compliant</span></td>
-                <td>Axe may incorrectly report an issue with elements with/within aria-hidden="true" not having tabindex="-1" when the mobile nav is open.</td>
+                <td>Axe may incorrectly report an issue with elements with/within aria-hidden="true" not having tabindex="-1" when the mobile nav is open. INVESTIGATE</td>
             </tr>
             <tr>
                 <td>Notifications</td>
                 <td></td>
                 <td><span class="label label--success">compliant</span></td>
-                <td>Remaining issues fixed in #1260</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Pagination</td>
@@ -155,19 +155,19 @@
                 <td>Panel</td>
                 <td><code>html.panel</code></td>
                 <td><span class="label label--success">compliant</span></td>
-                <td>Contrast issues fixed in https://github.com/jadu/pulsar/pull/1193</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Popover</td>
                 <td></td>
                 <td><span class="label label--danger">failure</span></td>
-                <td>Popovers have been deprecated. They are not fully accessible and therefore existing popover content should be moved to either a tooltip (on an interactive element), a modal or displayed an alternative way.</td>
+                <td>Popovers have been deprecated. They are not fully accessible and therefore existing popover content should be moved to either a v2 tooltip (on an interactive element), a modal, help text or displayed in an alternative way.</td>
             </tr>
             <tr>
                 <td>Progress Bar</td>
                 <td><code>html.progress</code></td>
                 <td><span class="label label--success">compliant</span></td>
-                <td>TODO: should progress bar have role="progressbar"?</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Progress List</td>
@@ -179,7 +179,7 @@
                 <td>Remove Button</td>
                 <td><code>html.remove_button</code></td>
                 <td><span class="label label--success">compliant</span></td>
-                <td>Fixed in #1261</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Status</td>
@@ -188,7 +188,13 @@
                 <td></td>
             </tr>
             <tr>
-                <td>Tooltips</td>
+                <td>Tooltips V1</td>
+                <td></td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>Older v1 tooltips are not accessible and therefore content should be displayed in a V2 tooltip or displayed an alternative way.</td>
+            </tr>
+            <tr>
+                <td>Tooltips V2</td>
                 <td></td>
                 <td><span class="label label--success">compliant</span></td>
                 <td>Note: should only be used on interactive element or with elements that have the equivelent in SR accessible text</td>
@@ -212,13 +218,13 @@
                 <td>Button Group</td>
                 <td><code>form.button_group</code></td>
                 <td><span class="label label--success">compliant</span></td>
-                <td>Swap to legend/fieldset fixed in https://github.com/jadu/pulsar/pull/1198</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Checkbox</td>
                 <td><code>form.checkbox</code></td>
                 <td><span class="label label--success">compliant</span></td>
-                <td>SI complains if no fieldset used even if one checkbox...</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Choice</td>
@@ -230,7 +236,7 @@
                 <td>Colour</td>
                 <td><code>form.colour</code></td>
                 <td><span class="label label--success">compliant</span></td>
-                <td>Note: Cannot access colour picker via KB and SR</td>
+                <td>Known issue: Cannot access colour picker via KB and SR</td>
             </tr>
             <tr>
                 <td>Compound</td>
@@ -267,7 +273,7 @@
                 <td></td>
                 <td><span class="label">Known issues</span></td>
                 <td>JStree follows the aria-tree pattern and includes the appropriate keyboard navigation support. 2 potential issues where found (reported by Site Improve): Element not highlighted on focus. This relates to the JS tree wrapper with tabindex="0". Adding focus styles does not resolve is issue as when focus shifts to the container, focus is immediately moved to the first element in the tree. Therefore, this seems to be a non-issue.
-WAI-ARIA group is missing a name. This relates to the plugin using aria-activedescendant in combination with role="group" and a missing group name. There doesn't seem to be a way to resolve this.</td>
+WAI-ARIA group is missing a name. This relates to the plugin using aria-activedescendant in combination with role="group" and a missing group name.</td>
             </tr>
             <tr>
                 <td>Password</td>
@@ -297,7 +303,7 @@ WAI-ARIA group is missing a name. This relates to the plugin using aria-activede
                 <td>Select</td>
                 <td><code>form.select</code></td>
                 <td><span class="label label--success">compliant</span></td>
-                <td>aria-required seems to trigger validation errors futher requiring a role and aria-expanded</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Select2</td>
@@ -321,7 +327,7 @@ WAI-ARIA group is missing a name. This relates to the plugin using aria-activede
                 <td>Time</td>
                 <td><code>form.time</code></td>
                 <td><span class="label label--success">compliant</span></td>
-                <td>Note: Dropdown time picker is not read by SRs</td>
+                <td>Known issue: Dropdown timepicker is not read by SRs</td>
             </tr>
             <tr>
                 <td>Toggle Switch</td>
@@ -346,7 +352,7 @@ WAI-ARIA group is missing a name. This relates to the plugin using aria-activede
             <tr>
                 <td>Actions bar</td>
                 <td><span class="label label--success">compliant</span></td>
-                <td>Note: docs need updating with new section and label mark up</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Common list</td>
@@ -361,12 +367,12 @@ WAI-ARIA group is missing a name. This relates to the plugin using aria-activede
             <tr>
                 <td>Error Summary</td>
                 <td><span class="label label--success">compliant</span></td>
-                <td>DOCs: does it need moving to the patterns section?</td>
+                <td></td>
             </tr>
             <tr>
                 <td>Filter bar</td>
-                <td><span class="label label--danger">failure</span></td>
-                <td>Validation failures. Lexicon example broken so can't audit. Popovers in use</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Help sidebar</td>
@@ -390,13 +396,13 @@ WAI-ARIA group is missing a name. This relates to the plugin using aria-activede
             </tr>
             <tr>
                 <td>Reports</td>
-                <td><span class="label label--danger">failure</span></td>
-                <td>No in docs, remove from lexicon? or move to playground? various failures</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Rules</td>
-                <td><span class="label label--danger">failure</span></td>
-                <td>AXE: Heading need to be decending (jumps to h5 for rule headings). Unable to navigate the tfoot form in Mac VO (other SR untested).</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
             </tr>
             <tr>
                 <td>Settings panel</td>
@@ -404,30 +410,56 @@ WAI-ARIA group is missing a name. This relates to the plugin using aria-activede
                 <td></td>
             </tr>
             <tr>
-                <td>Tabbed layout</td>
-                <td><span class="label">unknown</span></td>
-                <td>To discuss, do they need aria tabs? No, see https://dwp-design-examples.herokuapp.com/example/navigation-secondary and research</td>
-            </tr>
-            <tr>
                 <td>Table detail</td>
-                <td><span class="label label--success">success</span></td>
+                <td><span class="label label--success">compliant</span></td>
                 <td></td>
             </tr>
-
         </tbody>
     </table>
 
-    <h4>Misc</h4>
-    <ul>
-        <li>Tables? Do we need a table section above? captions etc</li>
-        <li>form guidance - not read by SRs</li>
-        <li>IDs have to be manually added, we should look at auto adding guids for labels</li>
-        <li>docs - fieldsets should always be used? see https://www.w3.org/TR/WCAG20-TECHS/H71</li>
-        <li>NEED TO ADDRESS - focus management on mobile help, when closed return to open button?</li>
-    </ul>
-
-
-
+    {{ docs.heading('h3', 'Tables') }}
+    <table class="table table--full">
+        <caption class="hide">Tables</caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Basic</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Basic (scrolling)</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Datatable</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Datatable (collapsing)</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Datatable (empty)</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Sortable Tables</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
