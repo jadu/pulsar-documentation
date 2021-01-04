@@ -12,12 +12,12 @@
 {{
     form.text({
         'label': 'My label',
-        'id': 'text-1',
+        'id': 'guid-' ~ random(),
         'name': 'text-1'
     })
 }}
     " }) }}
-    
+
     {{ docs.heading('h2', 'Helper options') }}
 
     <p>You can configure this helper using the <a href="../guides/using-helpers#common-options">common helper options.</a></p>
@@ -63,7 +63,7 @@
 {{
     form.text({
         'label': 'My label',
-        'id': 'text-2',
+        'id': 'guid-' ~ random(),
         'name': 'text-2',
         'disabled': true
     })
@@ -78,7 +78,7 @@
 {{
     form.text({
         'label': 'Price',
-        'id': 'text-3',
+        'id': 'guid-' ~ random(),
         'name': 'text-3',
         'prepend': '£'
     })
@@ -92,9 +92,9 @@
 {{
     form.text({
         'label': 'My label',
-        'id': 'text-4',
+        'id': 'guid-' ~ random(),
         'name': 'text-4',
-        'prepend': html.button({ 
+        'prepend': html.button({
             'label': 'Clear'
         }),
         'prepend_type': 'button'
@@ -110,7 +110,7 @@
 {{
     form.text({
         'label': 'Price',
-        'id': 'text-5',
+        'id': 'guid-' ~ random(),
         'name': 'text-5',
         'append': '.00'
     })
@@ -124,9 +124,9 @@
 {{
     form.text({
         'label': 'Postcode',
-        'id': 'text-6',
+        'id': 'guid-' ~ random(),
         'name': 'text-6',
-        'append': html.button({ 
+        'append': html.button({
             'label': 'Find Address'
         }),
         'append_type': 'button'
@@ -142,7 +142,7 @@
 {{
     form.text({
         'label': 'Price',
-        'id': 'text-7',
+        'id': 'guid-' ~ random(),
         'name': 'text-7',
         'prepend': '£',
         'append': '.00'
@@ -157,14 +157,14 @@
 {{
     form.text({
         'label': 'Value',
-        'id': 'text-8',
+        'id': 'guid-' ~ random(),
         'name': 'text-8',
-        'prepend': html.button({ 
+        'prepend': html.button({
             'label': html.icon('minus'),
             'data-action': 'decrement'
         }),
         'prepend_type': 'button',
-        'append': html.button({ 
+        'append': html.button({
             'label': html.icon('plus'),
             'data-action': 'increment'
         }),
