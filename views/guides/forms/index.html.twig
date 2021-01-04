@@ -1,0 +1,27 @@
+{% extends 'docs.html.twig' %}
+
+{% set heading = 'Forms' %}
+
+{%
+    set breadcrumbs = [
+        {'label': 'Home', 'href': '/'},
+        {'label': 'Guides', 'data-toggle-nav': '#guides'},
+        {'label': 'Forms', 'href': '#skip-target'}
+    ]
+%}
+
+{% set tab_guide %}
+    {% include 'guides/forms/guide.html.twig' %}
+{% endset %}
+
+{%
+    set tabs_content = [
+        {
+          "id"    : "forms-guide",
+          "class" : "ui-report",
+          "label" : "Guide",
+          "src"   : tab_guide,
+          "active": true
+        }
+    ]
+%}

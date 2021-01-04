@@ -1,0 +1,209 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    <p class="lede">This page explains how to structure a form and related accessibility considerations.</p>
+
+    {{
+        html.panel({
+            'title': 'Form helpers',
+            'body': 'For information on how to create a form using helpers see <a href="../forms/creating-a-form">creating a form</a>.',
+            'icon': 'info-sign'
+        })
+    }}
+
+    {{ docs.heading('h2', 'General guidance') }}
+
+    <p>Before you start building out your form:</p>
+    <ul>
+        <li>Be clear on what data needs to be gathered.</li>
+        <li>Only ask users to enter data required to complete the process; if irrelevant or excessive data is requested, users are more likely to abandon the form or become frustrated.</li>
+    </ul>
+
+    {{ docs.heading('h3', 'Form instructions ') }}
+
+    <p>Provide instructions that apply to the form. This could include:</p>
+    <ul>
+        <li>How required fields are marked</li>
+        <li>Any time limits imposed</li>
+        <li>Allowed data formats</li>
+    </ul>
+
+    <p>Form instructions should appear before the <code>&lt;form&gt;</code> element to ensure screen readers read it before they switch to forms mode.</p>
+
+    <pre><code>&lt;p&gt;Fields marked with an asterisk (*) are required.&lt;/p&gt;
+&lt;form&gt;</code></pre>
+
+    <div class="d-guidelines-preview">
+        <p>Related WCAG 2.1 criteria:</p>
+        <ul class="u-margin-bottom-none">
+            <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions">3.3.2: Labels or Instructions</a></li>
+            <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G184">G184 Providing text instructions at the beginning of a form or set of fields that describes the necessary input</a></li>
+        </ul>
+    </div>
+
+    {{ docs.heading('h3', 'Long and complex forms') }}
+
+    <p>Keep forms as short as possible, avoid lengthy or complicated forms. Consider splitting long or complex forms into multiple pages. This helps make complex or lengthy forms less daunting for people who are less experienced with computers or who have cognitive disabilities. Alternatively split long forms into logical groups of related inputs, for example, personal details, address details and user account details, each wrapped in a <code>&lt;fieldset&gt;</code> with a descriptive <code>&lt;legend&gt;</code>.</p>
+
+    {{ docs.heading('h3', 'Time limits') }}
+
+    <p>If possible, forms should not be subject to a time limit to allow users to complete the form at their own pace. If a time limit needs to be in place, for example, for security reasons, the user should have the option to turn it off or extend it. This restriction does not apply if the time limit is due to a live event, or if the time to complete the form is essential for a valid submission.</p>
+
+    <div class="d-guidelines-preview">
+        <p>Related WCAG 2.1 criteria:</p>
+        <ul class="u-margin-bottom-none">
+            <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/enough-time">2.2 Enough Time</a></li>
+        </ul>
+    </div>
+
+    {{ docs.heading('h3', 'Collecting information about the user') }}
+
+    <p>When a form collects information about the user, such as a registration form or a "my details" page, ensure the purpose of each input can be programmatically determined. The ability to programmatically declare the specific kind of data expected in a particular field makes filling out forms easier, especially for people with cognitive disabilities. Using the relevant <a href="https://www.w3.org/TR/html52/sec-forms.html#autofilling-form-controls-the-autocomplete-attribute">HTML5 autocomplete attributes</a> allows users to make use of browser autocomplete functionailty, reducing the time and cognitive load required to complete the form.</p>
+
+    <p>Ensure the correct <a href="https://www.w3.org/TR/html52/sec-forms.html#autofilling-form-controls-the-autocomplete-attribute">autocomplete attributes and values</a> are used for the relevant inputs.</p>
+
+    <div class="d-guidelines-preview">
+        <p>Related WCAG 2.1 criteria:</p>
+        <ul class="u-margin-bottom-none">
+            <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html">1.3.5: Identify Input Purpose</a></li>
+        </ul>
+    </div>
+
+    {{ docs.heading('h2', 'Form structure') }}
+
+    {{ docs.heading('h3', 'Grouping form content') }}
+
+    <p>Form contents should be grouped by a <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code>. Fieldsets can be nested if necessary to group sections of a form. A form should always have a main wrapping fieldset and legend. The legend can be visually hidden while still being exposed to screenreaders if needed by using the <code>hide</code> class.</p>
+
+    <div class="d-guidelines-preview">
+        <p>Related WCAG 2.1 criteria:</p>
+        <ul class="u-margin-bottom-none">
+            <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html">1.3.1 Info and Relationships</a></li>
+            <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H71">H71 Providing a description for groups of form controls using fieldset and legend elements</a></li>
+        </ul>
+    </div>
+
+    {{ docs.heading('h3', 'Labels') }}
+
+    <p>Input labels should be clear, descriptive and relevant.</p>
+
+    <p>All inputs must have a <code>&lt;label&gt;</code> and must be associated to the input via the <code>for</code> attribute. For example,    <code>&lt;label for="ID-OF-INPUT" &gt;</code>. The only exception being <code>type=“hidden”</code>. If pulsar form helpers are used, an ID must be passed to the helper, so the label is associated with the input.</p>
+
+    <div class="d-guidelines-preview">
+        <p>Related WCAG 2.1 criteria:</p>
+        <ul class="u-margin-bottom-none">
+            <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html">1.3.1 Info and Relationships</a></li>
+            <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H44">H44 Using label elements to associate text labels with form controls</a></li>
+            <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G131">Providing descriptive labels</a></li>
+        </ul>
+    </div>
+
+    {{ docs.heading('h3', 'Required inputs') }}
+
+    <p>Labels belonging to required inputs must include an asterisk (*) or (required). If an asterisk is used, then a <a href="#form-instructions">short paragraph of text explaining the meaning</a> should be added to the top of the form.</p>
+
+    <div class="d-guidelines-preview">
+        <p>Related WCAG 2.1 criteria:</p>
+        <ul class="u-margin-bottom-none">
+            <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions">3.3.2: Labels or Instructions</a></li>
+            <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H90">H90 Indicating required form controls using label or legend</a></li>
+        </ul>
+    </div>
+
+    {{ docs.heading('h3', 'Help text') }}
+
+    <p>When displaying help text under an input, <code>aria-describedby=“ID-OF-HELP-TEXT”</code> must be added to the input to associate the help text to the input. Pulsar helpers do this automatically. If raw markup or any other templating language is used, this must also be included. If this is ommited, screen readers will not read the help text when the input is focussed and potentially will not read the help text at all due to being in forms mode.</p>
+
+    <div class="d-guidelines-preview">
+        <p>Related WCAG 2.1 criteria:</p>
+        <ul class="u-margin-bottom-none">
+            <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html">1.3.1 Info and Relationships</a></li>
+            <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions">3.3.2: Labels or Instructions</a></li>
+            <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA1">Using the aria-describedby property to provide a descriptive label for user interface controls</a></li>
+        </ul>
+    </div>
+
+    {{ docs.heading('h2', 'Form errors') }}
+
+    <p>When a user submits a form, if mandatory fields are not completed, or other errors are present, then the following should be implemented.</p>
+
+    {{ docs.heading('h3', 'Page title') }}
+
+    <code>Error:</code> should be added to the beginning of the page title. The page title is generally the first thing announced on page load by a screen reader. This ensures the user is notified of the error at the first opportunity.
+
+    <pre><code>&lt;title&gt;Error: Create new thing&lt;/title&gt;</code></pre>
+
+    {{ docs.heading('h3', 'Error summary') }}
+
+    <p>An <a href="../forms/error-summary">error summary</a> should be shown at the top of the form. The error summary should be titled "There is a problem" and includes links to each input with an issue. Link text should be meaningful and descriptive and match any error text shown under an input. The error summary should gain keyboard focus on page load. The <a href="../forms/error-summary">error summary helper</a> provides this functionality.</p>
+
+    <div class="d-guidelines-preview">
+        <p>Related WCAG 2.1 criteria:</p>
+        <ul class="u-margin-bottom-none">
+            <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification.html">3.3.1: Error Identification</a></li>
+            <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G83.html">Providing text descriptions to identify required fields that were not completed</a></li>
+        </ul>
+    </div>
+
+    {{ docs.heading('h3', 'Error messages') }}
+
+    <p>Error messages shown under inputs should be meaningful and descriptive. They must be associated with the input with the use of <code>aria-describedby=“ID-OF-ERROR-TEXT”</code>. Error messages are displayed in red; however, to avoid relying on colour to communicate the error, the error text should begin with a warning icon. Pulsar form helpers include this functionality.</p>
+
+    {{ docs.heading('h4', 'Examples of good error messages') }}
+
+    <ul>
+        <li>Enter your first name</li>
+        <li>Enter your date of birth</li>
+        <li>Enter a postcode, like AA11AA</li>
+    </ul>
+
+    {{ docs.heading('h4', 'Examples of bad error messages') }}
+
+    <ul>
+        <li>This field cannot be empty</li>
+        <li>Cannot be blank</li>
+        <li>Invalid value</li>
+    </ul>
+
+    <div class="d-guidelines-preview">
+        <p>Related WCAG 2.1 criteria:</p>
+        <ul class="u-margin-bottom-none">
+            <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification.html">3.3.1: Error Identification</a></li>
+            <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G83.html">Providing text descriptions to identify required fields that were not completed</a></li>
+        </ul>
+    </div>
+
+    <p>You can find more details and examples of how to handle errors in our <a href="/guides/error-messages">Error message guide</a></p>
+
+    {{ docs.heading('h2', 'Multi-page forms') }}
+
+    <p>When a form is split between multiple pages, allow the user to navigate back and forth between form pages. Save user-inputted data as they go. If necessary, allow users to save progress and resume completion at a later date. Consider auto-saving data and warn users that data will be lost if they navigate away from the form. Keep each form page as simple and as short as possible. Ensure forms instructions are repeated across every page of the form.</p>
+
+    {{ docs.heading('h3', 'Show progress') }}
+
+    <p>Use the page title along with the main heading to explain how many steps will follow. Each step should inform the user about the progress they are making.</p>
+
+    <pre><code>&lt;title&gt;Step 2 of 4: Personal details - Create a new thing - Acme&lt;/title&gt;</code></pre>
+
+    <pre><code>&lt;h1 class="main-title"&gt;Step 2 of 4: Personal details&lt;/h1&gt;</code></pre>
+
+    <p>You can also consider using a <a href="../components/progress-bar">Progress Bar</a> or <a href="../components/progress-list">Progress List</a> to display progress throughout the form.</p>
+
+    {{ docs.heading('h3', 'Navigation') }}
+
+    <p>Allow the user to navigate back and forth through the pages of the form. This can be achieved with Back and Next buttons and where suitable a <a href="../components/progress-list">Progress List</a>.</p>
+
+    {{ docs.heading('h3', 'Prevent the loss of data') }}
+
+    <p>Save entered data when a user navigates through a multi-page form. Where possible, consider allowing users to break off midway and resume form completion at a later time. Consider warning users that data may be lost if navigating away from the form mid-completion.</p>
+
+    {{ docs.heading('h3', 'Repeat form instructions') }}
+
+    <p>Form instructions should be repeated on every page of the form.</p>
+</div>
+{% endblock tab_content %}
+{% block tab_sidebar %}
+    {{ docs.toc() }}
+{% endblock tab_sidebar %}
