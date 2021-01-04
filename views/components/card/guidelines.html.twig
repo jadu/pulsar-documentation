@@ -8,7 +8,7 @@
 
     <p>At its most basic, a card can just contain a body.</p>
 
-    {{ docs.example({ 
+    {{ docs.example({
         html: '
 <div class="card">
     <div class="card__body">
@@ -21,7 +21,7 @@
 
     <p>Add an optional header and/or footer within a card. You can choose whether or not to also include a card title.</p>
 
-    {{ docs.example({ 
+    {{ docs.example({
         html: '
 <div class="card">
     <div class="card__header">
@@ -44,7 +44,7 @@
 
     <p>Links using the <code>.card-link</code> class will be spaced apart slightly.</p>
 
-    {{ docs.example({ 
+    {{ docs.example({
         html: '
 <div class="card">
     <div class="card__body">
@@ -62,10 +62,10 @@
 
     <p>Use <code>.card--full-bleed</code> on the <code>.card</code> to make the image cover the default border of the card.</p>
 
-    {{ docs.example({ 
+    {{ docs.example({
         html: '
 <div class="card g-col g-col--6 g-col--first">
-    <img src="http://via.placeholder.com/600x250/ebebeb/000000?text=image" class="card-img" />
+    <img src="http://via.placeholder.com/600x250/ebebeb/000000?text=image" class="card-img" alt="example image" />
     <div class="card__body">
         <h3 class="card__title">Normal</h3>
         <p>The image will be contained within the cards default border.</p>
@@ -75,7 +75,7 @@
 </div>
 
 <div class="card card--full-bleed g-col g-col--6">
-    <img src="http://via.placeholder.com/600x250/ebebeb/000000?text=image" class="card-img" />
+    <img src="http://via.placeholder.com/600x250/ebebeb/000000?text=image" class="card-img" alt="example image" />
     <div class="card__body">
         <h3 class="card__title">Full bleed</h3>
         <p>This card uses <code>.card--full-bleed</code>, the difference is subtle.</p>
@@ -89,7 +89,7 @@
 
     <p>Cards will be 100% width by default and can be modified using grid classes. Use <code>.g-row</code> divs to organise cards into rows until we get fancier with flexbox.</p>
 
-    {{ docs.example({ 
+    {{ docs.example({
         html: '
 <div class="card g-col g-col--6 g-col--first">
     <div class="card__body">
@@ -107,7 +107,7 @@
 </div>
     ' }) }}
 
-    {{ docs.example({ 
+    {{ docs.example({
         html: '
 <div class="card g-col g-col--4 g-col--first">
     <div class="card__body">
@@ -136,7 +136,7 @@
 
     <p>Use the <code>.u-text-align-center</code> utility class to make an entire card centered.</p>
 
-    {{ docs.example({ 
+    {{ docs.example({
         html: '
 <div class="card u-text-align-center">
     <div class="card__header">
