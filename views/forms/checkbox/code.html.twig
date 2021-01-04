@@ -13,7 +13,7 @@
 {{
     form.checkbox({
         'label': 'My label',
-        'id': 'checkbox-1', 
+        'id': 'checkbox-1',
         'name': 'checkbox-1'
     })
 }}
@@ -50,7 +50,7 @@
 {{
     form.checkbox({
         'label': 'My label',
-        'id': 'checkbox-2', 
+        'id': 'checkbox-2',
         'name': 'checkbox-2',
         'disabled': true
     })
@@ -62,7 +62,7 @@
     <p>The <code>form.checkbox_inline()</code> helper creates a <code>&lt;label&gt;</code> element with the checkbox placed inside, this allows the checkbox to be positioned either before or after the label value through the <code>input_placement</code> option.</p>
 
     {{ docs.example({
-        screenreader: "<ol>
+        screenreader: "<ul>
             <li>Standard left aligned, unticked, tick box</li>
             <li>Right aligned, unticked, tick box</li>
         </ul>",
@@ -70,14 +70,14 @@
 {{
     form.checkbox_inline({
         'label': 'Standard left aligned',
-        'id': 'checkbox-3', 
+        'id': 'checkbox-3',
         'name': 'checkbox-3'
     })
 }}
 {{
     form.checkbox_inline({
         'label': 'Right aligned',
-        'id': 'checkbox-4', 
+        'id': 'checkbox-4',
         'name': 'checkbox-4',
         'input_placement': 'right'
     })
@@ -89,7 +89,7 @@
     <p>Using <code>form.checkbox_inline</code> will cause the checkbox input to not follow the normal flow of a regular Pulsar form. If you want to maintain form alignment, use the <code>.form__group--indent</code> class to restore the position.</p>
 
     {{ docs.example({
-        screenreader: "<ol>
+        screenreader: "<ul>
             <li>Standard inline position, unticked, tick box</li>
             <li>Indented position, unticked, tick box</li>
         </ul>",
@@ -97,7 +97,7 @@
 {{
     form.checkbox_inline({
         'label': 'Standard inline position',
-        'id': 'checkbox-5', 
+        'id': 'checkbox-5',
         'name': 'checkbox-5'
     })
 }}
@@ -105,7 +105,7 @@
     form.checkbox_inline({
         'label': 'Indented position',
         'class': 'form__group--indent',
-        'id': 'checkbox-6', 
+        'id': 'checkbox-6',
         'name': 'checkbox-6'
     })
 }}
