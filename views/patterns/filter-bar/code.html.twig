@@ -15,7 +15,7 @@
 
     <p>Depending on your setup, this will probably need to be in be in a file called <code>index.js</code> or <code>main.js</code>.</p>
 
-    <pre><code lang="javascript">// index.js
+    <pre><code>// index.js
 
 var FilterBarComponent = require('/path/to/pulsar/FilterBarComponent');
 
@@ -23,7 +23,7 @@ module.exports = {
     FilterBarComponent: FilterBarComponent
 }</code></pre>
 
-    <pre><code lang="javascript">// main.js
+    <pre><code>// main.js
 
 var $html = $('html');
 
@@ -43,8 +43,8 @@ $(function () {
 
     {{ docs.example({
         twig: "
-<div class=\"actionsbar\">
-    <div class=\"float--left\">            
+<section class=\"actionsbar\" aria-label=\"page actions\">
+    <div class=\"float--left\">
         {{
             html.actions_menu({
                 'items': [
@@ -60,7 +60,7 @@ $(function () {
             })
         }}
     </div>
-</div>
+</section>
 
 <div class=\"filter-bar display--none\">
     {{ form.create() }}
@@ -85,7 +85,6 @@ $(function () {
                 'id': 'size',
                 'placeholder': 'Choose one',
                 'options': {
-                    '': '',
                     'small': 'Small',
                     'medium': 'Medium',
                     'large': 'Large'
@@ -160,7 +159,7 @@ $(function () {
             'large': 'Large'
         &#125;
     &#125;)
-&#125;</pre></code>
+&#125;</code></pre>
 
 </div>
 {% endblock tab_content %}
