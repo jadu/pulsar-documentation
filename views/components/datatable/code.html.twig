@@ -8,13 +8,13 @@
     {{ docs.heading('h2', 'Basic styling') }}
 
     <p>For more information about basic table styles and layout options, refer to the <a href="table">table component</a>.</p>
-    
+
     {{ docs.heading('h2', 'Dependencies') }}
     {{ docs.heading('h3', 'Javascript') }}
 
     <p>The following libraries should be included in your product’s <code>package.json</code> file.</p>
 
-<pre><code lang="javascript">/* package.json */
+<pre><code>/* package.json */
 
 "dependencies": {
     "datatables.net": "^1.10.11",
@@ -30,7 +30,7 @@
 {{ docs.heading('h3', 'Sass') }}
 <p>You will need both the base tables styles, and the datatables extras.</p>
 
-<pre><code lang="javascript">/* pulsar.scss */
+<pre><code>/* pulsar.scss */
 
 @import '/path/to/bundles/pulsar/stylesheets/_component.tables';
 @import '/path/to/bundles/pulsar/stylesheets/_component.datatables';</code></pre>
@@ -41,9 +41,9 @@
 
     {{ docs.heading('h2', 'Example usage') }}
 
-    {{ docs.example({ 
+    {{ docs.example({
         twig: "
-{% 
+{%
     set data = {
         'columns': [
             { 'title': 'Title' },
@@ -70,14 +70,14 @@
                 'Owner': 'James Cameron',
                 'Modified': '1991-07-01 12:34',
                 'Live': true,
-                'Visible': false 
+                'Visible': false
             },
             {
                 'Title': 'Conan the Barbarian',
                 'Owner': 'John Millius',
                 'Modified': '1982-04-02 12:34',
                 'Live': false,
-                'Visible': true 
+                'Visible': true
             },
             {
                 'Title': 'Predator',
@@ -103,19 +103,28 @@
         ]
     }
 %}
-{{ 
+{{
     html.datatable({
         'class': 'table--full table--horizontal',
         'data-order': '[[ 3, \"desc\" ]]',
         'data': data
-    }) 
+    })
 }}
     " }) }}
+
+    {{ docs.heading('h3', 'Table captions') }}
+
+    <p>Use the <code>caption</code> element if using raw markup or the <code>caption</code> helper option to describe a table in the same way you would use a heading. A caption helps users find, navigate and understand tables. You can hide the visually hide the caption while keeping it accessible and visible to screen readers by adding the <code>hide</code> class.</p>
+
+    {{ docs.heading('h3', 'Table headers') }}
+
+    <p>Use table headers to tell users what the rows and columns represent. Use the scope attribute to help users of assistive technology distinguish between row and column headers.</p>
+
 
     {{ docs.heading('h2', 'Responsive options') }}
 
     <p>DataTables, being a technique to list large amounts of data, are designed to be as responsive as possible, their cells will generally change widhts to fit as much information as possible on-screen, but there are limits depending on the horizontal viewport available. There are two main techniques for dealing with narrow viewports, one where columns are collapsed (visually hidden but shown by clicking an expand icon) or the preferred method of horizontal scrolling.</p>
-    
+
     {{ docs.heading('h3', 'Collapsing columns') }}
 
     <p><i class="icon icon-info-sign"></i> This method should be considered deprecated, horizontal scrolling (below) is the preferred method</p>
@@ -126,9 +135,9 @@
 
     <p>For the datatables helper, add the <code>'overflow': 'collapse'</code> option, for raw markup you can add the <code>data-overflow="collapse"</code> attribute.</p>
 
-    {{ docs.example({ 
+    {{ docs.example({
         twig: "
-{% 
+{%
     set data = {
         'columns': [
             { 'title': 'Title' },
@@ -155,14 +164,14 @@
                 'Owner': 'James Cameron',
                 'Modified': '1991-07-01 12:34',
                 'Live': true,
-                'Visible': false 
+                'Visible': false
             },
             {
                 'Title': 'Conan the Barbarian',
                 'Owner': 'John Millius',
                 'Modified': '1982-04-02 12:34',
                 'Live': false,
-                'Visible': true 
+                'Visible': true
             },
             {
                 'Title': 'Predator',
@@ -188,26 +197,26 @@
         ]
     }
 %}
-{{ 
+{{
     html.datatable({
         'class': 'table--full',
         'data-order': '[[ 3, \"desc\" ]]',
         'overflow': 'collapse',
         'data': data
-    }) 
+    })
 }}
     " }) }}
 
 {{ docs.heading('h2', 'Horizontal scroll') }}
-    
+
     <p>By adding the <code>table--horizontal</code> class, when the table is unable to shrink any futher, as the viewport continues to shrink it will overflow horizontally and be viewable by scrolling, or manipulating the horizontal scrollbar.</p>
 
     <p>The below example has been constrained in width to demonstrate the behaviour.</p>
 
-    {{ docs.example({ 
+    {{ docs.example({
         style: "#DataTables_Table_2_wrapper.dataTables_wrapper{ width: 60% }",
         twig: "
-{% 
+{%
     set data = {
         'columns': [
             { 'title': 'Title' },
@@ -234,14 +243,14 @@
                 'Owner': 'James Cameron',
                 'Modified': '1991-07-01 12:34',
                 'Live': true,
-                'Visible': false 
+                'Visible': false
             },
             {
                 'Title': 'Conan the Barbarian',
                 'Owner': 'John Millius',
                 'Modified': '1982-04-02 12:34',
                 'Live': false,
-                'Visible': true 
+                'Visible': true
             },
             {
                 'Title': 'Predator',
@@ -267,12 +276,12 @@
         ]
     }
 %}
-{{ 
+{{
     html.datatable({
         'class': 'table--full table--horizontal',
         'data-order': '[[ 3, \"desc\" ]]',
         'data': data
-    }) 
+    })
 }}
     " }) }}
 
@@ -280,9 +289,9 @@
 
     <p>Datatables allow selection of rows by default, this behaviour can be disabled through the <code>data-selection</code> attribute. This will hide the related elements in the UI.</p>
 
-{{ docs.example({ 
+{{ docs.example({
         twig: "
-{% 
+{%
     set data = {
         'columns': [
             { 'title': 'Title' },
@@ -309,14 +318,14 @@
                 'Owner': 'James Cameron',
                 'Modified': '1991-07-01 12:34',
                 'Live': true,
-                'Visible': false 
+                'Visible': false
             },
             {
                 'Title': 'Conan the Barbarian',
                 'Owner': 'John Millius',
                 'Modified': '1982-04-02 12:34',
                 'Live': false,
-                'Visible': true 
+                'Visible': true
             },
             {
                 'Title': 'Predator',
@@ -342,13 +351,13 @@
         ]
     }
 %}
-{{ 
+{{
     html.datatable({
         'class': 'table--full table--horizontal',
         'data-order': '[[ 3, \"desc\" ]]',
         'data-select': false,
         'data': data
-    }) 
+    })
 }}
     " }) }}
 
@@ -358,9 +367,9 @@
 
     <p>For example, to sort our example table by name, this is the column <code>1</code> (zero indexed).</p>
 
-    {{ docs.example({ 
+    {{ docs.example({
         twig: "
-{% 
+{%
     set data = {
         'columns': [
             { 'title': 'Title' },
@@ -387,14 +396,14 @@
                 'Owner': 'James Cameron',
                 'Modified': '1991-07-01 12:34',
                 'Live': true,
-                'Visible': false 
+                'Visible': false
             },
             {
                 'Title': 'Conan the Barbarian',
                 'Owner': 'John Millius',
                 'Modified': '1982-04-02 12:34',
                 'Live': false,
-                'Visible': true 
+                'Visible': true
             },
             {
                 'Title': 'Predator',
@@ -420,12 +429,12 @@
         ]
     }
 %}
-{{ 
+{{
     html.datatable({
         'class': 'table--full table--horizontal',
         'data-order': '[[ 1, \"asc\" ]]',
         'data': data
-    }) 
+    })
 }}
     " }) }}
 
@@ -437,9 +446,9 @@
 
     <p>This example disables column ordering on the 'Live' and 'Visible' columns.</p>
 
-    {{ docs.example({ 
+    {{ docs.example({
         twig: "
-{% 
+{%
     set data = {
         'columns': [
             { 'title': 'Title' },
@@ -466,14 +475,14 @@
                 'Owner': 'James Cameron',
                 'Modified': '1991-07-01 12:34',
                 'Live': true,
-                'Visible': false 
+                'Visible': false
             },
             {
                 'Title': 'Conan the Barbarian',
                 'Owner': 'John Millius',
                 'Modified': '1982-04-02 12:34',
                 'Live': false,
-                'Visible': true 
+                'Visible': true
             },
             {
                 'Title': 'Predator',
@@ -499,12 +508,12 @@
         ]
     }
 %}
-{{ 
+{{
     html.datatable({
         'class': 'table--full table--horizontal',
         'data-order': '[[ 3, \"desc\" ]]',
         'data': data
-    }) 
+    })
 }}
     " }) }}
 
@@ -514,7 +523,7 @@
 
     <p>{{ html.icon('exclamation-triangle', {'label': 'Important'} ) }} It's currently not possible to do this using the <code>html.datatable()</code> helper.</p>
 
-<pre><code lang="javascript">&lt;td data-order="1982-04-02 12:00"&gt;02/04/1982 12:34pm&lt;/td&gt;</code></pre>
+<pre><code>&lt;td data-order="1982-04-02 12:00"&gt;02/04/1982 12:34pm&lt;/td&gt;</code></pre>
 
     {{ docs.heading('h2', 'No results') }}
     {{ docs.heading('h3', 'Default message') }}
@@ -523,9 +532,9 @@
 
     <p>The message will be shown automatically if the table body contains no rows.</p>
 
-    {{ docs.example({ 
+    {{ docs.example({
         twig: "
-{% 
+{%
     set data = {
         'columns': [
             { 'title': 'Title' },
@@ -550,12 +559,12 @@
         ]
     }
 %}
-{{ 
+{{
     html.datatable({
         'class': 'table--full table--horizontal',
         'data-order': '[[ 3, \"desc\" ]]',
         'data': data
-    }) 
+    })
 }}
     " }) }}
 
@@ -563,9 +572,9 @@
 
     <p>You should customise your no results message to reflect the kind of content the table normally contains, ideally you should also include a call to action here so the user can quickly jump into the action of adding content.</p>
 
-    {{ docs.example({ 
+    {{ docs.example({
         twig: "
-{% 
+{%
     set data = {
         'columns': [
             { 'title': 'Title' },
@@ -590,13 +599,13 @@
         ]
     }
 %}
-{{ 
+{{
     html.datatable({
         'class': 'table--full table--horizontal',
         'data-empty-table': 'There are currently no Arnie movies to display<br /><br /><button class=\"btn btn--primary\">Add Movie</button>',
         'data-order': '[[ 3, \"desc\" ]]',
         'data': data
-    }) 
+    })
 }}
     " }) }}
 
@@ -611,9 +620,9 @@
 
     <p>Add <code>data-length-change="true"</code> to the table to allow users to change the number of rows shown on each page. This is shown at the bottom right of the table when enabled.</p>
 
-    {{ docs.example({ 
+    {{ docs.example({
         twig: "
-{% 
+{%
     set data = {
         'columns': [
             { 'title': 'Title' },
@@ -918,13 +927,13 @@
         ]
     }
 %}
-{{ 
+{{
     html.datatable({
         'class': 'table--full table--horizontal',
         'data-length-change': 'true',
         'data-order': '[[ 3, \"desc\" ]]',
         'data': data
-    }) 
+    })
 }}
     " }) }}
 </div>
