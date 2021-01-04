@@ -10,13 +10,14 @@
     {{ docs.example({
         html: "
 <table class=\"table table--full\" data-table-detail-table>
+    <caption class=\"hide\">Events</caption>
     <thead>
         <tr>
-            <th><a href=\"#\">Date</a></th>
-            <th><a href=\"#\">Time</a></th>
-            <th><a href=\"#\">User type</a></th>
-            <th><a href=\"#\">Event</a></th>
-            <th><a href=\"#\">Actions</a></th>
+            <th scope=\"col\">Date</th>
+            <th scope=\"col\">Time</th>
+            <th scope=\"col\">User type</th>
+            <th scope=\"col\">Event</th>
+            <th scope=\"col\">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -35,7 +36,7 @@
 
     <p>You will need the `TableDetailComponent` to be included in your browserify configuration. Depending on your setup, this will probably need to be in a file called `index.js` or `main.js`.</p>
 
-<pre><code lang="javascript">// index.js
+<pre><code>// index.js
 
 var TableDetailComponent = require('/path/to/pulsar/TableDetailComponent');
 
@@ -44,7 +45,7 @@ module.exports = {
 }
 </code></pre>
 
-<pre><code lang="javascript">// main.js
+<pre><code>// main.js
 
 var $html = $('html');
 
