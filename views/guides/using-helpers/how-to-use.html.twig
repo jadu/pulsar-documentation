@@ -11,7 +11,7 @@
     {{ docs.heading('h2', 'How to use') }}
     <p>The options are usually passed as the first argument to the helper, however for some simple helpers (like icon) it may be the second. Each component may have specialised options and, unless otherwise stated, they should all accept the <a href="?tab=common-options">common helper options</a>.</p>
 
-    <pre><code lang="javascript">&#123;&#123;
+    <pre><code>&#123;&#123;
     html.button({
         'label': 'My Action',
         'class': 'btn--primary btn--small',
@@ -24,7 +24,7 @@
     {{ docs.heading('h2', 'Common options') }}
 
     <p>The majority of Pulsar helpers accept the common options, unless otherwise stated in the component's documentation.</p>
-    
+
     <table class="table">
         <thead>
             <tr>
@@ -74,7 +74,7 @@
             <tr>
                 <td class="u-no-wrap"><code>form</code></td>
                 <td>string</td>
-                <td class="u-no-wrap">Form helpers</td> 
+                <td class="u-no-wrap">Form helpers</td>
                 <td>The form element that the input element is associated with (its form owner). The value of the attribute must be an id of a <code>&lt;form&gt;</code> element in the same document. If this attribute isn't used, the <code>&lt;input&gt;</code> element is associated with its nearest ancestor <code>&lt;form&gt;</code> element, if any. This attribute lets you to place <code>&lt;input&gt;</code> elements anywhere within a document, not just as descendants of form elements. An input can be associated with at most one form</td>
             </tr>
             <tr>
@@ -89,7 +89,7 @@
                 <td>link, <a href="/components/button#example-link-type">button*</a></td>
                 <td>a URL or a URL fragment that the hyperlink points to
                 <br /><br />
-                <small><em>* Only available for button <code>link</code> type</small></em>
+                <small><em>* Only available for button <code>link</code> type</em></small>
                 </td>
             </tr>
             <tr>
