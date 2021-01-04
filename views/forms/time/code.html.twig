@@ -13,12 +13,12 @@
 {{
     form.time({
         'label': 'Start time',
-        'id': 'time-1',
+        'id': 'guid-' ~ random(),
         'name': 'time-1'
     })
 }}
     " }) }}
-    
+
     {{ docs.heading('h2', 'Helper options') }}
 
     <p>You can configure this helper using the <a href="../guides/using-helpers#common-options">common helper options</a>, the following options are specific to this helper.</p>
@@ -71,13 +71,14 @@
                 <td>data-orientation</td>
                 <td>string</td>
                 <td>By default the timepicker will be aligned to the bottom left of the input element, or aligned to the top left if there isn’t enough room below the input. Values can be:
-                <ul>
-                    <li><code>l</code> (left (default))</li>
-                    <li><code>r</code> (right)</li>
-                    <li><code>t</code> (top)</li>
-                    <li><code>b</code> (bottom)</li>
-                </td>
+                    <ul>
+                        <li><code>l</code> (left (default))</li>
+                        <li><code>r</code> (right)</li>
+                        <li><code>t</code> (top)</li>
+                        <li><code>b</code> (bottom)</li>
+                    </ul>
                 Combine letters to move to corners, e.g. <code>tr</code> for top-right
+                </td>
             </tr>
             <tr>
                 <td>data-timeFormat</td>
@@ -97,7 +98,7 @@
 {{
     form.time({
         'label': 'Start time',
-        'id': 'time-3',
+        'id': 'guid-' ~ random(),
         'name': 'time-3',
         'disabled': true
     })
