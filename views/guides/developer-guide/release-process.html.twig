@@ -7,20 +7,20 @@
 
     {{ docs.heading('h2', 'Release checklist') }}
 
-    <p>
-        <i class="icon-check" /></i> All required pull requests merged into <code>develop</code><br />
-        <i class="icon-check" /></i> Pull <code>develop</code> (make sure your local branch is up to date)<br />
-        <i class="icon-check" /></i> Push <code>develop</code> (watch Travis for any build failures)<br />
-        <i class="icon-check" /></i> Checkout <code>master</code><br />
-        <i class="icon-check" /></i> Merge <code>develop</code> into <code>master</code><br />
-        <i class="icon-check" /></i> Run <code>phpunit</code> and make sure tests pass<br />
-        <i class="icon-check" /></i> Run <code>npm test</code> and make sure tests pass<br />
-        <i class="icon-check" /></i> Use the <code>grunt bump</code> command to increment the version number (see below)<br />
-        <i class="icon-check" /></i> Travis will build, test, and create a <a href="https://github.com/jadu/pulsar/releases">release package on GitHub</a><br />
-        <i class="icon-check" /></i> Update the release notes on GitHub<br />
-        <i class="icon-check" /></i> Attach all related GitHub issues and pull requests to a new milestone named after the release number<br />
-        <i class="icon-check" /></i> Post on the #engineering slack channel to notify the team about the new release
-    </p>
+    <ol>
+        <li>All required pull requests merged into <code>develop</code></li>
+        <li>Pull <code>develop</code> (make sure your local branch is up to date)</li>
+        <li>Push <code>develop</code> (watch Travis for any build failures)</li>
+        <li>Checkout <code>master</code></li>
+        <li>Merge <code>develop</code> into <code>master</code></li>
+        <li>Run <code>phpunit</code> and make sure tests pass</li>
+        <li>Run <code>npm test</code> and make sure tests pass</li>
+        <li>Use the <code>grunt bump</code> command to increment the version number (see below)</li>
+        <li>Travis will build, test, and create a <a href="https://github.com/jadu/pulsar/releases">release package on GitHub</a></li>
+        <li>Update the release notes on GitHub</li>
+        <li>Attach all related GitHub issues and pull requests to a new milestone named after the release number</li>
+        <li>Post on the #engineering slack channel to notify the team about the new release</li>
+    </ol>
 
     {{ docs.heading('h2', 'Version numbering') }}
 

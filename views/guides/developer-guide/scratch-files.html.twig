@@ -40,7 +40,7 @@
 
     <p>Every scratch rule, in theory, is created to address an issue or bug with the design system and as such, should have a ticket created. This ticket reference, whether it's in Jira or GitHub should be added in the scratch description.</p>
 
-    <pre><code lang="css">
+    <pre><code>
     /**
      * 04/07/2019 - Paul Stanton
      *
@@ -68,13 +68,27 @@
 
     <p>When a scratch rule is required, there is a structured process for how these should be reviewed so that they’re regularly reviewed and fixed within the core products so that these overrides don’t accumulate over time.</p>
 
-    <p>This diagram illustrates which teams are usually responsible for each step in the process, though there are times where a single developer may be involved in the entire process from end-to-end.</p>
+    <p>The following list and diagram describes the steps and the teams responsible for each stage of the process, though there are times where a single developer may be involved in the entire process from end-to-end.</p>
+
+    <p id="flow-chart-explanation" class="u-margin-bottom--large">
+        Step 1, <span class="label label--success">Product team</span> identify an issue which requires a scratch rule.<br/>
+        Step 2, <span class="label label--primary">Pulsar team</span> verify that a scratch rule is required.<br/>
+        Step 3, <span class="label label--success">Product team</span> or <span class="label label--primary">Pulsar team</span> create scratch rule within product.<br/>
+        Step 4, <span class="label label--success">Product team</span> create Jira ticket requesting review of scratch rule.<br/>
+        Step 5, <span class="label label--primary">Pulsar team</span> review Jira ticket, create Pulsar ticket if required.<br/>
+        Step 6, <span class="label label--primary">Pulsar team</span> fix core issue, test and create Pull Request.<br/>
+        Step 7, <span class="label label--success">Product team</span> or <span class="label label--primary">Pulsar team</span> update product to use pull request branch, remove scratch rule.<br/>
+        Step 8, <span class="label label--success">Product team</span> or <span class="label label--primary">Pulsar team</span> test and verify original issue has been resolved.<br/>
+        Step 9, <span class="label label--primary">Pulsar Team</span> tag and release as a new Pulsar version.<br/>
+        Step 10, <span class="label label--success">Product team</span> update product to use new Pulsar version.<br/>
+        Step 11, <span class="label label--success">Product team</span> merge for release. Move Jira ticket to done.<br/>
+        Step 12, <span class="label label--success">Product team</span> or <span class="label label--primary">Pulsar team</span> close Pulsar ticket.
+    </p>
 
     <figure class="u-text-align-center wireframe--small">
-        <img src="/views/guides/developer-guide/img/process.png" alt="Flowchart illustrating the flow between product and pulsar teams when reviewing scratch tickets" />
+        <img src="/views/guides/developer-guide/img/process.png" alt="Flowchart illustrating the flow between product and pulsar teams when reviewing scratch tickets" aria-describedby="flow-chart-explanation"/>
         <figcaption>The flow between product and Pulsar teams when reviewing scratch rules</figcaption>
     </figure>
-    
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
