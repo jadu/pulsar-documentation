@@ -6,9 +6,9 @@
     <p class="lede">Continuum Integrations are a highly technical feature, often linking together separate systems and software using technical terminology like port numbers, timeouts and access tokens. Great care should be taken to design the integration to help the user understand what information they must supply and where they can find it.</p>
 
     {{ docs.heading('h2', 'Integrations hub') }}
-    
+
     <p>The integrations hub lists all of the currently available integrations available within a given Continuum product using a Pulsar 'piano' layout, listing the integrations as tabs on the left and their configurations on the right.</p>
-    
+
     <figure>
         <img src="/views/patterns/integrations/img/one.png" alt="Screenshot showing the layout of an integration" />
     </figure>
@@ -44,15 +44,15 @@
     {{ docs.example({
         twig: "
 {{
-    html.media({ 
-        'icon': 'youtube-square', 
-        'icon_colour': '#e52d27', 
-        'title': 'YouTube', 
-        'description': 'Upload videos to your YouTube accounts' 
+    html.media({
+        'icon': 'youtube-square',
+        'icon_colour': '#e52d27',
+        'title': 'YouTube',
+        'description': 'Upload videos to your YouTube accounts'
     })
 }}
     " }) }}
-    
+
     {{ docs.heading('h3', 'Tab title') }}
 
     <p>The title should, ideally, be the name of the software being integrated.</p>
@@ -65,7 +65,7 @@
     </ul>
 
     <p>If a company name isn't widely known, or provides multiple services, you should make the title more descriptive as to the nature of the integration.</p>
-    
+
     <p>e.g.</p>
 
     <ul>
@@ -89,11 +89,11 @@
             label: 'use title case, unless branding guidelines dictate otherwise (like YouTube)',
             twig: "
 {{
-    html.media({ 
-        'icon': 'youtube-square', 
-        'icon_colour': '#e52d27', 
-        'title': 'YouTube', 
-        'description': 'Upload videos to your YouTube accounts' 
+    html.media({
+        'icon': 'youtube-square',
+        'icon_colour': '#e52d27',
+        'title': 'YouTube',
+        'description': 'Upload videos to your YouTube accounts'
     })
 }}
     "
@@ -102,14 +102,14 @@
             label: 'use a trailing full stop',
             twig: "
 {{
-    html.media({ 
-        'icon': 'youtube-square', 
-        'icon_colour': '#e52d27', 
-        'title': 'Youtube.', 
-        'description': 'Upload videos to your YouTube accounts' 
+    html.media({
+        'icon': 'youtube-square',
+        'icon_colour': '#e52d27',
+        'title': 'Youtube.',
+        'description': 'Upload videos to your YouTube accounts'
     })
 }}
-    "       
+    "
         }
     }) }}
 
@@ -123,7 +123,7 @@
             label: 'explain what this integration will enable the users to do',
             twig: "
 {{
-    html.media({ 
+    html.media({
         'image': '/views/patterns/integrations/img/office365.png',
         'image_alt': 'Office365 logo',
         'title': 'Office 365',
@@ -136,14 +136,14 @@
             label: 'simply explain what the integration process is',
             twig: "
 {{
-    html.media({ 
+    html.media({
         'image': '/views/patterns/integrations/img/office365.png',
         'image_alt': 'Office365 logo',
         'title': 'Office 365',
         'description': 'Enable Office365 integration'
     })
 }}
-    "       
+    "
         }
     }) }}
 
@@ -175,17 +175,17 @@
             </tr>
         </tbody>
     </table>
-    	
+
     {{ docs.guidelines({
         do: {
             label: 'use sentence case',
             twig: "
 {{
-    html.media({ 
-        'icon': 'youtube-square', 
-        'icon_colour': '#e52d27', 
-        'title': 'YouTube', 
-        'description': 'Upload videos to your YouTube accounts' 
+    html.media({
+        'icon': 'youtube-square',
+        'icon_colour': '#e52d27',
+        'title': 'YouTube',
+        'description': 'Upload videos to your YouTube accounts'
     })
 }}
     "
@@ -194,19 +194,19 @@
             label: 'use a trailing full stop',
             twig: "
 {{
-    html.media({ 
-        'icon': 'youtube-square', 
-        'icon_colour': '#e52d27', 
-        'title': 'YouTube', 
-        'description': 'Upload videos to your YouTube accounts.' 
+    html.media({
+        'icon': 'youtube-square',
+        'icon_colour': '#e52d27',
+        'title': 'YouTube',
+        'description': 'Upload videos to your YouTube accounts.'
     })
 }}
-    "       
+    "
         }
     }) }}
-    
+
     {{ docs.heading('h2', 'Main integration user interface') }}
-    
+
     <p>An integration should use the 'masterswitch' layout pattern where possible, this provides a clear 'on/off' switch for an Administrator to enable or disable an integration in one easy step, and helps the person to understand whether an integration is currently active or not.</p>
 
     <figure>
@@ -214,7 +214,7 @@
     </figure>
 
     <p>A brief description (one or two short paragraphs) should be put at the top of the settings view (above the masterswitch) to further explain this integration or to provide important information which may be needed to successfully set it up.</p>
-    
+
     <p>e.g. Inform the user how to find specific details on the external system they're integrating with.</p>
 
     <blockquote>You will find these details by signing into your Continuum CXM and navigating to Settings > System > Service APIs.<br /><br />
@@ -227,7 +227,7 @@
     {{ docs.heading('h3', 'Masterswitch control') }}
 
     <p>The masterswitch pattern allows an entire UI to be disabled while the switch is in the 'off' position.</p>
-    
+
     <p>Disabling an integration should happen immediately and not require an extra 'save' or confirmation step, however after enabling the switch, the integration should not be activated until they have completed all required fields to configure the integration.</p>
 
     <p>If disabling an integration is a potentially destructive action, you should use a confirmation modal to illustrate the impact of the action to the user.</p>
@@ -237,16 +237,16 @@
             label: 'keep the label consistent, to indicate state',
             twig: "
 {{
-    form.toggle_switch({ 
+    form.toggle_switch({
         'label': 'Enable integration',
-        'id': 'toggle-1',
+        'id': 'guid-' ~ random(),
         'name': 'toggle-1'
     })
 }}
 {{
-    form.toggle_switch({ 
+    form.toggle_switch({
         'label': 'Enable integration',
-        'id': 'toggle-2',
+        'id': 'guid-' ~ random(),
         'name': 'toggle-2',
         'checked': true
     })
@@ -257,21 +257,21 @@
             label: 'change the label to indicate the action that will be performed',
             twig: "
 {{
-    form.toggle_switch({ 
+    form.toggle_switch({
         'label': 'Enable integration',
-        'id': 'toggle-1',
+        'id': 'guid-' ~ random(),
         'name': 'toggle-1'
     })
 }}
 {{
-    form.toggle_switch({ 
+    form.toggle_switch({
         'label': 'Disable integration',
-        'id': 'toggle-2',
+        'id': 'guid-' ~ random(),
         'name': 'toggle-2',
         'checked': true
     })
 }}
-    "       
+    "
         }
     }) }}
 
@@ -280,9 +280,9 @@
             label: 'use the label \'Enable integration\'',
             twig: "
 {{
-    form.toggle_switch({ 
+    form.toggle_switch({
         'label': 'Enable integration',
-        'id': 'toggle-3',
+        'id': 'guid-' ~ random(),
         'name': 'toggle-3'
     })
 }}
@@ -292,18 +292,18 @@
             label: 'use product/service names',
             twig: "
 {{
-    form.toggle_switch({ 
+    form.toggle_switch({
         'label': 'Enable Google Drive',
-        'id': 'toggle-4',
+        'id': 'guid-' ~ random(),
         'name': 'toggle-4'
     })
 }}
-    "       
+    "
         }
     }) }}
 
     {{ docs.heading('h3', 'Form fields') }}
-    
+
     <p>Because integrations are often highly technical in nature, you should use every opportunity to use help text to provide more context around a field.</p>
 
     {{ docs.guidelines({
@@ -311,9 +311,10 @@
             label: 'use units of measure, and explain what the setting actually means',
             twig: "
 {{
-    form.text({ 
+    form.text({
+        'class': 'form__control-col--6',
         'label': 'Timeout',
-        'id': 'timeout-1',
+        'id': 'guid-' ~ random(),
         'name': 'timeout-1',
         'append': 'Seconds',
         'help': 'How long the system should wait for a response, usually 600 seconds (10 minutes)',
@@ -326,13 +327,13 @@
             label: 'expect the user to know',
             twig: "
 {{
-    form.text({ 
+    form.text({
         'label': 'Timeout',
-        'id': 'timeout-2',
+        'id': 'guid-' ~ random(),
         'name': 'timeout-2'
     })
 }}
-    "       
+    "
         }
     }) }}
 
@@ -343,9 +344,9 @@
             label: 'be clear about which system/software a value originates from, and where to find it',
             twig: "
 {{
-    form.text({ 
+    form.text({
         'label': 'GitHub access token',
-        'id': 'github-token-1',
+        'id': 'guid-' ~ random(),
         'name': 'github-token-1',
         'help': 'Find this at <a href=\"https://github.com/settings/tokens\">https://github.com/settings/tokens</a>'
     })
@@ -356,20 +357,20 @@
             label: 'be ambiguous',
             twig: "
 {{
-    form.text({ 
+    form.text({
         'label': 'Access token',
-        'id': 'github-token-2',
+        'id': 'guid-' ~ random(),
         'name': 'github-token-2'
     })
 }}
-    "       
+    "
         }
     }) }}
 
     <p>Quite often you may need to allow an admin to configure server oriented variables, such as port numbers, timeouts and proxy addresses. You should provide sensible defaults for these where possible, giving the admin a higher likelihood of getting it right 'first time'. Choose your field type wisely, for example, if an integration only has a specific list of valid port numbers available, use a form.choice() helper instead of a free text input, reducing the opportunity for accidental errors.</p>
 
     <p>If the admin needs to ask their sysadmin/network administrator for specific values, or to get ports unblocked, then it's useful to let them know upfront.</p>
-    
+
     {{ docs.heading('h3', 'Tabbed integrations') }}
 
     <p>For more complex integrations it may make sense to split the settings over multiple tabs.<p>
@@ -379,7 +380,7 @@
     </figure>
 
     <p>The first tab should be active when the user enables the masterswitch, however you may need/want to disable the other tabs until some required information has been completed.</p>
-    
+
     <p>Use cases for this may include:</p>
 
     <ul>
