@@ -13,15 +13,15 @@
     <p>The title attribute is a an essential piece of information, especially for assisitive technology users and should be short, relevant to the data being listed, descriptive and make use of variables where necessary.</p>
 
     <p>Use the pipe character <code>|</code> to separate the heirarchy of information. The account or organisation name should be included to help the user discern between multi-tenanted systems like CXM, or Galaxies Sites.</p>
-    
+
     <strong>Examples:</strong>
 
     <pre><code>&lt;title&gt;My Documents | &#123;&#123; account_name &#125;&#125;&lt;/title&gt;</code></pre>
-    
+
     <pre><code>&lt;title&gt;&#123;&#123; person_name &#125;&#125; cases | &#123;&#123; account_name &#125;&#125;&lt;/title&gt;</code></pre>
-    
+
     <pre><code>&lt;title&gt;Search results for &#123;&#123; search_term &#125;&#125; | &#123;&#123; account_name &#125;&#125;&lt;/title&gt;</code></pre>
-    
+
     <pre><code>&lt;title&gt;No results found for &#123;&#123; search_term &#125;&#125; | &#123;&#123; account_name &#125;&#125;&lt;/title&gt;</code></pre>
 
     {{ docs.heading('h3', 'Page title') }}
@@ -39,12 +39,12 @@
     <p>If an action is dangerous or destructive, such as Delete, you should use the <code>link--danger</code> class to illustrate this.</p>
 
     <p>The primary action should always appear at the top of the menu, and the delete action at the bottom separated with a divider.</p>
-    
+
     <p>Actions menu items should be sentence case.</p>
 
     <p>If an action cannot be performed unless one or more items are selected, the link should be disabled. <span class="label label--warning">The exact details of this pattern are currently being discussed</span></p>
 
-    {{ docs.example({ 
+    {{ docs.example({
         code: false,
         twig: "
 {{
@@ -53,25 +53,25 @@
         'items': [
             html.link({ 'label': html.icon('plus') ~ ' New thing', 'href': '#new' }),
             html.divider(),
-            html.link({ 
-                'label': html.icon('file-excel-o') ~ ' Export as CSV', 
+            html.link({
+                'label': html.icon('file-excel-o') ~ ' Export as CSV',
                 'href': '#csv'
             }),
-            html.link({ 
-                'label': html.icon('file-pdf-o') ~ ' Export as PDF', 
+            html.link({
+                'label': html.icon('file-pdf-o') ~ ' Export as PDF',
                 'href': '#pdf'
             }),
-            html.link({ 
-                'label': html.icon('print') ~ ' Print', 
+            html.link({
+                'label': html.icon('print') ~ ' Print',
                 'href': '#print',
                 'disabled': true,
                 'role': 'button',
                 'aria-disabled': 'true'
             }),
             html.divider(),
-            html.link({ 
-                'label': html.icon('times') ~ ' Delete', 
-                'href': '#delete', 
+            html.link({
+                'label': html.icon('times') ~ ' Delete',
+                'href': '#delete',
                 'class': 'link--danger' })
         ]
     })
@@ -86,9 +86,9 @@
     {{ docs.example({
         code: false,
         twig: "
-<div class=\"actionsbar\">
+<section class=\"actionsbar\" aria-label=\"page actions\">
     <div class=\"u-float-left\">
-        
+
     </div>
     <div class=\"u-float-right\">
         {{
@@ -98,7 +98,7 @@
             })
         }}
     </div>
-</div>
+</section>
     " }) }}
 
     <p>The actual interaction which will occur when this action is triggered may vary depending on the needs and complexity of the user interface. For example, it may present the user with a full 'common form' or a modal.</p>
@@ -118,9 +118,9 @@
     {{ docs.example({
         code: false,
         twig: "
-<div class=\"actionsbar\">
+<section class=\"actionsbar\" aria-label=\"page actions\">
     <div class=\"u-float-left\">
-        
+
     </div>
     <div class=\"u-float-right\">
         {{
@@ -135,7 +135,7 @@
             })
         }}
     </div>
-</div>
+</section>
     " }) }}
 
     <p>Example of a choice:</p>
@@ -143,9 +143,9 @@
     {{ docs.example({
         code: false,
         twig: "
-<div class=\"actionsbar\">
+<section class=\"actionsbar\" aria-label=\"page actions\">
     <div class=\"u-float-left\">
-        
+
     </div>
     <div class=\"u-float-right\">
         {{
@@ -161,7 +161,7 @@
             })
         }}
     </div>
-</div>
+</section>
     " }) }}
 
     <p>Example of more than one equally important actions:</p>
@@ -169,9 +169,9 @@
     {{ docs.example({
         code: false,
         twig: "
-<div class=\"actionsbar\">
+<section class=\"actionsbar\" aria-label=\"page actions\">
     <div class=\"u-float-left\">
-        
+
     </div>
     <div class=\"u-float-right\">
         {{
@@ -187,7 +187,7 @@
             })
         }}
     </div>
-</div>
+</section>
     " }) }}
 
     {{ docs.heading('h2', 'The DataTable') }}
@@ -196,21 +196,23 @@
 
     <p>The number of entries on each page of the table can be controlled by the dropdown option in the DataTable footer, the value of this should be stored by the Jadu product as a persistent user preference.</p>
 
-    {{ docs.example({ 
+    {{ docs.example({
         code: false,
         html: '
 <table data-order="[[ 3, &quot;desc&quot; ]]"  class="table datatable table--full table--horizontal">
+    <caption class=\"hide\">A list of films featuring Arnold Schwarzenegger</caption>
     <thead>
         <tr>
-            <th class="table-selection" data-orderable="false">
-                <input type="checkbox" class="form__control checkbox js-select-all" data-tippy-content="Select all rows" data-tippy-placement="right"/>
+            <th scope=\"col\" class="table-selection" data-orderable="false" aria-label="Row selection controls">
+                <span class="hide">Row selection controls</span>
+                <input type="checkbox" class="form__control checkbox js-select-all" aria-label="select all rows" data-tippy-content="Select all rows" data-tippy-placement="right"/>
             </th>
-            <th>Title</th>
-            <th>Owner</th>
-            <th>Modified</th>
-            <th data-orderable="false" class="u-text-align-center u-shrink-to-fit">Live</th>
-            <th data-orderable="false" class="u-text-align-center u-shrink-to-fit">Visible</th>
-            <th data-orderable="false">Actions</th>
+            <th scope=\"col\">Title</th>
+            <th scope=\"col\">Owner</th>
+            <th scope=\"col\" >Modified</th>
+            <th scope=\"col\" data-orderable="false" class="u-text-align-center u-shrink-to-fit">Live</th>
+            <th scope=\"col\" data-orderable="false" class="u-text-align-center u-shrink-to-fit">Visible</th>
+            <th scope=\"col\" data-orderable="false">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -303,20 +305,24 @@
 </table>
     ' }) }}
 
+    {{ docs.heading('h3', 'Caption') }}
+
+    <p>Use the <code>caption</code> element if using raw markup or the <code>caption</code> helper option to describe a table in the same way you would use a heading. A caption helps users find, navigate and understand tables. You can hide the visually hide the caption while keeping it accessible and visible to screen readers by adding the <code>hide</code> class (the datatable helper will automatically add this for you).</p>
+
     {{ docs.heading('h3', 'Columns') }}
 
     <p>Column headers should be short yet descriptive, and use as few words as possible to describe what is contained in their respective columns. For example, it’s not required to use 'Date Created' when simply 'Created', and the fact that the column contains date information is enough information.</p>
 
     <p>The first column, containing the primary 'Thing' reference, should link to the UI which controls that specific Thing. Usually an edit view, but may be some other form of detailed display.</p>
-    
+
     <p>Table column header labels should be consistent with others within the same product. Avoid mixing terms or contractions like Case Ref, Case Reference and Case ID.</p>
 
-    <p>Column headers should be sentence case.</a>
+    <p>Column headers should be sentence case.</p>
 
     <p>Columns should be orderable, unless there's no need to order a column to organise data (such as the 'actions' column).</p>
 
     <p>DataTables will automatically make columns orderable however that behaviour can be disabled, some additional information is required to make date/time columns orderable. You can refer to the <a href="https://pulsar.docs.jadu.net/components/datatable#disable-column-ordering">DataTable documentation</a> for more information.</p>
-    
+
     <strong>Examples:</strong>
 
     <ul>
@@ -336,7 +342,7 @@
     {{ docs.heading('h3', 'Initial column order') }}
 
     <p>It is possible to define which column is used to order the table on the initial page load. Typically it is most appropriate to sort by the date created/added in descending order so that the content is ordered by newest first.</p>
-    
+
     <p>Refer to the DataTable <a href="https://pulsar.docs.jadu.net/components/datatable#set-initial-column-order">initial column sort documentation</a> for specific information on how to define the column sort.</p>
 
     {{ docs.heading('h3', 'Row selection checkboxes') }}
@@ -354,11 +360,11 @@
     {{ docs.heading('h3', 'Actions column') }}
 
     <p>Depending on the needs of your user interface, it may be useful to surface some actions to the top level list view so that they can be quickly triggered without the user having to navigate into a specific list item to perform the action.</p>
-    
+
     <p>The actions column is not a replacement for the actions menu and you should be aware of the difference in context. The actions menu is a multi-step process to affect one or more Things in the table (select the rows, open the actions menu, choose the action) where as the actions column allows the user to trigger an action on a single Thing with one click.</p>
 
     <p>The actions column will contain multiple links with the same label (e.g. "Archive") which will trigger warnings in accessibility testing tools. To improve the context of these actions you should add a more detailed <code>aria-label</code> which is specific to the Thing being acted upon. e.g. "Archive my awesome report".</p>
-    
+
     <strong>Do:</strong>
     <ul>
         <li>always use the 'Actions' heading label for this column</li>
@@ -376,7 +382,7 @@
 
     {{ docs.heading('h3', 'Pagination') }}
 
-    <p>To prevent the common list view from being too large it is necessary to limit the number of results that appear on a given 'page'. The DataTable component will automatically limit the table to 20 rows and paginate the rest, and there are multiple methods of populating the table with data that developers may use. You can refer to the DataTable documentation 
+    <p>To prevent the common list view from being too large it is necessary to limit the number of results that appear on a given 'page'. The DataTable component will automatically limit the table to 20 rows and paginate the rest, and there are multiple methods of populating the table with data that developers may use. You can refer to the DataTable documentation
 
 </div>
 {% endblock tab_content %}
