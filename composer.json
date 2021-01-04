@@ -11,6 +11,6 @@
     "require": {
         "php": ">=7.1",
         "twig/twig": "^1.21",
-        "jadu/pulsar": "dev-develop"
+        "jadu/pulsar": "12.0.0-beta.1"
     }
 }
