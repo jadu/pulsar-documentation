@@ -7,16 +7,16 @@
 
     {{ docs.heading('h2', 'Basic usage') }}
 
-    <pre><code lang="twig">&#123;&#123; 
-    form.fieldset_start() 
+    <pre><code>&#123;&#123;
+    form.fieldset_start()
 &#125;&#125;
 
     &#123;# form fields #&#125;
 
-&#123;&#123; 
-    form.fieldset_end() 
+&#123;&#123;
+    form.fieldset_end()
 &#125;&#125;</code></pre>
-    
+
     {{ docs.heading('h3', 'Helper options') }}
 
     <p>You can configure this helper using the <a href="../guides/using-helpers#common-options">common helper options</a>, the following options are specific to this helper.</p>
@@ -48,12 +48,12 @@
 {{
     form.fieldset_start({
         'legend': 'I am legend'
-    }) 
+    })
 }}
 {{
     form.text({
         'label': 'Example field',
-        'id': 'field-1', 
+        'id': 'field-1',
         'name': 'field-1'
     })
 }}
