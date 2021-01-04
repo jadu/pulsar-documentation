@@ -12,7 +12,7 @@
 {{
     form.textarea({
         'label': 'My label',
-        'id': 'textarea-b1', 
+        'id': 'guid-' ~ random(),
         'name': 'textarea-b1',
         'error': 'Something went wrong'
     })
@@ -27,7 +27,7 @@
 {{
     form.textarea({
         'label': 'My label',
-        'id': 'textarea-b2', 
+        'id': 'guid-' ~ random(),
         'name': 'textarea-b2',
         'error': [
             'Something went wrong',
@@ -45,7 +45,7 @@
 {{
     form.textarea({
         'label': 'My label',
-        'id': 'textarea-b3', 
+        'id': 'guid-' ~ random(),
         'name': 'textarea-b3',
         'error': 'Something went wrong',
         'help': 'Help text to give more information about expected input'
@@ -65,7 +65,7 @@
     form.textarea({
         'label': 'My label',
         'class': 'has-success',
-        'id': 'textarea-b5', 
+        'id': 'guid-' ~ random(),
         'name': 'textarea-b5',
         'help': 'Help text to give more information about expected input'
     })
@@ -83,14 +83,14 @@
     form.textarea({
         'label': 'My label',
         'class': 'has-warning',
-        'id': 'textarea-b6', 
+        'id': 'guid-' ~ random(),
         'name': 'textarea-b6',
         'help': 'Help text to give more information about expected input'
     })
 }}
     " }) }}
 
-    {{ docs.heading('h3', 'Error') }}
+    {{ docs.heading('h3', 'Danger') }}
 
     <p>The <code>has--error</code> class is automatically added when using the <code>error</code> option.</p>
 
@@ -101,7 +101,7 @@
     form.textarea({
         'label': 'My label',
         'class': 'has-error',
-        'id': 'textarea-b7', 
+        'id': 'guid-' ~ random(),
         'name': 'textarea-b7',
         'help': 'Help text to give more information about expected input'
     })
@@ -119,13 +119,13 @@
     form.textarea({
         'label': 'My label',
         'class': 'has-changed',
-        'id': 'textarea-b4', 
+        'id': 'guid-' ~ random(),
         'name': 'textarea-b4',
         'help': 'Help text to give more information about expected input'
     })
 }}
     " }) }}
-    
+
     {{ docs.heading('h2', 'Variations') }}
     {{ docs.heading('h3', 'Help') }}
 
@@ -135,7 +135,7 @@
 {{
     form.textarea({
         'label': 'My label',
-        'id': 'textarea-b8', 
+        'id': 'guid-' ~ random(),
         'name': 'textarea-b8',
         'help': 'Help text to give more information about expected input'
     })
@@ -150,7 +150,7 @@
 {{
     form.textarea({
         'label': 'My label',
-        'id': 'textarea-b9', 
+        'id': 'guid-' ~ random(),
         'name': 'textarea-b9',
         'required': true,
         'help': 'Help text to give more information about expected input'
@@ -160,7 +160,7 @@
 
     {{ docs.heading('h2', 'Alignment') }}
     {{ docs.heading('h2', 'Hide Label') }}
-    
+
     {{ docs.example({
         screenreader: 'edit text',
         twig: "
@@ -168,7 +168,7 @@
     form.textarea({
         'label': 'My label',
         'show-label': false,
-        'id': 'textarea-b11', 
+        'id': 'guid-' ~ random(),
         'name': 'textarea-b11',
         'help': 'Help text to give more information about expected input'
     })
@@ -176,14 +176,14 @@
     " }) }}
 
     {{ docs.heading('h2', 'Long Label Behaviour') }}
-    
+
     {{ docs.example({
         screenreader: 'Example block level help text here, edit text',
         twig: "
 {{
     form.textarea({
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
-        'id': 'textarea-b11', 
+        'id': 'guid-' ~ random(),
         'name': 'textarea-b11',
         'help': 'Help text to give more information about expected input'
     })
@@ -193,7 +193,7 @@
     {{ docs.heading('h2', 'Top Labels') }}
 
     <p>You should avoid using really long labels, but if you have to, it may be more appropriate to use the <code>form__group--top</code> class to give it more space.</p>
-    
+
     {{ docs.example({
         screenreader: 'Example block level help text here, edit text',
         twig: "
@@ -201,7 +201,7 @@
     form.textarea({
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
         'class': 'form__group--top',
-        'id': 'textarea-b12', 
+        'id': 'guid-' ~ random(),
         'name': 'textarea-b12',
         'help': 'Help text to give more information about expected input'
     })
@@ -211,7 +211,7 @@
     {{ docs.heading('h2', 'Flush Inputs') }}
 
     <p>Depending on the flow of your user interface you may want to position your inputs along the left edge of the UI</p>
-    
+
     {{ docs.example({
         screenreader: 'Example block level help text here, edit text',
         twig: "
@@ -219,7 +219,7 @@
     form.textarea({
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
         'class': 'form__group--flush',
-        'id': 'textarea-b12', 
+        'id': 'guid-' ~ random(),
         'name': 'textarea-b12',
         'help': 'Help text to give more information about expected input'
     })
@@ -227,7 +227,7 @@
     " }) }}
 
     {{ docs.heading('h2', 'Flush Inputs & Top Label') }}
-    
+
     {{ docs.example({
         screenreader: 'Example block level help text here, edit text',
         twig: "
@@ -235,13 +235,13 @@
     form.textarea({
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
         'class': 'form__group--top form__group--flush',
-        'id': 'textarea-b13', 
+        'id': 'guid-' ~ random(),
         'name': 'textarea-b13',
         'help': 'Help text to give more information about expected input'
     })
 }}
     " }) }}
-    
+
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
