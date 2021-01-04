@@ -10,7 +10,7 @@
 <!--[if IE 9]>         <html lang="en" class="no-js ie9 lt-ie10"><![endif]-->
 <!--[if gt IE 9]><!--> <html lang="en" class="no-js"><!--<![endif]-->
 <head>
-    <title>{{ heading }} - Pulsar Documentation</title>
+    <title>{% if heading is defined and heading is not empty %}{{ heading }} - {% endif %}Pulsar Documentation</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
