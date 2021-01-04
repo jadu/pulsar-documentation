@@ -1,5 +1,4 @@
 .d-example {
-    // background-color: #fafafa;
     border: 1px solid color(border);
     clear: left;
     border-top-left-radius: 10px;
@@ -17,7 +16,6 @@
 
 .d-example__live {
     float: left;
-    // overflow-x: hidden;
     padding: 1em;
     width: 100%;
 }
@@ -39,10 +37,13 @@
         border-bottom: 2px solid color(primary)
     }
 
-    &:focus,
     &:hover {
         color: color(link);
         outline: none;
+    }
+
+    &:focus {
+        @include pulsar-link-focused;
     }
 }
 
@@ -52,6 +53,13 @@
     max-height: 300px;
     overflow-y: scroll;
     position: relative;
+
+    &:focus {
+        border-radius: 0;
+        outline: 4px solid color(background, focus);
+        outline-offset: -2px;
+        box-shadow: 0px 4px 0px 2px color(black);
+    }
 
     code {
         padding: 1em;
@@ -80,10 +88,10 @@
     border: 1px solid #ccc;
     margin-bottom: .75em;
     padding: 1em;
-}
 
-.d-guidelines-label {
-    
+    .help-block {
+        color: color(text);
+    }
 }
 
 .d-guidelines-label__title {
@@ -96,7 +104,7 @@
     }
 
     .d-guidelines-label__title {
-        color: #81bd44;
+        color: color(jadu-green, darkest);
     }
 }
 
@@ -108,4 +116,8 @@
     .d-guidelines-label__title {
         color: #bd4444;
     }
+}
+
+.javascript .xml {
+    opacity: 1;
 }

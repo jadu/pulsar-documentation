@@ -176,6 +176,10 @@ h6.docs-heading {
             color: color(text);
             text-decoration: underline;
         }
+
+        &:focus {
+            @include pulsar-link-focused;
+        }
     }
 }
 
@@ -420,7 +424,23 @@ figcaption {
     }
 }
 
-.tab__content > :not(.d-example) .media__body p:first-of-type, 
+.tab__content > :not(.d-example) .media__body p:first-of-type,
 .tab__content > :not(.d-example) .media__body p:last-of-type {
     margin-bottom: 0;
+}
+
+.table tbody > tr.row-inverse {
+    background-color: #999;
+
+    &:hover {
+        background-color: #999;
+    }
+}
+
+// Fix issue where ui-report styling does not reach 100% height of content-main
+// scratched here until fixed in pulsar
+.content-main {
+    @include respond-min($screen-desktop) {
+        height: calc(100% - 105px);
+    }
 }
