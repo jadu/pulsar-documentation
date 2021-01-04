@@ -7,8 +7,8 @@
 
     {{ docs.heading('h2', 'Opening a form') }}
 
-    <pre><code lang="twig">&#123;&#123; form.create() &#125;&#125;</code></pre>
-    
+    <pre><code>&#123;&#123; form.create() &#125;&#125;</code></pre>
+
     {{ docs.heading('h3', 'Helper options') }}
 
     <p>You can configure this helper using the <a href="../guides/using-helpers#common-options">common helper options</a>, the following options are specific to this helper.</p>
@@ -69,34 +69,34 @@
 
     <p>The <code>enctype</code> attribute will be set to <code>application/x-www-form-urlencoded</code> by default, unless you’re using a method other than <code>POST</code>.</p>
 
-    <pre><code lang="twig">&#123;&#123; form.create() &#125;&#125;</code></pre>
+    <pre><code>&#123;&#123; form.create() &#125;&#125;</code></pre>
 
-    <pre><code lang="html">&lt;form method="POST" enctype="application/x-www-form-urlencoded" class="form"&gt;</code></pre>
+    <pre><code>&lt;form method="POST" enctype="application/x-www-form-urlencoded" class="form"&gt;</code></pre>
 
     {{ docs.heading('h3', 'Using PUT') }}
 
     <p>If you specify <code>'method': 'PUT'</code> then a hidden input will be created automatically after the <code>&lt;form&gt;</code> element, and the method attribute on the form element will be set to <code>POST</code>.</p>
 
-    <pre><code lang="twig">&#123;&#123; 
+    <pre><code>&#123;&#123;
     form.create(&#123;
         'method': 'PUT'
-    &#125;) 
+    &#125;)
 &#125;&#125;</code></pre>
 
-    <pre><code lang="html">&lt;form method="POST" enctype="application/x-www-form-urlencoded" class="form"&gt;
+    <pre><code>&lt;form method="POST" enctype="application/x-www-form-urlencoded" class="form"&gt;
     &lt;input name="_method" value="PUT" type="hidden" /&gt;</code></pre>
 
     {{ docs.heading('h3', 'CSRF protection') }}
 
     <p>Supply a <code>nonce</code> and it will be added as a hidden input after the opening <code>&lt;form&gt;</code> element.</p>
 
-    <pre><code lang="twig">&#123;&#123; 
+    <pre><code>&#123;&#123;
     form.create(&#123;
         'nonce': 'D2A619A309DCE1BEF50F01F08EB764B42D9B36BF8128A8D303FD6DCF91E5FDD6'
-    &#125;) 
+    &#125;)
 &#125;&#125;</code></pre>
 
-    <pre><code lang="html">&lt;form method="POST" enctype="application/x-www-form-urlencoded" class="form"&gt;
+    <pre><code>&lt;form method="POST" enctype="application/x-www-form-urlencoded" class="form"&gt;
     &lt;input name="nonce" value="D2A619A309DCE1BEF50F01F08EB764B42D9B36BF8128A8D303FD6DCF91E5FDD6" type="hidden" /&gt;</code></pre>
 
     {{ docs.heading('h2', 'Closing a form') }}
@@ -249,7 +249,7 @@
 
     {{ docs.heading('h3', 'Tooltips on disabled actions') }}
 
-    <p>If you have a disabled action and want to add a tooltip, please refer to the <a href="guides/disabling-elements">disabling elements guide</a> for more information.</p>
+    <p>If you have a disabled action and want to add a tooltip, please refer to the <a href="../guides/disabling-elements">disabling elements guide</a> for more information.</p>
 
 </div>
 {% endblock tab_content %}
