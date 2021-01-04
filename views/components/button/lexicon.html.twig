@@ -6,7 +6,7 @@
     {%- include 'partials/lexicon-lede.html.twig' -%}
 
     {{ docs.heading('h2', 'Button groups') }}
-    
+
     <div class="btn__toolbar">
         {{
             html.button_group({
@@ -1340,7 +1340,7 @@
         </tbody>
     </table>
 
-    {{ docs.heading('h3', 'Outline', 'button') }}
+    {{ docs.heading('h3', 'Disabled Outline', 'button') }}
     <table class="table">
         <thead>
             <tr>
@@ -3040,7 +3040,7 @@
         </tbody>
     </table>
 
-    {{ docs.heading('h3', 'Disabled small outline', 'button') }}3>
+    {{ docs.heading('h3', 'Disabled small outline', 'button') }}
     <table class="table">
         <thead>
             <tr>
@@ -4885,7 +4885,7 @@
         </tbody>
     </table>
 
-    {{ docs.heading('h3', 'Outline', 'link') }}
+    {{ docs.heading('h3', 'Outline link disabled', 'link') }}
     <table class="table">
         <thead>
             <tr>
@@ -7249,12 +7249,7 @@
             </tr>
         </tbody>
     </table>
-
-<style>
-    .row-inverse {
-        background-color: #999;
-    }
-</style>
+</div>
 {% endblock tab_content %}
 {% block tab_sidebar %}
     {{ docs.toc() }}
