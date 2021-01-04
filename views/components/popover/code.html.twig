@@ -13,10 +13,10 @@
             'icon': 'warning-sign'
         })
     }}
-    
+
     {{ docs.heading('h2', 'Basic usage') }}
 
-    {{ docs.example({ 
+    {{ docs.example({
         twig: "
 {{
     html.link({
@@ -67,7 +67,7 @@
                 <td><code>data-trigger</code></td>
                 <td>string</td>
                 <td><code>click</code></td>
-                <td>How the popover is triggered, can be <code>click</code>, <code>hover</code>, <code>focus</code>, <code>manual</td>
+                <td>How the popover is triggered, can be <code>click</code>, <code>hover</code>, <code>focus</code>, <code>manual</code></td>
             </tr>
             <tr>
                 <td><code>data-title</code></td>
@@ -94,7 +94,7 @@
 
     <p>A clickover is a variation of popovers where the popover will be closed when the user clicks anywhere else on the page (popovers require the same toggle to be clicked). To use a clickover instead of a popover, use the <code>rel="clickover"</code> attribute instead of <code>data-toggle="popover"</code>.</p>
 
-    {{ docs.example({ 
+    {{ docs.example({
         twig: "
 {{
     html.link({
@@ -111,7 +111,7 @@
 
     <p>To add a popover to a disabled element, either using the <code>disabled</code> attribute or <code>.disabled</code> class, put the element inside of a containing element, like a <code>&lt;div&gt;</code> or <code>&lt;span&gt;</code> and apply the popover to that containing element instead.</p>
 
-    {{ docs.example({ 
+    {{ docs.example({
         twig: "
 <span data-toggle=\"popover\" data-title=\"Popover Title\" data-content=\"Popover content\">
 {{
