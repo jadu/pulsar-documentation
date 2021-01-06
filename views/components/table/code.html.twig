@@ -67,7 +67,36 @@
 
     {{ docs.heading('h3', 'Table headers') }}
 
-    <p>Use table headers to tell users what the rows and columns represent. Use the scope attribute to help users of assistive technology distinguish between row and column headers.</p>
+    <p>Use table headers to tell users what the rows and columns represent. Use the <a href="https://html.spec.whatwg.org/multipage/tables.html#attr-th-scope">TH scope attribute</a> to help users of assistive technology distinguish between row and column headers.</p>
+
+    {{ docs.example({
+        html: "
+<table class=\"table table--full\">
+    <caption class=\"hide\">Example table showling use of scope=\"col\"</caption>
+    <thead>
+        <th scope=\"col\">Column One</th>
+        <th scope=\"col\">Column Two</th>
+        <th scope=\"col\">Column Three</th>
+        <th scope=\"col\">Column Four</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Column one data</td>
+            <td>Column two data</td>
+            <td>Column three data</td>
+            <td>Column four data</td>
+        </tr>
+        <tr>
+            <td>Column one data</td>
+            <td>Column two data</td>
+            <td>Column three data</td>
+            <td>Column four data</td>
+        </tr>
+    </tbody>
+</table>"
+    }) }}
+
+    <p>For more information and examples on the use of <code>scope</code> visit <a href="https://www.w3.org/WAI/WCAG21/Techniques/html/H63.html">WCAG 2.1 H63</a> and the <a href="https://dequeuniversity.com/rules/axe/3.5/scope-attr-valid">Deque axe documentation on TH scope</a>.</p>
 
     {{ docs.heading('h2', 'Width options') }}
     {{ docs.heading('h3', 'Full width') }}
