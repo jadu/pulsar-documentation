@@ -89,7 +89,7 @@
 
     <p>Input labels should be clear, descriptive and relevant.</p>
 
-    <p>All inputs must have a <code>&lt;label&gt;</code> and must be associated to the input via the <code>for</code> attribute. For example,    <code>&lt;label for="ID-OF-INPUT" &gt;</code>. The only exception being <code>type=“hidden”</code>. If pulsar form helpers are used, an ID must be passed to the helper, so the label is associated with the input.</p>
+    <p>All inputs must have a <code>&lt;label&gt;</code> and must be associated to the input via the <code>for</code> attribute. For example,    <code>&lt;label for="ID-OF-INPUT"&gt;</code>. The only exception being <code>type=“hidden”</code>. If pulsar form helpers are used, an ID must be passed to the helper, so the label is associated with the input.</p>
 
     <div class="d-guidelines-preview">
         <p>Related WCAG 2.1 criteria:</p>
@@ -114,7 +114,7 @@
 
     {{ docs.heading('h3', 'Help text') }}
 
-    <p>When displaying help text under an input, <code>aria-describedby=“ID-OF-HELP-TEXT”</code> must be added to the input to associate the help text to the input. Pulsar helpers do this automatically. If raw markup or any other templating language is used, this must also be included. If this is ommited, screen readers will not read the help text when the input is focussed and potentially will not read the help text at all due to being in forms mode.</p>
+    <p>When displaying help text under an input, <code>aria-describedby=“ID-OF-HELP-TEXT”</code> must be added to the input to associate the help text to the input. Pulsar helpers do this automatically. If raw markup or any other templating language is used, this must also be included. If this is omitted, screen readers will not read the help text when the input is focussed and potentially will not read the help text at all due to being in forms mode.</p>
 
     <div class="d-guidelines-preview">
         <p>Related WCAG 2.1 criteria:</p>
@@ -131,7 +131,7 @@
 
     {{ docs.heading('h3', 'Page title') }}
 
-    <code>Error:</code> should be added to the beginning of the page title. The page title is generally the first thing announced on page load by a screen reader. This ensures the user is notified of the error at the first opportunity.
+    <p><code>Error:</code> should be added to the beginning of the page title. The page title is generally the first thing announced on page load by a screen reader. This ensures the user is notified of the error at the first opportunity.</p>
 
     <pre><code>&lt;title&gt;Error: Create new thing&lt;/title&gt;</code></pre>
 
