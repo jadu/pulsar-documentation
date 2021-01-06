@@ -54,9 +54,11 @@
 
     {{ docs.heading('h2', 'Updating progress with JavaScript') }}
 
-    <p>Given the rendered markup example below, you’ll need to write code to update the two main percentage values in <code>aria-valuenow</code> and the inline style attribute with your new percentage.</p>
+    <p>Given the rendered markup example below, you’ll need to write code to update the two main percentage values in <code>aria-valuenow</code> and the inline style attribute with your new percentage. If you have the percentage in the label either hidden or visible then you’ll need to update that too.</p>
 
-    <p>If you have the percentage in the label either hidden or visible then you’ll need to update that too.</p>
+    <p>You should also add a live region to the DOM, which your code updates to communicate progress updates to screen reader users.</p>
+
+    <p>For example: when loading <code>&lt;span id="progress-live-region" class="hide" aria-live="polite"&gt;23%&lt;/span&gt;</code> and when completed <code>&lt;span id="progress-live-region" class="hide" aria-live="polite"&gt;loading complete&lt;/span&gt;</code></p>
 
     {{ docs.example({
         html: '
@@ -73,6 +75,7 @@
         25%
     </div>
 </div>
+<span id="progress-live-region" class="hide" aria-live="polite">25%</span>
     ' }) }}
 </div>
 {% endblock tab_content %}
