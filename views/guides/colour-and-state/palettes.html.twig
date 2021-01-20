@@ -11,9 +11,9 @@
 
     <p>To make your life easier you can use the <code>pick_best_color()</code> sass function which will measure a background colour and choose an whichever foreground colour has the highest contrast ratio. (The palette examples on this page use this function to define the text colour).</p>
 
-<pre><code lang="scss">pick_best_color(background, (foreground-1, foreground-2))</code></pre>
+<pre><code>pick_best_color(background, (foreground-1, foreground-2))</code></pre>
 
-<pre><code lang="scss">.hex-example {
+<pre><code>.hex-example {
     background-color: #bada55;
     color: pick_best_color(#bada55, (#fff, #000));
 }
@@ -29,13 +29,13 @@
 
     <p>Use the <code>color()</code> function to fetch a colour from the palette.</p>
 
-    <pre><code lang="scss">.element {
+    <pre><code>.element {
     background-color: color(jadu-blue)
 }</code></pre>
 
     <p>Pass the optional ‘tone’ argument to fetch a variation of a colour if available in the palette.</p>
 
-    <pre><code lang="scss">.element {
+    <pre><code>.element {
     background-color: color(jadu-blue, light)
 }</code></pre>
 
@@ -127,7 +127,7 @@
 
 <p>State colours have an <code>alt</code> variation that can be used for text colour which will ensure compatibility with WCAG 2.1 AA contrast ratios.</p>
 
-<pre><code lang="scss">.element {
+<pre><code>.element {
     background-color: color(primary);
     color: color(primary, alt);
 }</code></pre>

@@ -9,7 +9,7 @@
 
     {{ docs.example({
         twig: "
-<div class=\"actionsbar\">
+<section class=\"actionsbar\" aria-label=\"page actions\">
     <div class=\"u-float-left\">
         {{
             html.actions_menu({
@@ -45,7 +45,7 @@
             })
         }}
     </div>
-</div>
+</section>
     " }) }}
 
     {{ docs.heading('h2', 'Layout blocks') }}
@@ -53,7 +53,7 @@
 
     <p>In order to use the layout blocks, the tab UI in question must extend the tab component template.</p>
 
-<pre><code lang="twig">&#123;% extends '@pulsar/pulsar/components/tab.html.twig' %&#125;
+<pre><code>&#123;% extends '@pulsar/pulsar/components/tab.html.twig' %&#125;
 
  &#123;%- block actions_left -%&#125;
      &#123;&#123; html.actions_menu( &#123; ... &#125;) &#125;&#125;

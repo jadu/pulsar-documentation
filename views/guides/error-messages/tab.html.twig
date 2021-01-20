@@ -35,14 +35,14 @@
 
     <p>The title attribute can be set on page load in the title block, you'll need to add the related logic to update this based on a form validation failure.</p>
 
-<pre><code lang="twig">&#123;% block title %&#125;
+<pre><code>&#123;% block title %&#125;
     Error - Jadu Control Center - Create Document
 &#123;% endblock %&#125;</code></pre>
 
     {{ docs.heading('h3', 'Flash message') }}
 
     <p>Flash messages are displayed at the top of the user interface and will often be the first indication that a page contains an error. A flash message should not be the only method used to communicate an error.</p>
-    
+
     <figure class="wireframe wireframe--small">
         <img src="/views/guides/error-messages/img/flash-message.png" alt="Screenshot showing the position of flash error messages" />
         <figcaption>The flash message will be positioned near the top of the UI</figcaption>
@@ -62,7 +62,6 @@
         <li>Show the same error messages under the inputs as is used in the error summary</li>
         <li>Link error summary errors to the respective inputs</li>
         <li>Ensure error messages are descriptive, clearly worded and inform the user how to correct the issue</li>
-        <li>Mark fields with errors as <a href="#invalid-fields">invalid</a></li>
     </ul>
 
     {{ docs.heading('h3', 'Error summary') }}
@@ -112,7 +111,7 @@
                 'error': 'Enter your last name'
             })
         }}
-        
+
     {{ form.fieldset_end() }}
 
     {{
@@ -147,7 +146,7 @@
 
     <p>Put the error summary at the top of the `form`, typically above the first <code>fieldset</code>.</p>
 
-    {{ docs.heading('h3', 'Invalid fields') }}
+    {{ docs.heading('h3', 'Fields with errors') }}
 
     <p>Form fields should be individually given descriptive error text which explains in clear, concise language, what the person filling in this form needs to do to resolve the error for this specific field.</p>
 
@@ -171,7 +170,7 @@
 {{
     form.text({
         'label': 'First name',
-        'id': 'firstName', 
+        'id': 'firstName',
         'name': 'firstName',
         'error': 'Enter your first name'
     })
@@ -180,7 +179,7 @@
 {{
     form.text({
         'label': 'Email address',
-        'id': 'email', 
+        'id': 'email-1',
         'name': 'email',
         'value': 'my-email at hotmail dot com',
         'error': 'Enter an email address in the correct format, like name@example.com'
@@ -215,7 +214,7 @@
 {{
     form.text({
         'label': 'Email address',
-        'id': 'email', 
+        'id': 'email-2',
         'name': 'email',
         'value': 'my-email at hotmail dot com',
         'error': 'Enter an email address in the correct format',
@@ -223,14 +222,6 @@
     })
 }}
     " }) }}
-
-    {{ docs.heading('h3', 'Aria-invalid') }}
-
-    <p>Invalid fields should have the <code>aria-invalid="true"</code> attribute applied, this allows assistive technologies to correctly interpret and announce the state of an invalid field.</p>
-
-    <p>It is presumed any plain HTML implementations use an appropriate label matched to the input with <code>aria-describedby</code>.
-
-
 
 </div>
 {% endblock tab_content %}

@@ -30,14 +30,14 @@
     <p>Elements consistently use the <code>.is-disabled</code> class to visually represent the disabled state of the element.</p>
 
     {{ docs.heading('h2', 'Disabling on load') }}
-    
+
     <p>Add the <code>'disabled': true</code> option to most helpers to disable the element, the required attributes and class should be added automatically.</p>
 
     {{ docs.example({
         screenreader: "",
         twig: "
 {{
-    html.button({ 
+    html.button({
         'label': 'Button',
         'disabled': true
     })
@@ -55,7 +55,7 @@
 
     <p>If you’re writing javascript to disable/enable an element you must toggle both the correct attribute and class to maintain the support for assistive devices as well as compliance with relevant accessibility guidelines.</p>
 
-<pre><code lang="javascript">if ($elementSupportsDisable) {
+<pre><code>if ($elementSupportsDisable) {
     $('#elementToDisable').prop('disabled', true).addClass('.is-disabled');
 } else {
     $('#elementToDisable').attr('aria-disabled', 'true').addClass('.is-disabled');
@@ -71,7 +71,7 @@
         screenreader: 'Disabled button, group, you are currently on a button, this item is dimmed',
         twig: '
 <div data-tippy-content="Can’t touch this" tabindex="0" class="u-display-inline-block">
-  {{ 
+  {{
     html.button({
       "label": "Disabled Button",
       "disabled": true

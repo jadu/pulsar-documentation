@@ -13,7 +13,7 @@
 
     <p>You will need the <code>DisableUiComponent</code> and <code>MasterSwitchComponent</code> included in your browserify configuration.</p>
 
-    <pre><code lang="javascript">// index.js
+    <pre><code>// index.js
 var DisableUiComponent = require('/path/to/pulsar/DisableUiComponent'),
     MasterSwitchComponent = require('/path/to/pulsar/MasterSwitchComponent');
 
@@ -22,7 +22,7 @@ module.exports = {
     MasterSwitchComponent
 }</code></pre>
 
-    <pre><code lang="javascript">// main.js
+    <pre><code>// main.js
 var $html = $('html');
 
 pulsar.disableUi = new pulsar.DisableUIComponent($html);
@@ -59,7 +59,7 @@ $(function () {
                 'id': 'master-input',
                 'name': 'master-input'
             })
-        }}     
+        }}
         {{
             form.end({
                 'actions': [
@@ -75,7 +75,7 @@ $(function () {
                     })
                 ]
             })
-        }}    
+        }}
     </section>
 </div>
     " }) }}
@@ -94,7 +94,7 @@ $(function () {
         'id': 'toggletest',
         'name': 'toggletest'
     &#125;)
-&#125;</pre></code>
+&#125;</code></pre>
 
     {{ docs.heading('h3', 'Load with the masterswitch disabled') }}
 
@@ -105,7 +105,7 @@ $(function () {
         'id': 'toggletest',
         'name': 'toggletest'
     &#125;)
-&#125;</pre></code>
+&#125;</code></pre>
 
     {{ docs.heading('h2', 'Switching on') }}
 

@@ -29,17 +29,13 @@
 %}
 <div class="report">
     {%- include 'partials/lexicon-lede.html.twig' -%}
-
-    <p>
         {{
             html.button_dropdown({
                 'items': example_dropdown,
                 'label': 'Drop Down'
             })
         }}
-    </p>
 
-    <p>
         {{
             html.button_dropdown({
                 'direction': 'up',
@@ -47,9 +43,7 @@
                 'label': 'Drop Up'
             })
         }}
-    </p>
 
-    <p>
         {{
             html.button_dropdown({
                 'direction': 'down',
@@ -58,9 +52,7 @@
                 'placement': 'right'
             })
         }}
-    </p>
 
-    <p>
         {{
             html.button_dropdown({
                 'direction': 'down',
@@ -69,14 +61,8 @@
                 'class': 'btn--primary'
             })
         }}
-    </p>
-        
+
 </div>
-<style>
-    .row-inverse {
-        background-color: #999;
-    }
-</style>
 {% endblock tab_content %}
 {% block tab_sidebar %}
     {{ docs.toc() }}

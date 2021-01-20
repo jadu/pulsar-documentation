@@ -15,7 +15,7 @@
 
     <p>Depending on your setup, this will probably need to be in be in a file called <code>index.js</code> or <code>main.js</code>.</p>
 
-    <pre><code lang="javascript">// index.js
+    <pre><code>// index.js
 
 var DisableUiComponent = require('/path/to/pulsar/DisableUiComponent');
 
@@ -23,7 +23,7 @@ module.exports = {
     DisableUiComponent: DisableUiComponent
 }</code></pre>
 
-    <pre><code lang="javascript">// main.js
+    <pre><code>// main.js
 
 var $html = $('html');
 
@@ -41,7 +41,7 @@ $(function () {
 
     {{ docs.example({
         twig: "
-<p>This is outside the containing div and will not be disabled</p>        
+<p>This is outside the containing div and will not be disabled</p>
 <div data-disable-ui=\"true\">
     {{ form.create() }}
         {{ form.fieldset_start({'legend': 'Filter by'}) }}

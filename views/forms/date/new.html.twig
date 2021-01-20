@@ -20,7 +20,7 @@
 
     <p>For backwards compatibility, the new date picker is "opt-in" and the existing (deprecated) date picker Pikaday is the default. To opt in to the new Pulsar Date Picker you'll need to install via npm <code>npm install pulsar-date-picker --save</code> and then initialise as below:</p>
 
-    <pre><code lang="javascript">
+    <pre><code>
     const datePicker = require('pulsar-date-picker');
 
     $(function () {
@@ -44,7 +44,7 @@
     })
 }}
     " }) }}
-    
+
     {{ docs.heading('h2', 'Helper options') }}
 
     <p>You can configure this helper using the <a href="../guides/using-helpers#common-options">common helper options</a>, the following options are specific to this helper.</p>
@@ -106,7 +106,7 @@
 
     <p>The new date picker brings a range of accessibility improvements over the original (Pikaday).</p>
 
-    {{ docs.heading('h3', 'Keyboard accessibility') }}    
+    {{ docs.heading('h3', 'Keyboard accessibility') }}
     <ul>
         <li><code>ESC</code> closes the date picker</li>
         <li><code>ENTER</code> and <code>SPACE</code> can be used to select a date</li>
@@ -119,21 +119,21 @@
         <li>Previous/Next controls can be accessed and activated via Keyboard</li>
     </ul>
 
-    {{ docs.heading('h3', 'Focus management') }}    
+    {{ docs.heading('h3', 'Focus management') }}
     <ul>
         <li>Focus is trapped within the date picker until closed. Preventing AT users from accidentally navigating out of the date picker</li>
         <li>Todays date (if displayed) or the selected date is focussed on open</li>
         <li>Focus returns to the date input on close</li>
     </ul>
 
-    {{ docs.heading('h3', 'Screen reader experience') }}    
+    {{ docs.heading('h3', 'Screen reader experience') }}
     <ul>
         <li>The date picker container has an accessible label: <code>Calendar view date picker</code></li>
         <li>Individual dates have accessible labels, for example: <code>7 May 2020 Thursday</code></li>
         <li>Previous/Next month controls have accessible labels, for example: <code>Next month, June 2020</code> <code>Previous month, April 2020</code></li>
     </ul>
 
-    {{ docs.heading('h3', 'Misc') }}    
+    {{ docs.heading('h3', 'Misc') }}
     <ul>
         <li>A <code>placeholder</code> matching the date format is added to the input</li>
         <li><code>autocomplete</code> on the input is disabled to prevent it overlapping the date picker</li>
@@ -149,7 +149,7 @@
     form.date({
         'data-pulsar-datepicker': 'true',
         'label': 'My label',
-        'id': 'date-3', 
+        'id': 'date-3',
         'name': 'date-3',
         'error': 'Something went wrong'
     })
@@ -165,7 +165,7 @@
     form.date({
         'data-pulsar-datepicker': 'true',
         'label': 'My label',
-        'id': 'date-4', 
+        'id': 'date-4',
         'name': 'date-4',
         'error': [
             'Something went wrong',
@@ -184,7 +184,7 @@
     form.date({
         'data-pulsar-datepicker': 'true',
         'label': 'My label',
-        'id': 'date-5', 
+        'id': 'date-5',
         'name': 'date-5',
         'error': 'Something went wrong',
         'help': 'Help text to give more information about expected input'
@@ -205,7 +205,7 @@
         'data-pulsar-datepicker': 'true',
         'label': 'My label',
         'class': 'has-success',
-        'id': 'date-6', 
+        'id': 'date-6',
         'name': 'date-6',
         'help': 'Help text to give more information about expected input'
     })
@@ -223,15 +223,15 @@
     form.date({
         'data-pulsar-datepicker': 'true',
         'label': 'My label',
-        'class': 'has-success',
-        'id': 'date-7', 
+        'class': 'has-warning',
+        'id': 'date-7',
         'name': 'date-7',
         'help': 'Help text to give more information about expected input'
     })
 }}
     " }) }}
 
-    {{ docs.heading('h3', 'Error') }}
+    {{ docs.heading('h3', 'Danger') }}
 
     <p>The <code>has--error</code> class is automatically added when using the <code>error</code> option.</p>
 
@@ -243,7 +243,7 @@
         'data-pulsar-datepicker': 'true',
         'label': 'My label',
         'class': 'has-error',
-        'id': 'date-8', 
+        'id': 'date-8',
         'name': 'date-8',
         'help': 'Help text to give more information about expected input'
     })
@@ -262,13 +262,13 @@
         'data-pulsar-datepicker': 'true',
         'label': 'My label',
         'class': 'has-changed',
-        'id': 'date-9', 
+        'id': 'date-9',
         'name': 'date-9',
         'help': 'Help text to give more information about expected input'
     })
 }}
     " }) }}
-    
+
     {{ docs.heading('h2', 'Variations') }}
     {{ docs.heading('h3', 'Help') }}
 
@@ -279,7 +279,7 @@
     form.date({
         'data-pulsar-datepicker': 'true',
         'label': 'My label',
-        'id': 'date-10', 
+        'id': 'date-10',
         'name': 'date-10',
         'help': 'Help text to give more information about expected input'
     })
@@ -295,7 +295,7 @@
     form.date({
         'data-pulsar-datepicker': 'true',
         'label': 'My label',
-        'id': 'date-11', 
+        'id': 'date-11',
         'name': 'date-11',
         'required': true,
         'help': 'Help text to give more information about expected input'
@@ -305,7 +305,7 @@
 
     {{ docs.heading('h2', 'Alignment') }}
     {{ docs.heading('h2', 'Hide Label') }}
-    
+
     {{ docs.example({
         screenreader: 'radio button, 1 of 3',
         twig: "
@@ -314,7 +314,7 @@
         'data-pulsar-datepicker': 'true',
         'label': 'My label',
         'show-label': false,
-        'id': 'date-12', 
+        'id': 'date-12',
         'name': 'date-12',
         'help': 'Help text to give more information about expected input'
     })
@@ -322,7 +322,7 @@
     " }) }}
 
     {{ docs.heading('h2', 'Long Label Behaviour') }}
-    
+
     {{ docs.example({
         screenreader: 'Example block level help text here, radio button, 1 of 3',
         twig: "
@@ -330,7 +330,7 @@
     form.date({
         'data-pulsar-datepicker': 'true',
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
-        'id': 'date-13', 
+        'id': 'date-13',
         'name': 'date-13',
         'help': 'Help text to give more information about expected input'
     })
@@ -340,7 +340,7 @@
     {{ docs.heading('h2', 'Top Labels') }}
 
     <p>You should avoid using really long labels, but if you have to, it may be more appropriate to use the <code>form__group--top</code> class to give it more space.</p>
-    
+
     {{ docs.example({
         screenreader: 'Example block level help text here, radio button, 1 of 3',
         twig: "
@@ -349,7 +349,7 @@
         'data-pulsar-datepicker': 'true',
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
         'class': 'form__group--top',
-        'id': 'date-14', 
+        'id': 'date-14',
         'name': 'date-14',
         'help': 'Help text to give more information about expected input'
     })
@@ -359,7 +359,7 @@
     {{ docs.heading('h2', 'Flush Inputs') }}
 
     <p>Depending on the flow of your user interface you may want to position your inputs along the left edge of the UI</p>
-    
+
     {{ docs.example({
         screenreader: 'Example block level help text here, radio button, 1 of 3',
         twig: "
@@ -368,7 +368,7 @@
         'data-pulsar-datepicker': 'true',
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
         'class': 'form__group--flush',
-        'id': 'date-15', 
+        'id': 'date-15',
         'name': 'date-15',
         'help': 'Help text to give more information about expected input'
     })
@@ -376,7 +376,7 @@
     " }) }}
 
     {{ docs.heading('h2', 'Flush Inputs & Top Label') }}
-    
+
     {{ docs.example({
         screenreader: 'Example block level help text here, radio button, 1 of 3',
         twig: "
@@ -385,7 +385,7 @@
         'data-pulsar-datepicker': 'true',
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
         'class': 'form__group--top form__group--flush',
-        'id': 'date-16', 
+        'id': 'date-16',
         'name': 'date-16',
         'help': 'Help text to give more information about expected input'
     })

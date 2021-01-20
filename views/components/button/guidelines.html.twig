@@ -79,7 +79,7 @@
         'class': 'btn--danger'
     })
 }}
-    "       
+    "
         }
     }) }}
 
@@ -104,7 +104,7 @@
         'class': 'btn--primary'
     })
 }}
-    "       
+    "
         }
     }) }}
 
@@ -156,7 +156,7 @@
 
     <p>If your button is labelled using only an icon, you must supply an appropriately descriptive label to be announced by screenreaders, either by the icon's label option, or using <code>aria-label</code>.
 
-        {{ docs.example({ 
+        {{ docs.example({
             screenreader: "Both announced as <q>Add to list, button</q>",
             twig: "
 {{
@@ -181,7 +181,7 @@
         <li>If the button performs an action, such as submitting a form, toggling visibility of an element or any action that doesn't navigate away from the page, use <strong>button</strong></li>
     </ul>
 
-    <p>If your button performs an action on the same page, use a button instead of a link, and <strong>never</strong> use a link with <code lang="html">href="#"</code> as it will cause errors in accessibility testing tools.</p>
+    <p>If your button performs an action on the same page, use a button instead of a link, and <strong>never</strong> use a link with <code>href="#"</code> as it will cause errors in accessibility testing tools.</p>
 
     {{ docs.heading('h3', 'Example link type') }}
 
@@ -205,12 +205,12 @@
 }}
     " }) }}
 
-    <p>If you absolutely have to use a link, you should add the following affordances:
-        <ul>
-            <li>Add the <code lang="html">aria-role="button"</code> attribute to make the element announce itself as a button</li>
-            <li>Add a javascript event handler to be triggered when the user presses the <kbd>space</kbd> key, as regular buttons will be triggered on both <kbd>space</kbd> and <kbd>enter</kbd>, but links will not
-        </ul>
-    </p>
+    <p>If you absolutely have to use a link, you should add the following affordances:</p>
+    <ul>
+        <li>Add the <code>role="button"</code> attribute to make the element announce itself as a button</li>
+        <li>Add a javascript event handler to be triggered when the user presses the <kbd>space</kbd> key, as regular buttons will be triggered on both <kbd>space</kbd> and <kbd>enter</kbd>, but links will not</li>
+    </ul>
+
 
     {{ docs.example({ twig: "
 {{
@@ -218,7 +218,7 @@
         'label': 'Show',
         'type': 'link',
         'href': '#example-show',
-        'aria-role': 'button'
+        'role': 'button'
     })
 }}
     " }) }}
@@ -258,7 +258,7 @@
 
     <p>{{ html.icon('info-sign') }} Disabled buttons cannot be focused with the keyboard so will be invisible to screenreaders.</p>
 
-    {{ docs.example({ 
+    {{ docs.example({
         screenreader: "{{ html.icon('exclamation-sign') }} Will not be announced",
         twig: "
 {{
@@ -285,7 +285,7 @@
         screenreader: 'Disabled button, group, you are currently on a button, this item is dimmed',
         twig: '
 <div data-tippy-content="Can’t touch this" tabindex="0" class="u-display-inline-block">
-  {{ 
+  {{
     html.button({
       "label": "Disabled Button",
       "disabled": true

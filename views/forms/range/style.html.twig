@@ -12,7 +12,7 @@
 {{
     form.range({
         'label': 'My label',
-        'id': 'range-b1', 
+        'id': 'range-b1',
         'name': 'range-b1',
         'error': 'Something went wrong'
     })
@@ -27,7 +27,7 @@
 {{
     form.range({
         'label': 'My label',
-        'id': 'range-b2', 
+        'id': 'range-b2',
         'name': 'range-b2',
         'error': [
             'Something went wrong',
@@ -45,7 +45,7 @@
 {{
     form.range({
         'label': 'My label',
-        'id': 'range-b3', 
+        'id': 'range-b3',
         'name': 'range-b3',
         'error': 'Something went wrong',
         'help': 'Help text to give more information about expected input'
@@ -65,7 +65,7 @@
     form.range({
         'label': 'My label',
         'class': 'has-success',
-        'id': 'range-b5', 
+        'id': 'range-b5',
         'name': 'range-b5',
         'help': 'Help text to give more information about expected input'
     })
@@ -82,15 +82,15 @@
 {{
     form.range({
         'label': 'My label',
-        'class': 'has-success',
-        'id': 'range-b6', 
+        'class': 'has-warning',
+        'id': 'range-b6',
         'name': 'range-b6',
         'help': 'Help text to give more information about expected input'
     })
 }}
     " }) }}
 
-    {{ docs.heading('h3', 'Error') }}
+    {{ docs.heading('h3', 'Danger') }}
 
     <p>The <code>has--error</code> class is automatically added when using the <code>error</code> option.</p>
 
@@ -101,7 +101,7 @@
     form.range({
         'label': 'My label',
         'class': 'has-error',
-        'id': 'range-b7', 
+        'id': 'range-b7',
         'name': 'range-b7',
         'help': 'Help text to give more information about expected input'
     })
@@ -119,13 +119,13 @@
     form.range({
         'label': 'My label',
         'class': 'has-changed',
-        'id': 'range-b4', 
+        'id': 'range-b4',
         'name': 'range-b4',
         'help': 'Help text to give more information about expected input'
     })
 }}
     " }) }}
-    
+
     {{ docs.heading('h2', 'Variations') }}
     {{ docs.heading('h3', 'Help') }}
 
@@ -135,7 +135,7 @@
 {{
     form.range({
         'label': 'My label',
-        'id': 'range-b8', 
+        'id': 'range-b8',
         'name': 'range-b8',
         'help': 'Help text to give more information about expected input'
     })
@@ -150,7 +150,7 @@
 {{
     form.range({
         'label': 'My label',
-        'id': 'range-b9', 
+        'id': 'range-b9',
         'name': 'range-b9',
         'required': true,
         'help': 'Help text to give more information about expected input'
@@ -160,7 +160,7 @@
 
     {{ docs.heading('h2', 'Alignment') }}
     {{ docs.heading('h2', 'Hide Label') }}
-    
+
     {{ docs.example({
         screenreader: '50, my label, slider. Help text to give more information about the expected input.',
         twig: "
@@ -168,7 +168,7 @@
     form.range({
         'label': 'My label',
         'show-label': false,
-        'id': 'range-b11', 
+        'id': 'range-b11',
         'name': 'range-b11',
         'help': 'Help text to give more information about expected input'
     })
@@ -176,14 +176,14 @@
     " }) }}
 
     {{ docs.heading('h2', 'Long Label Behaviour') }}
-    
+
     {{ docs.example({
         screenreader: '50, my label, slider. A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline. Help text to give more information about expected input.',
         twig: "
 {{
     form.range({
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
-        'id': 'range-b12', 
+        'id': 'range-b12',
         'name': 'range-b12',
         'help': 'Help text to give more information about expected input'
     })
@@ -193,7 +193,7 @@
     {{ docs.heading('h2', 'Top Labels') }}
 
     <p>You should avoid using really long labels, but if you have to, it may be more appropriate to use the <code>form__group--top</code> class to give it more space.</p>
-    
+
     {{ docs.example({
         screenreader: '50, my label, slider. A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline. Help text to give more information about expected input.',
         twig: "
@@ -201,7 +201,7 @@
     form.range({
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
         'class': 'form__group--top',
-        'id': 'range-b13', 
+        'id': 'range-b13',
         'name': 'range-b13',
         'help': 'Help text to give more information about expected input'
     })
@@ -211,7 +211,7 @@
     {{ docs.heading('h2', 'Flush Inputs') }}
 
     <p>Depending on the flow of your user interface you may want to position your inputs along the left edge of the UI</p>
-    
+
     {{ docs.example({
         screenreader: '50, my label, slider. A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline. Help text to give more information about expected input.',
         twig: "
@@ -219,7 +219,7 @@
     form.range({
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
         'class': 'form__group--flush',
-        'id': 'range-b14', 
+        'id': 'range-b14',
         'name': 'range-b14',
         'help': 'Help text to give more information about expected input'
     })
@@ -227,7 +227,7 @@
     " }) }}
 
     {{ docs.heading('h2', 'Flush Inputs & Top Label') }}
-    
+
     {{ docs.example({
         screenreader: '50, my label, slider. A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline. Help text to give more information about expected input.',
         twig: "
@@ -235,13 +235,13 @@
     form.range({
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
         'class': 'form__group--top form__group--flush',
-        'id': 'range-b15', 
+        'id': 'range-b15',
         'name': 'range-b15',
         'help': 'Help text to give more information about expected input'
     })
 }}
     " }) }}
-    
+
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}

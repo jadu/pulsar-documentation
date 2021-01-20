@@ -13,7 +13,7 @@
 {{
     form.radio({
         'label': 'My label',
-        'id': 'radio-1', 
+        'id': 'guid-' ~ random(),
         'name': 'radio-1'
     })
 }}
@@ -50,7 +50,7 @@
 {{
     form.radio({
         'label': 'My label',
-        'id': 'radio-2', 
+        'id': 'guid-' ~ random(),
         'name': 'radio-2',
         'disabled': true
     })
@@ -62,7 +62,7 @@
     <p>The <code>form.radio_inline()</code> helper creates a <code>&lt;label&gt;</code> element with the radio placed inside, this allows the radio to be positioned either before or after the label value through the <code>input_placement</code> option.</p>
 
     {{ docs.example({
-        screenreader: "<ol>
+        screenreader: "<ul>
             <li>Standard left aligned, unticked, tick box</li>
             <li>Right aligned, unticked, tick box</li>
         </ul>",
@@ -70,14 +70,14 @@
 {{
     form.radio_inline({
         'label': 'Standard left aligned',
-        'id': 'radio-3', 
+        'id': 'guid-' ~ random(),
         'name': 'radio-3'
     })
 }}
 {{
     form.radio_inline({
         'label': 'Right aligned',
-        'id': 'radio-4', 
+        'id': 'guid-' ~ random(),
         'name': 'radio-4',
         'input_placement': 'right'
     })
@@ -89,7 +89,7 @@
     <p>Using <code>form.radio_inline</code> will cause the radio input to not follow the normal flow of a regular Pulsar form. If you want to maintain form alignment, use the <code>.form__group--indent</code> class to restore the position.</p>
 
     {{ docs.example({
-        screenreader: "<ol>
+        screenreader: "<ul>
             <li>Standard inline position, unticked, tick box</li>
             <li>Indented position, unticked, tick box</li>
         </ul>",
@@ -97,7 +97,7 @@
 {{
     form.radio_inline({
         'label': 'Standard inline position',
-        'id': 'radio-5', 
+        'id': 'guid-' ~ random(),
         'name': 'radio-5'
     })
 }}
@@ -105,7 +105,7 @@
     form.radio_inline({
         'label': 'Indented position',
         'class': 'form__group--indent',
-        'id': 'radio-6', 
+        'id': 'guid-' ~ random(),
         'name': 'radio-6'
     })
 }}

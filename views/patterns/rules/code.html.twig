@@ -7,9 +7,9 @@
 
     {{ docs.heading('h2', 'Anatomy of a rule') }}
 
-    <p>A complete rule is made up of blocks, which define specific conditions, and links, which allow additional blocks to be added.</p> 
+    <p>A complete rule is made up of blocks, which define specific conditions, and links, which allow additional blocks to be added.</p>
 
-<pre><code lang="sh">── Rule container
+<pre><code>── Rule container
     └── rule block
         └── rule block header
         └── rule block controls
@@ -19,7 +19,7 @@
 
     <p>For a rule which is structured in the IF/AND/OR/RETURN format, the blocks and links are typically arranged within the following example heirarchy.</p>
 
-<pre><code lang="sh">── IF block
+<pre><code>── IF block
 |  |  └── OR link
 |  |── AND block
 |  |  └── OR link
@@ -44,7 +44,7 @@
     </ul>
 
     {{ docs.example({
-        twig: "<div id=\"rule-form-container\" class=\"rules-container rules-container--v2\">
+        twig: "<div id=\"rule-form-container-1\" class=\"rules-container rules-container--v2\">
     <fieldset class=\"rule-block rule-block--if\">
         <legend class=\"hide\">If rule condition</legend>
         <div class=\"rule-block__header\">
@@ -125,7 +125,7 @@
     <p>The first IF block, as well as all RETURN and ELSE RETURN blocks should not be removeable.</p>
 
     {{ docs.example({
-        twig: "<div id=\"rule-form-container\" class=\"rules-container rules-container--v2\">
+        twig: "<div id=\"rule-form-container-2\" class=\"rules-container rules-container--v2\">
     <fieldset class=\"rule-block rule-block--and\">
         <legend class=\"hide\">And rule condition</legend>
         <div class=\"rule-block__header\">
@@ -168,7 +168,7 @@
 
     {{ docs.example({
         twig: "
-<div id=\"rule-form-container\" class=\"rules-container rules-container--v2\">
+<div id=\"rule-form-container-3\" class=\"rules-container rules-container--v2\">
     <fieldset class=\"rule-block rule-block--if\">
         <legend class=\"hide\">If rule condition</legend>
         <div class=\"rule-block__header\">
@@ -281,7 +281,7 @@
 
     {{ docs.example({
         twig: "
-<div id=\"rule-form-container\" class=\"rules-container rules-container--v2\">
+<div id=\"rule-form-container-4\" class=\"rules-container rules-container--v2\">
     <fieldset class=\"rule-block rule-block--if\">
         <legend class=\"hide\">If rule condition</legend>
         <div class=\"rule-block__header\">
@@ -356,7 +356,7 @@
             <button class=\"btn\">else if</button>
         </div>
     </div>
-    
+
     <fieldset class=\"rule-block rule-block--else-return\">
         <legend class=\"hide\">Else return</legend>
         <div class=\"rule-block__header\">
@@ -394,7 +394,7 @@
 
     {{ docs.example({
         twig: "
-<div id=\"rule-form-container\" class=\"rules-container rules-container--v2\">
+<div id=\"rule-form-container-5\" class=\"rules-container rules-container--v2\">
     <fieldset class=\"rule-block rule-block--if\">
         <legend class=\"hide\">If rule condition</legend>
         <div class=\"rule-block__header\">
@@ -638,7 +638,7 @@
             </div>
         </div>
         <button data-action=\"remove\" data-tippy-content=\"Remove this item\" data-tippy-placement=\"left\" class=\"btn remove-button js-remove-condition\"><i  class=\"icon-remove-sign\"><span class=\"hide\">Remove this item</span></i></button>
-    </fieldset>    
+    </fieldset>
 
     <div class=\"rule-links\">
         <div class=\"rule-link rule-link--or\">
@@ -678,7 +678,7 @@
             </div>
         </div>
     </fieldset>
-    
+
     <div class=\"rule-links\">
         <div class=\"rule-link rule-link--else-if\">
             <button class=\"btn\">else if</button>

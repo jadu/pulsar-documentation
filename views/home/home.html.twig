@@ -1,6 +1,8 @@
 {% extends '@pulsar/pulsar/components/tab.html.twig' %}
 {% import 'helpers/example.html.twig' as docs %}
 
+{% block title %}Home - Pulsar Documentation{% endblock %}
+
 {% block tab_content %}
 
 <h1 class="docs-title">Pulsar</h1>
@@ -16,13 +18,13 @@
                 html.button({
                     'label': 'Get Started',
                     'class': 'btn--outline btn--docs',
-                    'href': '/guides/getting-started',
+                    'href': '/guides/developer-guide',
                     'type': 'link'
                 })
             }}
         </div>
 
-        <img class="landing-block__illustration" src="/views/home/img/hero_1.svg" />
+        <img class="landing-block__illustration" src="/views/home/img/hero_1.svg" alt=""/>
     </div>
 
     <div class="landing-block">
@@ -40,7 +42,7 @@
             }}
         </div>
 
-        <img class="landing-block__illustration" src="/views/home/img/hero_2.svg" />
+        <img class="landing-block__illustration" src="/views/home/img/hero_2.svg" alt="" />
     </div>
 
     <div class="landing-block">
@@ -60,7 +62,7 @@
             }}
         </div>
 
-        <img class="landing-block__illustration" src="/views/home/img/hero_3.svg" />
+        <img class="landing-block__illustration" src="/views/home/img/hero_3.svg" alt="" />
     </div>
 </div>
 

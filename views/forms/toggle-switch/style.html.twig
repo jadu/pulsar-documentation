@@ -21,7 +21,7 @@
 {{
     form.toggle_switch({
         'label': 'My label',
-        'id': 'toggle-b1', 
+        'id': 'guid-' ~ random(),
         'name': 'toggle-b1',
         'error': 'Something went wrong'
     })
@@ -36,7 +36,7 @@
 {{
     form.toggle_switch({
         'label': 'My label',
-        'id': 'toggle-b2', 
+        'id': 'guid-' ~ random(),
         'name': 'toggle-b2',
         'error': [
             'Something went wrong',
@@ -54,7 +54,7 @@
 {{
     form.toggle_switch({
         'label': 'My label',
-        'id': 'toggle-b3', 
+        'id': 'guid-' ~ random(),
         'name': 'toggle-b3',
         'error': 'Something went wrong',
         'help': 'Help text to give more information about expected input'
@@ -74,7 +74,7 @@
     form.toggle_switch({
         'label': 'My label',
         'class': 'has-success',
-        'id': 'toggle-b5', 
+        'id': 'guid-' ~ random(),
         'name': 'toggle-b5',
         'help': 'Help text to give more information about expected input'
     })
@@ -92,14 +92,14 @@
     form.toggle_switch({
         'label': 'My label',
         'class': 'has-warning',
-        'id': 'toggle-b6', 
+        'id': 'guid-' ~ random(),
         'name': 'toggle-b6',
         'help': 'Help text to give more information about expected input'
     })
 }}
     " }) }}
 
-    {{ docs.heading('h3', 'Error') }}
+    {{ docs.heading('h3', 'Danger') }}
 
     <p>The <code>has--error</code> class is automatically added when using the <code>error</code> option.</p>
 
@@ -110,7 +110,7 @@
     form.toggle_switch({
         'label': 'My label',
         'class': 'has-error',
-        'id': 'toggle-b7', 
+        'id': 'guid-' ~ random(),
         'name': 'toggle-b7',
         'help': 'Help text to give more information about expected input'
     })
@@ -128,13 +128,13 @@
     form.toggle_switch({
         'label': 'My label',
         'class': 'has-changed',
-        'id': 'toggle-b4', 
+        'id': 'guid-' ~ random(),
         'name': 'toggle-b4',
         'help': 'Help text to give more information about expected input'
     })
 }}
     " }) }}
-    
+
     {{ docs.heading('h2', 'Variations') }}
     {{ docs.heading('h3', 'Help') }}
 
@@ -144,7 +144,7 @@
 {{
     form.toggle_switch({
         'label': 'My label',
-        'id': 'toggle-b8', 
+        'id': 'guid-' ~ random(),
         'name': 'toggle-b8',
         'help': 'Help text to give more information about expected input'
     })
@@ -159,7 +159,7 @@
 {{
     form.toggle_switch({
         'label': 'My label',
-        'id': 'toggle-b9', 
+        'id': 'guid-' ~ random(),
         'name': 'toggle-b9',
         'required': true,
         'help': 'Help text to give more information about expected input'
@@ -169,7 +169,7 @@
 
     {{ docs.heading('h2', 'Alignment') }}
     {{ docs.heading('h2', 'Hide Label') }}
-    
+
     {{ docs.example({
         screenreader: 'My label, Help text to give more information about expected input, unticked, tickbox',
         twig: "
@@ -177,7 +177,7 @@
     form.toggle_switch({
         'label': 'My label',
         'show-label': false,
-        'id': 'toggle-b11', 
+        'id': 'guid-' ~ random(),
         'name': 'toggle-b11',
         'help': 'Help text to give more information about expected input'
     })
@@ -185,14 +185,14 @@
     " }) }}
 
     {{ docs.heading('h2', 'Long Label Behaviour') }}
-    
+
     {{ docs.example({
         screenreader: 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline, Help text to give more information about expected input, unticked, tickbox',
         twig: "
 {{
     form.toggle_switch({
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
-        'id': 'toggle-b12', 
+        'id': 'guid-' ~ random(),
         'name': 'toggle-b12',
         'help': 'Help text to give more information about expected input'
     })
@@ -202,7 +202,7 @@
     {{ docs.heading('h2', 'Top Labels') }}
 
     <p>You should avoid using really long labels, but if you have to, it may be more appropriate to use the <code>form__group--top</code> class to give it more space.</p>
-    
+
     {{ docs.example({
         screenreader: 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline, Help text to give more information about expected input, unticked, tickbox',
         twig: "
@@ -210,7 +210,7 @@
     form.toggle_switch({
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
         'class': 'form__group--top',
-        'id': 'toggle-b13', 
+        'id': 'guid-' ~ random(),
         'name': 'toggle-b13',
         'help': 'Help text to give more information about expected input'
     })
@@ -220,7 +220,7 @@
     {{ docs.heading('h2', 'Flush Inputs') }}
 
     <p>Depending on the flow of your user interface you may want to position your inputs along the left edge of the UI</p>
-    
+
     {{ docs.example({
         screenreader: 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline, Help text to give more information about expected input, unticked, tickbox',
         twig: "
@@ -228,7 +228,7 @@
     form.toggle_switch({
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
         'class': 'form__group--flush',
-        'id': 'toggle-b14', 
+        'id': 'guid-' ~ random(),
         'name': 'toggle-b14',
         'help': 'Help text to give more information about expected input'
     })
@@ -236,7 +236,7 @@
     " }) }}
 
     {{ docs.heading('h2', 'Flush Inputs & Top Label') }}
-    
+
     {{ docs.example({
         screenreader: 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline, Help text to give more information about expected input, unticked, tickbox',
         twig: "
@@ -244,13 +244,13 @@
     form.toggle_switch({
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
         'class': 'form__group--top form__group--flush',
-        'id': 'toggle-b15', 
+        'id': 'guid-' ~ random(),
         'name': 'toggle-b15',
         'help': 'Help text to give more information about expected input'
     })
 }}
     " }) }}
-    
+
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}

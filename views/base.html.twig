@@ -10,7 +10,7 @@
 <!--[if IE 9]>         <html lang="en" class="no-js ie9 lt-ie10"><![endif]-->
 <!--[if gt IE 9]><!--> <html lang="en" class="no-js"><!--<![endif]-->
 <head>
-    <title>{% block title %}Pulsar Documentation{% endblock %}</title>
+    <title>{% if heading is defined and heading is not empty %}{{ heading }} - {% endif %}Pulsar Documentation</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
@@ -55,10 +55,12 @@
     <link rel="stylesheet" href="https://use.typekit.net/xhd6hjj.css">
 </head>
 <body class="language-html">
-    <a class="skip-link" href="#skip-target" tabindex="1">Skip to main content</a>
+    <div role="complementary" aria-label="skip to main content">
+        <a class="skip-link" href="#skip-target" tabindex="1">Skip to main content</a>
+    </div>
 
     {% block body %}
-    <div class="container" id="top">
+    <div class="container">
         <div class="inner-wrapper">
             {{ nav.primary({ 'brand_link': '/', 'data': nav_data|default() }) }}
 
@@ -93,12 +95,6 @@
     </div>
 
     <footer class="footer">
-        {{
-            html.link({
-                'label': html.icon('circle-arrow-up', { 'label': 'Back to top' }),
-                'href': '#top'
-            })
-        }}
         {{
             html.link({
                 'label': 'Jadu Continuum',

@@ -14,8 +14,8 @@
     <p class="lede">Add floating labels that appear on hover or focus to provide supplemental or descriptive information.</p>
 
     <p>Tooltips can be applied through the use of data-attributes and can be added to regular HTML elements, or to HTML/Form helpers.</p>
-    
-    {{ docs.heading('h2', 'Basic usage') }}
+
+    {{ docs.heading('h2', 'Usage') }}
 
     {{ docs.example({
         screenreader: "Link, Hover over me, A wild tooltip appears!",
@@ -73,7 +73,7 @@
                 <td><code>data-trigger</code></td>
                 <td>string</td>
                 <td><code>click</code></td>
-                <td>How the tooltip is triggered, can be <code>click</code>, <code>hover</code>, <code>focus</code>, <code>manual</td>
+                <td>How the tooltip is triggered, can be <code>click</code>, <code>hover</code>, <code>focus</code>, <code>manual</code></td>
             </tr>
             <tr>
                 <td><code>data-container</code></td>
@@ -104,7 +104,7 @@
         screenreader: 'Disabled button, group, you are currently on a button, this item is dimmed',
         twig: '
 <div rel="tooltip" data-toggle="tooltips" data-placement="right" title="Can’t touch this" tabindex="0">
-  {{ 
+  {{
     html.button({
       "label": "Disabled Button",
       "disabled": true

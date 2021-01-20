@@ -18,8 +18,8 @@
     └── /tabs
         └── foo.html.twig
         └── bar.html.twig
-        └── baz.html.twig</pre></code>
-    
+        └── baz.html.twig</code></pre>
+
     {{ docs.heading('h2', 'Twig dependencies') }}
 
     <p>A tabbed view needs to extend the tabbed layout and import the tabs helper, which is used to render the required HTML elements:</p>
@@ -27,7 +27,7 @@
     <pre><code>&#123;# index.html.twig #&#125;
 
 &#123;% extends '@pulsar/pulsar/layouts/tabbed.html.twig' %&#125;
-&#123;% import '@pulsar/pulsar/v2/helpers/tabs.html.twig' %&#125;</pre></code>
+&#123;% import '@pulsar/pulsar/v2/helpers/tabs.html.twig' %&#125;</code></pre>
 
     {{ docs.heading('h2', 'Tab content') }}
 
@@ -324,8 +324,8 @@ http://my-pulsar-example.com/my-view?tab=bar
     'data': &#123;
         'data-one': 'uno',
         'data-two': 'dos'
-    &#125
-&#125
+    &#125;
+&#125;
 ...
 </code></pre>
 
@@ -333,30 +333,3 @@ http://my-pulsar-example.com/my-view?tab=bar
 
 </div>
 {% endblock tab_content %}
-{% block tab_sidebar %}
-    <h4>On this page</h4>
-    <ul class="page-nav">
-        <li><a href="#file-structure">File structure</a></li>
-        <li><a href="#twig-dependencies">Twig dependencies</a></li>
-        <li><a href="#tab-content">Tab content</a></li>
-        <li><a href="#tabs-object">Tabs object</a>
-            <ul>
-                <li><a href="#attributes">Attributes</a></li>
-            </ul>
-        </li>
-        <li><a href="#setting-active-tab">Setting active tab</a>
-            <ul>
-                <li><a href="#from-the-url">From the URL</a></li>
-                <li><a href="#from-the-view">From the view</a></li>
-                <li><a href="#default">Default</a></li>
-            </ul>
-        </li>
-        <li><a href="#updating-url">Updating URL location</a></li>
-        <li><a href="#tabs-list">Tabs list</a></li>
-        <li><a href="#tabs-content">Tabs content</a></li>
-        <li><a href="#putting-it-all-together">Putting it all together</a></li>
-        <li><a href="#ajaxy-tabs">Ajaxy tabs</a></li>
-        <li><a href="#referencing-an-existing-tab-pane">Referencing-an-existing-tab-pane</a></li>
-        <li><a href="#data-attributes">Data attributes</a></li>
-    </ul>
-{% endblock tab_sidebar %}

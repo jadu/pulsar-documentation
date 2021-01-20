@@ -17,18 +17,18 @@
         'error': 'Something went wrong',
         'items': [
             {
-                'id': 'foo1',
+                'id': 'guid-' ~ random(),
                 'label': 'Foo',
                 'name': 'foo-1',
                 'checked': true
             },
             {
-                'id': 'bar1',
+                'id': 'guid-' ~ random(),
                 'label': 'Bar',
                 'name': 'foo-1'
             },
             {
-                'id': 'baz1',
+                'id': 'guid-' ~ random(),
                 'label': 'Baz',
                 'name': 'foo-1'
             }
@@ -52,18 +52,18 @@
         ],
         'items': [
             {
-                'id': 'foo1',
+                'id': 'guid-' ~ random(),
                 'label': 'Foo',
                 'name': 'foo-1',
                 'checked': true
             },
             {
-                'id': 'bar1',
+                'id': 'guid-' ~ random(),
                 'label': 'Bar',
                 'name': 'foo-1'
             },
             {
-                'id': 'baz1',
+                'id': 'guid-' ~ random(),
                 'label': 'Baz',
                 'name': 'foo-1'
             }
@@ -85,18 +85,18 @@
         'help': 'Help text to give more information about expected input',
         'items': [
             {
-                'id': 'foo3',
+                'id': 'guid-' ~ random(),
                 'label': 'Foo',
                 'name': 'foo-3',
                 'checked': true
             },
             {
-                'id': 'bar3',
+                'id': 'guid-' ~ random(),
                 'label': 'Bar',
                 'name': 'foo-3'
             },
             {
-                'id': 'baz3',
+                'id': 'guid-' ~ random(),
                 'label': 'Baz',
                 'name': 'foo-3'
             }
@@ -121,18 +121,18 @@
         'help': 'Help text to give more information about expected input',
         'items': [
             {
-                'id': 'foo1',
+                'id': 'guid-' ~ random(),
                 'label': 'Foo',
                 'name': 'foo-1',
                 'checked': true
             },
             {
-                'id': 'bar1',
+                'id': 'guid-' ~ random(),
                 'label': 'Bar',
                 'name': 'foo-1'
             },
             {
-                'id': 'baz1',
+                'id': 'guid-' ~ random(),
                 'label': 'Baz',
                 'name': 'foo-1'
             }
@@ -155,18 +155,18 @@
         'help': 'Help text to give more information about expected input',
         'items': [
             {
-                'id': 'foo1',
+                'id': 'guid-' ~ random(),
                 'label': 'Foo',
                 'name': 'foo-1',
                 'checked': true
             },
             {
-                'id': 'bar1',
+                'id': 'guid-' ~ random(),
                 'label': 'Bar',
                 'name': 'foo-1'
             },
             {
-                'id': 'baz1',
+                'id': 'guid-' ~ random(),
                 'label': 'Baz',
                 'name': 'foo-1'
             }
@@ -189,18 +189,18 @@
         'help': 'Help text to give more information about expected input',
         'items': [
             {
-                'id': 'foo1',
+                'id': 'guid-' ~ random(),
                 'label': 'Foo',
                 'name': 'foo-1',
                 'checked': true
             },
             {
-                'id': 'bar1',
+                'id': 'guid-' ~ random(),
                 'label': 'Bar',
                 'name': 'foo-1'
             },
             {
-                'id': 'baz1',
+                'id': 'guid-' ~ random(),
                 'label': 'Baz',
                 'name': 'foo-1'
             }
@@ -223,18 +223,18 @@
         'help': 'Help text to give more information about expected input',
         'items': [
             {
-                'id': 'foo1',
+                'id': 'guid-' ~ random(),
                 'label': 'Foo',
                 'name': 'foo-1',
                 'checked': true
             },
             {
-                'id': 'bar1',
+                'id': 'guid-' ~ random(),
                 'label': 'Bar',
                 'name': 'foo-1'
             },
             {
-                'id': 'baz1',
+                'id': 'guid-' ~ random(),
                 'label': 'Baz',
                 'name': 'foo-1'
             }
@@ -242,7 +242,7 @@
     })
 }}
     " }) }}
-    
+
     {{ docs.heading('h2', 'Variations') }}
     {{ docs.heading('h3', 'Help') }}
 
@@ -288,18 +288,18 @@
         'required': true,
         'items': [
             {
-                'id': 'foo4',
+                'id': 'guid-' ~ random(),
                 'label': 'Foo',
                 'name': 'foo-4',
                 'checked': true
             },
             {
-                'id': 'bar4',
+                'id': 'guid-' ~ random(),
                 'label': 'Bar',
                 'name': 'foo-4'
             },
             {
-                'id': 'baz4',
+                'id': 'guid-' ~ random(),
                 'label': 'Baz',
                 'name': 'foo-4'
             }
@@ -310,7 +310,7 @@
 
     {{ docs.heading('h2', 'Alignment') }}
     {{ docs.heading('h2', 'Hide Label') }}
-    
+
     {{ docs.example({
         screenreader: 'radio button, 1 of 3',
         twig: "
@@ -322,18 +322,18 @@
         'show-label': false,
         'items': [
             {
-                'id': 'foo1',
+                'id': 'guid-' ~ random(),
                 'label': 'Foo',
                 'name': 'foo-1',
                 'checked': true
             },
             {
-                'id': 'bar1',
+                'id': 'guid-' ~ random(),
                 'label': 'Bar',
                 'name': 'foo-1'
             },
             {
-                'id': 'baz1',
+                'id': 'guid-' ~ random(),
                 'label': 'Baz',
                 'name': 'foo-1'
             }
@@ -343,7 +343,7 @@
     " }) }}
 
     {{ docs.heading('h2', 'Long Label Behaviour') }}
-    
+
     {{ docs.example({
         screenreader: 'Example block level help text here, radio button, 1 of 3',
         twig: "
@@ -354,18 +354,18 @@
         'help': 'Example block-level help text here',
         'items': [
             {
-                'id': 'foo1',
+                'id': 'guid-' ~ random(),
                 'label': 'Foo',
                 'name': 'foo-1',
                 'checked': true
             },
             {
-                'id': 'bar1',
+                'id': 'guid-' ~ random(),
                 'label': 'Bar',
                 'name': 'foo-1'
             },
             {
-                'id': 'baz1',
+                'id': 'guid-' ~ random(),
                 'label': 'Baz',
                 'name': 'foo-1'
             }
@@ -377,7 +377,7 @@
     {{ docs.heading('h2', 'Top Labels') }}
 
     <p>You should avoid using really long labels, but if you have to, it may be more appropriate to use the <code>form__group--top</code> class to give it more space.</p>
-    
+
     {{ docs.example({
         screenreader: 'Example block level help text here, radio button, 1 of 3',
         twig: "
@@ -389,18 +389,18 @@
         'help': 'Example block-level help text here',
         'items': [
             {
-                'id': 'foo1',
+                'id': 'guid-' ~ random(),
                 'label': 'Foo',
                 'name': 'foo-1',
                 'checked': true
             },
             {
-                'id': 'bar1',
+                'id': 'guid-' ~ random(),
                 'label': 'Bar',
                 'name': 'foo-1'
             },
             {
-                'id': 'baz1',
+                'id': 'guid-' ~ random(),
                 'label': 'Baz',
                 'name': 'foo-1'
             }
@@ -412,7 +412,7 @@
     {{ docs.heading('h2', 'Flush Inputs') }}
 
     <p>Depending on the flow of your user interface you may want to position your inputs along the left edge of the UI</p>
-    
+
     {{ docs.example({
         screenreader: 'Example block level help text here, radio button, 1 of 3',
         twig: "
@@ -424,18 +424,18 @@
         'help': 'Example block-level help text here',
         'items': [
             {
-                'id': 'foo1',
+                'id': 'guid-' ~ random(),
                 'label': 'Foo',
                 'name': 'foo-1',
                 'checked': true
             },
             {
-                'id': 'bar1',
+                'id': 'guid-' ~ random(),
                 'label': 'Bar',
                 'name': 'foo-1'
             },
             {
-                'id': 'baz1',
+                'id': 'guid-' ~ random(),
                 'label': 'Baz',
                 'name': 'foo-1'
             }
@@ -445,7 +445,7 @@
     " }) }}
 
     {{ docs.heading('h2', 'Flush Inputs & Top Label') }}
-    
+
     {{ docs.example({
         screenreader: 'Example block level help text here, radio button, 1 of 3',
         twig: "
@@ -457,18 +457,18 @@
         'help': 'Example block-level help text here',
         'items': [
             {
-                'id': 'foo1',
+                'id': 'guid-' ~ random(),
                 'label': 'Foo',
                 'name': 'foo-1',
                 'checked': true
             },
             {
-                'id': 'bar1',
+                'id': 'guid-' ~ random(),
                 'label': 'Bar',
                 'name': 'foo-1'
             },
             {
-                'id': 'baz1',
+                'id': 'guid-' ~ random(),
                 'label': 'Baz',
                 'name': 'foo-1'
             }
@@ -476,7 +476,7 @@
     })
 }}
     " }) }}
-    
+
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}

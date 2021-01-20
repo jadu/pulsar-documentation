@@ -4,7 +4,7 @@
 {% block tab_content %}
 <div class="report">
     <p class="lede">Flash messages alert the user when things happen, this may be to confirm that something has occurred successfully, like saving a document, or when something goes wrong. Flash messages may also highlight problems with the system that the user may need to know about, like a loss of network connectivity which is preventing auto-save.</p>
-    
+
     {{ docs.heading('h2', 'Dependencies') }}
     {{ docs.heading('h3', 'Javascript') }}
 
@@ -12,7 +12,7 @@
 
     <p>Depending on your setup, this will probably need to be in be in a file called <code>index.js</code> or <code>main.js</code>.</p>
 
-    <pre><code lang="javascript">// index.js
+    <pre><code>// index.js
 
 var FlashMessageComponent = require('/path/to/pulsar/FlashMessageComponent');
 
@@ -20,7 +20,7 @@ module.exports = {
     FlashMessageComponent: FlashMessageComponent
 }</code></pre>
 
-    <pre><code lang="javascript">// main.js
+    <pre><code>// main.js
 
 var $html = $('html');
 
@@ -34,9 +34,17 @@ $(function () {
 
     {{ docs.heading('h3', 'HTML/Twig') }}
 
-    <p>Your main view should have a container with the classes of flash-container js-flash-container. Any flash messages you choose to generate on page load should be placed here, and any that you subsequently create through the JS methods will also be placed here.</p>
+    <p>Your main view should have a container with the classes of <code>flash-container js-flash-container</code>. Any flash messages you choose to generate on page load should be placed here, and any that you subsequently create through the JS methods will also be placed here.</p>
 
-    <div class="flash flash--success"><a class="close" href="#" data-dismiss="flash"><i class="icon-remove"></i></a><i class="icon-ok"></i> This is a success message</div>
+    <section class="flash flash--success" aria-labelledby="guid-1414468922">
+        <i aria-hidden="true" class="icon-ok"></i>
+        <h2 id="guid-1414468922">This is a success message</h2>
+        <button class="close" data-dismiss="flash">
+            <i class="icon-remove">
+                <span class="hide">Close</span>
+            </i>
+        </button>
+    </section>
 
     {{ docs.heading('h2', 'Helper options') }}
 
@@ -77,7 +85,7 @@ $(function () {
 
     <p>If you want to disable the ability to close a flash message (useful when you have flash messages in modals, for example), use the dismissable option.</p>
 
-    {{ docs.example({ 
+    {{ docs.example({
         twig: "
 {{
     flash.message({
@@ -92,13 +100,13 @@ $(function () {
 
     <p>You can throw flash messages with JS, and like the Twig helper your styles and icons will be defined automatically.</p>
 
-    <pre><code lang="javascript">pulsar.flash.success('Something great happened!');</code></pre>
-    
-    <pre><code lang="javascript">pulsar.flash.error('Oh no! Something bad happened');</code></pre>
+    <pre><code>pulsar.flash.success('Something great happened!');</code></pre>
 
-    <pre><code lang="javascript">pulsar.flash.warning('Something kinda bad happened, but it’s not critical...');</code></pre>
+    <pre><code>pulsar.flash.error('Oh no! Something bad happened');</code></pre>
 
-    <pre><code lang="javascript">pulsar.flash.info('Something interesting happened that we need to tell you about');</code></pre>
+    <pre><code>pulsar.flash.warning('Something kinda bad happened, but it’s not critical...');</code></pre>
+
+    <pre><code>pulsar.flash.info('Something interesting happened that we need to tell you about');</code></pre>
 
 
 </div>

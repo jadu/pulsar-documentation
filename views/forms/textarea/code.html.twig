@@ -14,12 +14,12 @@
 {{
     form.textarea({
         'label': 'My label',
-        'id': 'textarea-1',
+        'id': 'guid-' ~ random(),
         'name': 'textarea-1'
     })
 }}
     " }) }}
-    
+
     {{ docs.heading('h2', 'Helper options') }}
 
     <p>You can configure this helper using the <a href="../guides/using-helpers#common-options">common helper options.</a></p>
@@ -50,7 +50,7 @@
 {{
     form.textarea({
         'label': 'My label',
-        'id': 'textarea-2',
+        'id': 'guid-' ~ random(),
         'name': 'textarea-2',
         'disabled': true
     })
@@ -58,7 +58,7 @@
     " }) }}
 
     {{ docs.heading('h2', 'Rows') }}
-    
+
     <p>The height of a textarea can be increased by defining a number of <code>rows</code> that suits your expected input. If you expect a lot of content, provide more rows.</p>
 
     {{ docs.example({
@@ -66,7 +66,7 @@
 {{
     form.textarea({
         'label': 'My label',
-        'id': 'textarea-3',
+        'id': 'guid-' ~ random(),
         'name': 'textarea-3',
         'rows': 5
     })

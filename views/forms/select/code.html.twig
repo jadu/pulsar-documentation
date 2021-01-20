@@ -12,7 +12,7 @@
 {{
     form.select({
         'label': 'Pick a colour',
-        'id': 'select-1',
+        'id': 'guid-' ~ random(),
         'options': [
             {
                 'label': 'Choose',
@@ -30,7 +30,7 @@
     })
 }}
     " }) }}
-    
+
     {{ docs.heading('h2', 'Helper options') }}
 
     <p>You can configure this helper using the <a href="../guides/using-helpers#common-options">common helper options.</a></p>
@@ -76,7 +76,7 @@
 {{
     form.select({
         'label': 'Pick a colour',
-        'id': 'select-2',
+        'id': 'guid-' ~ random(),
         'selected': 'colour_blue',
         'options': [
             {
@@ -103,7 +103,7 @@
 {{
     form.select({
         'label': 'Pick colours',
-        'id': 'select-2-multi',
+        'id': 'guid-' ~ random(),
         'multiple': true,
         'selected': ['colour_red', 'colour_blue'],
         'options': [
@@ -133,7 +133,7 @@
 {{
     form.select({
         'label': 'Pick a colour',
-        'id': 'select-3',
+        'id': 'guid-' ~ random(),
         'disabled': true,
         'selected': 'color',
         'options': [
@@ -163,7 +163,7 @@
 {{
     form.select({
         'label': 'Pick a colour',
-        'id': 'select-4',
+        'id': 'guid-' ~ random(),
         'options': [
             {
                 'label': 'Choose',
@@ -192,7 +192,7 @@
 {{
     form.select2({
         'label': 'My label',
-        'id': 'select-5',
+        'id': 'guid-' ~ random(),
         'options':
         [
             {

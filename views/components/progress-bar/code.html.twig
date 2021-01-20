@@ -4,14 +4,15 @@
 {% block tab_content %}
 <div class="report">
     <p class="lede">Provide up-to-date feedback on the progress of a workflow or action with simple progress bars.</p>
-    
+
     {{ docs.heading('h2', 'Basic usage') }}
 
-    {{ docs.example({ 
+    {{ docs.example({
         twig: "
 {{
     html.progress({
-        'value': 25
+        'value': 25,
+        'aria-label': 'File upload progress'
     })
 }}
     " }) }}
@@ -47,18 +48,25 @@
         </tbody>
     </table>
 
+    {{ docs.heading('h2', 'Accessibility') }}
+
+    <p>To ensure screen readers users are able to disern the purpose of elements with <code>role="progressbar"</code> an accessible name must be used. This can be via <code>aria-label</code> or if another visible element exists as a title for the progress bar, <code>aria-labelledby</code>.</p>
+
     {{ docs.heading('h2', 'Updating progress with JavaScript') }}
 
-    <p>Given the rendered markup example below, you’ll need to write code to update the two main percentage values in <code>aria-valuenow</code> and the inline style attribute with your new percentage.</p>
+    <p>Given the rendered markup example below, you’ll need to write code to update the two main percentage values in <code>aria-valuenow</code> and the inline style attribute with your new percentage. If you have the percentage in the label either hidden or visible then you’ll need to update that too.</p>
 
-    <p>If you have the percentage in the label either hidden or visible then you’ll need to update that too.</p>
+    <p>You should also add a live region to the DOM, which your code updates to communicate progress updates to screen reader users.</p>
 
-    {{ docs.example({ 
+    <p>For example: when loading <code>&lt;span id="progress-live-region" class="hide" aria-live="polite"&gt;23%&lt;/span&gt;</code> and when completed <code>&lt;span id="progress-live-region" class="hide" aria-live="polite"&gt;loading complete&lt;/span&gt;</code></p>
+
+    {{ docs.example({
         html: '
 <div class="progress">
     <div
         class="progress-bar"
         role="progressbar"
+        aria-label="File upload progress"
         aria-valuenow="25"
         aria-valuemin="0"
         aria-valuemax="100"
@@ -67,45 +75,7 @@
         25%
     </div>
 </div>
-    ' }) }}
-
-    {{ docs.heading('h2', 'Stepped progress bar') }}
-
-    <p>Stepped progress bar is used mainly in modals as a step indicator of a multi step process.</p>
-
-    {{ docs.example({ 
-        html: '
-    <h3 class="hide" id="aria-stepped-progress-bar-heading-1">Step 1 of 4</h3>
-    <ol class="stepped-progressbar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" aria-describedby="aria-stepped-progress-bar-heading-1">
-        <li class="step"><span class="step-box current"><span class="step-number" aria-hidden="true">1</span></span></li>
-        <li class="step"><span class="step-box"><span class="step-number" aria-hidden="true">2</span></span></li>
-        <li class="step"><span class="step-box"><span class="step-number" aria-hidden="true">3</span></span></li>
-        <li class="step last"><span class="step-box"><i class="icon-flag-checkered" aria-hidden="true"></i></span></li>
-    </ol>
-
-    <h3 class="hide" id="aria-stepped-progress-bar-heading-2">Step 2 of 4</h3>
-    <ol class="stepped-progressbar" role="progressbar" aria-valuenow="2" aria-valuemin="1" aria-valuemax="4" aria-describedby="aria-stepped-progress-bar-heading-2">
-        <li class="step successful"><span class="step-box completed"><i class="icon-ok" aria-hidden="true"></i></span></li>
-        <li class="step"><span class="step-box current"><span class="step-number" aria-hidden="true">2</span></span></li>
-        <li class="step"><span class="step-box"><span class="step-number" aria-hidden="true">3</span></span></li>
-        <li class="step last"><span class="step-box"><i class="icon-flag-checkered" aria-hidden="true"></i></span></li>
-    </ol>
-
-    <h3 class="hide" id="aria-stepped-progress-bar-heading-3">Step 3 of 4</h3>
-    <ol class="stepped-progressbar" role="progressbar" aria-valuenow="3" aria-valuemin="1" aria-valuemax="4" aria-describedby="aria-stepped-progress-bar-heading-3">
-        <li class="step successful"><span class="step-box completed"><i class="icon-ok" aria-hidden="true"></i></span></li>
-        <li class="step successful"><span class="step-box completed"><i class="icon-ok" aria-hidden="true"></i></span></li>
-        <li class="step"><span class="step-box current"><span class="step-number" aria-hidden="true">3</span></span></li>
-        <li class="step last" ><span class="step-box"><i class="icon-flag-checkered" aria-hidden="true"></i></span></li>
-    </ol>
-
-    <h3 class="hide" id="aria-stepped-progress-bar-heading-4">Step 4 of 4</h3>
-    <ol class="stepped-progressbar" role="progressbar" aria-valuenow="4" aria-valuemin="1" aria-valuemax="4" aria-describedby="aria-stepped-progress-bar-heading-4">
-        <li class="step successful"><span class="step-box completed"><i class="icon-ok" aria-hidden="true"></i></span></li>
-        <li class="step successful"><span class="step-box completed"><i class="icon-ok" aria-hidden="true"></i></span></li>
-        <li class="step successful"><span class="step-box completed"><i class="icon-ok" aria-hidden="true"></i></span></li>
-        <li class="step last"><span class="step-box final"><i class="icon-flag-checkered" aria-hidden="true" ></i></span></li>
-    </ol>
+<span id="progress-live-region" class="hide" aria-live="polite">25%</span>
     ' }) }}
 </div>
 {% endblock tab_content %}

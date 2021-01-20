@@ -6,12 +6,15 @@
     set breadcrumbs = [
         {'label': 'Home', 'href': '/'},
         {'label': 'Guides', 'data-toggle-nav': '#guides'},
-        {'label': 'Accessiblity', 'href': '#'}
+        {'label': 'Accessiblity', 'href': '#skip-target'}
     ]
 %}
 
 {% set tab_forms %}
     {% include 'guides/accessibility/info.html.twig' %}
+{% endset %}
+{% set tab_audit %}
+    {% include 'guides/accessibility/audit.html.twig' %}
 {% endset %}
 
 {%
@@ -22,6 +25,12 @@
           "label" : "Info",
           "src"   : tab_forms,
           "active": true
-        }
+        },
+        {
+            "id"    : "a11y-audit",
+            "class" : "ui-report",
+            "label" : "Audit",
+            "src"   : tab_audit
+          }
     ]
 %}

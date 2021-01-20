@@ -11,7 +11,7 @@
 {{
     form.select({
         'label': 'My label',
-        'id': 'select-b1', 
+        'id': 'guid-' ~ random(),
         'name': 'select-b1',
         'error': 'Something went wrong',
         'options': [
@@ -39,7 +39,7 @@
 {{
     form.select({
         'label': 'My label',
-        'id': 'select-b2', 
+        'id': 'guid-' ~ random(),
         'name': 'select-b2',
         'error': [
             'Something went wrong',
@@ -70,7 +70,7 @@
 {{
     form.select({
         'label': 'My label',
-        'id': 'select-b3', 
+        'id': 'guid-' ~ random(),
         'name': 'select-b3',
         'error': 'Something went wrong',
         'help': 'Help text to give more information about expected input',
@@ -103,7 +103,7 @@
     form.select({
         'label': 'My label',
         'class': 'has-success',
-        'id': 'select-b5', 
+        'id': 'guid-' ~ random(),
         'name': 'select-b5',
         'help': 'Help text to give more information about expected input',
         'options': [
@@ -134,7 +134,7 @@
     form.select({
         'label': 'My label',
         'class': 'has-warning',
-        'id': 'select-b6', 
+        'id': 'guid-' ~ random(),
         'name': 'select-b6',
         'help': 'Help text to give more information about expected input',
         'options': [
@@ -155,7 +155,7 @@
 }}
     " }) }}
 
-    {{ docs.heading('h3', 'Error') }}
+    {{ docs.heading('h3', 'Danger') }}
 
     <p>The <code>has--error</code> class is automatically added when using the <code>error</code> option.</p>
 
@@ -165,7 +165,7 @@
     form.select({
         'label': 'My label',
         'class': 'has-error',
-        'id': 'select-b7', 
+        'id': 'guid-' ~ random(),
         'name': 'select-b7',
         'help': 'Help text to give more information about expected input',
         'options': [
@@ -196,7 +196,7 @@
     form.select({
         'label': 'My label',
         'class': 'has-changed',
-        'id': 'select-b4', 
+        'id': 'guid-' ~ random(),
         'name': 'select-b4',
         'help': 'Help text to give more information about expected input',
         'options': [
@@ -216,7 +216,7 @@
     })
 }}
     " }) }}
-    
+
     {{ docs.heading('h2', 'Variations') }}
     {{ docs.heading('h3', 'Help') }}
 
@@ -225,7 +225,7 @@
 {{
     form.select({
         'label': 'My label',
-        'id': 'select-b8', 
+        'id': 'guid-' ~ random(),
         'name': 'select-b8',
         'help': 'Help text to give more information about expected input',
         'options': [
@@ -253,7 +253,7 @@
 {{
     form.select({
         'label': 'My label',
-        'id': 'select-b9', 
+        'id': 'guid-' ~ random(),
         'name': 'select-b9',
         'required': true,
         'help': 'Help text to give more information about expected input',
@@ -277,14 +277,14 @@
 
     {{ docs.heading('h2', 'Alignment') }}
     {{ docs.heading('h2', 'Hide Label') }}
-    
+
     {{ docs.example({
         twig: "
 {{
     form.select({
         'label': 'My label',
         'show-label': false,
-        'id': 'select-b11', 
+        'id': 'guid-' ~ random(),
         'name': 'select-b11',
         'help': 'Help text to give more information about expected input',
         'options': [
@@ -306,13 +306,13 @@
     " }) }}
 
     {{ docs.heading('h2', 'Long Label Behaviour') }}
-    
+
     {{ docs.example({
         twig: "
 {{
     form.select({
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
-        'id': 'select-b11', 
+        'id': 'guid-' ~ random(),
         'name': 'select-b11',
         'help': 'Help text to give more information about expected input',
         'options': [
@@ -336,14 +336,14 @@
     {{ docs.heading('h2', 'Top Labels') }}
 
     <p>You should avoid using really long labels, but if you have to, it may be more appropriate to use the <code>form__group--top</code> class to give it more space.</p>
-    
+
     {{ docs.example({
         twig: "
 {{
     form.select({
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
         'class': 'form__group--top',
-        'id': 'select-b12', 
+        'id': 'guid-' ~ random(),
         'name': 'select-b12',
         'help': 'Help text to give more information about expected input',
         'options': [
@@ -367,14 +367,14 @@
     {{ docs.heading('h2', 'Flush Inputs') }}
 
     <p>Depending on the flow of your user interface you may want to position your inputs along the left edge of the UI</p>
-    
+
     {{ docs.example({
         twig: "
 {{
     form.select({
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
         'class': 'form__group--flush',
-        'id': 'select-b12', 
+        'id': 'guid-' ~ random(),
         'name': 'select-b12',
         'help': 'Help text to give more information about expected input',
         'options': [
@@ -396,14 +396,14 @@
     " }) }}
 
     {{ docs.heading('h2', 'Flush Inputs & Top Label') }}
-    
+
     {{ docs.example({
         twig: "
 {{
     form.select({
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
         'class': 'form__group--top form__group--flush',
-        'id': 'select-b13', 
+        'id': 'guid-' ~ random(),
         'name': 'select-b13',
         'help': 'Help text to give more information about expected input',
         'options': [
@@ -423,7 +423,7 @@
     })
 }}
     " }) }}
-    
+
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}

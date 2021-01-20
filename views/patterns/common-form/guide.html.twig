@@ -13,7 +13,7 @@
     <p>The title attribute is a an essential piece of information, especially for assisitive technology users and should be short, relevant to the data being listed, descriptive and make use of variables where necessary.</p>
 
     <p>Use the pipe character <code>|</code> to separate the heirarchy of information. The account or organisation name should be included to help the user discern between multi-tenanted systems like CXM, or Galaxies Sites.</p>
-    
+
     <strong>Examples:</strong>
 
     <pre><code>&lt;title&gt;Publishing | News | Create News Item | &#123;&#123; account_name &#125;&#125;&lt;/title&gt;</code></pre>
@@ -40,9 +40,9 @@
     {{ docs.example({
         code: false,
         twig: "
-<div class=\"actionsbar\">
+<section class=\"actionsbar\" aria-label=\"page actions\">
     <div class=\"u-float-left\">
-        
+
     </div>
     <div class=\"u-float-right\">
         {{
@@ -52,7 +52,7 @@
             })
         }}
     </div>
-</div>
+</section>
     " }) }}
 
 

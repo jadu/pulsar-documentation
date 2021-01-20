@@ -76,7 +76,7 @@
     <p>Example code based on common Pulsar/import methods, may need to be modified to suit your needs</p>
 
     {{ docs.heading('h3', 'index.js') }}
-<pre><code lang="javascript">var ErrorSummaryComponent = require('/path/to/ErrorSummary/ErrorSummaryComponent');
+<pre><code>var ErrorSummaryComponent = require('/path/to/ErrorSummary/ErrorSummaryComponent');
 
 module.exports = {
     ErrorSummaryComponent
@@ -84,7 +84,7 @@ module.exports = {
 
 {{ docs.heading('h3', 'main.js') }}
 
-<pre><code lang="javascript">(function ($) {
+<pre><code>(function ($) {
     pulsar.errorSummary = new pulsar.ErrorSummaryComponent();
 
     $(function () {
@@ -94,7 +94,7 @@ module.exports = {
 
 {{ docs.heading('h3', 'pulsar.scss') }}
 
-<pre><code lang="scss">// Components
+<pre><code>// Components
 @import 'component.error-summary';
 </code></pre>
 

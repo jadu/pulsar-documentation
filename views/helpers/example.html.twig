@@ -30,11 +30,11 @@
         <style>{{ options.style }}</style>
     {% endif %}
     {% if options.twig is defined and options.twig is not empty %}
-        
+
         {% if preview == true %}
             <div class="d-example__live">{{ include(template_from_string(options.twig)) }}</div>
         {% endif %}
-        
+
         {% if code == true %}
             <nav class="d-example-nav">
                 <button class="d-example-nav__link is-active" data-toggle="twig">Twig</button>
@@ -46,21 +46,21 @@
                     <button class="d-example-nav__link" data-toggle="sr">Screenreader</button>
                 {% endif %}
             </nav>
-            
-            <pre class="d-example__code js-twig"><code lang="twig">{{ options.twig|trim }}</code></pre>
+
+            <pre class="d-example__code js-twig" tabindex="0"><code>{{ options.twig|trim }}</code></pre>
             {% if js %}
-            <pre class="d-example__code js-js" style="display: none"><code lang="js">{{ options.js|trim }}</code></pre>
+            <pre class="d-example__code js-js" tabindex="0" style="display: none"><code>{{ options.js|trim }}</code></pre>
             {% endif %}
-            <pre class="d-example__code js-html" style="display: none"><code lang="html">{{ include(template_from_string(options.twig))|trim|e }}</code></pre>
+            <pre class="d-example__code js-html" tabindex="0" style="display: none"><code>{{ include(template_from_string(options.twig))|trim|e }}</code></pre>
             {% if sr %}
                 <div class="d-example__code d-example__code--screenreader js-sr" style="display: none">{{ include(template_from_string(options.screenreader))|trim|raw }}</div>
             {% endif %}
         {% endif %}
-        
+
     {% elseif options.html is defined and options.html is not empty %}
 
         <div class="d-example__live">{{ options.html|trim|raw }}</div>
-        
+
         <nav class="d-example-nav">
             <button class="d-example-nav__link is-active" data-toggle="html">HTML</button>
             {% if js %}
@@ -70,8 +70,8 @@
             <button class="d-example-nav__link" data-toggle="sr">Screenreader</button>
             {% endif %}
         </nav>
-        
-        <pre class="d-example__code js-html"><code lang="html">{{ options.html|trim }}</code></pre>
+
+        <pre class="d-example__code js-html" tabindex="0"><code>{{ options.html|trim }}</code></pre>
 
     {% endif %}
 </div>
@@ -102,11 +102,11 @@
     {% if prefix is defined and prefix is not empty %}
         {% set prefix = prefix ~ '-' %}
     {% endif %}
-    {% set id = prefix|default ~ title|lower|replace({ ' ': '-' }) %}
+    {% set id = 'guid-' ~ random() %}
     <{{ level }} id="{{ id }}" class="docs-heading">{{ title }}</{{level}}>
 {% endmacro %}
 
 {% macro toc() %}
-    <h4>Page contents:</h4>
+    <h3>Page contents:</h3>
     <ul class="page-nav" data-toc=".tab__pane.is-active" data-toc-headings="h2.docs-heading,h3.docs-heading,h4.docs-heading,h5.docs-heading,h6.docs-heading"></ul>
 {% endmacro %}

@@ -10,7 +10,7 @@
     {{ docs.example({
         twig: "
 {{ form.create() }}
-    {{ 
+    {{
         form.repeater_start({
             'label': 'The Pulsar team',
             'empty': 'You have not added any team members',
@@ -21,15 +21,15 @@
             'max-entries': 3,
             'add-new-group-text': 'Add',
             'add-another-group-text': 'Add another'
-        }) 
+        })
     }}
-    
+
         {{
             form.fieldset_start({
                 'legend': 'Team Member'
             })
         }}
-        
+
         {{
             form.text({
                 'label': 'name',
@@ -37,7 +37,7 @@
                 'name': 'text'
             })
         }}
-        
+
         {{
             form.select2({
                 'label': 'Favourite food',
@@ -51,11 +51,15 @@
                 ]
             })
         }}
-    
+
+        {{
+            form.fieldset_end()
+        }}
+
     {{ form.repeater_end() }}
 {{ form.end() }}
         "
-        }) 
+        })
     }}
 
     {{ docs.heading('h2', 'Dependencies') }}
@@ -63,7 +67,7 @@
     <p>Example code based on common Pulsar/import methods, may need to be modified to suit your needs</p>
 
     {{ docs.heading('h3', 'index.js') }}
-<pre><code lang="javascript">var RepeaterManagerComponent = require('/path/to/Repeater/RepeaterManagerComponent'),
+<pre><code>var RepeaterManagerComponent = require('/path/to/Repeater/RepeaterManagerComponent'),
     repeaterComponentFactory = require('/path/to/Repeater/repeaterComponentFactory');
 
 module.exports = {
@@ -73,7 +77,7 @@ module.exports = {
 
 {{ docs.heading('h3', 'main.js') }}
 
-<pre><code lang="javascript">(function ($) {
+<pre><code>(function ($) {
     pulsar.repeaterManager = new pulsar.RepeaterManagerComponent(
         pulsar.pulsarForm,
         pulsar.repeaterComponentFactory,
@@ -128,25 +132,24 @@ module.exports = {
             </tr>
         </tbody>
     </table>
-    
+
     {{ docs.heading('h2', 'Headings') }}
 
     <p>The main configuration item of note is the <code>headings</code> property. It is here that we define which nested components are represented as a heading in the Repeater preview. If a nested component does not have an associated heading it will still function as desired, it’s input will be saved and submitted as part of the form request. This allows a user to choose 2-3 preview headings to summarise the contents of a Repeater whilst having as many fields as required.</p>
 
     <p>Headings must be described as an array of objects in the following schema:</p>
 
-<pre><code lang="json">&#123;
+<pre><code>&#123;
     headings: [
         &#123; name: string, label: string &#125;
-    ]    
+    ]
 &#125;</code></pre>
 
     <p>The <code>name</code> property refers, and must match, the corresponding nested field. The <code>label</code> property is the text content of the preview column heading.</p>
-    
+
     {{ docs.heading('h2', 'Nested fields') }}
 
     <p>Nested fields are the input components inside a Repeater. All Pulsar form components should be compatible with the Repeater at the time of publishing. Any additional form components should take into consideration their repeater integration. The Repeater will remove <code>name</code> attributes from inputs in order to function, therefore any stateful components that depend on this attribute may need a integration service creating. See the <code>js/Repeater/PseudoRadioInputService.js</code> as an example.</p>
-
 
 </div>
 {% endblock tab_content %}

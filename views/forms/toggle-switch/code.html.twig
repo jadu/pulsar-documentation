@@ -13,12 +13,12 @@
 {{
     form.toggle_switch({
         'label': 'Turn me on?',
-        'id': 'toggle',
+        'id': 'guid-' ~ random(),
         'name': 'toggle'
     })
 }}
     " }) }}
-    
+
     {{ docs.heading('h2', 'Helper options') }}
 
     <p>You can configure this helper using the <a href="../guides/using-helpers#common-options">common helper options</a>, the following options are specific to this helper.</p>
@@ -55,7 +55,7 @@
     form.toggle_switch({
         'label': 'Checked toggle',
         'checked': true,
-        'id': 'toggle-checked',
+        'id': 'guid-' ~ random(),
         'name': 'toggle-checked'
     })
 }}
@@ -72,7 +72,7 @@
     form.toggle_switch({
         'label': 'Disabled (unchecked)',
         'disabled': true,
-        'id': 'enable-1',
+        'id': 'guid-' ~ random(),
         'name': 'enable-1'
     })
 }}
@@ -81,7 +81,7 @@
         'label': 'Disabled (checked)',
         'checked': true,
         'disabled': true,
-        'id': 'enable-2',
+        'id': 'guid-' ~ random(),
         'name': 'enable-2'
     })
 }}
@@ -133,16 +133,16 @@
             label: 'keep the label consistent, to indicate state',
             twig: "
 {{
-    form.toggle_switch({ 
+    form.toggle_switch({
         'label': 'Enable integration',
-        'id': 'toggle-1',
+        'id': 'guid-' ~ random(),
         'name': 'toggle-1'
     })
 }}
 {{
-    form.toggle_switch({ 
+    form.toggle_switch({
         'label': 'Enable integration',
-        'id': 'toggle-2',
+        'id': 'guid-' ~ random(),
         'name': 'toggle-2',
         'checked': true
     })
@@ -153,21 +153,21 @@
             label: 'change the label to indicate the action that will be performed',
             twig: "
 {{
-    form.toggle_switch({ 
+    form.toggle_switch({
         'label': 'Enable integration',
-        'id': 'toggle-1',
+        'id': 'guid-' ~ random(),
         'name': 'toggle-1'
     })
 }}
 {{
-    form.toggle_switch({ 
+    form.toggle_switch({
         'label': 'Disable integration',
-        'id': 'toggle-2',
+        'id': 'guid-' ~ random(),
         'name': 'toggle-2',
         'checked': true
     })
 }}
-    "       
+    "
         }
     }) }}
 
@@ -178,9 +178,9 @@
             label: 'Clearly explain the implications of changing this setting',
             twig: "
 {{
-    form.toggle_switch({ 
+    form.toggle_switch({
         'label': 'Enable integration',
-        'id': 'toggle-2',
+        'id': 'guid-' ~ random(),
         'name': 'toggle-2',
         'checked': true,
         'help': 'Disabling will prevent customers from making card payments on your site'
@@ -192,15 +192,15 @@
             label: 'Use the help text to indicate state',
             twig: "
 {{
-    form.toggle_switch({ 
+    form.toggle_switch({
         'label': 'Disable integration',
-        'id': 'toggle-2',
+        'id': 'guid-' ~ random(),
         'name': 'toggle-2',
         'checked': true,
         'help': 'Card payments are enabled'
     })
 }}
-    "       
+    "
         }
     }) }}
 

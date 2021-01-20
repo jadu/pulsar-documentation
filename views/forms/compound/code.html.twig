@@ -22,7 +22,7 @@
             {
                 'class': 'form__control-col--1',
                 'label': 'One',
-                'id': 'one',
+                'id': 'guid-' ~ random(),
                 'placeholder': 'One',
                 'show-label': false,
                 'type': 'text'
@@ -30,7 +30,7 @@
             {
                 'class': 'form__control-col--1',
                 'label': 'Two',
-                'id': 'two',
+                'id': 'guid-' ~ random(),
                 'placeholder': 'Two',
                 'show-label': false,
                 'type': 'text'
@@ -39,7 +39,7 @@
     })
 }}
     " }) }}
-    
+
     {{ docs.heading('h2', 'Example patterns') }}
     {{ docs.heading('h3', 'Date of birth') }}
 
@@ -54,7 +54,7 @@
             {
                 'class': 'form__control-col--1',
                 'label': 'Day',
-                'id': 'dd',
+                'id': 'guid-' ~ random(),
                 'placeholder': 'DD',
                 'show-label': false,
                 'type': 'text'
@@ -62,7 +62,7 @@
             {
                 'class': 'form__control-col--1',
                 'label': 'Month',
-                'id': 'mm',
+                'id': 'guid-' ~ random(),
                 'placeholder': 'MM',
                 'show-label': false,
                 'type': 'text'
@@ -70,7 +70,7 @@
             {
                 'class': 'form__control-col--2',
                 'label': 'Year',
-                'id': 'yyyy',
+                'id': 'guid-' ~ random(),
                 'placeholder': 'YYYY',
                 'show-label': false,
                 'type': 'text'
@@ -95,7 +95,7 @@
             {
                 'class': 'form__control-col--1',
                 'label': 'Day',
-                'id': 'dd',
+                'id': 'guid-' ~ random(),
                 'placeholder': 'DD',
                 'show-label': false,
                 'type': 'text'
@@ -103,7 +103,7 @@
             {
                 'class': 'form__control-col--1 has-error',
                 'label': 'Month',
-                'id': 'mm',
+                'id': 'guid-' ~ random(),
                 'placeholder': 'MM',
                 'show-label': false,
                 'type': 'text'
@@ -111,7 +111,7 @@
             {
                 'class': 'form__control-col--2',
                 'label': 'Year',
-                'id': 'yyyy',
+                'id': 'guid-' ~ random(),
                 'placeholder': 'YYYY',
                 'show-label': false,
                 'type': 'text'
@@ -134,7 +134,7 @@
             {
                 'class': 'form__control-col--1',
                 'label': 'Value',
-                'id': 'value',
+                'id': 'guid-' ~ random(),
                 'maxlength': '3',
                 'show-label': false,
                 'type': 'text',
@@ -143,7 +143,7 @@
             {
                 'class': 'u-width-auto',
                 'label': 'Unit of time',
-                'id': 'Unit',
+                'id': 'guid-' ~ random(),
                 'show-label': false,
                 'type': 'select',
                 'options': [

@@ -6,10 +6,10 @@
     <p class="lede">A specialised helper to create lists of links without the need to manually call multiple link helpers. Markup can be based around <code>ul</code> (default), <code>ol</code>, <code>div</code> or <code>link</code> elements.</p>
 
     <p>Lists are purposely left unstyled, but you can use <a href="block-list">block lists</a> if you need nicer styling.</p>
-    
+
     {{ docs.heading('h2', 'Basic usage') }}
 
-    {{ docs.example({ 
+    {{ docs.example({
         twig: "
 {{
     html.link_list({
@@ -37,7 +37,7 @@
         <tr>
             <td><code>active_item</code></td>
             <td>int</td>
-            <td>The index of the active item, will have the <code>.is-active<code> class applied</td>
+            <td>The index of the active item, will have the <code>.is-active</code> class applied</td>
         </tr>
         <tr>
             <td><code>items</code></td>
@@ -56,7 +56,7 @@
 
     <p>The list link is indexed (indexed by one), you can pass the index of the item you would like to be marked as active and it will have the <code>.is-active</code> class applied. You will need to style this active class yourself.</p>
 
-    {{ docs.example({ 
+    {{ docs.example({
         twig: "
 {{
     html.link_list({

@@ -21,7 +21,7 @@
 
     <p>The state of a ‘thing’ can be indicated by a label, and modified by an action. You should carefully choose appropriate terms that make the most sense to people, while providing clear information in as few words as possible.</p>
 
-    <p>Actions which <u>modify</u> a state should (principally) use a verb:</p>
+    <p>Actions which modify a state should (principally) use a verb:</p>
 
     <p>
         <button class="btn">Lock</button>
@@ -120,12 +120,12 @@
 
     <p>There is a Sass map defined in <code>_palette.base.scss</code> which contains the state colours, along with their text-colour alternates, it's handy to loop over the map to output repetitive rulesets that cover all states.</p>
 
-<pre><code lang="scss">@each $state, $state-color, $state-color-alt in $state-colors {
+<pre><code>@each $state, $state-color, $state-color-alt in $state-colors {
     .myComponent--#{$state} {
         background-color: $state-color;
         color: $state-color-alt;
     }
-}</code><pre>
+}</code></pre>
 
 </div>
 {% endblock tab_content %}

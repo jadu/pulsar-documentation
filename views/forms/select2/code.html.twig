@@ -15,15 +15,15 @@
 
     <p>The following should be included in your product’s <code>package.json</code> file.</p>
 
-    <pre><code lang="javascript">"dependencies": {
+    <pre><code>"dependencies": {
     ...
     "select2": "github:jadu/selectWoo#jadu-1.1.3",
 }
 </code></pre>
-    
+
     {{ docs.heading('h3', 'index.js') }}
 
-<pre><code lang="javascript">var PulsarFormComponent = require('/path/to/pulsar/PulsarFormComponent');
+<pre><code>var PulsarFormComponent = require('/path/to/pulsar/PulsarFormComponent');
 
 $(function () {
     var $html = $('html');
@@ -42,7 +42,7 @@ $(function () {
 {{
     form.select2({
         'label': 'Pick a colour',
-        'id': 'select-1',
+        'id': 'guid-' ~ random(),
         'placeholder': 'Please choose',
         'options': [
             {
@@ -57,7 +57,7 @@ $(function () {
     })
 }}
     " }) }}
-    
+
     {{ docs.heading('h2', 'Helper options') }}
 
     <p>You can configure this helper using the <a href="../guides/using-helpers#common-options">common helper options.</a></p>
@@ -108,7 +108,7 @@ $(function () {
 {{
     form.select2({
         'label': 'Pick a colour',
-        'id': 'select-2',
+        'id': 'guid-' ~ random(),
         'selected': 'colour_blue',
         'options': [
             {
@@ -131,7 +131,7 @@ $(function () {
 {{
     form.select2({
         'label': 'Pick colours',
-        'id': 'select-2-multi',
+        'id': 'guid-' ~ random(),
         'multiple': true,
         'selected': ['colour_red', 'colour_blue'],
         'options': [
@@ -157,7 +157,7 @@ $(function () {
 {{
     form.select2({
         'label': 'Pick a colour',
-        'id': 'select-3',
+        'id': 'guid-' ~ random(),
         'disabled': true,
         'selected': 'color',
         'placeholder': 'Please choose',
@@ -184,7 +184,7 @@ $(function () {
 {{
     form.select2({
         'label': 'Pick a colour',
-        'id': 'select-4',
+        'id': 'guid-' ~ random(),
         'placeholder': 'Please choose',
         'options': [
             {
@@ -210,7 +210,7 @@ $(function () {
 {{
     form.select2({
         'label': 'My label',
-        'id': 'select-5',
+        'id': 'guid-' ~ random(),
         'placeholder': 'Please choose',
         'options': [
             {
@@ -235,7 +235,7 @@ $(function () {
 {{
     form.select2({
         'label': 'My label',
-        'id': 'select-6',
+        'id': 'guid-' ~ random(),
         'options':
         [
             {

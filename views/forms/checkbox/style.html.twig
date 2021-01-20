@@ -12,7 +12,7 @@
 {{
     form.checkbox({
         'label': 'My label',
-        'id': 'checkbox-b1', 
+        'id': 'checkbox-b1',
         'name': 'checkbox-b1',
         'error': 'Something went wrong'
     })
@@ -27,7 +27,7 @@
 {{
     form.checkbox({
         'label': 'My label',
-        'id': 'checkbox-b2', 
+        'id': 'checkbox-b2',
         'name': 'checkbox-b2',
         'error': [
             'Something went wrong',
@@ -45,7 +45,7 @@
 {{
     form.checkbox({
         'label': 'My label',
-        'id': 'checkbox-b3', 
+        'id': 'checkbox-b3',
         'name': 'checkbox-b3',
         'error': 'Something went wrong',
         'help': 'Help text to give more information about expected input'
@@ -65,7 +65,7 @@
     form.checkbox({
         'label': 'My label',
         'class': 'has-success',
-        'id': 'checkbox-b5', 
+        'id': 'checkbox-b5',
         'name': 'checkbox-b5',
         'help': 'Help text to give more information about expected input'
     })
@@ -82,15 +82,15 @@
 {{
     form.checkbox({
         'label': 'My label',
-        'class': 'has-success',
-        'id': 'checkbox-b6', 
+        'class': 'has-warning',
+        'id': 'checkbox-b6',
         'name': 'checkbox-b6',
         'help': 'Help text to give more information about expected input'
     })
 }}
     " }) }}
 
-    {{ docs.heading('h3', 'Error') }}
+    {{ docs.heading('h3', 'Danger') }}
 
     <p>The <code>has--error</code> class is automatically added when using the <code>error</code> option.</p>
 
@@ -101,7 +101,7 @@
     form.checkbox({
         'label': 'My label',
         'class': 'has-error',
-        'id': 'checkbox-b7', 
+        'id': 'checkbox-b7',
         'name': 'checkbox-b7',
         'help': 'Help text to give more information about expected input'
     })
@@ -119,13 +119,13 @@
     form.checkbox({
         'label': 'My label',
         'class': 'has-changed',
-        'id': 'checkbox-b4', 
+        'id': 'checkbox-b4',
         'name': 'checkbox-b4',
         'help': 'Help text to give more information about expected input'
     })
 }}
     " }) }}
-    
+
     {{ docs.heading('h2', 'Variations') }}
     {{ docs.heading('h3', 'Help') }}
 
@@ -135,7 +135,7 @@
 {{
     form.checkbox({
         'label': 'My label',
-        'id': 'checkbox-b8', 
+        'id': 'checkbox-b8',
         'name': 'checkbox-b8',
         'help': 'Help text to give more information about expected input'
     })
@@ -150,7 +150,7 @@
 {{
     form.checkbox({
         'label': 'My label',
-        'id': 'checkbox-b9', 
+        'id': 'checkbox-b9',
         'name': 'checkbox-b9',
         'required': true,
         'help': 'Help text to give more information about expected input'
@@ -160,7 +160,7 @@
 
     {{ docs.heading('h2', 'Alignment') }}
     {{ docs.heading('h2', 'Hide Label') }}
-    
+
     {{ docs.example({
         screenreader: 'radio button, 1 of 3',
         twig: "
@@ -168,22 +168,22 @@
     form.checkbox({
         'label': 'My label',
         'show-label': false,
-        'id': 'checkbox-b11', 
-        'name': 'checkbox-b11',
+        'id': 'checkbox-b10',
+        'name': 'checkbox-b10',
         'help': 'Help text to give more information about expected input'
     })
 }}
     " }) }}
 
     {{ docs.heading('h2', 'Long Label Behaviour') }}
-    
+
     {{ docs.example({
         screenreader: 'Example block level help text here, radio button, 1 of 3',
         twig: "
 {{
     form.checkbox({
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
-        'id': 'checkbox-b11', 
+        'id': 'checkbox-b11',
         'name': 'checkbox-b11',
         'help': 'Help text to give more information about expected input'
     })
@@ -193,7 +193,7 @@
     {{ docs.heading('h2', 'Top Labels') }}
 
     <p>You should avoid using really long labels, but if you have to, it may be more appropriate to use the <code>form__group--top</code> class to give it more space.</p>
-    
+
     {{ docs.example({
         screenreader: 'Example block level help text here, radio button, 1 of 3',
         twig: "
@@ -201,7 +201,7 @@
     form.checkbox({
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
         'class': 'form__group--top',
-        'id': 'checkbox-b12', 
+        'id': 'checkbox-b12',
         'name': 'checkbox-b12',
         'help': 'Help text to give more information about expected input'
     })
@@ -211,7 +211,7 @@
     {{ docs.heading('h2', 'Flush Inputs') }}
 
     <p>Depending on the flow of your user interface you may want to position your inputs along the left edge of the UI</p>
-    
+
     {{ docs.example({
         screenreader: 'Example block level help text here, radio button, 1 of 3',
         twig: "
@@ -219,15 +219,15 @@
     form.checkbox({
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
         'class': 'form__group--flush',
-        'id': 'checkbox-b12', 
-        'name': 'checkbox-b12',
+        'id': 'checkbox-b13',
+        'name': 'checkbox-b13',
         'help': 'Help text to give more information about expected input'
     })
 }}
     " }) }}
 
     {{ docs.heading('h2', 'Flush Inputs & Top Label') }}
-    
+
     {{ docs.example({
         screenreader: 'Example block level help text here, radio button, 1 of 3',
         twig: "
@@ -235,13 +235,13 @@
     form.checkbox({
         'label': 'A longer than expected label which will probably wrap multiple lines and push the following input onto the next baseline',
         'class': 'form__group--top form__group--flush',
-        'id': 'checkbox-b13', 
-        'name': 'checkbox-b13',
+        'id': 'checkbox-b14',
+        'name': 'checkbox-b14',
         'help': 'Help text to give more information about expected input'
     })
 }}
     " }) }}
-    
+
 </div>
 {% endblock tab_content %}
 {% block tab_sidebar %}

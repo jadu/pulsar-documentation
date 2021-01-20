@@ -1,0 +1,471 @@
+{% extends '@pulsar/pulsar/components/tab.html.twig' %}
+{% import 'helpers/example.html.twig' as docs %}
+
+{% block tab_content %}
+<div class="report">
+    {{ docs.heading('h2', 'List of components and patterns with their current compliance status') }}
+
+    <p>Every UI component and pattern within Pulsar has been tested to ensure WCAG 2.1 compliance. Items are tested in isolation. While the majority of testing is manual, automated testing has been performed using the following tools:</p>
+    <ul>
+        <li><a href="https://chrome.google.com/webstore/detail/axe-web-accessibility-tes/lhdoppojpmngadmnindnejefpokejbdd">axe</a></li>
+        <li><a href="https://chrome.google.com/webstore/detail/siteimprove-accessibility/efcfolpjihicnikpmhnmphjhhpiclljc">Siteimprove</a></li>
+        <li><a href="https://chrome.google.com/webstore/detail/validity/bbicmjjbohdfglopkidebfccilipgeif?hl=en-GB">Validity</a> (markup validation)</li>
+    </ul>
+
+    <p>Known issues are detailed below.</p>
+
+    {{ docs.heading('h3', 'HTML Components') }}
+    <table class="table table--full">
+        <caption class="hide">HTML Components</caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Helper</th>
+                <th>Status</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Badge</td>
+                <td><code>html.badge</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Block List</td>
+                <td><code>html.block_list</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Breadcrumbs</td>
+                <td><code>nav.breadcrumbs</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Button</td>
+                <td><code>html.button</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Button Group</td>
+                <td><code>html.button_group</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Dropdown Button</td>
+                <td><code>html.button_dropdown</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Dropzone</td>
+                <td><code>html.dropzone</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Card</td>
+                <td></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Datatable</td>
+                <td><code>html.datatable</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>aXe reports "All th elements and elements with role=columnheader/rowheader must have data cells they describe" on empty datatables.</td>
+            </tr>
+            <tr>
+                <td>Flash</td>
+                <td><code>flash.message</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Icon</td>
+                <td><code>html.icon</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Label</td>
+                <td><code>html.label</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Link</td>
+                <td><code>html.link</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Link List</td>
+                <td><code>html.link_list</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>List</td>
+                <td><code>html.list</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Loading Spinner</td>
+                <td><code>html.loading</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Media</td>
+                <td><code>html.media</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Metadata</td>
+                <td><code>html.metadata</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Modal</td>
+                <td></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Navigation</td>
+                <td><code>nav.primary</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Notifications</td>
+                <td></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Pagination</td>
+                <td></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Panel</td>
+                <td><code>html.panel</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Popover</td>
+                <td></td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>Popovers have been deprecated. They are suffer from various accessiblity issues and therefore existing popover content should be moved to either a v2 tooltip (on an interactive element), a modal, help text or displayed in an alternative way.</td>
+            </tr>
+            <tr>
+                <td>Progress Bar</td>
+                <td><code>html.progress</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Progress List</td>
+                <td></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Remove Button</td>
+                <td><code>html.remove_button</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td><code>html.status</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Tooltips V1</td>
+                <td></td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>Legacy tooltips are not accessible and therefore existing tooltip content should be displayed in a V2 tooltip or displayed an alternative way.</td>
+            </tr>
+            <tr>
+                <td>Tooltips V2</td>
+                <td></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>Note: should only be used on interactive element or with elements that have the equivelent in screen reader accessible text</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h3', 'Form Components') }}
+    <table class="table table--full">
+        <caption class="hide">Form Components</caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Helper</th>
+                <th>Status</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Button Group</td>
+                <td><code>form.button_group</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Checkbox</td>
+                <td><code>form.checkbox</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Choice</td>
+                <td><code>form.choice</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Colour</td>
+                <td><code>form.colour</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>Known issue: Cannot access colour picker via keyboard or screenreader. Deemed compliant as the text input is provided as an alternative input method.</td>
+            </tr>
+            <tr>
+                <td>Compound</td>
+                <td><code>form.compound</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Content</td>
+                <td><code>form.content</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Date</td>
+                <td><code>form.date</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>New date picker introduced: https://github.com/jadu/pulsar/pull/1224. Existing Pikaday (deprecated) not compliant</td>
+            </tr>
+            <tr>
+                <td>File</td>
+                <td><code>form.file</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Hidden</td>
+                <td><code>form.hidden</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>JSTree</td>
+                <td></td>
+                <td><span class="label label--danger">failure</span></td>
+                <td>JStree follows the aria-tree pattern and includes the appropriate keyboard navigation support. 2 potential issues where found (reported by Site Improve): Element not highlighted on focus. This relates to the JS tree wrapper with tabindex="0". Adding focus styles does not resolve is issue as when focus shifts to the container, focus is immediately moved to the first element in the tree. Therefore, this seems to be a non-issue.
+WAI-ARIA group is missing a name. This relates to the plugin using aria-activedescendant in combination with role="group" and a missing group name.</td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><code>form.password</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Radio</td>
+                <td><code>form.radio</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Range</td>
+                <td><code>form.range</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Repeater</td>
+                <td></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Select</td>
+                <td><code>form.select</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Select2</td>
+                <td><code>form.select2</code></td>
+                <td><span class="label label--danger">compliant</span></td>
+                <td>Si reports "Element not highlighted on focus" on select2 search input. Deemed a non-issue due to focus been set on parent when focussed.</td>
+            </tr>
+            <tr>
+                <td>Text</td>
+                <td><code>form.text</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Textarea</td>
+                <td><code>form.textarea</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Time</td>
+                <td><code>form.time</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td>Known issue: Dropdown timepicker is not read by screen readers. Deemed compliant as the text input is provided as an alternative input method.</td>
+            </tr>
+            <tr>
+                <td>Toggle Switch</td>
+                <td><code>form.toggle_switch</code></td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h3', 'Patterns') }}
+    <table class="table table--full">
+        <caption class="hide">Patterns</caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Actions bar</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Common list</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Disabled UI</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Error Summary</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Filter bar</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Help sidebar</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Piano</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Masterswitch</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>No results</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Reports</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Rules</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Settings panel</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Table detail</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ docs.heading('h3', 'Tables') }}
+    <table class="table table--full">
+        <caption class="hide">Tables</caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Basic</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Basic (scrolling)</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Datatable</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Datatable (collapsing)</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Datatable (empty)</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Sortable Tables</td>
+                <td><span class="label label--success">compliant</span></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock tab_content %}
