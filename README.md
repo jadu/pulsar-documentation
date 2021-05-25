@@ -1,6 +1,8 @@
-# Pulsar documentation
+This project is no longer maintained, documentation has moved into the main jadu/pulsar repository and published at https://jadu.github.io/pulsar
 
-<https://pulsar.docs.jadu.net>
+----
+
+# Pulsar documentation
 
 ## Running locally
 
