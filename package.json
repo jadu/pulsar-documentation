@@ -19,7 +19,7 @@
         "babelify": "^7.3.0",
         "browserify": "10.0.0",
         "browserify-shim": "^3.8.9",
-        "grunt": "^1.1.0",
+        "grunt": "^1.5.3",
         "grunt-autoprefixer": "^3.0.4",
         "grunt-browserify": "^5.0.0",
         "grunt-contrib-copy": "^1.0.0",
