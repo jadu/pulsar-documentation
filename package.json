@@ -17,7 +17,7 @@
         "babel-preset-es2017": "^6.24.1",
         "babel-register": "^6.24.1",
         "babelify": "^7.3.0",
-        "browserify": "10.0.0",
+        "browserify": "17.0.0",
         "browserify-shim": "^3.8.9",
         "grunt": "^1.1.0",
         "grunt-autoprefixer": "^3.0.4",
